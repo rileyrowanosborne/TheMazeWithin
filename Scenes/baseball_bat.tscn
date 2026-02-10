@@ -1,0 +1,160 @@
+[gd_scene load_steps=15 format=3 uid="uid://18q3ioq6x3oo"]
+
+[ext_resource type="Script" uid="uid://b6wy807ebmx5t" path="res://Scripts/baseball_bat.gd" id="1_0fuc7"]
+[ext_resource type="Texture2D" uid="uid://bc6150todq4nx" path="res://Assets/Sprites/BaseBallBat-export.png" id="2_0fuc7"]
+[ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="4_kciln"]
+[ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_no2ia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
+atlas = ExtResource("4_kciln")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yv6c"]
+atlas = ExtResource("4_kciln")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eroos"]
+atlas = ExtResource("4_kciln")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjbjx"]
+atlas = ExtResource("4_kciln")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_my6hq"]
+atlas = ExtResource("4_kciln")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq6mh"]
+atlas = ExtResource("4_kciln")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i2k1v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_no2ia")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yv6c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eroos")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjbjx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_my6hq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq6mh")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"Swing",
+"speed": 15.0
+}]
+
+[sub_resource type="Animation" id="Animation_no2ia"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-5, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.897184]
+}
+
+[sub_resource type="Animation" id="Animation_kciln"]
+resource_name = "Swing"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.4, 0.482491),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-5, -4), Vector2(5, -3), Vector2(6, 5), Vector2(-5, 5), Vector2(-5, 5), Vector2(-5, -4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.4, 0.482491),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [-0.897184, 0.958538, 2.4319, 4.1686, 4.1686, -0.897099]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_no2ia"]
+_data = {
+&"RESET": SubResource("Animation_no2ia"),
+&"Swing": SubResource("Animation_kciln")
+}
+
+[node name="BaseballBat" type="Node2D"]
+z_as_relative = false
+script = ExtResource("1_0fuc7")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-5, -4)
+rotation = -0.897184
+texture = ExtResource("2_0fuc7")
+
+[node name="SwingTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="SlashAnim" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.531051, 0.531051, 0.531051, 1)
+z_index = 5
+position = Vector2(14, 0)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_i2k1v")
+animation = &"Swing"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_no2ia")
+}
+
+[node name="SwingHitBox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 10
+script = ExtResource("4_no2ia")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox"]
+polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 14, 2, 14, -4)
+
+[connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
+[connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]

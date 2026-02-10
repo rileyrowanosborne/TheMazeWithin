@@ -1,0 +1,97 @@
+[gd_scene load_steps=7 format=3 uid="uid://56fqyfth3mcb"]
+
+[ext_resource type="Texture2D" uid="uid://ctyo0sx40hogm" path="res://Assets/Sprites/LittleSpleep-Sheet.png" id="1_l4tmf"]
+[ext_resource type="Script" uid="uid://gadc8dkqre3o" path="res://Scripts/spleep.gd" id="1_s6gym"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gym"]
+atlas = ExtResource("1_l4tmf")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smvmp"]
+atlas = ExtResource("1_l4tmf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8msse"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6gym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smvmp")
+}],
+"loop": true,
+"name": &"Walking",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_l4tmf"]
+radius = 4.0
+height = 10.0
+
+[node name="Spleep" type="CharacterBody2D"]
+z_index = 3
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_s6gym")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_8msse")
+animation = &"Walking"
+autoplay = "Walking"
+frame_progress = 0.979798
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("CapsuleShape2D_l4tmf")
+
+[node name="Raycasts" type="Node2D" parent="."]
+
+[node name="RayCastDown" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6, 0)
+target_position = Vector2(0, 6)
+collision_mask = 4
+
+[node name="RayCastDown2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(5, 0)
+target_position = Vector2(0, 6)
+collision_mask = 4
+
+[node name="RayCastUp" type="RayCast2D" parent="Raycasts"]
+position = Vector2(5, 0)
+target_position = Vector2(0, -5)
+collision_mask = 4
+
+[node name="RayCastUp2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(-6, 0)
+target_position = Vector2(0, -5)
+collision_mask = 4
+
+[node name="RayCastRight" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+target_position = Vector2(5, 0)
+collision_mask = 4
+
+[node name="RayCastRight2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(5, 0)
+collision_mask = 4
+
+[node name="RayCastLeft" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, -5)
+target_position = Vector2(-5, 0)
+collision_mask = 4
+
+[node name="RayCastLeft2" type="RayCast2D" parent="Raycasts"]
+position = Vector2(0, 6)
+target_position = Vector2(-5, 0)
+collision_mask = 4
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LauchedTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
+[connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]

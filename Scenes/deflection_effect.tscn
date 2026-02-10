@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://jicx35vv3vqe"]
+
+[ext_resource type="Script" uid="uid://dgma24ip36j3l" path="res://Scripts/deflection_effect.gd" id="1_srq86"]
+
+[sub_resource type="Curve" id="Curve_haokb"]
+_data = [Vector2(0.0175, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0256901), -3.05732, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_srq86"]
+offsets = PackedFloat32Array(0.6875, 1)
+colors = PackedColorArray(0.225692, 0.493542, 0.858512, 1, 0.999998, 0.630024, 0.445669, 1)
+
+[node name="DeflectionEffect" type="Node2D"]
+z_index = 5
+script = ExtResource("1_srq86")
+
+[node name="DeflectParticles" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 4.0
+scale_amount_max = 5.0
+scale_amount_curve = SubResource("Curve_haokb")
+color_ramp = SubResource("Gradient_srq86")
+
+[node name="SelfDeleteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SelfDeleteTimer" to="." method="_on_self_delete_timer_timeout"]

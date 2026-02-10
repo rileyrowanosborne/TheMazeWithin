@@ -1,0 +1,172 @@
+[gd_scene load_steps=11 format=3 uid="uid://gx2xsw3jx37o"]
+
+[ext_resource type="Script" uid="uid://b1go653310hxa" path="res://Scripts/circle_enemy.gd" id="1_4b532"]
+[ext_resource type="Texture2D" uid="uid://bwjqyivbmn7w3" path="res://Assets/Sprites/CircleEnemy.png" id="1_155j3"]
+[ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/projectile_launcher.tscn" id="2_n57o8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n57o8"]
+atlas = ExtResource("1_155j3")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4b532"]
+atlas = ExtResource("1_155j3")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xw0ou"]
+atlas = ExtResource("1_155j3")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5s5c"]
+atlas = ExtResource("1_155j3")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gk0i5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n57o8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4b532")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xw0ou")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5s5c")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_155j3"]
+radius = 13.0
+
+[sub_resource type="Curve" id="Curve_4b532"]
+_data = [Vector2(0.0162602, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36039, 0.0, 0, 0]
+point_count = 2
+
+[node name="CircleEnemy" type="CharacterBody2D"]
+z_index = 3
+collision_layer = 8
+collision_mask = 4
+script = ExtResource("1_4b532")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_gk0i5")
+animation = &"Idle"
+autoplay = "Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_155j3")
+
+[node name="Launchers" type="Node2D" parent="."]
+
+[node name="ProjectileLauncher" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(15, 0)
+direction = Vector2(1, 0)
+
+[node name="ProjectileLauncher5" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(11, -10)
+direction = Vector2(1, -1)
+
+[node name="ProjectileLauncher2" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(0, -15)
+direction = Vector2(0, -1)
+
+[node name="ProjectileLauncher6" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(-11, -10)
+direction = Vector2(-1, -1)
+
+[node name="ProjectileLauncher3" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(-15, 0)
+direction = Vector2(-1, 0)
+
+[node name="ProjectileLauncher7" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(-11, 9)
+direction = Vector2(-1, 1)
+
+[node name="ProjectileLauncher4" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(0, 15)
+direction = Vector2(0, 1)
+
+[node name="ProjectileLauncher8" parent="Launchers" instance=ExtResource("2_n57o8")]
+position = Vector2(12, 9)
+direction = Vector2(1, 1)
+
+[node name="RayCasts" type="Node2D" parent="."]
+
+[node name="RayCastLeft" type="RayCast2D" parent="RayCasts"]
+position = Vector2(0, -13)
+target_position = Vector2(-15, 0)
+collision_mask = 12
+
+[node name="RayCastLeft2" type="RayCast2D" parent="RayCasts"]
+position = Vector2(0, 13)
+target_position = Vector2(-15, 0)
+collision_mask = 12
+
+[node name="RayCastDown" type="RayCast2D" parent="RayCasts"]
+position = Vector2(13, 0)
+target_position = Vector2(0, 14)
+collision_mask = 12
+
+[node name="RayCastDown2" type="RayCast2D" parent="RayCasts"]
+position = Vector2(-13, 0)
+target_position = Vector2(0, 14)
+collision_mask = 12
+
+[node name="RayCastRight" type="RayCast2D" parent="RayCasts"]
+position = Vector2(0, -13)
+target_position = Vector2(15, 0)
+collision_mask = 12
+
+[node name="RayCastRight2" type="RayCast2D" parent="RayCasts"]
+position = Vector2(0, 13)
+target_position = Vector2(15, 0)
+collision_mask = 12
+
+[node name="RayCastUp" type="RayCast2D" parent="RayCasts"]
+position = Vector2(-13, 0)
+target_position = Vector2(0, -15)
+collision_mask = 12
+
+[node name="RayCastUp2" type="RayCast2D" parent="RayCasts"]
+position = Vector2(13, 0)
+target_position = Vector2(0, -15)
+collision_mask = 12
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 0.7
+randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_4b532")
+color = Color(0.845341, 0.000162417, 0.0440511, 1)
+
+[node name="Timers" type="Node" parent="."]
+
+[node name="DeathTimer" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="DamageTimer" type="Timer" parent="Timers"]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]

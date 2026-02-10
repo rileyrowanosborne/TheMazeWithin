@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://dys3ciik0tx1j"]
+
+[ext_resource type="Texture2D" uid="uid://ik1eb5c4v6ey" path="res://Assets/Sprites/Pointer.png" id="1_4i167"]
+[ext_resource type="Script" uid="uid://di3i4wf16v1q8" path="res://Scripts/aiming_cursor.gd" id="1_g1imo"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kpif3"]
+
+[node name="AimingCursor" type="Node2D"]
+z_index = 10
+z_as_relative = false
+script = ExtResource("1_g1imo")
+
+[node name="Line2D" type="Line2D" parent="."]
+material = SubResource("ShaderMaterial_kpif3")
+position = Vector2(-1, -1)
+points = PackedVector2Array(16, 1, 26, 1)
+texture = ExtResource("1_4i167")
+texture_mode = 2

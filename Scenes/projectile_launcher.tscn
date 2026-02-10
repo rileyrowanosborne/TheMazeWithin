@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxidibs7rd68f"]
+
+[ext_resource type="Script" uid="uid://lyvygt58cf0q" path="res://Scripts/projectile_launcher.gd" id="1_pt6he"]
+[ext_resource type="PackedScene" uid="uid://ekcj3gn2xbhk" path="res://Scenes/projectile.tscn" id="2_t0e2w"]
+
+[node name="ProjectileLauncher" type="Node2D"]
+z_index = 4
+script = ExtResource("1_pt6he")
+projectile_scene = ExtResource("2_t0e2w")
+
+[node name="FireRate" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]
