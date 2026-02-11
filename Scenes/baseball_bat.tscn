@@ -154,7 +154,7 @@ collision_mask = 10
 script = ExtResource("4_no2ia")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox"]
-polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 14, 2, 14, -4)
+polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 1, 0)
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
 [connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]

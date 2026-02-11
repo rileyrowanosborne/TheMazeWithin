@@ -40,22 +40,26 @@ func _process(delta: float) -> void:
 	else:
 		is_moving = false
 	
+	if not get_parent().is_dash_animation:
+		if is_moving and is_forward:
+			set_anim("Front Walking")
+			baseball_bat.z_index = 5
+		
+		elif is_moving and not is_forward:
+			set_anim("Back Walking")
+			baseball_bat.z_index = 3
+		
+		elif not is_moving and not is_forward:
+			set_anim("Back Idle")
+			baseball_bat.z_index = 3
+		
+		elif not is_moving and is_forward:
+			set_anim("Front Idle")
+			baseball_bat.z_index = 5
 	
-	if is_moving and is_forward:
-		set_anim("Front Walking")
-		baseball_bat.z_index = 5
-	
-	elif is_moving and not is_forward:
-		set_anim("Back Walking")
-		baseball_bat.z_index = 3
-	
-	elif not is_moving and not is_forward:
-		set_anim("Back Idle")
-		baseball_bat.z_index = 3
-	
-	elif not is_moving and is_forward:
-		set_anim("Front Idle")
-		baseball_bat.z_index = 5
+	else:
+		set_anim("Dash")
+		
 
 
 func _input(event: InputEvent) -> void:

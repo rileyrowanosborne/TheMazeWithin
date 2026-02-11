@@ -14,6 +14,7 @@ script = ExtResource("1_prdmu")
 texture = ExtResource("1_r7gvg")
 
 [node name="HitBox" type="Area2D" parent="."]
+collision_layer = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CircleShape2D_prdmu")

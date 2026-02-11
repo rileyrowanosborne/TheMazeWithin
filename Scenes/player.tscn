@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=34 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
@@ -45,6 +45,22 @@ region = Rect2(96, 48, 16, 16)
 [sub_resource type="AtlasTexture" id="AtlasTexture_7dp3o"]
 atlas = ExtResource("2_fkybt")
 region = Rect2(112, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fs7ks"]
+atlas = ExtResource("2_fkybt")
+region = Rect2(64, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l6n3p"]
+atlas = ExtResource("2_fkybt")
+region = Rect2(80, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_olqyp"]
+atlas = ExtResource("2_fkybt")
+region = Rect2(96, 64, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpjfl"]
+atlas = ExtResource("2_fkybt")
+region = Rect2(112, 64, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("1_v0iea")
@@ -126,6 +142,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fs7ks")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l6n3p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_olqyp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpjfl")
+}],
+"loop": false,
+"name": &"Dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_6t5aa")
 }],
 "loop": true,
@@ -178,7 +211,7 @@ radius = 1.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
-collision_mask = 15
+collision_mask = 31
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -188,7 +221,7 @@ shape = SubResource("CapsuleShape2D_fkybt")
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_vgqql")
-animation = &"Front Idle"
+animation = &"Dash"
 script = ExtResource("3_6t5aa")
 
 [node name="BaseballBat" parent="." instance=ExtResource("4_vgqql")]
@@ -246,4 +279,21 @@ shape = SubResource("CircleShape2D_3smsa")
 position = Vector2(0, -9)
 zoom = Vector2(6, 6)
 
+[node name="DashTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashCooldown" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="DashAnimationTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DashInvulTimer" type="Timer" parent="."]
+one_shot = true
+
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
+[connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
+[connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
+[connection signal="timeout" from="DashAnimationTimer" to="." method="_on_dash_animation_timer_timeout"]
+[connection signal="timeout" from="DashInvulTimer" to="." method="_on_dash_invul_timer_timeout"]

@@ -3,6 +3,8 @@ extends Node
 
 var player_position : Vector2
 
+var player_is_invul : bool 
+
 var new_spawn_position : Vector2
 
 

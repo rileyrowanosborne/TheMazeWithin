@@ -12,8 +12,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	sprite_2d.rotation_degrees += 560 * delta
-
-
+	
+	if GameState.player_is_invul:
+		$HitBox.set_collision_mask_value(1,false)
+	else:
+		$HitBox.set_collision_mask_value(1,true)
+	
+	print(GameState.player_is_invul)
 
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
