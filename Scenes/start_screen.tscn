@@ -1,8 +1,17 @@
-[gd_scene load_steps=16 format=3 uid="uid://cm47l75grwj0"]
+[gd_scene load_steps=18 format=3 uid="uid://cm47l75grwj0"]
 
 [ext_resource type="Script" uid="uid://b0hc5l354uvf1" path="res://Scripts/start_screen.gd" id="1_60ddj"]
 [ext_resource type="Texture2D" uid="uid://byq7p4wfq7w1d" path="res://Assets/Sprites/SPRITEDHEET FOR LITTLE MAMN.png" id="1_i8r30"]
 [ext_resource type="FontFile" uid="uid://cbwq3oth16c36" path="res://Assets/Fonts/THE RETRO FONT (DEMO).otf" id="3_5e717"]
+
+[sub_resource type="Gradient" id="Gradient_60ddj"]
+offsets = PackedFloat32Array(0, 0.69112)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_5e717"]
+gradient = SubResource("Gradient_60ddj")
+fill = 1
+fill_from = Vector2(0.517094, 0.502137)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5a7ho"]
 atlas = ExtResource("1_i8r30")
@@ -37,7 +46,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 6.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60ddj"]
@@ -93,6 +102,12 @@ offset_bottom = 648.0
 color = Color(0.784314, 0.764706, 0.415686, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(577, 323)
+color = Color(0.550958, 0.550959, 0.550958, 1)
+texture = SubResource("GradientTexture2D_5e717")
+texture_scale = 10.0
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
 modulate = Color(0.036458, 0.0237893, 0.00631074, 1)
@@ -151,7 +166,7 @@ offset_bottom = 131.0
 
 [node name="StartButton" type="Button" parent="ButtonsControl/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.780392, 0.764706, 0.415686, 1)
+theme_override_colors/font_hover_color = Color(0.643137, 0.537255, 0.313726, 1)
 theme_override_colors/font_color = Color(0.227451, 0.219608, 0.0784314, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "Begin"
@@ -159,7 +174,7 @@ flat = true
 
 [node name="OptionsButton" type="Button" parent="ButtonsControl/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.780392, 0.764706, 0.415686, 1)
+theme_override_colors/font_hover_color = Color(0.643137, 0.537255, 0.313726, 1)
 theme_override_colors/font_color = Color(0.227451, 0.219608, 0.0784314, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "Options
@@ -168,7 +183,7 @@ flat = true
 
 [node name="QuitButton" type="Button" parent="ButtonsControl/HBoxContainer"]
 layout_mode = 2
-theme_override_colors/font_hover_color = Color(0.780392, 0.764706, 0.415686, 1)
+theme_override_colors/font_hover_color = Color(0.643137, 0.537255, 0.313726, 1)
 theme_override_colors/font_color = Color(0.227451, 0.219608, 0.0784314, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "Quit"
