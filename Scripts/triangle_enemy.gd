@@ -31,8 +31,9 @@ var current_direction : Vector2
 
 #health variables
 const MIN_HEALTH = 0
-const MAX_HEALTH = 3
+var max_health : int
 var current_health : int
+var boss_mode_active : bool = false
 var is_dying : bool = false
 
 
@@ -40,12 +41,13 @@ var is_dying : bool = false
 func _ready() -> void:
 	add_to_group("Enemy")
 	add_to_group("Triangle")
-	current_health = MAX_HEALTH
 	current_direction = Vector2(1,0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
+	print(current_health)
+	
 	if ray_cast_right.is_colliding() or ray_cast_right_2.is_colliding():
 		current_direction.x = -1
 	
@@ -73,6 +75,7 @@ func take_damage():
 	current_health -= 1
 	SignalBus.emit_signal("enemy_hit")
 	animated_sprite_2d.play("Hit")
+	damage_timer.start()
 	life_check()
 
 func life_check():
@@ -87,6 +90,11 @@ func die():
 	animated_sprite_2d.play("Hit")
 	death_particles.emitting = true
 	death_timer.start()
+	
+	if boss_mode_active:
+		SignalBus.emit_signal("level_boss_died")
+		boss_mode_active = false
+	
 
 
 func _input(event: InputEvent) -> void:

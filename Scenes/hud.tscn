@@ -1,6 +1,14 @@
-[gd_scene format=3 uid="uid://bo5hhn2iciqfy"]
+[gd_scene load_steps=4 format=3 uid="uid://bo5hhn2iciqfy"]
+
+[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
+[ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
+
+[sub_resource type="Theme" id="Theme_fccik"]
+default_font = ExtResource("1_e0onf")
+default_font_size = 128
 
 [node name="Hud" type="CanvasLayer"]
+script = ExtResource("1_fccik")
 
 [node name="HealthInfo" type="Control" parent="."]
 layout_mode = 3
@@ -8,14 +16,41 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="ScreenText" type="Control" parent="."]
+[node name="BossScreenText" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 288.0
+offset_top = 55.0
+offset_right = 862.0
+offset_bottom = 375.0
+
+[node name="BossEnteredText" type="RichTextLabel" parent="BossScreenText"]
+visible = false
+offset_left = -12.0
+offset_top = -16.0
+offset_right = 585.0
+offset_bottom = 250.0
+theme = SubResource("Theme_fccik")
+theme_override_colors/default_color = Color(0.576471, 0.129412, 0.113725, 1)
+theme_override_colors/font_shadow_color = Color(0.398, 0.0768242, 0.0656822, 1)
+theme_override_constants/shadow_offset_y = 5
+text = "A STRONG ENEMY IS APPROACHING"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BossTextTimer" type="Timer" parent="BossScreenText"]
+wait_time = 3.0
+one_shot = true
+
+[node name="LevelChangeTimer" type="Timer" parent="BossScreenText"]
+wait_time = 3.0
+one_shot = true
 
 [node name="Score" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[connection signal="timeout" from="BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
+[connection signal="timeout" from="BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]

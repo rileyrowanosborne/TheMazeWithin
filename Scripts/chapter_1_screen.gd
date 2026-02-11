@@ -13,9 +13,9 @@ func _process(delta: float) -> void:
 
 
 func _on_change_scene_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://Scenes/chapter_one.tscn")
+	get_tree().change_scene_to_file("res://Scenes/chapter_two.tscn")
 
 
 func _on_the_boy_timer_timeout() -> void:
-	$RichTextLabel.text = "THE CHILD"
+	$RichTextLabel.text = "HIS FAVORITE"
 	$ChangeSceneTimer.start()

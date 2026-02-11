@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=4 uid="uid://cly0mv786fmg6"]
+[gd_scene load_steps=27 format=4 uid="uid://cly0mv786fmg6"]
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_es0kc"]
 [ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="1_ybc3p"]
 [ext_resource type="Script" uid="uid://bmrlep3pb88hn" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="2_es0kc"]
+[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="2_hhpeq"]
 [ext_resource type="Script" uid="uid://cocm7s423jyt0" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="3_annyx"]
 [ext_resource type="Script" uid="uid://djki60misy7m5" path="res://addons/gaea/modifiers/2D/fill.gd" id="4_ax664"]
 [ext_resource type="Script" uid="uid://rkwsu0rs86df" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="5_2k0ak"]
@@ -13,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="11_annyx"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="12_ax664"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="13_2k0ak"]
+[ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/hud.tscn" id="14_vv8ih"]
+[ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="16_l7jbk"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
 script = ExtResource("5_2k0ak")
@@ -544,8 +547,32 @@ terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_e4mge")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qljol"]
+atlas = ExtResource("16_l7jbk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tpvay"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qljol")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="ChapterOne" type="Node2D"]
 script = ExtResource("1_es0kc")
+chapter_seed = 3245888123
+boss_location = Vector2(92, 5)
+boss_health = 10
+current_level = 1
+level_boss = ExtResource("2_hhpeq")
+total_level_spleep_holes = 3
 
 [node name="TilemapGaeaRenderer" type="Node" parent="." node_paths=PackedStringArray("tile_map_layers", "generator")]
 script = ExtResource("1_ybc3p")
@@ -571,13 +598,13 @@ script = ExtResource("9_qljol")
 position = Vector2(192, -124)
 
 [node name="Spleep" parent="." instance=ExtResource("12_ax664")]
-position = Vector2(129, -73)
+position = Vector2(-34, 55)
 
 [node name="Spleep2" parent="." instance=ExtResource("12_ax664")]
-position = Vector2(180, 64)
+position = Vector2(203, 30)
 
 [node name="Spleep3" parent="." instance=ExtResource("12_ax664")]
-position = Vector2(-14, 128)
+position = Vector2(71, 113)
 
 [node name="SpleepHole" parent="." instance=ExtResource("13_2k0ak")]
 position = Vector2(-40, 56)
@@ -587,3 +614,18 @@ position = Vector2(88, 120)
 
 [node name="SpleepHole3" parent="." instance=ExtResource("13_2k0ak")]
 position = Vector2(216, 24)
+
+[node name="Hud" parent="." instance=ExtResource("14_vv8ih")]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_tpvay")
+autoplay = "default"
+frame_progress = 0.904793
+
+[node name="BossSpawningWarningTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

@@ -13,7 +13,7 @@ config_version=5
 config/name="The Maze Within"
 run/main_scene="uid://cly0mv786fmg6"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://ixhqxi7c1oqx"
 
 [autoload]
 

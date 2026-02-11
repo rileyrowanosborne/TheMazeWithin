@@ -7,3 +7,9 @@ signal player_hit
 signal room_generated 
 signal player_died
 signal enemy_hit
+
+
+signal begin_boss_spawning
+signal spawn_level_boss
+signal level_boss_died
+signal change_level

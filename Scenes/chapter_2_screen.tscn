@@ -1,0 +1,43 @@
+[gd_scene load_steps=4 format=3 uid="uid://deno4vf3mkebm"]
+
+[ext_resource type="Script" uid="uid://dch26cd8njdu6" path="res://Scripts/chapter_1_screen.gd" id="1_b0qh7"]
+[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="2_27ikh"]
+
+[sub_resource type="Theme" id="Theme_u3hod"]
+default_font = ExtResource("2_27ikh")
+default_font_size = 256
+
+[node name="Chapter2Screen" type="Node2D"]
+script = ExtResource("1_b0qh7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 2.0
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0.576437, 0.127523, 0.115498, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 33.0
+offset_top = 53.0
+offset_right = 1116.0
+offset_bottom = 594.0
+theme = SubResource("Theme_u3hod")
+theme_override_colors/default_color = Color(0.849621, 0.849621, 0.849621, 1)
+theme_override_colors/font_shadow_color = Color(0.435246, 0.085524, 0.0764567, 1)
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/shadow_offset_x = 10
+bbcode_enabled = true
+text = "CHAPTER II"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ChangeSceneTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="TheBoyTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]
+[connection signal="timeout" from="TheBoyTimer" to="." method="_on_the_boy_timer_timeout"]
