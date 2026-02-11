@@ -15,11 +15,6 @@ var speed : float = 100.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-#different projectile textures
-const BLUE_PROJECTILE = preload("res://Assets/Sprites/BlueProjectile.png")
-const GREEN_PROJECTILE = preload("res://Assets/Sprites/GreenProjectile.png")
-const RED_PROJECTILE = preload("res://Assets/Sprites/Projectile.png")
-
 var is_enemy_hittable : bool = false
 
 

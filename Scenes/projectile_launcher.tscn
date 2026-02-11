@@ -7,8 +7,6 @@
 z_index = 4
 script = ExtResource("1_pt6he")
 projectile_scene = ExtResource("2_t0e2w")
-direction = null
-fire_rate_delay = null
 
 [node name="FireRate" type="Timer" parent="."]
 one_shot = true
