@@ -52,9 +52,9 @@ func _on_hit_box_body_entered(body: Node2D) -> void:
 
 func apply_facing_impulse(strength):
 	spawn_delfect_particles(global_position)
-	var player_position = GameState.player_position
+	var mouse_position = get_global_mouse_position()
 	var projectile_position = global_position
-	var deflect_direction_vector = (projectile_position - player_position).normalized()
+	var deflect_direction_vector = (mouse_position - projectile_position).normalized()
 	
 	apply_central_impulse(deflect_direction_vector * strength)
 	

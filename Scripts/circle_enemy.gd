@@ -34,6 +34,7 @@ const MIN_HEALTH = 0
 const MAX_HEALTH = 3
 var current_health : int
 var is_dying : bool = false
+var boss_mode_active : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -87,6 +88,10 @@ func die():
 	animated_sprite_2d.play("Hit")
 	death_particles.emitting = true
 	death_timer.start()
+	
+	if boss_mode_active:
+		SignalBus.emit_signal("level_boss_died")
+		boss_mode_active = false
 
 
 func _input(event: InputEvent) -> void:

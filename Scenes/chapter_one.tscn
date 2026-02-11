@@ -598,13 +598,13 @@ script = ExtResource("9_qljol")
 position = Vector2(192, -124)
 
 [node name="Spleep" parent="." instance=ExtResource("12_ax664")]
-position = Vector2(-34, 55)
+position = Vector2(51, 26)
 
 [node name="Spleep2" parent="." instance=ExtResource("12_ax664")]
-position = Vector2(203, 30)
+position = Vector2(126, -1)
 
 [node name="Spleep3" parent="." instance=ExtResource("12_ax664")]
-position = Vector2(71, 113)
+position = Vector2(71, 48)
 
 [node name="SpleepHole" parent="." instance=ExtResource("13_2k0ak")]
 position = Vector2(-40, 56)

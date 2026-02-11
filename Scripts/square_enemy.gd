@@ -35,7 +35,7 @@ const MIN_HEALTH = 0
 const MAX_HEALTH = 3
 var current_health : int
 var is_dying : bool = false
-
+var boss_mode_active : bool = false
 
 
 func _ready() -> void:
@@ -94,6 +94,10 @@ func die():
 	animated_sprite_2d.play("Hit")
 	death_particles.emitting = true
 	death_timer.start()
+	
+	if boss_mode_active:
+		SignalBus.emit_signal("level_boss_died")
+		boss_mode_active = false
 	
 
 
