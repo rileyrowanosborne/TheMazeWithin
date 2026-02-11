@@ -41,19 +41,19 @@ script = ExtResource("1_acy4x")
 offset_top = 2.0
 offset_right = 1152.0
 offset_bottom = 650.0
-color = Color(0.576437, 0.127523, 0.115498, 1)
+color = Color(0.103744, 0.103744, 0.103744, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(576, 324)
-color = Color(0.643654, 0.463617, 0.706795, 1)
-energy = 0.5
+position = Vector2(576, 613)
+color = Color(0.24864, 0.489726, 0.659197, 1)
+energy = 2.0
 texture = SubResource("GradientTexture2D_hhval")
-texture_scale = 15.0
+texture_scale = 17.66
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 top_level = true
 light_mask = 0
-position = Vector2(585, 707)
-scale = Vector2(25, 25)
+position = Vector2(585, 635)
+scale = Vector2(22, 22)
 sprite_frames = SubResource("SpriteFrames_mxgit")
 autoplay = "default"

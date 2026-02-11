@@ -17,11 +17,14 @@ func _ready() -> void:
 
 
 func on_player_hit():
-	current_health -= 1
-	blood_splat_1.emitting = true
-	blood_splat_2.emitting = true
-	health_check()
-	print("Hit!")
+	if not GameState.player_is_invul:
+		current_health -= 1
+		blood_splat_1.emitting = true
+		blood_splat_2.emitting = true
+		health_check()
+		print("Hit!")
+	else:
+		print("Dogded!")
 	
 
 

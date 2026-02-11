@@ -34,9 +34,19 @@ func _process(delta: float) -> void:
 	|| ray_cast_right.is_colliding()\
 	|| ray_cast_up.is_colliding():
 		queue_free()
-		
 	
-
+	if GameState.player_is_invul:
+		$HitBox.set_collision_mask_value(1,false)
+		ray_cast_down.set_collision_mask_value(1,false)
+		ray_cast_left.set_collision_mask_value(1,false)
+		ray_cast_right.set_collision_mask_value(1,false)
+		ray_cast_up.set_collision_mask_value(1,false)
+	else:
+		$HitBox.set_collision_mask_value(1,true)
+		ray_cast_down.set_collision_mask_value(1,true)
+		ray_cast_left.set_collision_mask_value(1,true)
+		ray_cast_right.set_collision_mask_value(1,true)
+		ray_cast_up.set_collision_mask_value(1,true)
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Player"):
