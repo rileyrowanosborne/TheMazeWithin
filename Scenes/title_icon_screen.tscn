@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://we5dtwvjmspw"]
+
+[ext_resource type="Script" uid="uid://dfcnf6pmvy5u6" path="res://Scripts/title_icon_screen.gd" id="1_d42g7"]
+[ext_resource type="Texture2D" uid="uid://ixhqxi7c1oqx" path="res://Assets/Sprites/TMW - ICON.png" id="1_fdfkc"]
+
+[sub_resource type="Gradient" id="Gradient_d42g7"]
+offsets = PackedFloat32Array(0, 0.69112)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jywab"]
+gradient = SubResource("Gradient_d42g7")
+fill = 1
+fill_from = Vector2(0.517094, 0.502137)
+
+[node name="TitleIconScreen" type="Node2D"]
+script = ExtResource("1_d42g7")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.784314, 0.764706, 0.415686, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(576, 324)
+color = Color(0.550958, 0.550959, 0.550958, 1)
+texture = SubResource("GradientTexture2D_jywab")
+texture_scale = 10.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(6, 6)
+texture = ExtResource("1_fdfkc")
+
+[node name="SceneChangeTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]

@@ -104,7 +104,7 @@ color = Color(0.784314, 0.764706, 0.415686, 1)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(577, 323)
+position = Vector2(576, 324)
 color = Color(0.550958, 0.550959, 0.550958, 1)
 texture = SubResource("GradientTexture2D_5e717")
 texture_scale = 10.0
