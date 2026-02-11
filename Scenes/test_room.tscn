@@ -543,6 +543,21 @@ terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_tu1ko")
 
+[sub_resource type="Animation" id="Animation_ei72r"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SawBlade3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-128, 65)]
+}
+
 [sub_resource type="Animation" id="Animation_wv2xt"]
 resource_name = "saw blade 3 anim"
 length = 2.0
@@ -558,21 +573,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 2),
 "update": 0,
 "values": [Vector2(-128, 65), Vector2(79, 65)]
-}
-
-[sub_resource type="Animation" id="Animation_ei72r"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("SawBlade3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-128, 65)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ei72r"]
