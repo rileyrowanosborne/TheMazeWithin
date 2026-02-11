@@ -14,6 +14,9 @@ extends CharacterBody2D
 @onready var cooldown_timer: Timer = $CooldownTimer
 
 
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+
+
 const SPEED = 1000
 
 var direction_cooldown : bool = false
@@ -37,23 +40,29 @@ var direction_choices = [
 	Vector2(1,-1), 
 ]
 
+var is_in_spleep_hole : bool = false
+
+
+
 func _ready() -> void:
 	add_to_group("Enemy")
+	add_to_group("Spleep")
 	direction = direction_choices.pick_random()
 
 
 func _process(delta: float) -> void:
-	if not direction_cooldown:
-		if ray_cast_down.is_colliding()\
-		 or ray_cast_down_2.is_colliding()\
-		 or ray_cast_left.is_colliding()\
-		 or ray_cast_left_2.is_colliding()\
-		or ray_cast_right.is_colliding()\
-		or ray_cast_right_2.is_colliding()\
-		or ray_cast_up.is_colliding()\
-		or ray_cast_up_2.is_colliding():
-			is_launched = false
-			change_direction()
+	if not is_in_spleep_hole:
+		if not direction_cooldown:
+			if ray_cast_down.is_colliding()\
+			 or ray_cast_down_2.is_colliding()\
+			 or ray_cast_left.is_colliding()\
+			 or ray_cast_left_2.is_colliding()\
+			or ray_cast_right.is_colliding()\
+			or ray_cast_right_2.is_colliding()\
+			or ray_cast_up.is_colliding()\
+			or ray_cast_up_2.is_colliding():
+				is_launched = false
+				change_direction()
 	
 	
 func change_direction():
@@ -63,10 +72,14 @@ func change_direction():
 
 
 func _physics_process(delta: float) -> void:
-	if not is_launched:
-		velocity = SPEED * direction * delta
+	if not is_in_spleep_hole:
+		if not is_launched:
+			velocity = SPEED * direction * delta
+		else:
+			velocity = d_d_vector * d_d_strenth
+	
 	else:
-		velocity = d_d_vector * d_d_strenth
+		velocity = Vector2.ZERO
 	
 	move_and_slide()
 	
@@ -78,15 +91,22 @@ func _on_cooldown_timer_timeout() -> void:
 
 
 func apply_facing_impulse(strength):
-	var player_position = GameState.player_position
-	var projectile_position = global_position
-	var deflect_direction_vector = (projectile_position - player_position).normalized()
-	d_d_vector = deflect_direction_vector
-	d_d_strenth = strength
-	
-	is_launched = true
+	if not is_in_spleep_hole:
+		var player_position = GameState.player_position
+		var projectile_position = global_position
+		var deflect_direction_vector = (projectile_position - player_position).normalized()
+		d_d_vector = deflect_direction_vector
+		d_d_strenth = strength
+		
+		is_launched = true
 	
 
 
 func _on_lauched_timer_timeout() -> void:
 	is_launched = false
+
+
+
+func trapped_in_a_hole():
+	is_in_spleep_hole = true
+	cpu_particles_2d.emitting = true

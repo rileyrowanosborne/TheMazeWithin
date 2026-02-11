@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://bt5vndfifpj4k"]
+
+[ext_resource type="Texture2D" uid="uid://bnv0d7qvb85s7" path="res://Assets/Sprites/SpleepHole.png" id="1_qaumv"]
+[ext_resource type="Script" uid="uid://dsumlys8pkt4c" path="res://Scripts/spleep_hole.gd" id="1_snx3f"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qaumv"]
+radius = 16.0
+
+[node name="SpleepHole" type="Node2D"]
+z_index = 2
+script = ExtResource("1_snx3f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.956863, 0.882353, 0.933333, 1)
+texture = ExtResource("1_qaumv")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+shape = SubResource("CircleShape2D_qaumv")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
