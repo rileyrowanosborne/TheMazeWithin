@@ -40,6 +40,7 @@ var is_dying : bool = false
 
 func _ready() -> void:
 	add_to_group("Enemy")
+	add_to_group("Square")
 	current_health = MAX_HEALTH
 	current_direction = Vector2(1,0)
 

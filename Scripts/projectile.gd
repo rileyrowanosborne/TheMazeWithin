@@ -12,13 +12,19 @@ var speed : float = 100.0
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
 
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 
 var is_enemy_hittable : bool = false
 
 
 
+
+
+
 func _ready() -> void:
 	add_to_group("Projectile")
+	
 
 	
 

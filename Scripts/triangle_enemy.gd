@@ -39,6 +39,7 @@ var is_dying : bool = false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Enemy")
+	add_to_group("Triangle")
 	current_health = MAX_HEALTH
 	current_direction = Vector2(1,0)
 
