@@ -16,6 +16,8 @@ var level_boss_is_spawned : bool = false
 
 @export var level_boss : PackedScene
 
+var level_boss_instance
+
 
 @export var total_level_spleep_holes : int
 var total_spleeps_collected : int
@@ -24,6 +26,10 @@ var total_spleeps_collected : int
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
 	SignalBus.connect("change_level", change_levels)
+	
+	SignalBus.connect("player_died", reset_level)
+	
+	
 	
 
 
@@ -40,7 +46,7 @@ func check_total_spleeps():
 func spawn_boss():
 	level_boss_is_spawned = true
 	if level_boss:
-		var level_boss_instance = level_boss.instantiate()
+		level_boss_instance = level_boss.instantiate()
 		get_parent().add_child(level_boss_instance)
 		level_boss_instance.current_health = boss_health
 		level_boss_instance.global_position = boss_location
@@ -65,3 +71,13 @@ func change_levels():
 	if GameState.current_chapter == 1:
 		GameState.current_chapter += 1
 		get_tree().change_scene_to_file("res://Scenes/chapter_screen.tscn")
+
+
+func reset_level():
+	level_boss_is_spawned = false
+	total_spleeps_collected = 0
+	await get_tree().create_timer(1.5).timeout
+	if level_boss_instance:
+		level_boss_instance.queue_free()
+	
+	

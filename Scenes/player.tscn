@@ -257,6 +257,7 @@ height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
+collision_layer = 9
 collision_mask = 4
 script = ExtResource("1_cvnsp")
 

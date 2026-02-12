@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://b1go653310hxa" path="res://Scripts/circle_enemy.gd" id="1_4b532"]
 [ext_resource type="Texture2D" uid="uid://bwjqyivbmn7w3" path="res://Assets/Sprites/CircleEnemy.png" id="1_155j3"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/projectile_launcher.tscn" id="2_n57o8"]
-[ext_resource type="Script" uid="uid://b83jxx1lur2px" path="res://Scripts/hurtbox.gd" id="4_xw0ou"]
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="4_xw0ou"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n57o8"]
 atlas = ExtResource("1_155j3")
@@ -172,13 +172,11 @@ one_shot = true
 wait_time = 0.3
 one_shot = true
 
-[node name="hurtbox" type="Area2D" parent="."]
+[node name="Hurtbox" parent="." instance=ExtResource("4_xw0ou")]
 collision_layer = 8
-collision_mask = 0
-script = ExtResource("4_xw0ou")
-metadata/_custom_type_script = "uid://b83jxx1lur2px"
+collision_mask = 18
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 shape = SubResource("CircleShape2D_xw0ou")
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]

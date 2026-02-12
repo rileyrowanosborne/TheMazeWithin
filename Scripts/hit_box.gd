@@ -14,4 +14,5 @@ func _on_area_entered(area: Area2D) -> void:
 			if GameState.player_is_invul:
 				print("player slid past that one!")
 			else:
-				get_parent().queue_free()
+				if get_parent().is_in_group("Projectile"):
+					get_parent().queue_free()
