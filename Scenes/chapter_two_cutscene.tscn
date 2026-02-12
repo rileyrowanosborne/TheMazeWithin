@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_sla7g"]
 [ext_resource type="Texture2D" uid="uid://b5ljj3ycixeme" path="res://Assets/Sprites/Mouth-Talking-SpriteSheet.png" id="2_x25um"]
 [ext_resource type="Texture2D" uid="uid://dagt201len3u5" path="res://Assets/Sprites/BaseFaceSprite.png" id="4_88q4o"]
-[ext_resource type="Texture2D" uid="uid://clu00i8sfkb0n" path="res://Assets/Sprites/Hair-Sprite.png" id="5_tfahh"]
+[ext_resource type="Texture2D" uid="uid://xh7vm3sjn8sj" path="res://Assets/Sprites/LongHair2.png" id="5_tfahh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwk51"]
 atlas = ExtResource("2_sla7g")
@@ -178,7 +178,7 @@ script = ExtResource("1_tfahh")
 offset_top = 2.0
 offset_right = 1152.0
 offset_bottom = 650.0
-color = Color(0.122252, 0.122252, 0.122252, 1)
+color = Color(0.439216, 0.156863, 0.156863, 1)
 
 [node name="EyesAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
@@ -205,6 +205,7 @@ frame_progress = 0.12218
 one_shot = true
 
 [node name="Head" type="Sprite2D" parent="."]
+modulate = Color(0.980845, 0.915252, 0.955309, 1)
 position = Vector2(555, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("4_88q4o")

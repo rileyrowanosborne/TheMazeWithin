@@ -1,0 +1,178 @@
+[gd_scene load_steps=27 format=3 uid="uid://bicx6ny1mdsqa"]
+
+[ext_resource type="Script" uid="uid://gc2p78x10uuc" path="res://Scripts/chapter_three_cutscene.gd" id="1_adopb"]
+[ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_u8nsy"]
+[ext_resource type="Texture2D" uid="uid://b5ljj3ycixeme" path="res://Assets/Sprites/Mouth-Talking-SpriteSheet.png" id="3_oilho"]
+[ext_resource type="Texture2D" uid="uid://dagt201len3u5" path="res://Assets/Sprites/BaseFaceSprite.png" id="4_w3ay6"]
+[ext_resource type="Texture2D" uid="uid://clu00i8sfkb0n" path="res://Assets/Sprites/Hair-Sprite.png" id="5_gd0hy"]
+[ext_resource type="Texture2D" uid="uid://e0dvib21tesu" path="res://Assets/Sprites/LongHair.png" id="5_oilho"]
+[ext_resource type="Texture2D" uid="uid://cmyp2n0ti5n52" path="res://Assets/Sprites/CurlyBlondeHair.png" id="7_nk5m8"]
+[ext_resource type="Texture2D" uid="uid://xh7vm3sjn8sj" path="res://Assets/Sprites/LongHair2.png" id="8_kw7v2"]
+[ext_resource type="Texture2D" uid="uid://du8anbiyolbk7" path="res://Assets/Sprites/LongCurlyHair.png" id="9_74xhn"]
+[ext_resource type="Texture2D" uid="uid://tkhnc4o6m87u" path="res://Assets/Sprites/ShortHair.png" id="10_v88j3"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s3hbt"]
+atlas = ExtResource("2_u8nsy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3evc"]
+atlas = ExtResource("2_u8nsy")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1a74b"]
+atlas = ExtResource("2_u8nsy")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6kn4"]
+atlas = ExtResource("2_u8nsy")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pulj1"]
+atlas = ExtResource("2_u8nsy")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8jyr"]
+atlas = ExtResource("2_u8nsy")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w1p36"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3hbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3hbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3hbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3hbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s3hbt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3evc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1a74b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6kn4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pulj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8jyr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgvq2"]
+atlas = ExtResource("3_oilho")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gd0hy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgvq2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxdpv"]
+atlas = ExtResource("5_gd0hy")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3ay6"]
+atlas = ExtResource("5_oilho")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyy7q"]
+atlas = ExtResource("7_nk5m8")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_orhg0"]
+atlas = ExtResource("8_kw7v2")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_whn8m"]
+atlas = ExtResource("9_74xhn")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_512cp"]
+atlas = ExtResource("10_v88j3")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_u8nsy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxdpv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3ay6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyy7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_orhg0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_whn8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_512cp")
+}],
+"loop": true,
+"name": &"Hair Rotation",
+"speed": 10.0
+}]
+
+[node name="ChapterThreeCutscene" type="Node2D"]
+script = ExtResource("1_adopb")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_top = 2.0
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0.701759, 0.53075, 0.1453, 1)
+
+[node name="EyesAnim" type="AnimatedSprite2D" parent="."]
+top_level = true
+light_mask = 0
+position = Vector2(555, 325)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_w1p36")
+autoplay = "default"
+frame = 1
+frame_progress = 0.777958
+
+[node name="MouthAnim" type="AnimatedSprite2D" parent="."]
+top_level = true
+light_mask = 0
+position = Vector2(555, 324)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_gd0hy")
+
+[node name="Head" type="Sprite2D" parent="."]
+modulate = Color(0.980845, 0.915252, 0.955309, 1)
+position = Vector2(555, 324)
+scale = Vector2(5, 5)
+texture = ExtResource("4_w3ay6")
+
+[node name="Hair" type="AnimatedSprite2D" parent="."]
+position = Vector2(555, 324)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_u8nsy")
+animation = &"Hair Rotation"
+autoplay = "Hair Rotation"
