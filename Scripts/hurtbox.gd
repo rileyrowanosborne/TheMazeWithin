@@ -7,8 +7,9 @@ func _ready() -> void:
 
 func take_damage():
 	if get_parent().is_in_group("Player"):
-		print("Player hit!")
-		SignalBus.emit_signal("player_hit")
+		if GameState.player_alive:
+			print("Player hit!")
+			SignalBus.emit_signal("player_hit")
 	
 	if get_parent().is_in_group("Enemy"):
 		if get_parent().has_method("take_damage"):

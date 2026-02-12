@@ -173,7 +173,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="hurtbox" type="Area2D" parent="."]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 0
 script = ExtResource("4_xw0ou")
 metadata/_custom_type_script = "uid://b83jxx1lur2px"
