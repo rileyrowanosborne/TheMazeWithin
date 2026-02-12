@@ -44,7 +44,7 @@ func _process(delta: float) -> void:
 		if not get_parent().is_dash_animation:
 			if is_moving and is_forward:
 				set_anim("Front Walking")
-				baseball_bat.z_index = 5
+				baseball_bat.z_index = 4
 			
 			elif is_moving and not is_forward:
 				set_anim("Back Walking")
@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 			
 			elif not is_moving and is_forward:
 				set_anim("Front Idle")
-				baseball_bat.z_index = 5
+				baseball_bat.z_index = 4
 		
 		else:
 			set_anim("Dash")

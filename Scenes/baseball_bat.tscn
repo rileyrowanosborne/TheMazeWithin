@@ -123,7 +123,9 @@ _data = {
 }
 
 [node name="BaseballBat" type="Node2D"]
+z_index = 4
 z_as_relative = false
+y_sort_enabled = true
 script = ExtResource("1_0fuc7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
