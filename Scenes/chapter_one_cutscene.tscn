@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_nh81h"]
 [ext_resource type="Texture2D" uid="uid://clu00i8sfkb0n" path="res://Assets/Sprites/Hair-Sprite.png" id="3_eusqj"]
 [ext_resource type="Texture2D" uid="uid://b5ljj3ycixeme" path="res://Assets/Sprites/Mouth-Talking-SpriteSheet.png" id="3_mxgit"]
+[ext_resource type="AudioStream" uid="uid://b251a2eice6by" path="res://Assets/Sounds/Chapter One Monologue.wav" id="6_1e1gq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mxgit"]
 atlas = ExtResource("2_nh81h")
@@ -26,10 +27,6 @@ region = Rect2(384, 0, 128, 128)
 atlas = ExtResource("2_nh81h")
 region = Rect2(512, 0, 128, 128)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7u1r"]
-atlas = ExtResource("2_nh81h")
-region = Rect2(640, 0, 128, 128)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_sk84c"]
 atlas = ExtResource("2_nh81h")
 region = Rect2(0, 0, 128, 128)
@@ -37,6 +34,9 @@ region = Rect2(0, 0, 128, 128)
 [sub_resource type="SpriteFrames" id="SpriteFrames_acy4x"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mxgit")
 }, {
@@ -53,12 +53,69 @@ animations = [{
 "texture": SubResource("AtlasTexture_e5x0u")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n7u1r")
+"texture": SubResource("AtlasTexture_1e1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s38o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5x0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s38o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5x0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mxgit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e1gq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4s6nt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2s38o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5x0u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1e1gq")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mxgit")
 }],
-"loop": false,
+"loop": true,
 "name": &"Blinking",
 "speed": 10.0
 }, {
@@ -141,6 +198,45 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_agf3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chyyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e113")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hlr7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivhe5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agf3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chyyi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvw63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4gw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e113")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_agf3o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2e113")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v4gw5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chyyi")
 }],
 "loop": true,
 "name": &"Talking",
@@ -169,7 +265,7 @@ position = Vector2(555, 328)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_acy4x")
 animation = &"Blinking"
-autoplay = "Idle"
+autoplay = "Blinking"
 
 [node name="MouthAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
@@ -178,8 +274,9 @@ position = Vector2(555, 324)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_eusqj")
 animation = &"Talking"
-autoplay = "Idle"
-frame_progress = 0.757446
+autoplay = "Talking"
+frame = 20
+frame_progress = 1.0
 
 [node name="BaseFace" type="Sprite2D" parent="."]
 light_mask = 0
@@ -195,5 +292,9 @@ texture = ExtResource("3_eusqj")
 
 [node name="ChangeSceneTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Monologue" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_1e1gq")
+autoplay = true
 
 [connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]
