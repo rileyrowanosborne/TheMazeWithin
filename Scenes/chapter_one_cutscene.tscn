@@ -342,6 +342,7 @@ theme = SubResource("Theme_2s38o")
 
 [node name="IText" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 12.0
 offset_top = 14.0
 offset_right = 126.0
@@ -356,6 +357,7 @@ vertical_alignment = 1
 
 [node name="AmText" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 165.0
 offset_top = 16.0
 offset_right = 340.0
@@ -370,6 +372,7 @@ vertical_alignment = 1
 
 [node name="EveryoneText" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 675.0
 offset_top = 20.0
 offset_right = 1159.0
@@ -384,6 +387,7 @@ vertical_alignment = 1
 
 [node name="IText2" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 123.0
 offset_top = 225.0
 offset_right = 207.0
@@ -398,6 +402,7 @@ vertical_alignment = 1
 
 [node name="HaveText" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 839.0
 offset_top = 219.0
 offset_right = 1131.0
@@ -412,6 +417,7 @@ vertical_alignment = 1
 
 [node name="EverText" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 36.0
 offset_top = 416.0
 offset_right = 315.0
@@ -426,6 +432,7 @@ vertical_alignment = 1
 
 [node name="LovedText" type="RichTextLabel" parent="CutsceneText"]
 visible = false
+layout_mode = 0
 offset_left = 830.0
 offset_top = 439.0
 offset_right = 1130.0

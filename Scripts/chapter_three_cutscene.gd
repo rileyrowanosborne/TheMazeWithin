@@ -1,11 +1,12 @@
 extends Node2D
 
+@onready var change_scene_timer: Timer = $ChangeSceneTimer
 
 
 var scene_length : float = 3.0
 
 func _ready() -> void:
-	$ChangeSceneTimer.start(scene_length)
+	change_scene_timer.start(scene_length)
 
 
 func _input(event: InputEvent) -> void:

@@ -176,3 +176,5 @@ scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_u8nsy")
 animation = &"Hair Rotation"
 autoplay = "Hair Rotation"
+
+[node name="ChangeSceneTimer" type="Timer" parent="."]
