@@ -15,7 +15,7 @@ var speed : float = 100.0
 @onready var sprite_2d: Sprite2D = $Sprite2D
 
 
-var is_enemy_hittable : bool = false
+var enemy_hittable : bool = false
 
 
 
@@ -29,33 +29,15 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
-	
 	if ray_cast_down.is_colliding()\
 	|| ray_cast_left.is_colliding()\
 	|| ray_cast_right.is_colliding()\
 	|| ray_cast_up.is_colliding():
 		queue_free()
 	
-	if GameState.player_is_invul:
-		$HitBox.set_collision_mask_value(1,false)
-		ray_cast_down.set_collision_mask_value(1,false)
-		ray_cast_left.set_collision_mask_value(1,false)
-		ray_cast_right.set_collision_mask_value(1,false)
-		ray_cast_up.set_collision_mask_value(1,false)
-	else:
-		$HitBox.set_collision_mask_value(1,true)
-		ray_cast_down.set_collision_mask_value(1,true)
-		ray_cast_left.set_collision_mask_value(1,true)
-		ray_cast_right.set_collision_mask_value(1,true)
-		ray_cast_up.set_collision_mask_value(1,true)
 
-func _on_hit_box_body_entered(body: Node2D) -> void:
-	if is_enemy_hittable:
-		if body.is_in_group("Enemy"):
-			if body.has_method("take_damage"):
-				body.take_damage()
-				queue_free()
-		
+
+
 
 func apply_facing_impulse(strength):
 	spawn_delfect_particles(global_position)
@@ -65,7 +47,7 @@ func apply_facing_impulse(strength):
 	
 	apply_central_impulse(deflect_direction_vector * strength)
 	
-	is_enemy_hittable = true
+	enemy_hittable = true
 
 
 func spawn_delfect_particles(world_location : Vector2):

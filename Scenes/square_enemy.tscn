@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://1puix00mhy8b"]
+[gd_scene load_steps=13 format=3 uid="uid://1puix00mhy8b"]
 
 [ext_resource type="Texture2D" uid="uid://c5rwdvef67oep" path="res://Assets/Sprites/BlueSquareEnemySprite copy.png" id="1_mnvsh"]
 [ext_resource type="Script" uid="uid://o2vbalvxx13j" path="res://Scripts/square_enemy.gd" id="1_omeaj"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/projectile_launcher.tscn" id="2_6lmlw"]
+[ext_resource type="Script" uid="uid://b83jxx1lur2px" path="res://Scripts/hurtbox.gd" id="4_o8kgs"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6lmlw"]
 atlas = ExtResource("1_mnvsh")
@@ -51,6 +52,9 @@ size = Vector2(26, 26)
 [sub_resource type="Curve" id="Curve_omeaj"]
 _data = [Vector2(0.0162602, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36039, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lq68a"]
+size = Vector2(26, 26)
 
 [node name="SquareEnemy" type="CharacterBody2D"]
 z_index = 3
@@ -155,6 +159,13 @@ one_shot = true
 
 [node name="DeathTimer" type="Timer" parent="Timers"]
 one_shot = true
+
+[node name="hurtbox" type="Area2D" parent="."]
+script = ExtResource("4_o8kgs")
+metadata/_custom_type_script = "uid://b83jxx1lur2px"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+shape = SubResource("RectangleShape2D_lq68a")
 
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]
 [connection signal="timeout" from="Timers/DirectionTimer" to="." method="_on_direction_timer_timeout"]

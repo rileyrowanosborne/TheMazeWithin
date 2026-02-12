@@ -1,13 +1,15 @@
 extends Area2D
-class_name hurtbox
-
 
 
 func _ready() -> void:
 	add_to_group("Hurtbox")
 
 
-
 func take_damage():
-	if owner.is_in_group("Player"):
+	if get_parent().is_in_group("Player"):
+		print("Player hit!")
 		SignalBus.emit_signal("player_hit")
+	
+	if get_parent().is_in_group("Enemy"):
+		if get_parent().has_method("take_damage"):
+			get_parent().take_damage()

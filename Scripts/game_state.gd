@@ -8,6 +8,7 @@ var player_is_invul : bool
 var new_spawn_position : Vector2
 
 var player_alive : bool
+var player_health : int
 
 var current_chapter : int
 

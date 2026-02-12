@@ -1,19 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://ekcj3gn2xbhk"]
+[gd_scene load_steps=7 format=3 uid="uid://ekcj3gn2xbhk"]
 
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="1_f8cdk"]
 [ext_resource type="Script" uid="uid://cj7t6fx4ttkt5" path="res://Scripts/projectile.gd" id="1_yr2qt"]
 [ext_resource type="PackedScene" uid="uid://jicx35vv3vqe" path="res://Scenes/deflection_effect.tscn" id="2_tl4hk"]
+[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/hitbox.tscn" id="4_d4467"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yr2qt"]
-radius = 6.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_d4467"]
+radius = 5.0
 
 [node name="Projectile" type="RigidBody2D"]
 z_index = 5
 collision_layer = 2
 collision_mask = 0
+mass = 0.001
 script = ExtResource("1_yr2qt")
 delfect_particles_scene = ExtResource("2_tl4hk")
 
@@ -24,27 +26,25 @@ texture = ExtResource("1_f8cdk")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_tl4hk")
 
-[node name="HitBox" type="Area2D" parent="."]
-collision_layer = 2
-collision_mask = 13
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
-shape = SubResource("CircleShape2D_yr2qt")
-
 [node name="RayCastDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 6)
-collision_mask = 5
+collision_mask = 4
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
 target_position = Vector2(0, -6)
-collision_mask = 5
+collision_mask = 4
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-6, 0)
-collision_mask = 5
+collision_mask = 4
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(6, 0)
-collision_mask = 5
+collision_mask = 4
 
-[connection signal="body_entered" from="HitBox" to="." method="_on_hit_box_body_entered"]
+[node name="Hitbox" parent="." instance=ExtResource("4_d4467")]
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("CircleShape2D_d4467")
