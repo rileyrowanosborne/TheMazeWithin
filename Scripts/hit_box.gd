@@ -1,16 +1,13 @@
 extends Area2D
-class_name hit_box
+class_name hitbox
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	add_to_group("Hitbox")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
 
-
-func _on_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		SignalBus.emit_signal("player_hit")
+func _on_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Hurtbox"):
+		if area.has_method("take_damage"):
+			area.take_damage()

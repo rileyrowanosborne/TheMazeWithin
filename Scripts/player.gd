@@ -26,7 +26,6 @@ func _ready() -> void:
 	add_to_group("Player")
 	GameState.player_alive = true
 	SignalBus.connect("player_died", on_player_died)
-	$HurtBox.set_collision_layer_value(1,true)
 
 
 
@@ -105,13 +104,14 @@ func _on_dash_invul_timer_timeout() -> void:
 	end_dash_invul()
 
 
-func _on_hurt_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Projectile"):
-		if GameState.player_is_invul:
-			print("Dodged")
-		else:
-			SignalBus.emit_signal("player_hit")
-			body.queue_free()
+
+#if body.is_in_group("Projectile"):
+		#if GameState.player_is_invul:
+			#print("Dodged")
+		#else:
+			#SignalBus.emit_signal("player_hit")
+			#body.queue_free()
+
 
 
 func on_player_died():

@@ -9,11 +9,11 @@ var new_spawn_position : Vector2
 
 var player_alive : bool
 
-var current_chapter : int = 1
+var current_chapter : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	current_chapter = 1
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

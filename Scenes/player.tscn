@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=42 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" uid="uid://c0ap1iws77bd5" path="res://Scripts/in_wall_checker.gd" id="8_8erm5"]
 [ext_resource type="PackedScene" uid="uid://54amq6ybpquf" path="res://Scenes/shake_camera.tscn" id="9_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/hud.tscn" id="10_tx1dd"]
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="11_gymyn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
@@ -250,9 +251,9 @@ point_count = 2
 [sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
 radius = 1.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f1ek2"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 3.0
-height = 14.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
@@ -267,8 +268,6 @@ shape = SubResource("CapsuleShape2D_fkybt")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_vgqql")
 animation = &"Death"
-frame = 3
-frame_progress = 1.0
 script = ExtResource("3_6t5aa")
 
 [node name="BaseballBat" parent="." instance=ExtResource("4_vgqql")]
@@ -339,23 +338,22 @@ one_shot = true
 [node name="DashInvulTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="HurtBox" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
-position = Vector2(0, -8)
-shape = SubResource("CapsuleShape2D_f1ek2")
-
 [node name="Hud" parent="." instance=ExtResource("10_tx1dd")]
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 
+[node name="Hurtbox" parent="." instance=ExtResource("11_gymyn")]
+position = Vector2(-1, -3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(1, -5)
+shape = SubResource("CapsuleShape2D_gymyn")
+
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="DashAnimationTimer" to="." method="_on_dash_animation_timer_timeout"]
 [connection signal="timeout" from="DashInvulTimer" to="." method="_on_dash_invul_timer_timeout"]
-[connection signal="body_entered" from="HurtBox" to="." method="_on_hurt_box_body_entered"]
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
