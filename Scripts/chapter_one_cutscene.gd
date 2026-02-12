@@ -2,7 +2,7 @@ extends Node2D
 
 
 
-var scene_length : float = 5.0
+var scene_length : float = 20.0
 
 func _ready() -> void:
 	$ChangeSceneTimer.start(scene_length)
