@@ -5,7 +5,10 @@ extends CanvasLayer
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
 	SignalBus.connect("level_boss_died", on_level_boss_died)
-
+	SignalBus.connect("player_died", on_player_died)
+	
+	
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -30,3 +33,13 @@ func on_level_boss_died():
 
 func _on_level_change_timer_timeout() -> void:
 	SignalBus.emit_signal("change_level")
+
+
+
+func on_player_died():
+	$PlayerDiedText.visible = true
+	$PlayerDiedText/DeathTextTimer.start()
+
+
+func _on_death_text_timer_timeout() -> void:
+	$PlayerDiedText.visible = false

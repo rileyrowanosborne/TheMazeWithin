@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cly0mv786fmg6"]
+[gd_scene load_steps=26 format=4 uid="uid://cly0mv786fmg6"]
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_es0kc"]
 [ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="1_ybc3p"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="11_annyx"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="12_ax664"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="13_2k0ak"]
-[ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/hud.tscn" id="14_vv8ih"]
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="16_l7jbk"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
@@ -614,8 +613,6 @@ position = Vector2(88, 120)
 
 [node name="SpleepHole3" parent="." instance=ExtResource("13_2k0ak")]
 position = Vector2(216, 24)
-
-[node name="Hud" parent="." instance=ExtResource("14_vv8ih")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false

@@ -24,6 +24,9 @@ var is_dash_invul : bool = false
 
 func _ready() -> void:
 	add_to_group("Player")
+	GameState.player_alive = true
+	SignalBus.connect("player_died", on_player_died)
+	$HurtBox.set_collision_layer_value(1,true)
 
 
 
@@ -37,10 +40,14 @@ func _physics_process(delta: float) -> void:
 	
 	var player_input = get_input()
 	
-	if not is_dashing:
-		velocity = lerp(velocity, player_input * SPEED, delta * ACCEL)
+	if GameState.player_alive:
+		if not is_dashing:
+			velocity = lerp(velocity, player_input * SPEED, delta * ACCEL)
+		else:
+			velocity = (get_global_mouse_position() - global_position) * DASH_POWER * delta
+		
 	else:
-		velocity = (get_global_mouse_position() - global_position) * DASH_POWER * delta
+		velocity = Vector2.ZERO
 		
 	move_and_slide()
 
@@ -96,3 +103,21 @@ func end_dash_invul():
 
 func _on_dash_invul_timer_timeout() -> void:
 	end_dash_invul()
+
+
+func _on_hurt_box_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Projectile"):
+		if GameState.player_is_invul:
+			print("Dodged")
+		else:
+			SignalBus.emit_signal("player_hit")
+			body.queue_free()
+
+
+func on_player_died():
+	print("death timer signal recieved")
+	$DeathTimer.start()
+
+
+func _on_death_timer_timeout() -> void:
+	get_tree().call_deferred("reload_current_scene")

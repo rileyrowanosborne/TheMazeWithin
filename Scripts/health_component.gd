@@ -17,18 +17,22 @@ func _ready() -> void:
 
 
 func on_player_hit():
-	if not GameState.player_is_invul:
-		current_health -= 1
-		blood_splat_1.emitting = true
-		blood_splat_2.emitting = true
-		health_check()
-		print("Hit!")
-	else:
-		print("Dogded!")
-	
+	if GameState.player_alive:
+		if not GameState.player_is_invul:
+			current_health -= 1
+			blood_splat_1.emitting = true
+			blood_splat_2.emitting = true
+			health_check()
+			print("Hit!")
+		else:
+			print("Dodged!")
+		
 
 
 func health_check():
-	if get_parent().is_in_group("Player"):
-		if current_health < min_health:
-			SignalBus.emit_signal("player_died")
+	print(current_health)
+	if GameState.player_alive:
+		if get_parent().is_in_group("Player"):
+			if current_health <= min_health:
+				GameState.player_alive = false
+				SignalBus.emit_signal("player_died")

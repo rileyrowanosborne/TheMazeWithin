@@ -132,7 +132,7 @@ rotation = -0.897184
 texture = ExtResource("2_0fuc7")
 
 [node name="SwingTimer" type="Timer" parent="."]
-wait_time = 0.3
+wait_time = 0.5
 one_shot = true
 
 [node name="SlashAnim" type="AnimatedSprite2D" parent="."]

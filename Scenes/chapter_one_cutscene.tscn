@@ -295,6 +295,5 @@ one_shot = true
 
 [node name="Monologue" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_1e1gq")
-autoplay = true
 
 [connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]

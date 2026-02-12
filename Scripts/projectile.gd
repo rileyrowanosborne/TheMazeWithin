@@ -29,6 +29,7 @@ func _ready() -> void:
 	
 
 func _process(delta: float) -> void:
+	
 	if ray_cast_down.is_colliding()\
 	|| ray_cast_left.is_colliding()\
 	|| ray_cast_right.is_colliding()\
@@ -49,10 +50,6 @@ func _process(delta: float) -> void:
 		ray_cast_up.set_collision_mask_value(1,true)
 
 func _on_hit_box_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Player"):
-		SignalBus.emit_signal("player_hit")
-		queue_free()
-	
 	if is_enemy_hittable:
 		if body.is_in_group("Enemy"):
 			if body.has_method("take_damage"):

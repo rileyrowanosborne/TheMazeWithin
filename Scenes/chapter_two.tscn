@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://hpmlh5ktv5sq"]
+[gd_scene load_steps=33 format=4 uid="uid://hpmlh5ktv5sq"]
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_mvp4d"]
 [ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/square_enemy.tscn" id="2_mvp4d"]
@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="12_p3pli"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="13_uy8y0"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="14_wnyg8"]
-[ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/hud.tscn" id="15_rw61t"]
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="16_mvaus"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/saw_blade.tscn" id="17_iq6gh"]
 
@@ -739,8 +738,6 @@ position = Vector2(104, -120)
 
 [node name="SpleepHole3" parent="." instance=ExtResource("14_wnyg8")]
 position = Vector2(72, 25)
-
-[node name="Hud" parent="." instance=ExtResource("15_rw61t")]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
