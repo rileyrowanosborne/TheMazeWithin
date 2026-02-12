@@ -25,6 +25,7 @@ var is_dash_invul : bool = false
 func _ready() -> void:
 	add_to_group("Player")
 	GameState.player_alive = true
+	GameState.player_is_invul = false
 	SignalBus.connect("player_died", on_player_died)
 
 
@@ -88,29 +89,14 @@ func start_dash_invul():
 	GameState.player_is_invul = true
 	is_dash_invul = true
 	$DashInvulTimer.start(dash_invul_length)
-	set_collision_mask_value(2,false)
-	set_collision_mask_value(4,false)
-	set_collision_mask_value(5,false)
 	
 func end_dash_invul():
 	GameState.player_is_invul = false
 	is_dash_invul = false
-	set_collision_mask_value(2,true)
-	set_collision_mask_value(4,true)
-	set_collision_mask_value(5,true)
 
 
 func _on_dash_invul_timer_timeout() -> void:
 	end_dash_invul()
-
-
-
-#if body.is_in_group("Projectile"):
-		#if GameState.player_is_invul:
-			#print("Dodged")
-		#else:
-			#SignalBus.emit_signal("player_hit")
-			#body.queue_free()
 
 
 

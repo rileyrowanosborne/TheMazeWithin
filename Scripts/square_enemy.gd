@@ -37,6 +37,8 @@ var current_health : int
 var is_dying : bool = false
 var boss_mode_active : bool = false
 
+var is_enemy_hittable : bool
+
 
 func _ready() -> void:
 	add_to_group("Enemy")

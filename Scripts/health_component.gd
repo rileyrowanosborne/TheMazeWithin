@@ -18,14 +18,14 @@ func _ready() -> void:
 
 func on_player_hit():
 	if GameState.player_alive:
-		if not GameState.player_is_invul:
+		if GameState.player_is_invul:
+			print("Dodged!")
+		else:
 			current_health -= 1
 			blood_splat_1.emitting = true
 			blood_splat_2.emitting = true
 			health_check()
 			print("Hit!")
-		else:
-			print("Dodged!")
 		
 
 
