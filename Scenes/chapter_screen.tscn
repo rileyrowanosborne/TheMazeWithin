@@ -1,15 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://cm67moiutxrbn"]
+[gd_scene load_steps=4 format=3 uid="uid://dxv0gw7ovt422"]
 
-[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_qeokg"]
-[ext_resource type="Script" uid="uid://dch26cd8njdu6" path="res://Scripts/chapter_1_screen.gd" id="1_u3hod"]
+[ext_resource type="Script" uid="uid://dch26cd8njdu6" path="res://Scripts/chapter_1_screen.gd" id="1_3y3dj"]
+[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="2_fyj3j"]
 
 [sub_resource type="Theme" id="Theme_u3hod"]
-default_font = ExtResource("1_qeokg")
+default_font = ExtResource("2_fyj3j")
 default_font_size = 256
 
 [node name="ChapterScreen" type="Node2D"]
-script = ExtResource("1_u3hod")
-current_chapter = 1
+script = ExtResource("1_3y3dj")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_top = 2.0

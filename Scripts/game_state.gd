@@ -8,6 +8,8 @@ var player_is_invul : bool
 var new_spawn_position : Vector2
 
 
+var current_chapter : int = 1
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
