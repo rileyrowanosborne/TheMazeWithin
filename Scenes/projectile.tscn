@@ -26,19 +26,19 @@ texture = ExtResource("1_f8cdk")
 shape = SubResource("CircleShape2D_tl4hk")
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
-target_position = Vector2(0, 6)
+target_position = Vector2(0, 4)
 collision_mask = 4
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
-target_position = Vector2(0, -6)
+target_position = Vector2(0, -4)
 collision_mask = 4
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
-target_position = Vector2(-6, 0)
+target_position = Vector2(-4, 0)
 collision_mask = 4
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
-target_position = Vector2(6, 0)
+target_position = Vector2(4, 0)
 collision_mask = 4
 
 [node name="Hitbox" parent="." instance=ExtResource("4_d4467")]

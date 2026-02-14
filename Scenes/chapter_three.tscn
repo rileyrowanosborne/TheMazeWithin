@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=4 uid="uid://o4mpcfwdbbj3"]
+[gd_scene load_steps=29 format=4 uid="uid://o4mpcfwdbbj3"]
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_upm4h"]
 [ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="2_kamx3"]
+[ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/circle_enemy.tscn" id="2_mpfnk"]
 [ext_resource type="Script" uid="uid://bmrlep3pb88hn" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="3_ibxrj"]
 [ext_resource type="Script" uid="uid://cocm7s423jyt0" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="4_3p7gv"]
 [ext_resource type="Script" uid="uid://djki60misy7m5" path="res://addons/gaea/modifiers/2D/fill.gd" id="5_mp2lk"]
@@ -13,6 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="11_ibxrj"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="12_3p7gv"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="13_mp2lk"]
+[ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="14_yitl0"]
+[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="16_bient"]
+[ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/saw_blade.tscn" id="16_w6ife"]
+[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/square_enemy.tscn" id="17_qear5"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
 script = ExtResource("6_yitl0")
@@ -544,10 +549,31 @@ terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_va013")
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qljol"]
+atlas = ExtResource("14_yitl0")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mpfnk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qljol")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
 [node name="ChapterThree" type="Node2D"]
 script = ExtResource("1_upm4h")
+chapter_seed = 1572848714
+boss_location = Vector2(207, 221)
 boss_health = 20
 current_level = 3
+level_boss = ExtResource("2_mpfnk")
 total_level_spleep_holes = 4
 
 [node name="TilemapGaeaRenderer" type="Node" parent="." node_paths=PackedStringArray("tile_map_layers", "generator")]
@@ -571,26 +597,88 @@ script = ExtResource("10_w6ife")
 [node name="Player" parent="." instance=ExtResource("11_ibxrj")]
 position = Vector2(333, 345)
 
-[node name="SpleepHole" parent="." instance=ExtResource("12_3p7gv")]
-position = Vector2(216, 104)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+z_index = 4
+sprite_frames = SubResource("SpriteFrames_mpfnk")
+autoplay = "default"
 
-[node name="SpleepHole2" parent="." instance=ExtResource("12_3p7gv")]
-position = Vector2(-56, 184)
+[node name="BossSpawningWarningTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
 
-[node name="SpleepHole3" parent="." instance=ExtResource("12_3p7gv")]
-position = Vector2(-120, 24)
+[node name="Spleeps" type="Node2D" parent="."]
 
-[node name="SpleepHole4" parent="." instance=ExtResource("12_3p7gv")]
-position = Vector2(40, -24)
-
-[node name="Spleep" parent="." instance=ExtResource("13_mp2lk")]
+[node name="Spleep" parent="Spleeps" instance=ExtResource("13_mp2lk")]
 position = Vector2(49, 100)
 
-[node name="Spleep2" parent="." instance=ExtResource("13_mp2lk")]
+[node name="Spleep2" parent="Spleeps" instance=ExtResource("13_mp2lk")]
 position = Vector2(99, 188)
 
-[node name="Spleep3" parent="." instance=ExtResource("13_mp2lk")]
+[node name="Spleep3" parent="Spleeps" instance=ExtResource("13_mp2lk")]
 position = Vector2(-6, 63)
 
-[node name="Spleep4" parent="." instance=ExtResource("13_mp2lk")]
+[node name="Spleep4" parent="Spleeps" instance=ExtResource("13_mp2lk")]
 position = Vector2(201, 268)
+
+[node name="SpleepHoles" type="Node2D" parent="."]
+
+[node name="SpleepHole" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
+position = Vector2(216, 104)
+
+[node name="SpleepHole2" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
+position = Vector2(-56, 184)
+
+[node name="SpleepHole3" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
+position = Vector2(-120, 24)
+
+[node name="SpleepHole4" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
+position = Vector2(40, -24)
+
+[node name="Saws" type="Node2D" parent="."]
+
+[node name="SawBlade" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(31, 184)
+
+[node name="SawBlade2" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(-145, 54)
+
+[node name="SawBlade3" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(-145, -14)
+
+[node name="SawBlade4" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(110, 321)
+
+[node name="SawBlade5" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(95, 290)
+
+[node name="SawBlade6" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(354, 228)
+
+[node name="SawBlade7" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(303, 384)
+
+[node name="SawBlade8" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(157, 400)
+
+[node name="SawBlade9" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(129, 94)
+
+[node name="SawBlade10" parent="Saws" instance=ExtResource("16_w6ife")]
+position = Vector2(98, -32)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="TriangleEnemy" parent="Enemies" instance=ExtResource("16_bient")]
+position = Vector2(298, 158)
+
+[node name="SquareEnemy" parent="Enemies" instance=ExtResource("17_qear5")]
+position = Vector2(176, 342)
+
+[node name="TriangleEnemy2" parent="Enemies" instance=ExtResource("16_bient")]
+position = Vector2(-47, 114)
+
+[node name="SquareEnemy2" parent="Enemies" instance=ExtResource("17_qear5")]
+position = Vector2(-16, 6)
+
+[connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

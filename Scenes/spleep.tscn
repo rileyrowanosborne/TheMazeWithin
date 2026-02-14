@@ -95,6 +95,7 @@ collision_mask = 4
 one_shot = true
 
 [node name="LauchedTimer" type="Timer" parent="."]
+wait_time = 0.1
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
@@ -112,5 +113,10 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_s6gym")
 color = Color(0.278006, 0.582489, 0.337936, 1)
 
+[node name="SlowDownTimer" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]
+[connection signal="timeout" from="SlowDownTimer" to="." method="_on_slow_down_timer_timeout"]

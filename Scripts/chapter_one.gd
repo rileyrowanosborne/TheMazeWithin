@@ -68,9 +68,10 @@ func level_boss_died():
 
 func change_levels():
 	level_boss_is_spawned = false
-	if GameState.current_chapter == 1:
-		GameState.current_chapter += 1
-		get_tree().change_scene_to_file("res://Scenes/chapter_screen.tscn")
+	GameState.current_chapter += 1
+	get_tree().change_scene_to_file("res://Scenes/chapter_screen.tscn")
+
+		
 
 
 func reset_level():

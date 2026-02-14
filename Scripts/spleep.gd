@@ -12,6 +12,8 @@ extends CharacterBody2D
 @onready var ray_cast_left_2: RayCast2D = $Raycasts/RayCastLeft2
 
 @onready var cooldown_timer: Timer = $CooldownTimer
+@onready var lauched_timer: Timer = $LauchedTimer
+@onready var slow_down_timer: Timer = $SlowDownTimer
 
 
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
@@ -24,6 +26,7 @@ var direction_cooldown : bool = false
 var d_d_vector : Vector2
 var d_d_strenth : float
 var is_launched : bool = false
+var slow_down : bool = false
 
 
 #0,0 means stationary
@@ -65,6 +68,8 @@ func _process(delta: float) -> void:
 				change_direction()
 	
 	
+	
+	
 func change_direction():
 	direction_cooldown = true
 	cooldown_timer.start()
@@ -76,8 +81,11 @@ func _physics_process(delta: float) -> void:
 		if not is_launched:
 			velocity = SPEED * direction * delta
 		else:
-			velocity = d_d_vector * d_d_strenth
-	
+			if not slow_down:
+				velocity = d_d_vector * d_d_strenth
+			else:
+				velocity = lerp(velocity, Vector2.ZERO, .1)
+		
 	else:
 		velocity = Vector2.ZERO
 	
@@ -97,16 +105,22 @@ func apply_facing_impulse(strength):
 		var deflect_direction_vector = (projectile_position - player_position).normalized()
 		d_d_vector = deflect_direction_vector
 		d_d_strenth = strength
-		
+		lauched_timer.start()
 		is_launched = true
 	
 
 
 func _on_lauched_timer_timeout() -> void:
-	is_launched = false
+	slow_down_timer.start()
+	slow_down = true
 
 
 
 func trapped_in_a_hole():
 	is_in_spleep_hole = true
 	cpu_particles_2d.emitting = true
+
+
+func _on_slow_down_timer_timeout() -> void:
+	is_launched = false
+	slow_down = false
