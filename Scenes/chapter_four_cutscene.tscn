@@ -1,0 +1,206 @@
+[gd_scene load_steps=20 format=3 uid="uid://ccjiuml6fbchd"]
+
+[ext_resource type="Texture2D" uid="uid://dagt201len3u5" path="res://Assets/Sprites/BaseFaceSprite.png" id="1_n7grv"]
+[ext_resource type="Script" uid="uid://dn004lg6a2iod" path="res://Scripts/chapter_four_cutscene.gd" id="1_syac8"]
+[ext_resource type="Texture2D" uid="uid://dthlv28tw38vf" path="res://Assets/Sprites/Brain.png" id="1_uatf7"]
+[ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_2o2x4"]
+[ext_resource type="Texture2D" uid="uid://clnj2xdsa22no" path="res://Assets/Sprites/Skeleton.png" id="2_b3jl5"]
+[ext_resource type="Texture2D" uid="uid://b5ljj3ycixeme" path="res://Assets/Sprites/Mouth-Talking-SpriteSheet.png" id="3_xt4nh"]
+[ext_resource type="Texture2D" uid="uid://clu00i8sfkb0n" path="res://Assets/Sprites/Hair-Sprite.png" id="4_xt4nh"]
+[ext_resource type="Texture2D" uid="uid://dup6u860f2vrl" path="res://Assets/Sprites/TheMindPalaceWithWindow.png" id="8_pynv6"]
+[ext_resource type="FontFile" uid="uid://cys4ktrnlq1qt" path="res://Assets/Fonts/light-arial.ttf" id="9_kvkwq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uatf7"]
+atlas = ExtResource("2_2o2x4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b3jl5"]
+atlas = ExtResource("2_2o2x4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_syac8"]
+atlas = ExtResource("2_2o2x4")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pynv6"]
+atlas = ExtResource("2_2o2x4")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvkwq"]
+atlas = ExtResource("2_2o2x4")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6lre"]
+atlas = ExtResource("2_2o2x4")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_udwpo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b3jl5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_syac8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pynv6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvkwq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6lre")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uatf7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgq8o"]
+atlas = ExtResource("3_xt4nh")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h7y3r"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgq8o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Theme" id="Theme_h6lre"]
+default_font = ExtResource("9_kvkwq")
+default_font_size = 64
+
+[node name="ChapterFourCutscene" type="Node2D"]
+script = ExtResource("1_syac8")
+
+[node name="Background" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.599689, 0.726998, 0.913226, 1)
+
+[node name="BrainLayer" type="Node2D" parent="."]
+visible = false
+position = Vector2(555, 324)
+
+[node name="BrainSprite" type="Sprite2D" parent="BrainLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_uatf7")
+
+[node name="SkeletonLayer" type="Node2D" parent="."]
+visible = false
+position = Vector2(555, 324)
+
+[node name="SkeletonSprite" type="Sprite2D" parent="SkeletonLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("2_b3jl5")
+
+[node name="FleshLayer" type="Node2D" parent="."]
+position = Vector2(555, 324)
+
+[node name="BodySprite" type="Sprite2D" parent="FleshLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("1_n7grv")
+
+[node name="EyesSprite" type="AnimatedSprite2D" parent="FleshLayer"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_udwpo")
+autoplay = "default"
+
+[node name="MouthSprite" type="AnimatedSprite2D" parent="FleshLayer"]
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_h7y3r")
+
+[node name="HairSprite" type="Sprite2D" parent="FleshLayer"]
+scale = Vector2(5, 5)
+texture = ExtResource("4_xt4nh")
+
+[node name="SceneChangeTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="BeginZoomTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SkeletonBeginTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="BrainBeginTimer" type="Timer" parent="."]
+wait_time = 0.05
+one_shot = true
+
+[node name="MindPalaceLayer" type="Node2D" parent="."]
+visible = false
+position = Vector2(555, 324)
+scale = Vector2(2, 2)
+
+[node name="MindPalaceSprite" type="Sprite2D" parent="MindPalaceLayer"]
+position = Vector2(-1.60001, -23.2)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("8_pynv6")
+region_rect = Rect2(22.6936, 0, 233.306, 256)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MindPalaceLayer"]
+offset_left = -193.5
+offset_top = 74.5
+offset_right = 206.5
+offset_bottom = 155.5
+theme = SubResource("Theme_h6lre")
+theme_override_colors/default_color = Color(0.174073, 0.303571, 0.505908, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
+text = "THE MIND PALACE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MindPalaceBeginTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
+[connection signal="timeout" from="BeginZoomTimer" to="." method="_on_begin_zoom_timer_timeout"]
+[connection signal="timeout" from="SkeletonBeginTimer" to="." method="_on_skeleton_begin_timer_timeout"]
+[connection signal="timeout" from="BrainBeginTimer" to="." method="_on_brain_begin_timer_timeout"]
+[connection signal="timeout" from="MindPalaceBeginTimer" to="." method="_on_mind_palace_begin_timer_timeout"]

@@ -145,7 +145,7 @@ script = ExtResource("1_adopb")
 offset_top = 2.0
 offset_right = 1152.0
 offset_bottom = 650.0
-color = Color(0.701759, 0.53075, 0.1453, 1)
+color = Color(0.313664, 0.442634, 0.677106, 1)
 
 [node name="EyesAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
