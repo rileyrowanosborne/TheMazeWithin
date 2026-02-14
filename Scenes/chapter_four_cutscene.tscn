@@ -1,7 +1,6 @@
-[gd_scene load_steps=20 format=3 uid="uid://ccjiuml6fbchd"]
+[gd_scene load_steps=22 format=3 uid="uid://ccjiuml6fbchd"]
 
 [ext_resource type="Texture2D" uid="uid://dagt201len3u5" path="res://Assets/Sprites/BaseFaceSprite.png" id="1_n7grv"]
-[ext_resource type="Script" uid="uid://dn004lg6a2iod" path="res://Scripts/chapter_four_cutscene.gd" id="1_syac8"]
 [ext_resource type="Texture2D" uid="uid://dthlv28tw38vf" path="res://Assets/Sprites/Brain.png" id="1_uatf7"]
 [ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_2o2x4"]
 [ext_resource type="Texture2D" uid="uid://clnj2xdsa22no" path="res://Assets/Sprites/Skeleton.png" id="2_b3jl5"]
@@ -9,6 +8,43 @@
 [ext_resource type="Texture2D" uid="uid://clu00i8sfkb0n" path="res://Assets/Sprites/Hair-Sprite.png" id="4_xt4nh"]
 [ext_resource type="Texture2D" uid="uid://dup6u860f2vrl" path="res://Assets/Sprites/TheMindPalaceWithWindow.png" id="8_pynv6"]
 [ext_resource type="FontFile" uid="uid://cys4ktrnlq1qt" path="res://Assets/Fonts/light-arial.ttf" id="9_kvkwq"]
+
+[sub_resource type="Animation" id="Animation_pynv6"]
+resource_name = "Opaque-ifier"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kvkwq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kvkwq"]
+_data = {
+&"Opaque-ifier": SubResource("Animation_pynv6"),
+&"RESET": SubResource("Animation_kvkwq")
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uatf7"]
 atlas = ExtResource("2_2o2x4")
@@ -113,24 +149,32 @@ default_font = ExtResource("9_kvkwq")
 default_font_size = 64
 
 [node name="ChapterFourCutscene" type="Node2D"]
-script = ExtResource("1_syac8")
 
 [node name="Background" type="ColorRect" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(1152, 648)
 offset_right = 1152.0
 offset_bottom = 648.0
-color = Color(0.599689, 0.726998, 0.913226, 1)
+color = Color(0.51587, 0.666347, 0.886578, 1)
+
+[node name="Opaque-ifier" type="AnimationPlayer" parent="Background"]
+libraries = {
+&"": SubResource("AnimationLibrary_kvkwq")
+}
+autoplay = "Opaque-ifier"
 
 [node name="BrainLayer" type="Node2D" parent="."]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(555, 324)
 
 [node name="BrainSprite" type="Sprite2D" parent="BrainLayer"]
 scale = Vector2(5, 5)
 texture = ExtResource("1_uatf7")
 
+[node name="Opaque-ifier" type="AnimationPlayer" parent="BrainLayer"]
+
 [node name="SkeletonLayer" type="Node2D" parent="."]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(555, 324)
 
 [node name="SkeletonSprite" type="Sprite2D" parent="SkeletonLayer"]
@@ -138,6 +182,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("2_b3jl5")
 
 [node name="FleshLayer" type="Node2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(555, 324)
 
 [node name="BodySprite" type="Sprite2D" parent="FleshLayer"]
@@ -172,7 +217,7 @@ wait_time = 0.05
 one_shot = true
 
 [node name="MindPalaceLayer" type="Node2D" parent="."]
-visible = false
+self_modulate = Color(1, 1, 1, 0)
 position = Vector2(555, 324)
 scale = Vector2(2, 2)
 
@@ -198,6 +243,8 @@ vertical_alignment = 1
 
 [node name="MindPalaceBeginTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 
 [connection signal="timeout" from="SceneChangeTimer" to="." method="_on_scene_change_timer_timeout"]
 [connection signal="timeout" from="BeginZoomTimer" to="." method="_on_begin_zoom_timer_timeout"]
