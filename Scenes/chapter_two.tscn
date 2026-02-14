@@ -57,7 +57,7 @@ affected_layers = Array[int]([0])
 filter_type = 0
 metadata/_custom_type_script = "uid://bhqsk21dp4lv0"
 
-[sub_resource type="Resource" id="Resource_abj8b"]
+[sub_resource type="Resource" id="Resource_mvp4d"]
 script = ExtResource("7_4s7gi")
 type = 1
 tilemap_layer = 0
@@ -70,7 +70,7 @@ metadata/_custom_type_script = "uid://rkwsu0rs86df"
 [sub_resource type="Resource" id="Resource_tpvay"]
 resource_name = "Settings"
 script = ExtResource("9_rdre6")
-tile = SubResource("Resource_abj8b")
+tile = SubResource("Resource_mvp4d")
 fullness_check = 0
 max_tiles = 400
 constrain_world_size = false
@@ -85,7 +85,7 @@ Vector2i(3, 3): 0.1
 modifiers = Array[ExtResource("5_7aydm")]([SubResource("Resource_dfolm"), SubResource("Resource_bpmid")])
 metadata/_custom_type_script = "uid://bugvdl63j42uk"
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_e4mge"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iq6gh"]
 texture = ExtResource("10_si0ge")
 0:0/0 = 0
 0:0/0/z_index = 5
@@ -545,7 +545,7 @@ terrain_set_0/terrain_1/name = "Walls"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_e4mge")
+sources/1 = SubResource("TileSetAtlasSource_iq6gh")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qljol"]
 atlas = ExtResource("16_mvaus")
