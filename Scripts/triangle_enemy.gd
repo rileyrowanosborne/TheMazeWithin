@@ -31,7 +31,7 @@ var current_direction : Vector2
 
 #health variables
 const MIN_HEALTH = 0
-var max_health : int
+var max_health : int = 3
 var current_health : int
 var boss_mode_active : bool = false
 var is_dying : bool = false
@@ -41,6 +41,7 @@ var is_dying : bool = false
 func _ready() -> void:
 	add_to_group("Enemy")
 	add_to_group("Triangle")
+	current_health = max_health
 	current_direction = Vector2(1,0)
 
 

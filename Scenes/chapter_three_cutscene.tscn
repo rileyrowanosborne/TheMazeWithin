@@ -178,3 +178,4 @@ animation = &"Hair Rotation"
 autoplay = "Hair Rotation"
 
 [node name="ChangeSceneTimer" type="Timer" parent="."]
+one_shot = true
