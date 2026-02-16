@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://bu47na2aprlhq"]
+
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="1_u25u5"]
+[ext_resource type="Texture2D" uid="uid://c8ln220p6tf0q" path="res://Assets/Sprites/SquareSheildLayer-Sheet.png" id="2_x54c3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3q1td"]
+size = Vector2(36, 2)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jnp6o"]
+atlas = ExtResource("2_x54c3")
+region = Rect2(64, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6one1"]
+atlas = ExtResource("2_x54c3")
+region = Rect2(128, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ad86x"]
+atlas = ExtResource("2_x54c3")
+region = Rect2(192, 0, 64, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h6e7s"]
+atlas = ExtResource("2_x54c3")
+region = Rect2(0, 0, 64, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mnt55"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jnp6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6one1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ad86x")
+}],
+"loop": false,
+"name": &"Hit",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h6e7s")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="SquareShieldSegment" type="Node2D"]
+
+[node name="Hurtbox" parent="." instance=ExtResource("1_u25u5")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+shape = SubResource("RectangleShape2D_3q1td")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_mnt55")
+animation = &"Idle"
+autoplay = "Idle"

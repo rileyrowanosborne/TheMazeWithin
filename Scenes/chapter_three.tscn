@@ -574,7 +574,7 @@ boss_location = Vector2(207, 221)
 boss_health = 20
 current_level = 3
 level_boss = ExtResource("2_mpfnk")
-total_level_spleep_holes = 4
+total_level_spleep_holes = 3
 
 [node name="TilemapGaeaRenderer" type="Node" parent="." node_paths=PackedStringArray("tile_map_layers", "generator")]
 script = ExtResource("2_kamx3")
@@ -610,16 +610,13 @@ one_shot = true
 [node name="Spleeps" type="Node2D" parent="."]
 
 [node name="Spleep" parent="Spleeps" instance=ExtResource("13_mp2lk")]
-position = Vector2(49, 100)
+position = Vector2(189, 222)
 
 [node name="Spleep2" parent="Spleeps" instance=ExtResource("13_mp2lk")]
-position = Vector2(99, 188)
+position = Vector2(168, 205)
 
 [node name="Spleep3" parent="Spleeps" instance=ExtResource("13_mp2lk")]
-position = Vector2(-6, 63)
-
-[node name="Spleep4" parent="Spleeps" instance=ExtResource("13_mp2lk")]
-position = Vector2(201, 268)
+position = Vector2(206, 201)
 
 [node name="SpleepHoles" type="Node2D" parent="."]
 
@@ -628,9 +625,6 @@ position = Vector2(216, 104)
 
 [node name="SpleepHole2" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
 position = Vector2(-56, 184)
-
-[node name="SpleepHole3" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
-position = Vector2(-120, 24)
 
 [node name="SpleepHole4" parent="SpleepHoles" instance=ExtResource("12_3p7gv")]
 position = Vector2(40, -24)
