@@ -40,11 +40,19 @@ var boss_mode_active : bool = false
 var is_enemy_hittable : bool
 
 
+var is_hittable : bool = false
+const MAX_SHIELDS : int = 4
+var current_shields : int
+
+
 func _ready() -> void:
 	add_to_group("Enemy")
 	add_to_group("Square")
 	current_health = MAX_HEALTH
 	current_direction = Vector2(1,0)
+	current_shields = MAX_SHIELDS
+	
+	
 
 
 
@@ -73,11 +81,14 @@ func _physics_process(delta: float) -> void:
 	
 
 func take_damage():
-	current_health -= 1
-	SignalBus.emit_signal("enemy_hit")
-	animated_sprite_2d.play("Hit")
-	damage_timer.start()
-	life_check()
+	if is_hittable:
+		current_health -= 1
+		SignalBus.emit_signal("enemy_hit")
+		animated_sprite_2d.play("Hit")
+		damage_timer.start()
+		life_check()
+	else:
+		print("Destroy a shield first")
 
 
 func _on_damage_timer_timeout() -> void:

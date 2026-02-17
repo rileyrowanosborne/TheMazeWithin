@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxtp6u8f8c4xj"]
+[gd_scene load_steps=12 format=3 uid="uid://cxtp6u8f8c4xj"]
 
 [ext_resource type="Script" uid="uid://bckhkmlgg7mfm" path="res://Scripts/triangle_enemy.gd" id="1_81x11"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_343q2"]
 [ext_resource type="Texture2D" uid="uid://5ose8gw74fkw" path="res://Assets/Sprites/EnemySprite-export copy.png" id="2_m2jwi"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/projectile_launcher.tscn" id="3_ntdtf"]
+[ext_resource type="PackedScene" uid="uid://dx6hw1e5dab2q" path="res://Scenes/triangle_shield_segment.tscn" id="5_28wd8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntdtf"]
 atlas = ExtResource("2_m2jwi")
@@ -154,6 +155,9 @@ collision_mask = 18
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PackedVector2Array(13, 10, 0, -15, -13, 10)
+
+[node name="TriangleShieldSegment" parent="." instance=ExtResource("5_28wd8")]
+position = Vector2(0, -22)
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]

@@ -14,6 +14,10 @@ func take_damage():
 	if get_parent().is_in_group("Enemy"):
 		if get_parent().has_method("take_damage"):
 			get_parent().take_damage()
+	
+	if get_parent().is_in_group("Shield"):
+		if get_parent().has_method("take_damage"):
+			get_parent().take_damage()
 
 
 func _on_body_entered(body: Node2D) -> void:

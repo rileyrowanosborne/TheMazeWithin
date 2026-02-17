@@ -37,12 +37,18 @@ var boss_mode_active : bool = false
 var is_dying : bool = false
 
 
+var is_hittable : bool = false
+const MAX_SHIELDS : int = 4
+var current_shields : int
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Enemy")
 	add_to_group("Triangle")
 	current_health = max_health
 	current_direction = Vector2(1,0)
+	current_shields = MAX_SHIELDS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -73,16 +79,18 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage():
-	current_health -= 1
-	SignalBus.emit_signal("enemy_hit")
-	animated_sprite_2d.play("Hit")
-	damage_timer.start()
-	life_check()
+	if is_hittable:
+		current_health -= 1
+		SignalBus.emit_signal("enemy_hit")
+		animated_sprite_2d.play("Hit")
+		damage_timer.start()
+		life_check()
+
+
 
 func life_check():
 	if current_health <= MIN_HEALTH:
 		die()
-	
 
 
 func die():
