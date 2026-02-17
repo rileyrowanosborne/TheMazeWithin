@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=48 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
@@ -13,6 +13,9 @@
 [ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/hud.tscn" id="10_tx1dd"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="11_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dwbexseh6w33q" path="res://Assets/Resources/radial_sphere_resource.tres" id="13_ukyrk"]
+[ext_resource type="Texture2D" uid="uid://bp4scsysccrgk" path="res://Assets/Sprites/ChargeProgressBarUnder.png" id="14_7dp3o"]
+[ext_resource type="Texture2D" uid="uid://b8v11supbk7g7" path="res://Assets/Sprites/ChargeProgressBarOver.png" id="15_h4iuc"]
+[ext_resource type="Texture2D" uid="uid://c8b1fkh5154mi" path="res://Assets/Sprites/ChargeProgressBarProgress.png" id="16_fd4e3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
@@ -262,6 +265,7 @@ _data = [Vector2(0.0261044, 0.229349), 0.0, 3.33082, 0, 0, Vector2(1, 0.114339),
 point_count = 2
 
 [node name="Player" type="CharacterBody2D"]
+light_mask = 0
 z_index = 4
 z_as_relative = false
 y_sort_enabled = true
@@ -365,10 +369,13 @@ position = Vector2(1, -5)
 shape = SubResource("CapsuleShape2D_gymyn")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
+position = Vector2(0, -12)
+color = Color(0.722837, 1.74474e-06, 6.73831e-07, 1)
+energy = 0.5
 texture = ExtResource("13_ukyrk")
 
 [node name="ChargeUI" type="Node2D" parent="."]
+z_index = 10
 
 [node name="SwingIsChargedParticles" type="CPUParticles2D" parent="ChargeUI"]
 position = Vector2(0, -8)
@@ -386,9 +393,16 @@ scale_amount_curve = SubResource("Curve_ukyrk")
 color = Color(0.215686, 0.698039, 0.117647, 1)
 
 [node name="SwingIsChargedBar" type="TextureProgressBar" parent="ChargeUI"]
-offset_right = 40.0
-offset_bottom = 40.0
-fill_mode = 4
+offset_left = -10.0
+offset_top = -23.0
+offset_right = -2.0
+offset_bottom = -15.0
+value = 100.0
+fill_mode = 3
+texture_under = ExtResource("14_7dp3o")
+texture_over = ExtResource("15_h4iuc")
+texture_progress = ExtResource("16_fd4e3")
+tint_over = Color(1, 1, 1, 0)
 
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
