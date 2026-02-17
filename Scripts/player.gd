@@ -58,9 +58,6 @@ func _process(delta: float) -> void:
 	GameState.player_position = global_position
 	
 	dash_direction = global_position.direction_to(get_global_mouse_position())
-	
-	print(dash_direction)
-
 
 
 func _input(event: InputEvent) -> void:

@@ -107,7 +107,6 @@ script = ExtResource("1_t3g87")
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2(-18, -4.00001)
 rotation = 0.651008
-scale = Vector2(1, 1)
 shape = SubResource("CapsuleShape2D_qomld")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
