@@ -1,7 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://c8v275flby13h"]
+[gd_scene load_steps=11 format=3 uid="uid://c8v275flby13h"]
 
 [ext_resource type="Texture2D" uid="uid://buhnqjpk18jsm" path="res://Assets/Sprites/OrmTheGreat.png" id="1_dsmmw"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_qomld"]
+[ext_resource type="Texture2D" uid="uid://c5lo3vi4t1rmx" path="res://Assets/Sprites/LongHealthBarUnder.png" id="3_6p7oy"]
+[ext_resource type="Texture2D" uid="uid://dcgpbvi21ljci" path="res://Assets/Sprites/LongHealthBarProgress.png" id="4_upkus"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsmmw"]
 
@@ -75,3 +77,14 @@ shape = SubResource("CapsuleShape2D_t3g87")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t3g87")
+
+[node name="BossHealth" type="CanvasLayer" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="BossHealth"]
+offset_left = 185.0
+offset_top = 578.0
+offset_right = 441.0
+offset_bottom = 594.0
+scale = Vector2(3, 3)
+texture_under = ExtResource("3_6p7oy")
+texture_progress = ExtResource("4_upkus")

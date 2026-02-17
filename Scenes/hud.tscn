@@ -1,7 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://bo5hhn2iciqfy"]
+[gd_scene load_steps=8 format=3 uid="uid://bo5hhn2iciqfy"]
 
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
+[ext_resource type="Texture2D" uid="uid://cjrl10itovw7o" path="res://Assets/Sprites/HealthBarBottom.png" id="2_6fbih"]
+[ext_resource type="Script" uid="uid://81ovgw6dbg8t" path="res://Scripts/health_info.gd" id="2_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://bxogj678c1m86" path="res://Assets/Sprites/HealthBarFill.png" id="3_t1xeu"]
 
 [sub_resource type="Theme" id="Theme_fccik"]
 default_font = ExtResource("1_e0onf")
@@ -19,6 +22,18 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("2_t1xeu")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="HealthInfo"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 19.0
+offset_right = 83.0
+offset_bottom = 51.0
+max_value = 3.0
+value = 3.0
+texture_under = ExtResource("2_6fbih")
+texture_progress = ExtResource("3_t1xeu")
 
 [node name="BossScreenText" type="Control" parent="."]
 layout_mode = 3
@@ -65,6 +80,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="YouDiedText" type="RichTextLabel" parent="PlayerDiedText"]
+layout_mode = 0
 offset_top = 66.0
 offset_right = 1144.0
 offset_bottom = 615.0

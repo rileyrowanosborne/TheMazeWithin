@@ -14,6 +14,7 @@ var current_health : int
 func _ready() -> void:
 	SignalBus.connect("player_hit", on_player_hit)
 	current_health = max_health
+	GameState.player_health = max_health
 
 
 func on_player_hit():
@@ -30,7 +31,7 @@ func on_player_hit():
 
 
 func health_check():
-	print(current_health)
+	GameState.player_health = current_health
 	if GameState.player_alive:
 		if get_parent().is_in_group("Player"):
 			if current_health <= min_health:
