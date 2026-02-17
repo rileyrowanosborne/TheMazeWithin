@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=44 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://54amq6ybpquf" path="res://Scenes/shake_camera.tscn" id="9_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/hud.tscn" id="10_tx1dd"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="11_gymyn"]
+[ext_resource type="Texture2D" uid="uid://dwbexseh6w33q" path="res://Assets/Resources/radial_sphere_resource.tres" id="13_ukyrk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
@@ -358,6 +359,10 @@ collision_mask = 26
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(1, -5)
 shape = SubResource("CapsuleShape2D_gymyn")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+texture = ExtResource("13_ukyrk")
 
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
