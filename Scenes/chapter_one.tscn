@@ -611,13 +611,13 @@ one_shot = true
 [node name="Spleeps" type="Node2D" parent="."]
 
 [node name="Spleep" parent="Spleeps" instance=ExtResource("12_ax664")]
-position = Vector2(5, 40)
+position = Vector2(97, -1)
 
 [node name="Spleep2" parent="Spleeps" instance=ExtResource("12_ax664")]
-position = Vector2(213, 26)
+position = Vector2(109, -10)
 
 [node name="Spleep3" parent="Spleeps" instance=ExtResource("12_ax664")]
-position = Vector2(86, 122)
+position = Vector2(90, -15)
 
 [node name="SpleepHoles" type="Node2D" parent="."]
 

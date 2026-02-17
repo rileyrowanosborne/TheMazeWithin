@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=45 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
@@ -257,6 +257,10 @@ radius = 1.0
 radius = 3.0
 height = 16.0
 
+[sub_resource type="Curve" id="Curve_ukyrk"]
+_data = [Vector2(0.0261044, 0.229349), 0.0, 3.33082, 0, 0, Vector2(1, 0.114339), -2.0998, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 4
 z_as_relative = false
@@ -363,6 +367,28 @@ shape = SubResource("CapsuleShape2D_gymyn")
 [node name="PointLight2D" type="PointLight2D" parent="."]
 visible = false
 texture = ExtResource("13_ukyrk")
+
+[node name="ChargeUI" type="Node2D" parent="."]
+
+[node name="SwingIsChargedParticles" type="CPUParticles2D" parent="ChargeUI"]
+position = Vector2(0, -8)
+emitting = false
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 176.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 9.0
+initial_velocity_max = 10.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_ukyrk")
+color = Color(0.215686, 0.698039, 0.117647, 1)
+
+[node name="SwingIsChargedBar" type="TextureProgressBar" parent="ChargeUI"]
+offset_right = 40.0
+offset_bottom = 40.0
+fill_mode = 4
 
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
