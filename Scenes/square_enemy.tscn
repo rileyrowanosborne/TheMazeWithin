@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://1puix00mhy8b"]
+[gd_scene load_steps=15 format=3 uid="uid://1puix00mhy8b"]
 
 [ext_resource type="Texture2D" uid="uid://c5rwdvef67oep" path="res://Assets/Sprites/BlueSquareEnemySprite copy.png" id="1_mnvsh"]
 [ext_resource type="Script" uid="uid://o2vbalvxx13j" path="res://Scripts/square_enemy.gd" id="1_omeaj"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/projectile_launcher.tscn" id="2_6lmlw"]
+[ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/blood_splat.tscn" id="2_apyv8"]
 [ext_resource type="PackedScene" uid="uid://bu47na2aprlhq" path="res://Scenes/square_shield_segment.tscn" id="5_apyv8"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="5_lq68a"]
 
@@ -62,6 +63,7 @@ z_index = 3
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_omeaj")
+blood_splat_scene = ExtResource("2_apyv8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_apyv8")

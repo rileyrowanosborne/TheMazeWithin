@@ -21,7 +21,7 @@ extends CharacterBody2D
 @onready var death_timer: Timer = $Timers/DeathTimer
 
 
-
+@export var blood_splat_scene : PackedScene
 
 
 #general variables
@@ -38,8 +38,7 @@ var is_dying : bool = false
 
 
 var is_hittable : bool = false
-const MAX_SHIELDS : int = 4
-var current_shields : int
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -48,12 +47,10 @@ func _ready() -> void:
 	add_to_group("Triangle")
 	current_health = max_health
 	current_direction = Vector2(1,0)
-	current_shields = MAX_SHIELDS
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	print(current_health)
 	
 	if ray_cast_right.is_colliding() or ray_cast_right_2.is_colliding():
 		current_direction.x = -1
@@ -122,3 +119,11 @@ func _on_death_timer_timeout() -> void:
 
 func _on_damage_timer_timeout() -> void:
 	animated_sprite_2d.play("Idle")
+
+
+
+func spawn_blood_splat(world_location : Vector2):
+	if blood_splat_scene:
+		var blood_splat_instance = blood_splat_scene.instantiate()
+		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
+		blood_splat_instance.global_position = world_location

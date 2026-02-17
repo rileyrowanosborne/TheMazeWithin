@@ -1,8 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=43 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
 [ext_resource type="Texture2D" uid="uid://dif8wteble2vw" path="res://Assets/Sprites/Main Character Sprite Sheet copy-export.png" id="2_fkybt"]
+[ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/blood_splat.tscn" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://dtulix6ndpvie" path="res://Scripts/sprite_script.gd" id="3_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://18q3ioq6x3oo" path="res://Scenes/baseball_bat.tscn" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://dys3ciik0tx1j" path="res://Scenes/aiming_cursor.tscn" id="6_x3wgy"]
@@ -262,6 +263,7 @@ y_sort_enabled = true
 collision_layer = 9
 collision_mask = 12
 script = ExtResource("1_cvnsp")
+blood_splat_scene = ExtResource("2_pu2lt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)

@@ -22,6 +22,7 @@ extends CharacterBody2D
 
 
 
+@export var blood_splat_scene : PackedScene
 
 
 #general variables
@@ -35,6 +36,8 @@ const MAX_HEALTH = 3
 var current_health : int
 var is_dying : bool = false
 var boss_mode_active : bool = false
+
+var is_hittable : bool = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -71,10 +74,14 @@ func _physics_process(delta: float) -> void:
 
 
 func take_damage():
-	current_health -= 1
-	SignalBus.emit_signal("enemy_hit")
-	animated_sprite_2d.play("Hit")
-	life_check()
+	if is_hittable:
+		current_health -= 1
+		SignalBus.emit_signal("enemy_hit")
+		animated_sprite_2d.play("Hit")
+		life_check()
+		spawn_blood_splat(global_position)
+	else:
+		print("destroy shield first")
 
 func life_check():
 	if current_health <= MIN_HEALTH:
@@ -111,3 +118,11 @@ func _on_death_timer_timeout() -> void:
 
 func _on_damage_timer_timeout() -> void:
 	animated_sprite_2d.play("Idle")
+
+
+
+func spawn_blood_splat(world_location : Vector2):
+	if blood_splat_scene:
+		var blood_splat_instance = blood_splat_scene.instantiate()
+		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
+		blood_splat_instance.global_position = world_location

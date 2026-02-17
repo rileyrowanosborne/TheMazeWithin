@@ -25,6 +25,10 @@ extends CharacterBody2D
 @onready var direction_timer: Timer = $Timers/DirectionTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
 
+
+@export var blood_splat_scene : PackedScene
+
+
 #general variables
 @export var is_shooting : bool = true
 const SPEED = 20
@@ -41,8 +45,6 @@ var is_enemy_hittable : bool
 
 
 var is_hittable : bool = false
-const MAX_SHIELDS : int = 4
-var current_shields : int
 
 
 func _ready() -> void:
@@ -50,7 +52,6 @@ func _ready() -> void:
 	add_to_group("Square")
 	current_health = MAX_HEALTH
 	current_direction = Vector2(1,0)
-	current_shields = MAX_SHIELDS
 	
 	
 
@@ -127,3 +128,11 @@ func _input(event: InputEvent) -> void:
 		elif not is_shooting:
 			is_shooting = true
 			print("Testing Mode: OFF")
+
+
+
+func spawn_blood_splat(world_location : Vector2):
+	if blood_splat_scene:
+		var blood_splat_instance = blood_splat_scene.instantiate()
+		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
+		blood_splat_instance.global_position = world_location

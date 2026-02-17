@@ -21,13 +21,15 @@ var dash_invul_length : float = .5
 var is_dash_invul : bool = false
 
 
+@export var blood_splat_scene : PackedScene
+
 
 func _ready() -> void:
 	add_to_group("Player")
 	GameState.player_alive = true
 	GameState.player_is_invul = false
 	SignalBus.connect("player_died", on_player_died)
-
+	SignalBus.connect("player_hit", on_player_hit)
 
 
 func get_input():
@@ -107,3 +109,14 @@ func on_player_died():
 
 func _on_death_timer_timeout() -> void:
 	get_tree().call_deferred("reload_current_scene")
+
+
+
+func on_player_hit():
+	spawn_blood_splat(global_position)
+
+func spawn_blood_splat(world_location : Vector2):
+	if blood_splat_scene:
+		var blood_splat_instance = blood_splat_scene.instantiate()
+		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
+		blood_splat_instance.global_position = world_location

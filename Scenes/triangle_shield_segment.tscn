@@ -2,43 +2,43 @@
 
 [ext_resource type="Script" uid="uid://cojx43xbxlxsp" path="res://Scripts/triangle_shield_segment.gd" id="1_x87x7"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_dmowt"]
-[ext_resource type="Texture2D" uid="uid://c8ln220p6tf0q" path="res://Assets/Sprites/SquareSheildLayer-Sheet.png" id="3_6vv8j"]
+[ext_resource type="Texture2D" uid="uid://b0f866g7skykh" path="res://Assets/Sprites/TriangleShieldLayer-Sheet.png" id="3_x87x7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jnp6o"]
-atlas = ExtResource("3_6vv8j")
-region = Rect2(64, 0, 64, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_x87x7"]
+atlas = ExtResource("3_x87x7")
+region = Rect2(64, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6one1"]
-atlas = ExtResource("3_6vv8j")
-region = Rect2(128, 0, 64, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_6vv8j"]
+atlas = ExtResource("3_x87x7")
+region = Rect2(128, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ad86x"]
-atlas = ExtResource("3_6vv8j")
-region = Rect2(192, 0, 64, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_tfg35"]
+atlas = ExtResource("3_x87x7")
+region = Rect2(192, 0, 64, 64)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_h6e7s"]
-atlas = ExtResource("3_6vv8j")
-region = Rect2(0, 0, 64, 16)
+[sub_resource type="AtlasTexture" id="AtlasTexture_dmowt"]
+atlas = ExtResource("3_x87x7")
+region = Rect2(0, 0, 64, 64)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_mnt55"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmsx3"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_jnp6o")
+"texture": SubResource("AtlasTexture_x87x7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_6one1")
+"texture": SubResource("AtlasTexture_6vv8j")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ad86x")
+"texture": SubResource("AtlasTexture_tfg35")
 }],
 "loop": false,
 "name": &"Hit",
-"speed": 8.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_h6e7s")
+"texture": SubResource("AtlasTexture_dmowt")
 }],
 "loop": false,
 "name": &"Idle",
@@ -51,29 +51,14 @@ script = ExtResource("1_x87x7")
 [node name="Hurtbox" parent="." instance=ExtResource("2_dmowt")]
 collision_mask = 2
 
-[node name="RightShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
-position = Vector2(9, 19)
-rotation = 1.0472
-sprite_frames = SubResource("SpriteFrames_mnt55")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="LeftShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
-position = Vector2(-9, 19)
-rotation = -1.0472
-sprite_frames = SubResource("SpriteFrames_mnt55")
-animation = &"Idle"
-autoplay = "Idle"
-
-[node name="BottomShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
-position = Vector2(0, 34)
-rotation = -3.14159
-sprite_frames = SubResource("SpriteFrames_mnt55")
-animation = &"Hit"
-autoplay = "Idle"
-
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PackedVector2Array(0, 2, 19, 35, -19, 35)
+
+[node name="ShieldSegmentSprite" type="AnimatedSprite2D" parent="Hurtbox"]
+position = Vector2(0, 21)
+sprite_frames = SubResource("SpriteFrames_pmsx3")
+animation = &"Idle"
+autoplay = "Idle"
 
 [node name="ShieldBreakTimer" type="Timer" parent="."]
 wait_time = 0.5
