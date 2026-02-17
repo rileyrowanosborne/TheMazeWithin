@@ -4,18 +4,19 @@ extends CharacterBody2D
 const SPEED : float = 150.0
 const ACCEL : float = 6
 
-const DASH_POWER : float = 500.0
+const DASH_POWER : float = 150.0
 
 var input : Vector2
 
 var is_dashing : bool = false
 var dash_length : float = .05
+var dash_direction : Vector2
 
 var dash_animation_length : float = .5
 var is_dash_animation : bool = false
 
 var dash_is_on_cooldown : bool = false
-var dash_cooldown_length : float = 3.0
+@export var dash_cooldown_length : float = 3.0
 
 var dash_invul_length : float = .5
 var is_dash_invul : bool = false
@@ -31,7 +32,6 @@ func _ready() -> void:
 	SignalBus.connect("player_died", on_player_died)
 	SignalBus.connect("player_hit", on_player_hit)
 
-
 func get_input():
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
 	input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 		if not is_dashing:
 			velocity = lerp(velocity, player_input * SPEED, delta * ACCEL)
 		else:
-			velocity = (get_global_mouse_position() - global_position) * DASH_POWER * delta
+			velocity = dash_direction * SPEED * DASH_POWER * delta
 		
 	else:
 		velocity = Vector2.ZERO
@@ -56,6 +56,10 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	GameState.player_position = global_position
+	
+	dash_direction = global_position.direction_to(get_global_mouse_position())
+	
+	print(dash_direction)
 
 
 

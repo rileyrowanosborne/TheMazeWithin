@@ -26,11 +26,11 @@ var total_spleeps_collected : int
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
 	SignalBus.connect("change_level", change_levels)
-	
 	SignalBus.connect("player_died", reset_level)
 	
 	
-	
+	GameState.current_boss_health = boss_health
+	GameState.current_floor_boss_max_health = boss_health
 
 
 

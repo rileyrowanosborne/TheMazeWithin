@@ -1,11 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c8v275flby13h"]
+[gd_scene load_steps=14 format=3 uid="uid://c8v275flby13h"]
 
-[ext_resource type="Texture2D" uid="uid://buhnqjpk18jsm" path="res://Assets/Sprites/OrmTheGreat.png" id="1_dsmmw"]
+[ext_resource type="Script" uid="uid://baadgjkbnhumd" path="res://Scripts/orm_the_great.gd" id="1_t3g87"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_qomld"]
-[ext_resource type="Texture2D" uid="uid://c5lo3vi4t1rmx" path="res://Assets/Sprites/LongHealthBarUnder.png" id="3_6p7oy"]
-[ext_resource type="Texture2D" uid="uid://dcgpbvi21ljci" path="res://Assets/Sprites/LongHealthBarProgress.png" id="4_upkus"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsmmw"]
+[ext_resource type="Texture2D" uid="uid://b8ve74je2fjl8" path="res://Assets/Sprites/OrmBody-Sheet.png" id="3_t3g87"]
+[ext_resource type="PackedScene" uid="uid://wq4v45jngskx" path="res://Scenes/orm_head.tscn" id="4_6p7oy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qomld"]
 radius = 4.99986
@@ -13,29 +11,109 @@ radius = 4.99986
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3g87"]
 radius = 5.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_6p7oy"]
-radius = 9.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsmmw"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_qomld"]
-atlas = ExtResource("1_dsmmw")
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p7oy"]
+atlas = ExtResource("3_t3g87")
 region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upkus"]
+atlas = ExtResource("3_t3g87")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3g87"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_qomld")
+"texture": SubResource("AtlasTexture_6p7oy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upkus")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 3.0
 }]
+
+[sub_resource type="Animation" id="Animation_6p7oy"]
+resource_name = "Bob"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OrmHead2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 0.466667),
+"transitions": PackedFloat32Array(1.41421, 0.466516),
+"update": 0,
+"values": [Vector2(20, -38), Vector2(20, -45)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OrmHead:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0339923, 0.465157),
+"transitions": PackedFloat32Array(1.4, 0.5),
+"update": 0,
+"values": [Vector2(-19, -50), Vector2(-19, -42)]
+}
+
+[sub_resource type="Animation" id="Animation_upkus"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("OrmHead2:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(20, -38)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("OrmHead:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-19, -50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upkus"]
+_data = {
+&"Bob": SubResource("Animation_6p7oy"),
+&"RESET": SubResource("Animation_upkus")
+}
 
 [node name="OrmTheGreat" type="CharacterBody2D"]
 z_index = 4
 z_as_relative = false
 collision_layer = 8
 collision_mask = 19
+script = ExtResource("1_t3g87")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+position = Vector2(-18, -4.00001)
+rotation = 0.651008
+scale = Vector2(1, 1)
+shape = SubResource("CapsuleShape2D_qomld")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+position = Vector2(17, -4)
+rotation = -0.790634
+shape = SubResource("CapsuleShape2D_t3g87")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_qomld")]
 position = Vector2(0, -24)
@@ -56,35 +134,23 @@ position = Vector2(17, 20)
 rotation = -0.790634
 shape = SubResource("CapsuleShape2D_t3g87")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(16, -18)
-shape = SubResource("CircleShape2D_6p7oy")
-
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-16, -18)
-shape = SubResource("CircleShape2D_6p7oy")
-
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(-18, -4.00001)
-rotation = 0.651008
-shape = SubResource("CapsuleShape2D_qomld")
-
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2(17, -4)
-rotation = -0.790634
-shape = SubResource("CapsuleShape2D_t3g87")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t3g87")
+autoplay = "default"
+frame_progress = 0.699907
 
-[node name="BossHealth" type="CanvasLayer" parent="."]
+[node name="Heads" type="Node2D" parent="."]
 
-[node name="TextureProgressBar" type="TextureProgressBar" parent="BossHealth"]
-offset_left = 185.0
-offset_top = 578.0
-offset_right = 441.0
-offset_bottom = 594.0
-scale = Vector2(3, 3)
-texture_under = ExtResource("3_6p7oy")
-texture_progress = ExtResource("4_upkus")
+[node name="OrmHead" parent="Heads" instance=ExtResource("4_6p7oy")]
+position = Vector2(-19, -50)
+
+[node name="OrmHead2" parent="Heads" instance=ExtResource("4_6p7oy")]
+position = Vector2(20, -38)
+left_or_right = true
+
+[node name="HeadAnims" type="AnimationPlayer" parent="Heads"]
+libraries = {
+&"": SubResource("AnimationLibrary_upkus")
+}
+autoplay = "Bob"

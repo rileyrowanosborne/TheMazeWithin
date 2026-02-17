@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://hpmlh5ktv5sq"]
+[gd_scene load_steps=37 format=4 uid="uid://hpmlh5ktv5sq"]
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_mvp4d"]
 [ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/square_enemy.tscn" id="2_mvp4d"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="13_uy8y0"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="14_wnyg8"]
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="16_mvaus"]
+[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="17_cujjr"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/saw_blade.tscn" id="17_iq6gh"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
@@ -689,6 +690,44 @@ _data = {
 &"Saw Player": SubResource("Animation_4qtyx")
 }
 
+[sub_resource type="Animation" id="Animation_3y6ve"]
+resource_name = "Saws"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SawBlade5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-151, -93), Vector2(-63, -64)]
+}
+
+[sub_resource type="Animation" id="Animation_4s7gi"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("SawBlade5:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-151, -93)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4s7gi"]
+_data = {
+&"RESET": SubResource("Animation_4s7gi"),
+&"Saws": SubResource("Animation_3y6ve")
+}
+
 [node name="ChapterTwo" type="Node2D"]
 script = ExtResource("1_mvp4d")
 chapter_seed = 1947982880
@@ -779,5 +818,22 @@ position = Vector2(-248, 139)
 
 [node name="SawBlade4" parent="Saws" instance=ExtResource("17_iq6gh")]
 position = Vector2(-280, 59)
+
+[node name="SawBlade5" parent="Saws" instance=ExtResource("17_iq6gh")]
+position = Vector2(-151, -93)
+
+[node name="SawPlayer" type="AnimationPlayer" parent="Saws"]
+libraries = {
+&"": SubResource("AnimationLibrary_4s7gi")
+}
+autoplay = "Saws"
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="TriangleEnemy" parent="Enemies" instance=ExtResource("17_cujjr")]
+position = Vector2(67, -47)
+
+[node name="TriangleEnemy2" parent="Enemies" instance=ExtResource("17_cujjr")]
+position = Vector2(-165, -5)
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

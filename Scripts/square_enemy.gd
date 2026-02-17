@@ -73,6 +73,8 @@ func _process(delta: float) -> void:
 	if is_dying:
 		scale -= Vector2(.5,.5) * delta
 	
+	if boss_mode_active:
+		GameState.current_boss_health = current_health
 
 func _physics_process(delta: float) -> void:
 	

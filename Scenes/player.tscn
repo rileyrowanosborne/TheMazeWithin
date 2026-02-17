@@ -263,6 +263,7 @@ y_sort_enabled = true
 collision_layer = 9
 collision_mask = 12
 script = ExtResource("1_cvnsp")
+dash_cooldown_length = 1.0
 blood_splat_scene = ExtResource("2_pu2lt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -343,6 +344,7 @@ one_shot = true
 one_shot = true
 
 [node name="Hud" parent="." instance=ExtResource("10_tx1dd")]
+visible = false
 
 [node name="DeathTimer" type="Timer" parent="."]
 wait_time = 2.0

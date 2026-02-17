@@ -179,3 +179,5 @@ autoplay = "Hair Rotation"
 
 [node name="ChangeSceneTimer" type="Timer" parent="."]
 one_shot = true
+
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]

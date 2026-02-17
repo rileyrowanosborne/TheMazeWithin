@@ -666,9 +666,6 @@ position = Vector2(98, -32)
 [node name="TriangleEnemy" parent="Enemies" instance=ExtResource("16_bient")]
 position = Vector2(298, 158)
 
-[node name="SquareEnemy" parent="Enemies" instance=ExtResource("17_qear5")]
-position = Vector2(176, 342)
-
 [node name="TriangleEnemy2" parent="Enemies" instance=ExtResource("16_bient")]
 position = Vector2(-47, 114)
 

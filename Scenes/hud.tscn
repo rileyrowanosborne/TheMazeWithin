@@ -1,10 +1,14 @@
-[gd_scene load_steps=8 format=3 uid="uid://bo5hhn2iciqfy"]
+[gd_scene load_steps=12 format=3 uid="uid://bo5hhn2iciqfy"]
 
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
-[ext_resource type="Texture2D" uid="uid://cjrl10itovw7o" path="res://Assets/Sprites/HealthBarBottom.png" id="2_6fbih"]
 [ext_resource type="Script" uid="uid://81ovgw6dbg8t" path="res://Scripts/health_info.gd" id="2_t1xeu"]
-[ext_resource type="Texture2D" uid="uid://bxogj678c1m86" path="res://Assets/Sprites/HealthBarFill.png" id="3_t1xeu"]
+[ext_resource type="Texture2D" uid="uid://cnat10vypedal" path="res://Assets/Sprites/PlayerHealthProgress.png" id="3_43w4t"]
+[ext_resource type="Texture2D" uid="uid://cr68w04c4l6xl" path="res://Assets/Sprites/PlayerHealthOver.png" id="4_7gr8i"]
+[ext_resource type="Texture2D" uid="uid://b6w5eviii4up7" path="res://Assets/Sprites/PlayerHealthUnder.png" id="5_5ep0j"]
+[ext_resource type="Texture2D" uid="uid://c5lo3vi4t1rmx" path="res://Assets/Sprites/LongHealthBarUnder.png" id="6_8jye8"]
+[ext_resource type="Script" uid="uid://chwrv33jemh77" path="res://Scripts/boss_health.gd" id="7_7gr8i"]
+[ext_resource type="Texture2D" uid="uid://dcgpbvi21ljci" path="res://Assets/Sprites/LongHealthBarProgress.png" id="7_43w4t"]
 
 [sub_resource type="Theme" id="Theme_fccik"]
 default_font = ExtResource("1_e0onf")
@@ -29,11 +33,14 @@ layout_mode = 0
 offset_left = 19.0
 offset_top = 19.0
 offset_right = 83.0
-offset_bottom = 51.0
+offset_bottom = 83.0
+scale = Vector2(3, 3)
 max_value = 3.0
 value = 3.0
-texture_under = ExtResource("2_6fbih")
-texture_progress = ExtResource("3_t1xeu")
+fill_mode = 4
+texture_under = ExtResource("5_5ep0j")
+texture_over = ExtResource("4_7gr8i")
+texture_progress = ExtResource("3_43w4t")
 
 [node name="BossScreenText" type="Control" parent="."]
 layout_mode = 3
@@ -96,6 +103,25 @@ vertical_alignment = 1
 [node name="DeathTextTimer" type="Timer" parent="PlayerDiedText"]
 wait_time = 2.0
 one_shot = true
+
+[node name="BossHealth" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("7_7gr8i")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="BossHealth"]
+visible = false
+offset_left = 62.0
+offset_top = 591.0
+offset_right = 597.0
+offset_bottom = 607.0
+scale = Vector2(2, 2)
+value = 100.0
+nine_patch_stretch = true
+texture_under = ExtResource("6_8jye8")
+texture_progress = ExtResource("7_43w4t")
 
 [connection signal="timeout" from="BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]

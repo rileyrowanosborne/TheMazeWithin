@@ -12,6 +12,10 @@ var player_health : int
 
 var current_chapter : int
 
+
+var current_boss_health : int
+var current_floor_boss_max_health : int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	current_chapter = 1

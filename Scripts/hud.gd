@@ -1,17 +1,15 @@
 extends CanvasLayer
 
 
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
 	SignalBus.connect("level_boss_died", on_level_boss_died)
 	SignalBus.connect("player_died", on_player_died)
-	
-	
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	visible = true
 
 
 func begin_boss_spawning():
