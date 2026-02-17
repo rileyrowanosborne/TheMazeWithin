@@ -1,8 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cm47l75grwj0"]
+[gd_scene load_steps=19 format=3 uid="uid://cm47l75grwj0"]
 
 [ext_resource type="Script" uid="uid://b0hc5l354uvf1" path="res://Scripts/start_screen.gd" id="1_60ddj"]
 [ext_resource type="Texture2D" uid="uid://byq7p4wfq7w1d" path="res://Assets/Sprites/SPRITEDHEET FOR LITTLE MAMN.png" id="1_i8r30"]
-[ext_resource type="FontFile" uid="uid://cbwq3oth16c36" path="res://Assets/Fonts/THE RETRO FONT (DEMO).otf" id="3_5e717"]
+[ext_resource type="FontFile" uid="uid://cw07oytdt8j16" path="res://Assets/Fonts/Qager.ttf" id="3_5e717"]
+[ext_resource type="FontFile" uid="uid://utreg8xo8xlb" path="res://Assets/Fonts/Perfect DOS VGA 437 copy.ttf" id="4_mtlf8"]
 
 [sub_resource type="Gradient" id="Gradient_60ddj"]
 offsets = PackedFloat32Array(0, 0.69112)
@@ -46,7 +47,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 6.0
+"speed": 4.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_60ddj"]
@@ -87,10 +88,10 @@ animations = [{
 
 [sub_resource type="Theme" id="Theme_i8r30"]
 default_font = ExtResource("3_5e717")
-default_font_size = 80
+default_font_size = 128
 
 [sub_resource type="Theme" id="Theme_ainjc"]
-default_font = ExtResource("3_5e717")
+default_font = ExtResource("4_mtlf8")
 default_font_size = 64
 
 [node name="StartScreen" type="Node2D"]
@@ -115,8 +116,11 @@ position = Vector2(576, 324)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_rjuq2")
 autoplay = "default"
+frame = 2
+frame_progress = 0.473189
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.308425, 0.326083, 0.326448, 1)
 position = Vector2(670, 324)
 scale = Vector2(4, 4)
@@ -124,6 +128,7 @@ sprite_frames = SubResource("SpriteFrames_rjuq2")
 autoplay = "default"
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.801661, 0.80092, 0.794277, 1)
 position = Vector2(808, 324)
 scale = Vector2(7, 7)
@@ -131,18 +136,19 @@ sprite_frames = SubResource("SpriteFrames_rjuq2")
 autoplay = "default"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(993, 324)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_nqnrp")
 autoplay = "default"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 330.0
-offset_top = 34.0
-offset_right = 827.0
-offset_bottom = 193.0
+offset_left = -27.0
+offset_top = 37.0
+offset_right = 1160.0
+offset_bottom = 206.0
 theme = SubResource("Theme_i8r30")
-theme_override_colors/default_color = Color(0.22802, 0.218835, 0.0763642, 1)
+theme_override_colors/default_color = Color(0.546626, 0.11589, 0.0190885, 1)
 theme_override_colors/font_shadow_color = Color(0.643327, 0.536093, 0.314507, 1)
 theme_override_constants/shadow_offset_y = 10
 text = "The Maze Within"
@@ -151,23 +157,24 @@ horizontal_alignment = 1
 [node name="ButtonsControl" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
-offset_left = 325.0
-offset_top = 501.0
-offset_right = 863.0
-offset_bottom = 619.0
+offset_left = 296.0
+offset_top = 487.0
+offset_right = 914.0
+offset_bottom = 605.0
 theme = SubResource("Theme_ainjc")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ButtonsControl"]
 layout_mode = 0
-offset_left = -3.0
-offset_top = 13.0
-offset_right = 533.0
-offset_bottom = 131.0
+offset_left = -53.0
+offset_top = 11.0
+offset_right = 647.0
+offset_bottom = 129.0
+theme_override_constants/separation = 50
 
 [node name="StartButton" type="Button" parent="ButtonsControl/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.643137, 0.537255, 0.313726, 1)
-theme_override_colors/font_color = Color(0.227451, 0.219608, 0.0784314, 1)
+theme_override_colors/font_color = Color(0.572549, 0.121569, 0.0235294, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "Begin"
 flat = true
@@ -175,7 +182,7 @@ flat = true
 [node name="OptionsButton" type="Button" parent="ButtonsControl/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.643137, 0.537255, 0.313726, 1)
-theme_override_colors/font_color = Color(0.227451, 0.219608, 0.0784314, 1)
+theme_override_colors/font_color = Color(0.572549, 0.121569, 0.0235294, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "Options
 "
@@ -184,12 +191,13 @@ flat = true
 [node name="QuitButton" type="Button" parent="ButtonsControl/HBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.643137, 0.537255, 0.313726, 1)
-theme_override_colors/font_color = Color(0.227451, 0.219608, 0.0784314, 1)
+theme_override_colors/font_color = Color(0.572549, 0.121569, 0.0235294, 1)
 theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
 text = "Quit"
 flat = true
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.308425, 0.326083, 0.326448, 1)
 position = Vector2(481, 324)
 scale = Vector2(4, 4)
@@ -197,6 +205,7 @@ sprite_frames = SubResource("SpriteFrames_rjuq2")
 autoplay = "default"
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+visible = false
 modulate = Color(0.801661, 0.80092, 0.794277, 1)
 position = Vector2(351, 324)
 scale = Vector2(7, 7)
@@ -204,6 +213,7 @@ sprite_frames = SubResource("SpriteFrames_rjuq2")
 autoplay = "default"
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(146, 326)
 scale = Vector2(10, 10)
 sprite_frames = SubResource("SpriteFrames_nqnrp")
