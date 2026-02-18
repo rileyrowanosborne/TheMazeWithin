@@ -37,6 +37,11 @@ func shake() -> void:
 	offset.y  = max_offset.y * amoumt * randf_range(-1,1)
 
 
+
+func orm_attack():
+	add_trauma(.1)
+
+
 func on_enemy_hit():
 	add_trauma(.2)
 

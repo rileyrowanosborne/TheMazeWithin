@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c8v275flby13h"]
+[gd_scene load_steps=22 format=3 uid="uid://c8v275flby13h"]
 
 [ext_resource type="Script" uid="uid://baadgjkbnhumd" path="res://Scripts/orm_the_great.gd" id="1_t3g87"]
 [ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/circle_enemy.tscn" id="2_af5t1"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://wq4v45jngskx" path="res://Scenes/orm_head.tscn" id="4_6p7oy"]
 [ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="4_dcyh1"]
 [ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/blood_splat.tscn" id="5_ifyp3"]
+[ext_resource type="Texture2D" uid="uid://f7y6xayljk3i" path="res://Assets/Sprites/OrmHitAnim-Sheet.png" id="7_dcyh1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qomld"]
 radius = 4.99986
@@ -16,6 +17,14 @@ radius = 4.99986
 radius = 5.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsmmw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nhq85"]
+atlas = ExtResource("7_dcyh1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8k0qb"]
+atlas = ExtResource("7_dcyh1")
+region = Rect2(128, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6p7oy"]
 atlas = ExtResource("3_t3g87")
@@ -27,10 +36,16 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3g87"]
 animations = [{
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nhq85")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8k0qb")
+}],
+"loop": false,
 "name": &"Hit",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -153,7 +168,7 @@ shape = SubResource("CapsuleShape2D_t3g87")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t3g87")
-animation = &"Idle"
+animation = &"Hit"
 autoplay = "Idle"
 
 [node name="Heads" type="Node2D" parent="."]

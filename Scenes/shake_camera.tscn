@@ -3,4 +3,6 @@
 [ext_resource type="Script" uid="uid://lo42dytfk7vr" path="res://Scripts/shake_camera.gd" id="1_1rsn3"]
 
 [node name="ShakeCamera" type="Camera2D"]
+position_smoothing_enabled = true
+position_smoothing_speed = 8.0
 script = ExtResource("1_1rsn3")

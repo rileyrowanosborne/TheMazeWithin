@@ -26,7 +26,7 @@ var attack_cooldown_lenth : float = 3.0
 var random_attack : int
 
 const MIN_HEALTH = 0
-var max_health : int = 3
+var max_health : int = 10
 var current_health : int
 var boss_mode_active : bool = false
 var is_dying : bool = false
@@ -113,7 +113,7 @@ func take_damage():
 		animated_sprite_2d.play("Hit")
 		damage_timer.start()
 		life_check()
-		if current_health <= 25:
+		if current_health <= 15:
 			GameState.orm_current_phase = 2
 			attack_cooldown_lenth = 1.5
 			SignalBus.emit_signal("orm_phase_change")
