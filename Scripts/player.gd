@@ -105,6 +105,7 @@ func _on_dash_invul_timer_timeout() -> void:
 
 func on_player_died():
 	print("death timer signal recieved")
+	GameState.is_swinging = false
 	$DeathTimer.start()
 
 
@@ -114,7 +115,8 @@ func _on_death_timer_timeout() -> void:
 
 
 func on_player_hit():
-	spawn_blood_splat(global_position)
+	if not GameState.player_is_invul:
+		spawn_blood_splat(global_position)
 
 func spawn_blood_splat(world_location : Vector2):
 	if blood_splat_scene:

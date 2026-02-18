@@ -572,8 +572,8 @@ animations = [{
 script = ExtResource("1_m6le5")
 chapter_seed = 2248076587
 boss_location = Vector2(241, -400)
-boss_health = 25
-current_level = 3
+boss_health = 30
+current_level = 4
 level_boss = ExtResource("2_si1c1")
 total_level_spleep_holes = 4
 
@@ -598,7 +598,7 @@ tile_set = SubResource("TileSet_exq2e")
 script = ExtResource("10_jg4om")
 
 [node name="Player" parent="." instance=ExtResource("11_r331k")]
-position = Vector2(-243, 171)
+position = Vector2(157, -234)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 visible = false
@@ -609,16 +609,16 @@ autoplay = "default"
 [node name="Sleeps" type="Node2D" parent="."]
 
 [node name="Spleep" parent="Sleeps" instance=ExtResource("13_1evyg")]
-position = Vector2(-90, -103)
+position = Vector2(85, 24)
 
 [node name="Spleep2" parent="Sleeps" instance=ExtResource("13_1evyg")]
-position = Vector2(-123, -77)
+position = Vector2(-121, 97)
 
 [node name="Spleep3" parent="Sleeps" instance=ExtResource("13_1evyg")]
-position = Vector2(-80, -66)
+position = Vector2(-118, -276)
 
 [node name="Spleep4" parent="Sleeps" instance=ExtResource("13_1evyg")]
-position = Vector2(-103, -41)
+position = Vector2(422, -106)
 
 [node name="SpleepHoles" type="Node2D" parent="."]
 
@@ -664,16 +664,16 @@ position = Vector2(-110, 4)
 position = Vector2(29, 26)
 
 [node name="SquareEnemy3" parent="Enemies" instance=ExtResource("17_hhmd2")]
-position = Vector2(243, -323)
+position = Vector2(476, -300)
 
 [node name="SquareEnemy4" parent="Enemies" instance=ExtResource("17_hhmd2")]
-position = Vector2(249, -472)
+position = Vector2(246, -634)
 
 [node name="CircleEnemy" parent="Enemies" instance=ExtResource("17_tgrqo")]
-position = Vector2(152, -409)
+position = Vector2(-15, -414)
 
 [node name="CircleEnemy2" parent="Enemies" instance=ExtResource("17_tgrqo")]
-position = Vector2(337, -383)
+position = Vector2(480, -384)
 
 [node name="TriangleEnemy" parent="Enemies" instance=ExtResource("19_074d8")]
 position = Vector2(-106, -126)

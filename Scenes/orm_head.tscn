@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://wq4v45jngskx"]
+[gd_scene load_steps=7 format=3 uid="uid://wq4v45jngskx"]
 
 [ext_resource type="Script" uid="uid://dckt53vmijwhq" path="res://Scripts/orm_head.gd" id="1_mgibd"]
 [ext_resource type="Texture2D" uid="uid://b5ffp4nqth6jc" path="res://Assets/Sprites/OrmLeftHead.png" id="1_ot2tq"]
+[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/hitbox.tscn" id="3_ws6en"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgibd"]
 atlas = ExtResource("1_ot2tq")
@@ -21,7 +22,9 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ot2tq"]
 radius = 8.0
 
-[node name="OrmHead" type="Area2D"]
+[node name="OrmHead" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 5
 script = ExtResource("1_mgibd")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -31,3 +34,26 @@ animation = &"Idle"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -2)
 shape = SubResource("CircleShape2D_ot2tq")
+
+[node name="Hitbox" parent="." instance=ExtResource("3_ws6en")]
+collision_layer = 8
+collision_mask = 1
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -2)
+shape = SubResource("CircleShape2D_ot2tq")
+
+[node name="AttackLengthTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="LaunchedTimer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[node name="SlowDownTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="AttackLengthTimer" to="." method="_on_attack_length_timer_timeout"]
+[connection signal="timeout" from="LaunchedTimer" to="." method="_on_launched_timer_timeout"]
+[connection signal="timeout" from="SlowDownTimer" to="." method="_on_slow_down_timer_timeout"]

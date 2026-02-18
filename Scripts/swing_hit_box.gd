@@ -12,3 +12,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.take_damage()
 		if body.has_method("apply_facing_impulse"):
 			body.apply_facing_impulse(250)
+	
+	if body.is_in_group("Orm Head"):
+		if body.has_method("apply_facing_impulse"):
+			body.apply_facing_impulse(250)

@@ -19,7 +19,7 @@ extends CharacterBody2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 
-const SPEED = 1000
+const SPEED = 50
 
 var direction_cooldown : bool = false
 
@@ -79,7 +79,7 @@ func change_direction():
 func _physics_process(delta: float) -> void:
 	if not is_in_spleep_hole:
 		if not is_launched:
-			velocity = SPEED * direction * delta
+			velocity = SPEED * direction
 		else:
 			if not slow_down:
 				velocity = d_d_vector * d_d_strenth

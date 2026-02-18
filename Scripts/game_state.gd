@@ -17,9 +17,14 @@ var current_chapter : int
 var current_boss_health : int
 var current_floor_boss_max_health : int
 
+
+var orm_current_phase : int 
+var total_boss_enemies : int
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	current_chapter = 1
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

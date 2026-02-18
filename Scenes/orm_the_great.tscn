@@ -1,9 +1,13 @@
-[gd_scene load_steps=14 format=3 uid="uid://c8v275flby13h"]
+[gd_scene load_steps=19 format=3 uid="uid://c8v275flby13h"]
 
 [ext_resource type="Script" uid="uid://baadgjkbnhumd" path="res://Scripts/orm_the_great.gd" id="1_t3g87"]
+[ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/circle_enemy.tscn" id="2_af5t1"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_qomld"]
+[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/square_enemy.tscn" id="3_ifyp3"]
 [ext_resource type="Texture2D" uid="uid://b8ve74je2fjl8" path="res://Assets/Sprites/OrmBody-Sheet.png" id="3_t3g87"]
 [ext_resource type="PackedScene" uid="uid://wq4v45jngskx" path="res://Scenes/orm_head.tscn" id="4_6p7oy"]
+[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="4_dcyh1"]
+[ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/blood_splat.tscn" id="5_ifyp3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qomld"]
 radius = 4.99986
@@ -23,6 +27,11 @@ region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3g87"]
 animations = [{
+"frames": [],
+"loop": true,
+"name": &"Hit",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_6p7oy")
@@ -31,7 +40,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_upkus")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Idle",
 "speed": 3.0
 }]
 
@@ -97,12 +106,20 @@ _data = {
 &"RESET": SubResource("Animation_upkus")
 }
 
+[sub_resource type="Curve" id="Curve_af5t1"]
+_data = [Vector2(0.0162602, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36039, 0.0, 0, 0]
+point_count = 2
+
 [node name="OrmTheGreat" type="CharacterBody2D"]
 z_index = 4
 z_as_relative = false
 collision_layer = 8
 collision_mask = 19
 script = ExtResource("1_t3g87")
+circle_scene = ExtResource("2_af5t1")
+square_scene = ExtResource("3_ifyp3")
+triangle_scene = ExtResource("4_dcyh1")
+blood_splat_scene = ExtResource("5_ifyp3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
 position = Vector2(-18, -4.00001)
@@ -117,7 +134,7 @@ shape = SubResource("CapsuleShape2D_t3g87")
 [node name="Hurtbox" parent="." instance=ExtResource("2_qomld")]
 position = Vector2(0, -24)
 collision_layer = 8
-collision_mask = 2
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
 position = Vector2(0, 3)
@@ -136,8 +153,8 @@ shape = SubResource("CapsuleShape2D_t3g87")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t3g87")
-autoplay = "default"
-frame_progress = 0.699907
+animation = &"Hit"
+autoplay = "Idle"
 
 [node name="Heads" type="Node2D" parent="."]
 
@@ -152,4 +169,35 @@ left_or_right = true
 libraries = {
 &"": SubResource("AnimationLibrary_upkus")
 }
-autoplay = "Bob"
+
+[node name="AttackCooldownTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="DamageTimer" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="DeathTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="DeathParticles" type="CPUParticles2D" parent="."]
+emitting = false
+one_shot = true
+explosiveness = 0.7
+randomness = 1.0
+emission_shape = 2
+emission_sphere_radius = 10.0
+direction = Vector2(0, 0)
+spread = 90.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 5.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_af5t1")
+color = Color(0.845341, 0.000162417, 0.0440511, 1)
+
+[connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
+[connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

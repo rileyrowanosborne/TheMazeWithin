@@ -47,6 +47,8 @@ func _ready() -> void:
 	add_to_group("Triangle")
 	current_health = max_health
 	current_direction = Vector2(1,0)
+	
+	SignalBus.connect("player_died", on_player_died)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -69,7 +71,6 @@ func _process(delta: float) -> void:
 	
 	if boss_mode_active:
 		GameState.current_boss_health = current_health
-
 
 func _physics_process(delta: float) -> void:
 	
@@ -117,6 +118,9 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_death_timer_timeout() -> void:
+	if GameState.current_chapter == 4:
+		if GameState.total_boss_enemies > 0:
+			GameState.total_boss_enemies -= 1
 	queue_free()
 
 
@@ -130,3 +134,7 @@ func spawn_blood_splat(world_location : Vector2):
 		var blood_splat_instance = blood_splat_scene.instantiate()
 		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
 		blood_splat_instance.global_position = world_location
+
+
+func on_player_died():
+	queue_free()

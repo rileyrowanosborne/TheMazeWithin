@@ -128,7 +128,7 @@ value = 100.0
 texture_under = ExtResource("8_7gr8i")
 texture_progress = ExtResource("9_5ep0j")
 
-[node name="RichTextLabel" type="RichTextLabel" parent="BossHealth"]
+[node name="BossTitleText" type="RichTextLabel" parent="BossHealth"]
 layout_mode = 0
 offset_left = 91.0
 offset_top = 477.0
@@ -136,10 +136,9 @@ offset_right = 1044.0
 offset_bottom = 547.0
 theme = SubResource("Theme_4f5kr")
 theme_override_colors/default_color = Color(0.5767, 0.155551, 0.159938, 1)
-theme_override_colors/font_shadow_color = Color(0.4, 0.0901961, 0.0980392, 1)
-theme_override_constants/shadow_offset_y = 3
-theme_override_constants/shadow_offset_x = 3
-text = "Triangle of Sadness"
+theme_override_colors/font_shadow_color = Color(0.31335, 0.0624732, 0.0688462, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_constants/shadow_offset_x = 2
 
 [connection signal="timeout" from="BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]

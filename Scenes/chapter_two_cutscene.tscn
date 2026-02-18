@@ -175,15 +175,14 @@ animations = [{
 script = ExtResource("1_tfahh")
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_top = 2.0
 offset_right = 1152.0
-offset_bottom = 650.0
+offset_bottom = 648.0
 color = Color(0.439216, 0.156863, 0.156863, 1)
 
 [node name="EyesAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
 light_mask = 0
-position = Vector2(555, 324)
+position = Vector2(555, 328)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_8t2ip")
 animation = &"Blinking"
@@ -194,7 +193,7 @@ frame_progress = 1.0
 [node name="MouthAnim" type="AnimatedSprite2D" parent="."]
 top_level = true
 light_mask = 0
-position = Vector2(555, 324)
+position = Vector2(555, 328)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_x25um")
 animation = &"Talking"
@@ -206,12 +205,12 @@ one_shot = true
 
 [node name="Head" type="Sprite2D" parent="."]
 modulate = Color(0.980845, 0.915252, 0.955309, 1)
-position = Vector2(555, 324)
+position = Vector2(555, 328)
 scale = Vector2(5, 5)
 texture = ExtResource("4_88q4o")
 
 [node name="Hair" type="Sprite2D" parent="."]
-position = Vector2(555, 324)
+position = Vector2(555, 329)
 scale = Vector2(5, 5)
 texture = ExtResource("5_tfahh")
 

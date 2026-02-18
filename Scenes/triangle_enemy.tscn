@@ -153,7 +153,7 @@ color = Color(0.845341, 0.000162417, 0.0440511, 1)
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_343q2")]
 collision_layer = 8
-collision_mask = 18
+collision_mask = 2
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
 polygon = PackedVector2Array(13, 10, 0, -15, -13, 10)

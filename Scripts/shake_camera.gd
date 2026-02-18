@@ -45,4 +45,5 @@ func on_succesful_deflect():
 
 
 func on_player_hit():
-	add_trauma(.3)
+	if not GameState.player_is_invul:
+		add_trauma(.3)
