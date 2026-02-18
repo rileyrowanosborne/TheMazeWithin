@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="11_gymyn"]
 [ext_resource type="Texture2D" uid="uid://dwbexseh6w33q" path="res://Assets/Resources/radial_sphere_resource.tres" id="13_ukyrk"]
 [ext_resource type="Texture2D" uid="uid://bp4scsysccrgk" path="res://Assets/Sprites/ChargeProgressBarUnder.png" id="14_7dp3o"]
-[ext_resource type="Texture2D" uid="uid://b8v11supbk7g7" path="res://Assets/Sprites/ChargeProgressBarOver.png" id="15_h4iuc"]
+[ext_resource type="Script" uid="uid://cbxqrc6t7rkxy" path="res://Scripts/charge_ui.gd" id="14_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://c8b1fkh5154mi" path="res://Assets/Sprites/ChargeProgressBarProgress.png" id="16_fd4e3"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
@@ -376,10 +376,12 @@ texture = ExtResource("13_ukyrk")
 
 [node name="ChargeUI" type="Node2D" parent="."]
 z_index = 10
+script = ExtResource("14_h4iuc")
 
 [node name="SwingIsChargedParticles" type="CPUParticles2D" parent="ChargeUI"]
-position = Vector2(0, -8)
+position = Vector2(-7, -19)
 emitting = false
+lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 direction = Vector2(0, 0)
@@ -392,17 +394,13 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_ukyrk")
 color = Color(0.215686, 0.698039, 0.117647, 1)
 
-[node name="SwingIsChargedBar" type="TextureProgressBar" parent="ChargeUI"]
-offset_left = -10.0
-offset_top = -23.0
-offset_right = -2.0
-offset_bottom = -15.0
-value = 100.0
-fill_mode = 3
-texture_under = ExtResource("14_7dp3o")
-texture_over = ExtResource("15_h4iuc")
-texture_progress = ExtResource("16_fd4e3")
-tint_over = Color(1, 1, 1, 0)
+[node name="UnderSprite" type="Sprite2D" parent="ChargeUI"]
+position = Vector2(-7, -19)
+texture = ExtResource("14_7dp3o")
+
+[node name="Progress" type="Sprite2D" parent="ChargeUI"]
+position = Vector2(-7, -19)
+texture = ExtResource("16_fd4e3")
 
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

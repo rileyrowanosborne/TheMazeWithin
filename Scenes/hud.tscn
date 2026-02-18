@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bo5hhn2iciqfy"]
+[gd_scene load_steps=14 format=3 uid="uid://bo5hhn2iciqfy"]
 
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://chwrv33jemh77" path="res://Scripts/boss_health.gd" id="7_7gr8i"]
 [ext_resource type="Texture2D" uid="uid://bcjd5yxf5o4gg" path="res://Assets/Sprites/BossHealthBarUnder.png" id="8_7gr8i"]
 [ext_resource type="Texture2D" uid="uid://cd0xbh5s4rkcm" path="res://Assets/Sprites/BossHealthBarProgress.png" id="9_5ep0j"]
+[ext_resource type="FontFile" uid="uid://dv1vxp8vg0bgx" path="res://Assets/Fonts/VeniceClassic.ttf" id="10_5ep0j"]
 
 [sub_resource type="Theme" id="Theme_fccik"]
 default_font = ExtResource("1_e0onf")
@@ -17,6 +18,10 @@ default_font_size = 128
 [sub_resource type="Theme" id="Theme_bjfho"]
 default_font = ExtResource("1_e0onf")
 default_font_size = 512
+
+[sub_resource type="Theme" id="Theme_4f5kr"]
+default_font = ExtResource("10_5ep0j")
+default_font_size = 64
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_fccik")
@@ -105,6 +110,7 @@ wait_time = 2.0
 one_shot = true
 
 [node name="BossHealth" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -112,7 +118,6 @@ offset_bottom = 40.0
 script = ExtResource("7_7gr8i")
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="BossHealth"]
-visible = false
 layout_mode = 0
 offset_left = 66.0
 offset_top = 541.0
@@ -122,6 +127,19 @@ scale = Vector2(4, 4)
 value = 100.0
 texture_under = ExtResource("8_7gr8i")
 texture_progress = ExtResource("9_5ep0j")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="BossHealth"]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 477.0
+offset_right = 1044.0
+offset_bottom = 547.0
+theme = SubResource("Theme_4f5kr")
+theme_override_colors/default_color = Color(0.5767, 0.155551, 0.159938, 1)
+theme_override_colors/font_shadow_color = Color(0.4, 0.0901961, 0.0980392, 1)
+theme_override_constants/shadow_offset_y = 3
+theme_override_constants/shadow_offset_x = 3
+text = "Triangle of Sadness"
 
 [connection signal="timeout" from="BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]

@@ -17,9 +17,9 @@ func _process(delta: float) -> void:
 
 
 func on_level_boss_spawned():
-	texture_progress_bar.visible = true
+	visible = true
 
 
 
 func on_level_boss_died():
-	texture_progress_bar.visible = false
+	visible = false
