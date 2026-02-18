@@ -1,9 +1,43 @@
-[gd_scene load_steps=15 format=3 uid="uid://18q3ioq6x3oo"]
+[gd_scene load_steps=19 format=3 uid="uid://18q3ioq6x3oo"]
 
 [ext_resource type="Script" uid="uid://b6wy807ebmx5t" path="res://Scripts/baseball_bat.gd" id="1_0fuc7"]
-[ext_resource type="Texture2D" uid="uid://bc6150todq4nx" path="res://Assets/Sprites/BaseBallBat-export.png" id="2_0fuc7"]
+[ext_resource type="Texture2D" uid="uid://dx4chcwsq2h1m" path="res://Assets/Sprites/BaseballBatAnims.png" id="2_kciln"]
 [ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="4_kciln"]
 [ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_no2ia"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwp1v"]
+atlas = ExtResource("2_kciln")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yecki"]
+atlas = ExtResource("2_kciln")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taebw"]
+atlas = ExtResource("2_kciln")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coeyv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwp1v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yecki")
+}],
+"loop": false,
+"name": &"Charged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taebw")
+}],
+"loop": false,
+"name": &"Charging",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
 atlas = ExtResource("4_kciln")
@@ -66,26 +100,26 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-5, -4)]
+"values": [-0.897184]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-0.897184]
+"values": [Vector2(-5, -4)]
 }
 
 [sub_resource type="Animation" id="Animation_kciln"]
@@ -94,26 +128,26 @@ length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/path = NodePath("Sprite2D:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.4, 0.482491),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(-5, -4), Vector2(5, -3), Vector2(6, 5), Vector2(-5, 5), Vector2(-5, 5), Vector2(-5, -4)]
+"values": [-0.897184, 0.958538, 2.4319, 4.1686, 4.1686, -0.897099]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:rotation")
+tracks/1/path = NodePath("Sprite2D:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.0333333, 0.0666667, 0.1, 0.4, 0.482491),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [-0.897184, 0.958538, 2.4319, 4.1686, 4.1686, -0.897099]
+"values": [Vector2(-5, -4), Vector2(5, -3), Vector2(6, 5), Vector2(-5, 5), Vector2(-5, 5), Vector2(-5, -4)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_no2ia"]
@@ -127,10 +161,12 @@ z_index = 4
 z_as_relative = false
 script = ExtResource("1_0fuc7")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(-5, -4)
 rotation = -0.897184
-texture = ExtResource("2_0fuc7")
+sprite_frames = SubResource("SpriteFrames_coeyv")
+animation = &"Charged"
+frame = 1
 
 [node name="SwingTimer" type="Timer" parent="."]
 one_shot = true

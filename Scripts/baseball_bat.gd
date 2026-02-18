@@ -5,6 +5,7 @@ extends Node2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var slash_anim: AnimatedSprite2D = $SlashAnim
 @onready var swing_is_charged_particles: CPUParticles2D = $"../ChargeUI/SwingIsChargedParticles"
+@onready var sprite_2d: AnimatedSprite2D = $Sprite2D
 
 
 @onready var swing_hit_box: Area2D = $SwingHitBox
@@ -23,11 +24,12 @@ func _process(delta: float) -> void:
 		swing_hit_box.monitoring = true
 	else:
 		swing_hit_box.monitoring = false
-
+	
 
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Swing") and not GameState.is_swinging:
+		sprite_2d.play("Charging")
 		GameState.is_swinging = true
 		swing_timer.start()
 		animation_player.play("Swing")
@@ -39,6 +41,7 @@ func _input(event: InputEvent) -> void:
 func _on_swing_timer_timeout() -> void:
 	swing_is_charged_particles.emitting = true
 	GameState.is_swinging = false
+	sprite_2d.play("Charged")
 
 
 
