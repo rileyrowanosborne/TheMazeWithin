@@ -18,16 +18,16 @@ func _ready() -> void:
 
 func _on_change_scene_timer_timeout() -> void:
 	if GameState.current_chapter == 1:
-		get_tree().change_scene_to_file("res://Scenes/chapter_four_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_four_cutscene.tscn")
 	
 	elif GameState.current_chapter == 2:
-		get_tree().change_scene_to_file("res://Scenes/chapter_two_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_two_cutscene.tscn")
 		
 	elif  GameState.current_chapter == 3:
-		get_tree().change_scene_to_file("res://Scenes/chapter_three_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_three_cutscene.tscn")
 	
 	elif  GameState.current_chapter == 4:
-		get_tree().change_scene_to_file("res://Scenes/chapter_one_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_one_cutscene.tscn")
 	
 
 
@@ -39,7 +39,7 @@ func _on_the_boy_timer_timeout() -> void:
 		$ChangeSceneTimer.start()
 		
 	elif GameState.current_chapter == 2:
-		$RichTextLabel.text = "HIS FAVORITE"
+		$RichTextLabel.text = "HER"
 		$ChangeSceneTimer.start()
 		
 	elif GameState.current_chapter == 3:

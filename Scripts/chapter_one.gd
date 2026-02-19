@@ -73,7 +73,7 @@ func change_levels():
 	if GameState.current_chapter != 4:
 		level_boss_is_spawned = false
 		GameState.boss_active = false
-		get_tree().change_scene_to_file("res://Scenes/chapter_screen.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
 	else:
 		print("YOU WIN! add in a final cutscene transistion to the chapter script")
 

@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://dx6hw1e5dab2q"]
 
 [ext_resource type="Script" uid="uid://cojx43xbxlxsp" path="res://Scripts/triangle_shield_segment.gd" id="1_x87x7"]
-[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_dmowt"]
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="2_dmowt"]
 [ext_resource type="Texture2D" uid="uid://b0f866g7skykh" path="res://Assets/Sprites/TriangleShieldLayer-Sheet.png" id="3_x87x7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x87x7"]

@@ -7,4 +7,4 @@ func _ready() -> void:
 
 
 func _on_scene_change_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://Scenes/start_screen.tscn")
+	get_tree().change_scene_to_file("res://Scenes/Chapters/Title Screen/title_screen.tscn")

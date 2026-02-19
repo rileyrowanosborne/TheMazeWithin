@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_upm4h"]
 [ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="2_kamx3"]
-[ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/circle_enemy.tscn" id="2_mpfnk"]
+[ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/Enemies/circle_enemy.tscn" id="2_mpfnk"]
 [ext_resource type="Script" uid="uid://bmrlep3pb88hn" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="3_ibxrj"]
 [ext_resource type="Script" uid="uid://cocm7s423jyt0" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="4_3p7gv"]
 [ext_resource type="Script" uid="uid://djki60misy7m5" path="res://addons/gaea/modifiers/2D/fill.gd" id="5_mp2lk"]
@@ -11,13 +11,13 @@
 [ext_resource type="Script" uid="uid://bugvdl63j42uk" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="8_bient"]
 [ext_resource type="Texture2D" uid="uid://d6p7rxj03n63" path="res://Assets/Sprites/AnotherTileSet.png" id="9_qear5"]
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="10_w6ife"]
-[ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="11_ibxrj"]
-[ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="12_3p7gv"]
-[ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="13_mp2lk"]
+[ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/Player/player.tscn" id="11_ibxrj"]
+[ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/Environment + NPCs/spleep_hole.tscn" id="12_3p7gv"]
+[ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="13_mp2lk"]
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="14_yitl0"]
-[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="16_bient"]
-[ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/saw_blade.tscn" id="16_w6ife"]
-[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/square_enemy.tscn" id="17_qear5"]
+[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/Enemies/triangle_enemy.tscn" id="16_bient"]
+[ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_w6ife"]
+[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="17_qear5"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
 script = ExtResource("6_yitl0")
