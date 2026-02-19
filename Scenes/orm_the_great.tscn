@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://c8v275flby13h"]
+[gd_scene load_steps=30 format=3 uid="uid://c8v275flby13h"]
 
 [ext_resource type="Script" uid="uid://baadgjkbnhumd" path="res://Scripts/orm_the_great.gd" id="1_t3g87"]
 [ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/circle_enemy.tscn" id="2_af5t1"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="4_dcyh1"]
 [ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/blood_splat.tscn" id="5_ifyp3"]
 [ext_resource type="Texture2D" uid="uid://f7y6xayljk3i" path="res://Assets/Sprites/OrmHitAnim-Sheet.png" id="7_dcyh1"]
+[ext_resource type="Texture2D" uid="uid://yqwrvh7lidq2" path="res://Assets/Sprites/Phase2Anim-Sheet-export.png" id="9_alkoi"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qomld"]
 radius = 4.99986
@@ -34,6 +35,10 @@ region = Rect2(0, 0, 64, 64)
 atlas = ExtResource("3_t3g87")
 region = Rect2(64, 0, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcyh1"]
+atlas = ExtResource("7_dcyh1")
+region = Rect2(0, 0, 64, 64)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_t3g87"]
 animations = [{
 "frames": [{
@@ -57,6 +62,14 @@ animations = [{
 "loop": true,
 "name": &"Idle",
 "speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcyh1")
+}],
+"loop": true,
+"name": &"Phase Two",
+"speed": 5.0
 }]
 
 [sub_resource type="Animation" id="Animation_6p7oy"]
@@ -125,6 +138,57 @@ _data = {
 _data = [Vector2(0.0162602, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36039, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_alkoi"]
+atlas = ExtResource("9_alkoi")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_arr1r"]
+atlas = ExtResource("9_alkoi")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2u5k8"]
+atlas = ExtResource("9_alkoi")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mw3al"]
+atlas = ExtResource("9_alkoi")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7phfe"]
+atlas = ExtResource("9_alkoi")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dfxdt"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"Nothing",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_alkoi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_arr1r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2u5k8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mw3al")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7phfe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
 [node name="OrmTheGreat" type="CharacterBody2D"]
 z_index = 4
 z_as_relative = false
@@ -137,41 +201,42 @@ triangle_scene = ExtResource("4_dcyh1")
 blood_splat_scene = ExtResource("5_ifyp3")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
-position = Vector2(-18, -4.00001)
+position = Vector2(-18, -3)
 rotation = 0.651008
 shape = SubResource("CapsuleShape2D_qomld")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
-position = Vector2(17, -4)
+position = Vector2(17, -2.99999)
 rotation = -0.790634
 shape = SubResource("CapsuleShape2D_t3g87")
 
 [node name="Hurtbox" parent="." instance=ExtResource("2_qomld")]
-position = Vector2(0, -24)
+position = Vector2(0, -12)
 collision_layer = 8
 collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(0, 3)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_dsmmw")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(-18, 20)
+position = Vector2(-18, 9)
 rotation = 0.651008
 shape = SubResource("CapsuleShape2D_qomld")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Hurtbox"]
-position = Vector2(17, 20)
+position = Vector2(17, 9)
 rotation = -0.790634
 shape = SubResource("CapsuleShape2D_t3g87")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="BodyAnimSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t3g87")
 animation = &"Hit"
 autoplay = "Idle"
 
 [node name="Heads" type="Node2D" parent="."]
+position = Vector2(0, 12)
 
 [node name="OrmHead" parent="Heads" instance=ExtResource("4_6p7oy")]
 position = Vector2(-19, -50)
@@ -197,6 +262,7 @@ one_shot = true
 one_shot = true
 
 [node name="DeathParticles" type="CPUParticles2D" parent="."]
+position = Vector2(0, 12)
 emitting = false
 one_shot = true
 explosiveness = 0.7
@@ -212,6 +278,11 @@ scale_amount_min = 2.0
 scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_af5t1")
 color = Color(0.845341, 0.000162417, 0.0440511, 1)
+
+[node name="AuraAnimSprite" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
+sprite_frames = SubResource("SpriteFrames_dfxdt")
+frame = 1
 
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]

@@ -337,7 +337,9 @@ shape = SubResource("CircleShape2D_3smsa")
 
 [node name="ShakeCamera" parent="." instance=ExtResource("9_f1ek2")]
 position = Vector2(0, -9)
-zoom = Vector2(6, 6)
+decay = 0.8
+max_offset = Vector2(50, 35)
+max_roll = 0.1
 
 [node name="DashTimer" type="Timer" parent="."]
 one_shot = true

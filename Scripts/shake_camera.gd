@@ -6,6 +6,10 @@ extends Camera2D
 @export var max_roll : float = 0.1
 
 
+
+var boss_zoom : Vector2 = Vector2(5,5)
+var normal_zoom : Vector2 = Vector2(6,6)
+
 var trauma : float = 0.0
 var trauma_power : int = 2
 
@@ -24,6 +28,10 @@ func _process(delta: float) -> void:
 		trauma = max(trauma - decay * delta, 0)
 		shake()
 	
+	if GameState.boss_active:
+		zoom = boss_zoom
+	else:
+		zoom = normal_zoom
 
 
 func add_trauma(amount : float):

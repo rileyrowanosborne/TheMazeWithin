@@ -36,6 +36,7 @@ func _ready() -> void:
 
 
 func begin_boss_spawning():
+	GameState.boss_active = true
 	animated_sprite_2d.visible = true
 	animated_sprite_2d.global_position = boss_location
 	$BossSpawningWarningTimer.start()
@@ -62,6 +63,7 @@ func _on_boss_spawning_warning_timer_timeout() -> void:
 
 
 func level_boss_died():
+	GameState.boss_active = false
 	SignalBus.emit_signal("level_boss_died")
 
 
@@ -70,6 +72,7 @@ func level_boss_died():
 func change_levels():
 	if GameState.current_chapter != 4:
 		level_boss_is_spawned = false
+		GameState.boss_active = false
 		get_tree().change_scene_to_file("res://Scenes/chapter_screen.tscn")
 	else:
 		print("YOU WIN! add in a final cutscene transistion to the chapter script")
@@ -77,6 +80,7 @@ func change_levels():
 
 
 func reset_level():
+	GameState.boss_active = false
 	level_boss_is_spawned = false
 	total_spleeps_collected = 0
 	await get_tree().create_timer(1.5).timeout

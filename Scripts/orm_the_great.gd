@@ -15,9 +15,10 @@ var triangle_instance
 @onready var orm_head_2: CharacterBody2D = $Heads/OrmHead2
 @onready var attack_cooldown_timer: Timer = $AttackCooldownTimer
 @onready var damage_timer: Timer = $DamageTimer
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var body_anim_sprite: AnimatedSprite2D = $BodyAnimSprite
 @onready var death_particles: CPUParticles2D = $DeathParticles
 @onready var death_timer: Timer = $DeathTimer
+@onready var aura_anim_sprite: AnimatedSprite2D = $AuraAnimSprite
 
 
 
@@ -48,7 +49,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if boss_mode_active:
 		GameState.current_boss_health = current_health
-
 
 
 
@@ -110,14 +110,17 @@ func take_damage():
 	if is_hittable:
 		current_health -= 1
 		SignalBus.emit_signal("enemy_hit")
-		animated_sprite_2d.play("Hit")
+		body_anim_sprite.play("Hit")
 		damage_timer.start()
 		life_check()
 		if current_health <= 15:
 			GameState.orm_current_phase = 2
 			attack_cooldown_lenth = 1.5
+			aura_anim_sprite.play("default")
+			body_anim_sprite.play("Phase Two")
 			SignalBus.emit_signal("orm_phase_change")
 			attack_cooldown_timer.start(attack_cooldown_lenth)
+			
 
 
 
@@ -130,7 +133,8 @@ func life_check():
 func die():
 	is_shooting = false
 	is_dying = true
-	animated_sprite_2d.play("Hit")
+	body_anim_sprite.play("Hit")
+	aura_anim_sprite.play("Nothing")
 	death_particles.emitting = true
 	death_timer.start()
 	
@@ -149,7 +153,10 @@ func spawn_blood_splat(world_location : Vector2):
 
 
 func _on_damage_timer_timeout() -> void:
-	animated_sprite_2d.play("Idle")
+	if GameState.orm_current_phase == 1:
+		body_anim_sprite.play("Idle")
+	else:
+		body_anim_sprite.play("Phase Two")
 
 
 func _on_death_timer_timeout() -> void:

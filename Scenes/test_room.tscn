@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://bdoqnkak5s2p3"]
+[gd_scene load_steps=26 format=4 uid="uid://bdoqnkak5s2p3"]
 
 [ext_resource type="Script" uid="uid://br00vtsedt7aw" path="res://Scripts/test_room.gd" id="1_3rmdf"]
 [ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="1_f2n0o"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="9_iafda"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/saw_blade.tscn" id="11_wv2xt"]
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="12_ei72r"]
+[ext_resource type="PackedScene" uid="uid://c8v275flby13h" path="res://Scenes/orm_the_great.tscn" id="14_8fp34"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="14_fgfdw"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
@@ -627,3 +628,6 @@ position = Vector2(-12, -64)
 
 [node name="Spleep" parent="." instance=ExtResource("14_fgfdw")]
 position = Vector2(-26, -38)
+
+[node name="OrmTheGreat" parent="." instance=ExtResource("14_8fp34")]
+position = Vector2(-19, 12)
