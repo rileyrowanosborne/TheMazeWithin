@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://b1go653310hxa" path="res://Scripts/circle_enemy.gd" id="1_4b532"]
 [ext_resource type="Texture2D" uid="uid://bwjqyivbmn7w3" path="res://Assets/Sprites/CircleEnemy.png" id="1_155j3"]
-[ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/blood_splat.tscn" id="2_gk0i5"]
-[ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/projectile_launcher.tscn" id="2_n57o8"]
-[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="4_xw0ou"]
-[ext_resource type="PackedScene" uid="uid://c0e1f14uhvwii" path="res://Scenes/circle_shield_segment.tscn" id="5_s5s5c"]
+[ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/Effects/blood_splat.tscn" id="2_gk0i5"]
+[ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="2_n57o8"]
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="4_xw0ou"]
+[ext_resource type="PackedScene" uid="uid://c0e1f14uhvwii" path="res://Scenes/Enemies/circle_shield_segment.tscn" id="5_s5s5c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n57o8"]
 atlas = ExtResource("1_155j3")

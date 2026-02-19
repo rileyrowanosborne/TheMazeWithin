@@ -1,7 +1,7 @@
 [gd_scene load_steps=37 format=4 uid="uid://hpmlh5ktv5sq"]
 
 [ext_resource type="Script" uid="uid://ioux7d4e2cwl" path="res://Scripts/chapter_one.gd" id="1_mvp4d"]
-[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/square_enemy.tscn" id="2_mvp4d"]
+[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="2_mvp4d"]
 [ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="3_cujjr"]
 [ext_resource type="Script" uid="uid://bmrlep3pb88hn" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="4_4qtyx"]
 [ext_resource type="Script" uid="uid://cocm7s423jyt0" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="5_7aydm"]
@@ -11,12 +11,12 @@
 [ext_resource type="Script" uid="uid://bugvdl63j42uk" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="9_rdre6"]
 [ext_resource type="Texture2D" uid="uid://d6p7rxj03n63" path="res://Assets/Sprites/AnotherTileSet.png" id="10_si0ge"]
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="11_2fnxs"]
-[ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/player.tscn" id="12_p3pli"]
-[ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/spleep.tscn" id="13_uy8y0"]
-[ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/spleep_hole.tscn" id="14_wnyg8"]
+[ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/Player/player.tscn" id="12_p3pli"]
+[ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="13_uy8y0"]
+[ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/Environment + NPCs/spleep_hole.tscn" id="14_wnyg8"]
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="16_mvaus"]
-[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/triangle_enemy.tscn" id="17_cujjr"]
-[ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/saw_blade.tscn" id="17_iq6gh"]
+[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/Enemies/triangle_enemy.tscn" id="17_cujjr"]
+[ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="17_iq6gh"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
 script = ExtResource("7_4s7gi")

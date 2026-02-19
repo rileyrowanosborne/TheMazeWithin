@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2dip4ft0rg05" path="res://Scripts/saw_blade.gd" id="1_prdmu"]
 [ext_resource type="Texture2D" uid="uid://dcg6ly7hhnso6" path="res://Assets/Sprites/SawBlade.png" id="1_r7gvg"]
-[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/hitbox.tscn" id="3_l7kal"]
+[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/Components/hitbox.tscn" id="3_l7kal"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_l7kal"]
 radius = 14.0357

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dckt53vmijwhq" path="res://Scripts/orm_head.gd" id="1_mgibd"]
 [ext_resource type="Texture2D" uid="uid://b5ffp4nqth6jc" path="res://Assets/Sprites/OrmLeftHead.png" id="1_ot2tq"]
-[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/hitbox.tscn" id="3_ws6en"]
+[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/Components/hitbox.tscn" id="3_ws6en"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mgibd"]
 atlas = ExtResource("1_ot2tq")

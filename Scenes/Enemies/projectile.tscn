@@ -2,8 +2,8 @@
 
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="1_f8cdk"]
 [ext_resource type="Script" uid="uid://cj7t6fx4ttkt5" path="res://Scripts/projectile.gd" id="1_yr2qt"]
-[ext_resource type="PackedScene" uid="uid://jicx35vv3vqe" path="res://Scenes/deflection_effect.tscn" id="2_tl4hk"]
-[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/hitbox.tscn" id="4_d4467"]
+[ext_resource type="PackedScene" uid="uid://jicx35vv3vqe" path="res://Scenes/Effects/deflection_effect.tscn" id="2_tl4hk"]
+[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/Components/hitbox.tscn" id="4_d4467"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
 radius = 6.0

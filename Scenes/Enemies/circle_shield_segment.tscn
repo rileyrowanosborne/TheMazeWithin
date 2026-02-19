@@ -1,7 +1,7 @@
 [gd_scene load_steps=10 format=3 uid="uid://c0e1f14uhvwii"]
 
 [ext_resource type="Script" uid="uid://beuidxkx7ptvf" path="res://Scripts/circle_shield_segment.gd" id="1_3l8xv"]
-[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/hurtbox.tscn" id="2_xt81c"]
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="2_xt81c"]
 [ext_resource type="Texture2D" uid="uid://cr0bldiqlf7d7" path="res://Assets/Sprites/CircleShieldLayer-Sheet.png" id="3_xt81c"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wsw5k"]
