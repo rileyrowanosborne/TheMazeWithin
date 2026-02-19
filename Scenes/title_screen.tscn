@@ -1,0 +1,199 @@
+[gd_scene load_steps=28 format=3 uid="uid://barmuvj1jpwao"]
+
+[ext_resource type="Script" uid="uid://cke6w2l6ugjn7" path="res://Scripts/title_screen.gd" id="1_k1y01"]
+[ext_resource type="Texture2D" uid="uid://c0sg0ygwygx5o" path="res://Assets/Sprites/TheMazeWithinTitleScreen-Static.png" id="1_x2pfe"]
+[ext_resource type="Texture2D" uid="uid://dagt201len3u5" path="res://Assets/Sprites/BaseFaceSprite.png" id="2_k1y01"]
+[ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="3_4blwa"]
+[ext_resource type="Texture2D" uid="uid://b5ljj3ycixeme" path="res://Assets/Sprites/Mouth-Talking-SpriteSheet.png" id="4_vqgqr"]
+[ext_resource type="Texture2D" uid="uid://clu00i8sfkb0n" path="res://Assets/Sprites/Hair-Sprite.png" id="5_pcucl"]
+[ext_resource type="Texture2D" uid="uid://dlu6fh0yh2kl6" path="res://Assets/Sprites/SquareForCutscene.png" id="6_2txeq"]
+[ext_resource type="Texture2D" uid="uid://cn7k0wbw0e603" path="res://Assets/Sprites/TriangleForCutscene.png" id="7_2ia2x"]
+[ext_resource type="Texture2D" uid="uid://b7guu4jsraumv" path="res://Assets/Sprites/CircleForCutscene.png" id="8_1hrlb"]
+[ext_resource type="Texture2D" uid="uid://dlap2wfvi4v0d" path="res://Assets/Sprites/StartRed.png" id="9_q8b6m"]
+[ext_resource type="Texture2D" uid="uid://d4lc6oiw0ovop" path="res://Assets/Sprites/StartYellow.png" id="10_82b75"]
+[ext_resource type="Texture2D" uid="uid://cpsvtnts02oav" path="res://Assets/Sprites/StartBlue.png" id="11_5jdai"]
+[ext_resource type="Texture2D" uid="uid://cg6nmekv8ouds" path="res://Assets/Sprites/OptionsYellow.png" id="12_ne8fx"]
+[ext_resource type="Texture2D" uid="uid://cq666m5rc44m1" path="res://Assets/Sprites/OptionsRed.png" id="13_1sbh8"]
+[ext_resource type="Texture2D" uid="uid://cwgxnu0utrbvr" path="res://Assets/Sprites/OptionsBlue.png" id="14_sjffk"]
+[ext_resource type="Texture2D" uid="uid://bxnks6d8jmhfn" path="res://Assets/Sprites/QuitBlue.png" id="15_v1jwd"]
+[ext_resource type="Texture2D" uid="uid://dnppjfjhgib4s" path="res://Assets/Sprites/QuitYellow.png" id="16_hgo8u"]
+[ext_resource type="Texture2D" uid="uid://y3mjkdod05pq" path="res://Assets/Sprites/QuitRed.png" id="17_h6bk8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1kh1w"]
+atlas = ExtResource("3_4blwa")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3u1b"]
+atlas = ExtResource("3_4blwa")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kgvb8"]
+atlas = ExtResource("3_4blwa")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pe3eo"]
+atlas = ExtResource("3_4blwa")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4ug2c"]
+atlas = ExtResource("3_4blwa")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t53g2"]
+atlas = ExtResource("3_4blwa")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_kwrhy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3u1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kgvb8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pe3eo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4ug2c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t53g2")
+}],
+"loop": true,
+"name": &"Blinking",
+"speed": 8.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kwrhy"]
+atlas = ExtResource("4_vqgqr")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p6h12"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kwrhy")
+}],
+"loop": true,
+"name": &"Mouth",
+"speed": 5.0
+}]
+
+[node name="TitleScreen" type="Node2D"]
+script = ExtResource("1_k1y01")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.898039, 0.878431, 0.803922, 1)
+
+[node name="TitleCard" type="Sprite2D" parent="."]
+position = Vector2(180, 137)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("1_x2pfe")
+
+[node name="Body" type="Sprite2D" parent="."]
+position = Vector2(563, 328)
+scale = Vector2(5, 5)
+texture = ExtResource("2_k1y01")
+
+[node name="Eyes" type="AnimatedSprite2D" parent="."]
+position = Vector2(566, 332)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_kwrhy")
+animation = &"Blinking"
+autoplay = "Blinking"
+frame_progress = 0.113497
+
+[node name="Mouth" type="AnimatedSprite2D" parent="."]
+position = Vector2(555, 332)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_p6h12")
+animation = &"Mouth"
+
+[node name="Hair" type="Sprite2D" parent="."]
+position = Vector2(563, 328)
+scale = Vector2(5, 5)
+texture = ExtResource("5_pcucl")
+
+[node name="Square" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(463, 405)
+scale = Vector2(5, 5)
+texture = ExtResource("6_2txeq")
+
+[node name="Triangle" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(705, 376)
+rotation = -0.0925025
+scale = Vector2(5, 5)
+texture = ExtResource("7_2ia2x")
+
+[node name="Circle" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.415686)
+position = Vector2(569, 209)
+scale = Vector2(5, 5)
+texture = ExtResource("8_1hrlb")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = 853.0
+offset_top = 358.0
+offset_right = 1317.0
+offset_bottom = 794.0
+scale = Vector2(0.6, 0.6)
+theme_override_constants/separation = 50
+
+[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("9_q8b6m")
+texture_pressed = ExtResource("10_82b75")
+texture_hover = ExtResource("11_5jdai")
+
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("12_ne8fx")
+texture_pressed = ExtResource("13_1sbh8")
+texture_hover = ExtResource("14_sjffk")
+
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("15_v1jwd")
+texture_pressed = ExtResource("16_hgo8u")
+texture_hover = ExtResource("17_h6bk8")
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]

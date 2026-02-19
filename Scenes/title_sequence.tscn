@@ -1,0 +1,59 @@
+[gd_scene load_steps=11 format=3 uid="uid://brarwib14mgil"]
+
+[ext_resource type="Texture2D" uid="uid://du3ucdj6na6g" path="res://Assets/Sprites/TheMazeWithinTitleScreen-BackGround-Blue.png" id="1_l5wkf"]
+[ext_resource type="Texture2D" uid="uid://3vj4va286brx" path="res://Assets/Sprites/TheMazeWithinTitleScreen-BackGround-Yellow.png" id="2_itdh6"]
+[ext_resource type="Texture2D" uid="uid://s4ln01gleho6" path="res://Assets/Sprites/TheMazeWithinTitleScreen-BackGround-Red.png" id="3_fkiq6"]
+[ext_resource type="Texture2D" uid="uid://byxoqb7c54gwc" path="res://Assets/Sprites/TheMazeWithinTitleScreen-Word-Blue.png" id="4_cblel"]
+[ext_resource type="Texture2D" uid="uid://i1exjw740sln" path="res://Assets/Sprites/TheMazeWithinTitleScreen-Word-Yellow.png" id="5_fkiq6"]
+[ext_resource type="Texture2D" uid="uid://c5he1o24fwybp" path="res://Assets/Sprites/TheMazeWithinTitleScreen-Word-Red.png" id="6_cblel"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2tw66"]
+atlas = ExtResource("1_l5wkf")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7u5o"]
+atlas = ExtResource("2_itdh6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_knry1"]
+atlas = ExtResource("3_fkiq6")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y3jdt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2tw66")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t7u5o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_knry1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="TitleSequence" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -256.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = 256.0
+color = Color(0.572653, 0.448222, 0.426287, 1)
+
+[node name="Background" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_y3jdt")
+frame_progress = 0.636186
+
+[node name="The" type="Sprite2D" parent="."]
+texture = ExtResource("4_cblel")
+
+[node name="Maze" type="Sprite2D" parent="."]
+texture = ExtResource("5_fkiq6")
+
+[node name="Within" type="Sprite2D" parent="."]
+texture = ExtResource("6_cblel")
