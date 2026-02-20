@@ -14,3 +14,8 @@ signal spawn_level_boss
 signal level_boss_died
 signal change_level
 signal orm_phase_change
+
+
+#dialogue signals
+signal begin_quork_dialogue
+signal end_quork_dialogue

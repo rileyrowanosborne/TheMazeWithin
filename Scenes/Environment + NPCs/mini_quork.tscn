@@ -1,5 +1,6 @@
-[gd_scene load_steps=15 format=3 uid="uid://c7rr3a36d1nwq"]
+[gd_scene load_steps=17 format=3 uid="uid://c7rr3a36d1nwq"]
 
+[ext_resource type="Script" uid="uid://br78byhtugc0q" path="res://Scripts/mini_quork.gd" id="1_6to7c"]
 [ext_resource type="Texture2D" uid="uid://b5ln4avok25da" path="res://Assets/Sprites/Quork-Idle-Sheet.png" id="1_ora4m"]
 [ext_resource type="Texture2D" uid="uid://2aanr6wcptbe" path="res://Assets/Sprites/QuorkSprite-Sheet.png" id="2_jbd4d"]
 
@@ -89,14 +90,30 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_ora4m"]
 radius = 7.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbd4d"]
+radius = 71.0
+
 [node name="MiniQuork" type="CharacterBody2D"]
+z_index = 4
+z_as_relative = false
+script = ExtResource("1_6to7c")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_u6ll5")
 animation = &"Idle"
 autoplay = "Idle"
+frame_progress = 0.854414
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_ora4m")
+
+[node name="InRangeChecker" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InRangeChecker"]
+position = Vector2(0, -11)
+shape = SubResource("CircleShape2D_jbd4d")
+
+[connection signal="body_entered" from="InRangeChecker" to="." method="_on_in_range_checker_body_entered"]
+[connection signal="body_exited" from="InRangeChecker" to="." method="_on_in_range_checker_body_exited"]

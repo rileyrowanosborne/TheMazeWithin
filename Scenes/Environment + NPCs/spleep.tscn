@@ -40,18 +40,16 @@ collision_mask = 4
 script = ExtResource("1_s6gym")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -6)
 sprite_frames = SubResource("SpriteFrames_8msse")
 animation = &"Walking"
 autoplay = "Walking"
 frame_progress = 0.979798
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_l4tmf")
 
 [node name="Raycasts" type="Node2D" parent="."]
-position = Vector2(0, -6)
 
 [node name="RayCastDown" type="RayCast2D" parent="Raycasts"]
 position = Vector2(-6, 0)
@@ -101,7 +99,6 @@ wait_time = 0.1
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(0, -6)
 emitting = false
 lifetime = 2.0
 randomness = 1.0
