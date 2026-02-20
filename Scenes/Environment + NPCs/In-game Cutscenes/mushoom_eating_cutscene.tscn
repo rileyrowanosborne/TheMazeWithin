@@ -1,0 +1,361 @@
+[gd_scene load_steps=17 format=3 uid="uid://doem7a4hh4aqy"]
+
+[ext_resource type="Texture2D" uid="uid://dwbexseh6w33q" path="res://Assets/Resources/radial_sphere_resource.tres" id="1_dnr8o"]
+[ext_resource type="Script" uid="uid://bk1gs7oew6uti" path="res://Scripts/mushoom_eating_cutscene.gd" id="1_ncduk"]
+[ext_resource type="Texture2D" uid="uid://nsteq11gt26r" path="res://Assets/Sprites/PlayerHealthBarOver.png" id="2_q2yg2"]
+[ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="3_g04xs"]
+[ext_resource type="FontFile" uid="uid://cgefysge5m8ux" path="res://Assets/Fonts/BelanidiSerif-Regular.otf" id="5_ncduk"]
+[ext_resource type="Texture2D" uid="uid://dlu6fh0yh2kl6" path="res://Assets/Sprites/SquareForCutscene.png" id="6_p502t"]
+[ext_resource type="Texture2D" uid="uid://b6u20hmy64aei" path="res://Assets/Sprites/GerolphTheHyperWise.png" id="7_14sy5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mjaco"]
+atlas = ExtResource("3_g04xs")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g04xs"]
+atlas = ExtResource("3_g04xs")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ncduk"]
+atlas = ExtResource("3_g04xs")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p502t"]
+atlas = ExtResource("3_g04xs")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q2yg2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g04xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncduk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g04xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g04xs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncduk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mjaco")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ncduk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p502t")
+}],
+"loop": false,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Theme" id="Theme_ncduk"]
+default_font = ExtResource("5_ncduk")
+default_font_size = 48
+
+[sub_resource type="Animation" id="Animation_p502t"]
+resource_name = "Main"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Square2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.3, 0.733333, 1.66667, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gerolph:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.33333, 2.76667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerHead:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerHead/ColorRect2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerHead/ColorRect:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1.5, 1.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_14sy5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Square2:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Gerolph:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("PlayerHead:self_modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Eyes:self_modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PlayerHead/ColorRect2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PlayerHead/ColorRect:self_modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_14sy5"]
+_data = {
+&"Main": SubResource("Animation_p502t"),
+&"RESET": SubResource("Animation_14sy5")
+}
+
+[node name="MushoomEatingCutscene" type="Node2D"]
+script = ExtResource("1_ncduk")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.0379163, 0.0465733, 0.0740525, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(555, 330)
+energy = 2.0
+blend_mode = 2
+texture = ExtResource("1_dnr8o")
+texture_scale = 50.0
+
+[node name="PlayerHead" type="Sprite2D" parent="."]
+light_mask = 0
+position = Vector2(560, 428)
+scale = Vector2(20, 20)
+texture = ExtResource("2_q2yg2")
+
+[node name="ColorRect" type="ColorRect" parent="PlayerHead"]
+light_mask = 0
+offset_left = -6.0
+offset_top = -1.0
+offset_right = -2.0
+offset_bottom = 3.0
+color = Color(0.870588, 0.662745, 0.466667, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect2" type="ColorRect" parent="PlayerHead"]
+light_mask = 0
+offset_left = 5.99999
+offset_top = -1.0
+offset_right = 9.99999
+offset_bottom = 3.0
+color = Color(0.745098, 0.54902, 0.34902, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Eyes" type="AnimatedSprite2D" parent="."]
+light_mask = 0
+position = Vector2(601, 458)
+scale = Vector2(5, 5)
+sprite_frames = SubResource("SpriteFrames_q2yg2")
+
+[node name="MainText" type="RichTextLabel" parent="."]
+visible = false
+offset_left = 17.0
+offset_top = 25.0
+offset_right = 1129.0
+offset_bottom = 191.0
+theme = SubResource("Theme_ncduk")
+theme_override_colors/default_color = Color(0.313735, 0.390442, 0.270325, 1)
+text = "Ok, yeah I think I feel weird"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="EndTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Square2" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(594, 384)
+scale = Vector2(4, 4)
+texture = ExtResource("6_p502t")
+
+[node name="Gerolph" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+light_mask = 0
+position = Vector2(594, 384)
+scale = Vector2(4, 4)
+texture = ExtResource("7_14sy5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_14sy5")
+}
+
+[node name="SquareTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="animation_finished" from="Eyes" to="." method="_on_eyes_animation_finished"]
+[connection signal="timeout" from="EndTimer" to="." method="_on_end_timer_timeout"]
+[connection signal="timeout" from="SquareTimer" to="." method="_on_square_timer_timeout"]

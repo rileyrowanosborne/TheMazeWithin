@@ -1,6 +1,7 @@
 extends Control
 
 @onready var dialogue_text: RichTextLabel = $DialogueText
+@onready var mushroom_timer: Timer = $MushroomTimer
 
 
 
@@ -21,8 +22,16 @@ func show_dialogue():
 	
 	if GameState.current_dialogue == "Quork":
 		dialogue_text.text = "Hmmm, You are a quork, you say ... Wait what is a Quork?"
+	elif GameState.current_dialogue == "Mushroom":
+		dialogue_text.text = "Hmmmm... I prolly shouldn't have eaten that... Was that an old man?"
+		mushroom_timer.start()
+	
 
 
 func hide_dialogue():
 	visible = false
 	dialogue_text.text = ""
+
+
+func _on_mushroom_timer_timeout() -> void:
+	hide_dialogue()

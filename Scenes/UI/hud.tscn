@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bo5hhn2iciqfy"]
+[gd_scene load_steps=19 format=3 uid="uid://bo5hhn2iciqfy"]
 
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://utreg8xo8xlb" path="res://Assets/Fonts/Perfect DOS VGA 437 copy.ttf" id="11_am52h"]
 [ext_resource type="Texture2D" uid="uid://1c5v4513u7vr" path="res://Assets/Sprites/DialogueTextBox.png" id="11_cna6x"]
 [ext_resource type="Script" uid="uid://bu8jyuw3hr3tl" path="res://Scripts/dialogue.gd" id="12_yttkt"]
+[ext_resource type="PackedScene" uid="uid://doem7a4hh4aqy" path="res://Scenes/Environment + NPCs/In-game Cutscenes/mushoom_eating_cutscene.tscn" id="14_mt778"]
 
 [sub_resource type="Theme" id="Theme_fccik"]
 default_font = ExtResource("1_e0onf")
@@ -172,6 +173,20 @@ offset_bottom = 243.0
 theme_override_colors/default_color = Color(0.725697, 0.64493, 0, 1)
 bbcode_enabled = true
 
+[node name="MushroomTimer" type="Timer" parent="Dialogue"]
+wait_time = 5.0
+one_shot = true
+
+[node name="InGameCutscenes" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MushoomEatingCutscene" parent="InGameCutscenes" instance=ExtResource("14_mt778")]
+visible = false
+
 [connection signal="timeout" from="BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]
 [connection signal="timeout" from="PlayerDiedText/DeathTextTimer" to="." method="_on_death_text_timer_timeout"]
+[connection signal="timeout" from="Dialogue/MushroomTimer" to="Dialogue" method="_on_mushroom_timer_timeout"]
