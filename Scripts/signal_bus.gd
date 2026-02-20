@@ -17,5 +17,8 @@ signal orm_phase_change
 
 
 #dialogue signals
-signal begin_quork_dialogue
-signal end_quork_dialogue
+signal show_dialogue
+signal hide_dialogue
+
+signal show_interact_text
+signal hide_interact_text

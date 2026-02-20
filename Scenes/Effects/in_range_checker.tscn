@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://rkbtvrbvynps"]
+
+[ext_resource type="Script" uid="uid://u1bnqy3bpstb" path="res://Scripts/in_range_checker.gd" id="1_ljnq1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uevrm"]
+radius = 30.0
+
+[node name="InRangeChecker" type="Area2D"]
+script = ExtResource("1_ljnq1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_uevrm")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

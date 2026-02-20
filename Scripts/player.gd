@@ -21,8 +21,14 @@ var dash_is_on_cooldown : bool = false
 var dash_invul_length : float = .5
 var is_dash_invul : bool = false
 
+var in_range_of_interactable : bool = false
+
 
 @export var blood_splat_scene : PackedScene
+
+
+@onready var interact_label: RichTextLabel = $InteractLabel
+
 
 
 func _ready() -> void:
@@ -31,6 +37,8 @@ func _ready() -> void:
 	GameState.player_is_invul = false
 	SignalBus.connect("player_died", on_player_died)
 	SignalBus.connect("player_hit", on_player_hit)
+	SignalBus.connect("show_interact_text", show_interact_text)
+	SignalBus.connect("hide_interact_text", hide_interact_text)
 
 func get_input():
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -125,3 +133,14 @@ func spawn_blood_splat(world_location : Vector2):
 		var blood_splat_instance = blood_splat_scene.instantiate()
 		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
 		blood_splat_instance.global_position = world_location
+
+
+
+
+func show_interact_text():
+	print("In range yes")
+	interact_label.visible = true
+
+func hide_interact_text():
+	print("In range no")
+	interact_label.visible = false

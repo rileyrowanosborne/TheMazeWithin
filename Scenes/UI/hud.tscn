@@ -28,7 +28,7 @@ default_font_size = 64
 
 [sub_resource type="Theme" id="Theme_cna6x"]
 default_font = ExtResource("11_am52h")
-default_font_size = 48
+default_font_size = 32
 
 [node name="Hud" type="CanvasLayer"]
 script = ExtResource("1_fccik")
@@ -159,16 +159,17 @@ theme = SubResource("Theme_cna6x")
 script = ExtResource("12_yttkt")
 
 [node name="Sprite2D" type="Sprite2D" parent="Dialogue"]
-self_modulate = Color(1, 1, 1, 0.513726)
-position = Vector2(300, -20.0001)
-scale = Vector2(10, 10)
+position = Vector2(40, -199)
+scale = Vector2(15, 15)
 texture = ExtResource("11_cna6x")
 
 [node name="DialogueText" type="RichTextLabel" parent="Dialogue"]
-offset_left = 42.0
-offset_top = 43.0
-offset_right = 563.0
-offset_bottom = 239.0
+layout_mode = 0
+offset_left = -370.0
+offset_top = 169.0
+offset_right = 449.0
+offset_bottom = 243.0
+theme_override_colors/default_color = Color(0.725697, 0.64493, 0, 1)
 bbcode_enabled = true
 
 [connection signal="timeout" from="BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]

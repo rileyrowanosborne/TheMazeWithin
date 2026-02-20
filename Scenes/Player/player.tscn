@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://c5mv5gvhbyv0d"]
+[gd_scene load_steps=51 format=3 uid="uid://c5mv5gvhbyv0d"]
 
 [ext_resource type="Script" uid="uid://oyf8r4wg3pi0" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://ljax48vni3kc" path="res://Assets/Sprites/Main Character Sprite Sheet copy.png" id="1_v0iea"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://bp4scsysccrgk" path="res://Assets/Sprites/ChargeProgressBarUnder.png" id="14_7dp3o"]
 [ext_resource type="Script" uid="uid://cbxqrc6t7rkxy" path="res://Scripts/charge_ui.gd" id="14_h4iuc"]
 [ext_resource type="Texture2D" uid="uid://c8b1fkh5154mi" path="res://Assets/Sprites/ChargeProgressBarProgress.png" id="16_fd4e3"]
+[ext_resource type="PackedScene" uid="uid://rkbtvrbvynps" path="res://Scenes/Effects/in_range_checker.tscn" id="17_ks1b7"]
+[ext_resource type="FontFile" uid="uid://duu8jm2dawjpb" path="res://Assets/Fonts/dogicapixel.ttf" id="18_hnuln"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
@@ -264,6 +266,10 @@ height = 16.0
 _data = [Vector2(0.0261044, 0.229349), 0.0, 3.33082, 0, 0, Vector2(1, 0.114339), -2.0998, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="Theme" id="Theme_aqm4k"]
+default_font = ExtResource("18_hnuln")
+default_font_size = 8
+
 [node name="Player" type="CharacterBody2D"]
 light_mask = 0
 z_index = 4
@@ -369,7 +375,7 @@ shape = SubResource("CapsuleShape2D_gymyn")
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 position = Vector2(0, -12)
-color = Color(0.722837, 1.74474e-06, 6.73831e-07, 1)
+color = Color(0.00682764, 0.235301, 0.986332, 1)
 energy = 0.5
 texture = ExtResource("13_ukyrk")
 
@@ -401,6 +407,25 @@ texture = ExtResource("14_7dp3o")
 [node name="Progress" type="Sprite2D" parent="ChargeUI"]
 position = Vector2(-7, -19)
 texture = ExtResource("16_fd4e3")
+
+[node name="InRangeChecker" parent="." instance=ExtResource("17_ks1b7")]
+position = Vector2(0, -7)
+collision_layer = 0
+collision_mask = 32
+
+[node name="InteractLabel" type="RichTextLabel" parent="."]
+visible = false
+z_index = 10
+offset_left = -23.0
+offset_top = -36.0
+offset_right = 26.0
+offset_bottom = -20.0
+theme = SubResource("Theme_aqm4k")
+theme_override_colors/default_color = Color(0.127184, 0.194875, 0.348623, 1)
+bbcode_enabled = true
+text = "What's this?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

@@ -23,6 +23,9 @@ var total_boss_enemies : int
 var boss_active : int
 
 
+
+var current_dialogue : String
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass
