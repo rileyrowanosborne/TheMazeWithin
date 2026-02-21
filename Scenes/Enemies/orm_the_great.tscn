@@ -282,7 +282,6 @@ color = Color(0.845341, 0.000162417, 0.0440511, 1)
 [node name="AuraAnimSprite" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_dfxdt")
-frame = 1
 
 [connection signal="timeout" from="AttackCooldownTimer" to="." method="_on_attack_cooldown_timer_timeout"]
 [connection signal="timeout" from="DamageTimer" to="." method="_on_damage_timer_timeout"]
