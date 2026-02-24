@@ -1,18 +1,26 @@
-[gd_scene load_steps=8 format=3 uid="uid://56fqyfth3mcb"]
+[gd_scene format=3 uid="uid://56fqyfth3mcb"]
 
 [ext_resource type="Texture2D" uid="uid://ctyo0sx40hogm" path="res://Assets/Sprites/LittleSpleep-Sheet.png" id="1_l4tmf"]
 [ext_resource type="Script" uid="uid://gadc8dkqre3o" path="res://Scripts/spleep.gd" id="1_s6gym"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s6gym"]
-atlas = ExtResource("1_l4tmf")
-region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smvmp"]
 atlas = ExtResource("1_l4tmf")
 region = Rect2(16, 0, 16, 16)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6gym"]
+atlas = ExtResource("1_l4tmf")
+region = Rect2(0, 0, 16, 16)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_8msse"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smvmp")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_s6gym")
@@ -33,72 +41,72 @@ height = 6.0
 _data = [Vector2(0.0248227, 0.998053), 0.0, 0.0, 0, 0, Vector2(1, 0.184337), -2.60759, 0.0, 0, 0]
 point_count = 2
 
-[node name="Spleep" type="CharacterBody2D"]
+[node name="Spleep" type="CharacterBody2D" unique_id=508731667]
 z_index = 3
 collision_layer = 8
 collision_mask = 4
+motion_mode = 1
 script = ExtResource("1_s6gym")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1194482302]
 sprite_frames = SubResource("SpriteFrames_8msse")
-animation = &"Walking"
+animation = &"Idle"
 autoplay = "Walking"
-frame_progress = 0.979798
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1609089161]
 position = Vector2(0, 3)
 shape = SubResource("CapsuleShape2D_l4tmf")
 
-[node name="Raycasts" type="Node2D" parent="."]
+[node name="Raycasts" type="Node2D" parent="." unique_id=441955210]
 
-[node name="RayCastDown" type="RayCast2D" parent="Raycasts"]
-position = Vector2(-6, 0)
+[node name="RayCastDown" type="RayCast2D" parent="Raycasts" unique_id=85965290]
+position = Vector2(-4, 0)
 target_position = Vector2(0, 6)
 collision_mask = 4
 
-[node name="RayCastDown2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(5, 0)
+[node name="RayCastDown2" type="RayCast2D" parent="Raycasts" unique_id=1071829739]
+position = Vector2(4, 0)
 target_position = Vector2(0, 6)
 collision_mask = 4
 
-[node name="RayCastUp" type="RayCast2D" parent="Raycasts"]
-position = Vector2(5, 0)
+[node name="RayCastUp" type="RayCast2D" parent="Raycasts" unique_id=812804017]
+position = Vector2(4, 0)
 target_position = Vector2(0, -5)
 collision_mask = 4
 
-[node name="RayCastUp2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(-6, 0)
+[node name="RayCastUp2" type="RayCast2D" parent="Raycasts" unique_id=1761963092]
+position = Vector2(-4, 0)
 target_position = Vector2(0, -5)
 collision_mask = 4
 
-[node name="RayCastRight" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 6)
+[node name="RayCastRight" type="RayCast2D" parent="Raycasts" unique_id=548350729]
+position = Vector2(0, 5)
 target_position = Vector2(5, 0)
 collision_mask = 4
 
-[node name="RayCastRight2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -5)
+[node name="RayCastRight2" type="RayCast2D" parent="Raycasts" unique_id=2008627719]
+position = Vector2(0, -4)
 target_position = Vector2(5, 0)
 collision_mask = 4
 
-[node name="RayCastLeft" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, -5)
+[node name="RayCastLeft" type="RayCast2D" parent="Raycasts" unique_id=338262717]
+position = Vector2(0, -4)
 target_position = Vector2(-5, 0)
 collision_mask = 4
 
-[node name="RayCastLeft2" type="RayCast2D" parent="Raycasts"]
-position = Vector2(0, 6)
+[node name="RayCastLeft2" type="RayCast2D" parent="Raycasts" unique_id=94712027]
+position = Vector2(0, 5)
 target_position = Vector2(-5, 0)
 collision_mask = 4
 
-[node name="CooldownTimer" type="Timer" parent="."]
+[node name="CooldownTimer" type="Timer" parent="." unique_id=1161798496]
 one_shot = true
 
-[node name="LauchedTimer" type="Timer" parent="."]
+[node name="LauchedTimer" type="Timer" parent="." unique_id=1481035040]
 wait_time = 0.1
 one_shot = true
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2118545774]
 emitting = false
 lifetime = 2.0
 randomness = 1.0
@@ -113,10 +121,14 @@ scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_s6gym")
 color = Color(0.278006, 0.582489, 0.337936, 1)
 
-[node name="SlowDownTimer" type="Timer" parent="."]
+[node name="SlowDownTimer" type="Timer" parent="." unique_id=1511307391]
 wait_time = 0.4
+one_shot = true
+
+[node name="DirectionCooldownTimer" type="Timer" parent="." unique_id=1099534637]
 one_shot = true
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]
 [connection signal="timeout" from="SlowDownTimer" to="." method="_on_slow_down_timer_timeout"]
+[connection signal="timeout" from="DirectionCooldownTimer" to="." method="_on_direction_cooldown_timer_timeout"]

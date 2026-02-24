@@ -14,12 +14,14 @@ extends CharacterBody2D
 @onready var cooldown_timer: Timer = $CooldownTimer
 @onready var lauched_timer: Timer = $LauchedTimer
 @onready var slow_down_timer: Timer = $SlowDownTimer
+@onready var direction_cooldown_timer: Timer = $DirectionCooldownTimer
 
 
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
-const SPEED = 50
+const SPEED = 35
 
 var direction_cooldown : bool = false
 
@@ -35,13 +37,6 @@ var slow_down : bool = false
 var direction = Vector2(0,0)
 
 
-var direction_choices = [
-	Vector2(1,0), 
-	Vector2(-1,0),
-	Vector2(0,1),
-	Vector2(0,-1),
-	Vector2(1,-1), 
-]
 
 var is_in_spleep_hole : bool = false
 
@@ -50,7 +45,7 @@ var is_in_spleep_hole : bool = false
 func _ready() -> void:
 	add_to_group("Enemy")
 	add_to_group("Spleep")
-	direction = direction_choices.pick_random()
+	direction = Vector2(randf_range(-1,1),randf_range(-1,1))
 
 
 func _process(delta: float) -> void:
@@ -67,13 +62,17 @@ func _process(delta: float) -> void:
 				is_launched = false
 				change_direction()
 	
+	if direction == Vector2.ZERO:
+		set_animation("Idle")
+	else:
+		set_animation("Walking")
 	
 	
 	
 func change_direction():
 	direction_cooldown = true
 	cooldown_timer.start()
-	direction = direction_choices.pick_random()
+	direction = Vector2(randf_range(-1,1),randf_range(-1,1))
 
 
 func _physics_process(delta: float) -> void:
@@ -107,7 +106,15 @@ func apply_facing_impulse(strength):
 		d_d_strenth = strength
 		lauched_timer.start()
 		is_launched = true
+		direction = Vector2(0,0)
+		direction_cooldown_timer.start()
 	
+
+
+
+func apply_wall_impulse():
+	pass
+
 
 
 func _on_lauched_timer_timeout() -> void:
@@ -124,3 +131,18 @@ func trapped_in_a_hole():
 func _on_slow_down_timer_timeout() -> void:
 	is_launched = false
 	slow_down = false
+	
+
+
+func set_animation(anim : String):
+	if animated_sprite_2d.animation != anim:
+		animated_sprite_2d.play(anim)
+	
+	
+
+
+func _on_direction_cooldown_timer_timeout() -> void:
+	direction = Vector2(randf_range(-1,1),randf_range(-1,1))
+	
+	if direction == Vector2(0,0):
+		direction = Vector2(randf_range(-1,1),randf_range(-1,1))

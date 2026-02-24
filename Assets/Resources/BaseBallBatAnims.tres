@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cd0wxsngxaaxb"]
+
+[ext_resource type="Texture2D" uid="uid://dx4chcwsq2h1m" path="res://Assets/Sprites/BaseballBatAnims.png" id="1_x30rv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwp1v"]
+atlas = ExtResource("1_x30rv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_taebw"]
+atlas = ExtResource("1_x30rv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcw3d"]
+atlas = ExtResource("1_x30rv")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwp1v")
+}],
+"loop": false,
+"name": &"Charged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_taebw")
+}],
+"loop": false,
+"name": &"Charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcw3d")
+}],
+"loop": false,
+"name": &"Idle",
+"speed": 5.0
+}]

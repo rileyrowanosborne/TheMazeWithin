@@ -5,6 +5,12 @@ var player_position : Vector2
 var player_is_invul : bool 
 
 var is_swinging: bool
+var is_charged : bool
+var charging : bool
+const MAX_CHARGE : int = 100
+const MIN_CHARGE : int = 0
+var charge : int 
+
 
 var new_spawn_position : Vector2
 

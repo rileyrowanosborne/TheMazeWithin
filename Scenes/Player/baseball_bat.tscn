@@ -1,43 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://18q3ioq6x3oo"]
+[gd_scene format=3 uid="uid://18q3ioq6x3oo"]
 
 [ext_resource type="Script" uid="uid://b6wy807ebmx5t" path="res://Scripts/baseball_bat.gd" id="1_0fuc7"]
-[ext_resource type="Texture2D" uid="uid://dx4chcwsq2h1m" path="res://Assets/Sprites/BaseballBatAnims.png" id="2_kciln"]
+[ext_resource type="SpriteFrames" uid="uid://cd0wxsngxaaxb" path="res://Assets/Resources/BaseBallBatAnims.tres" id="2_wcw3d"]
 [ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="4_kciln"]
 [ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_no2ia"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cwp1v"]
-atlas = ExtResource("2_kciln")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_yecki"]
-atlas = ExtResource("2_kciln")
-region = Rect2(0, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_taebw"]
-atlas = ExtResource("2_kciln")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_coeyv"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cwp1v")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_yecki")
-}],
-"loop": false,
-"name": &"Charged",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_taebw")
-}],
-"loop": false,
-"name": &"Charging",
-"speed": 5.0
-}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
 atlas = ExtResource("4_kciln")
@@ -156,22 +122,22 @@ _data = {
 &"Swing": SubResource("Animation_kciln")
 }
 
-[node name="BaseballBat" type="Node2D"]
+[node name="PlayerWeapon" type="Node2D" unique_id=1926795832]
 z_index = 4
 z_as_relative = false
 script = ExtResource("1_0fuc7")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1632561566]
 position = Vector2(-5, -4)
 rotation = -0.897184
-sprite_frames = SubResource("SpriteFrames_coeyv")
-animation = &"Charged"
-frame = 1
+sprite_frames = ExtResource("2_wcw3d")
+animation = &"Idle"
+autoplay = "Idle"
 
-[node name="SwingTimer" type="Timer" parent="."]
+[node name="SwingTimer" type="Timer" parent="." unique_id=1329643363]
 one_shot = true
 
-[node name="SlashAnim" type="AnimatedSprite2D" parent="."]
+[node name="SlashAnim" type="AnimatedSprite2D" parent="." unique_id=215163223]
 modulate = Color(0.531051, 0.531051, 0.531051, 1)
 z_index = 5
 position = Vector2(14, 0)
@@ -181,17 +147,15 @@ animation = &"Swing"
 frame = 7
 frame_progress = 1.0
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_no2ia")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1206293018]
+libraries/ = SubResource("AnimationLibrary_no2ia")
 
-[node name="SwingHitBox" type="Area2D" parent="."]
+[node name="SwingHitBox" type="Area2D" parent="." unique_id=1723059868]
 collision_layer = 0
 collision_mask = 10
 script = ExtResource("4_no2ia")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox" unique_id=260844215]
 polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 1, 0)
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]

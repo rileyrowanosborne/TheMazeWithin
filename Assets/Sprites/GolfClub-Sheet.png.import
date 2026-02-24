@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bxnks6d8jmhfn"
-path="res://.godot/imported/QuitBlue.png-2b9f183be4528171010cb2dd796eebc6.ctex"
+uid="uid://mrm6n0wfuekx"
+path="res://.godot/imported/GolfClub-Sheet.png-fc21ad5a7b3725804d6cae411a3e5122.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/QuitBlue.png"
-dest_files=["res://.godot/imported/QuitBlue.png-2b9f183be4528171010cb2dd796eebc6.ctex"]
+source_file="res://Assets/Sprites/GolfClub-Sheet.png"
+dest_files=["res://.godot/imported/GolfClub-Sheet.png-fc21ad5a7b3725804d6cae411a3e5122.ctex"]
 
 [params]
 

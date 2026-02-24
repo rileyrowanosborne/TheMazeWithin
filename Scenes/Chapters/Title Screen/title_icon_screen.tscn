@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://we5dtwvjmspw"]
+[gd_scene format=3 uid="uid://we5dtwvjmspw"]
 
 [ext_resource type="Script" uid="uid://dfcnf6pmvy5u6" path="res://Scripts/title_icon_screen.gd" id="1_d42g7"]
 [ext_resource type="Texture2D" uid="uid://ixhqxi7c1oqx" path="res://Assets/Sprites/TMW - ICON.png" id="1_fdfkc"]
@@ -12,26 +12,26 @@ gradient = SubResource("Gradient_d42g7")
 fill = 1
 fill_from = Vector2(0.517094, 0.502137)
 
-[node name="TitleIconScreen" type="Node2D"]
+[node name="TitleIconScreen" type="Node2D" unique_id=1503537746]
 script = ExtResource("1_d42g7")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=588144789]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.784314, 0.764706, 0.415686, 1)
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=164848754]
 position = Vector2(576, 324)
 color = Color(0.550958, 0.550959, 0.550958, 1)
 texture = SubResource("GradientTexture2D_jywab")
 texture_scale = 10.0
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=414799973]
 position = Vector2(576, 324)
 scale = Vector2(6, 6)
 texture = ExtResource("1_fdfkc")
 
-[node name="SceneChangeTimer" type="Timer" parent="."]
+[node name="SceneChangeTimer" type="Timer" parent="." unique_id=809306761]
 wait_time = 5.0
 one_shot = true
 
