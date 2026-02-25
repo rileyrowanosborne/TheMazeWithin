@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://dtjo6jx3mrfmi"]
+
+[ext_resource type="Texture2D" uid="uid://do6ylx71lprvk" path="res://Assets/Sprites/SwordAnims-Sheet.png" id="1_sxfnd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_maw4h"]
+atlas = ExtResource("1_sxfnd")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g7qa8"]
+atlas = ExtResource("1_sxfnd")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8yt8c"]
+atlas = ExtResource("1_sxfnd")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_maw4h")
+}],
+"loop": true,
+"name": &"Charged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g7qa8")
+}],
+"loop": true,
+"name": &"Charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8yt8c")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]

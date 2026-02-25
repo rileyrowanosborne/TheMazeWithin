@@ -13,6 +13,7 @@ extends Node2D
 
 const BASE_BALL_BAT_ANIMS = preload("uid://cd0wxsngxaaxb")
 const GOLF_CLUB_ANIMS = preload("uid://dte7sk6w3d1e6")
+const SWORD_ANIMS = preload("uid://dtjo6jx3mrfmi")
 
 
 
@@ -22,6 +23,8 @@ var weapon_anim
 enum weapon_types {
 	golf_club,
 	baseball_bat,
+	sword,
+	
 }
 
 @export var current_weapon : weapon_types
@@ -33,7 +36,7 @@ var charging : bool
 const MAX_CHARGE : int = 100
 const MIN_CHARGE : int = 0
 var charge : int = 0
-var charge_rate : int = 150
+@export var charge_rate : int = 200
 
 var on_cooldown : bool = false
 
@@ -43,6 +46,8 @@ func _ready() -> void:
 		sprite_2d.sprite_frames = GOLF_CLUB_ANIMS
 	if current_weapon == weapon_types.baseball_bat:
 		sprite_2d.sprite_frames = BASE_BALL_BAT_ANIMS
+	if current_weapon == weapon_types.sword:
+		sprite_2d.sprite_frames = SWORD_ANIMS
 	
 	SignalBus.connect("player_died", on_player_died)
 
@@ -59,7 +64,6 @@ func _process(delta: float) -> void:
 	
 	if charging and charge <= MAX_CHARGE:
 			charge += charge_rate * delta
-			print(charge)
 		
 	if charge >= MAX_CHARGE:
 		sprite_2d.play("Charged")

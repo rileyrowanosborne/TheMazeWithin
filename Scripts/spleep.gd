@@ -25,11 +25,11 @@ const SPEED = 35
 
 var direction_cooldown : bool = false
 
-var d_d_vector : Vector2
-var d_d_strenth : float
 var is_launched : bool = false
 var slow_down : bool = false
 
+
+var bounce_mode : bool
 
 #0,0 means stationary
 #1,0 means right
@@ -59,8 +59,10 @@ func _process(delta: float) -> void:
 			or ray_cast_right_2.is_colliding()\
 			or ray_cast_up.is_colliding()\
 			or ray_cast_up_2.is_colliding():
-				is_launched = false
-				change_direction()
+				if is_launched and not bounce_mode:
+					bounce_mode = true
+				else:
+					change_direction()
 	
 	if direction == Vector2.ZERO:
 		set_animation("Idle")
@@ -76,19 +78,21 @@ func change_direction():
 
 
 func _physics_process(delta: float) -> void:
-	if not is_in_spleep_hole:
-		if not is_launched:
-			velocity = SPEED * direction
-		else:
-			if not slow_down:
-				velocity = d_d_vector * d_d_strenth
-			else:
-				velocity = lerp(velocity, Vector2.ZERO, .1)
-		
-	else:
+	if is_in_spleep_hole:
 		velocity = Vector2.ZERO
+		return
 	
-	move_and_slide()
+	if not is_launched:
+		velocity = SPEED * direction
+	else:
+		if slow_down:
+			velocity = lerp(velocity, Vector2.ZERO, 0.1)
+
+	var collision = move_and_collide(velocity * delta)
+	
+	# Only bounce if launched
+	if collision and is_launched:
+		velocity = velocity.bounce(collision.get_normal())
 	
 	
 
@@ -102,8 +106,7 @@ func apply_facing_impulse(strength):
 		var player_position = GameState.player_position
 		var projectile_position = global_position
 		var deflect_direction_vector = (projectile_position - player_position).normalized()
-		d_d_vector = deflect_direction_vector
-		d_d_strenth = strength
+		velocity = deflect_direction_vector * strength
 		lauched_timer.start()
 		is_launched = true
 		direction = Vector2(0,0)
@@ -112,12 +115,8 @@ func apply_facing_impulse(strength):
 
 
 
-func apply_wall_impulse():
-	pass
-
-
-
 func _on_lauched_timer_timeout() -> void:
+	bounce_mode = false
 	slow_down_timer.start()
 	slow_down = true
 

@@ -126,6 +126,7 @@ _data = {
 z_index = 4
 z_as_relative = false
 script = ExtResource("1_0fuc7")
+current_weapon = 2
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1632561566]
 position = Vector2(-5, -4)
@@ -152,7 +153,7 @@ libraries/ = SubResource("AnimationLibrary_no2ia")
 
 [node name="SwingHitBox" type="Area2D" parent="." unique_id=1723059868]
 collision_layer = 0
-collision_mask = 10
+collision_mask = 74
 script = ExtResource("4_no2ia")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox" unique_id=260844215]
