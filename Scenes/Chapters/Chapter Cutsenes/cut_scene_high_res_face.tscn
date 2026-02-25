@@ -1,0 +1,119 @@
+[gd_scene format=3 uid="uid://bnjrlq45ftmlc"]
+
+[ext_resource type="Texture2D" uid="uid://bxnt4sbdyqh6s" path="res://Assets/Sprites/HighResFace-Sheet.png" id="1_h8k1p"]
+[ext_resource type="Texture2D" uid="uid://dwbexseh6w33q" path="res://Assets/Resources/radial_sphere_resource.tres" id="2_cs7pk"]
+[ext_resource type="Script" uid="uid://dqus83fbooxte" path="res://Scripts/parallax_background.gd" id="3_vqmke"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cs7pk"]
+atlas = ExtResource("1_h8k1p")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqmke"]
+atlas = ExtResource("1_h8k1p")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3pii3"]
+atlas = ExtResource("1_h8k1p")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jttg"]
+atlas = ExtResource("1_h8k1p")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjaib"]
+atlas = ExtResource("1_h8k1p")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4qgg1"]
+atlas = ExtResource("1_h8k1p")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vqmke"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cs7pk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqmke")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3pii3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jttg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xjaib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4qgg1")
+}],
+"loop": true,
+"name": &"Blinking",
+"speed": 8.0
+}]
+
+[node name="CutScene-HighResFace" type="Node2D" unique_id=1301260319]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894970016]
+position = Vector2(577, 302)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_vqmke")
+animation = &"Blinking"
+autoplay = "Blinking"
+frame_progress = 0.90066296
+
+[node name="PointLight2D" type="PointLight2D" parent="." unique_id=309185078]
+position = Vector2(566, 446)
+energy = 0.5
+texture = ExtResource("2_cs7pk")
+texture_scale = 20.0
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=1883883613]
+script = ExtResource("3_vqmke")
+
+[node name="ColorRect" type="ColorRect" parent="ParallaxBackground" unique_id=594382697]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.010626205, 0.004103091, 0.058075078, 1)
+
+[node name="Faces2" type="Parallax2D" parent="ParallaxBackground" unique_id=84234548]
+scroll_offset = Vector2(-2876, 858)
+repeat_size = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Faces2" unique_id=789052767]
+modulate = Color(0.4390487, 0.43904924, 0.43904912, 1)
+position = Vector2(588, -415)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_h8k1p")
+
+[node name="Faces" type="Parallax2D" parent="ParallaxBackground" unique_id=2131648583]
+scroll_offset = Vector2(306, 532)
+repeat_size = Vector2(3072, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Faces" unique_id=411790716]
+modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
+position = Vector2(199, -140)
+texture = ExtResource("1_h8k1p")
