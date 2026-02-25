@@ -71,9 +71,12 @@ func _process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Dash") and not dash_is_on_cooldown:
-		start_dash_invul()
-		dash()
+	
+	if GameState.player_special_amount >= GameState.roll_special_cost:
+		if event.is_action_pressed("Dash") and not dash_is_on_cooldown:
+			GameState.player_special_amount -= GameState.roll_special_cost
+			start_dash_invul()
+			dash()
 
 
 func _on_dash_timer_timeout() -> void:

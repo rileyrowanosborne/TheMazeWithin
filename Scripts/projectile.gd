@@ -40,6 +40,7 @@ func _process(delta: float) -> void:
 
 
 func apply_facing_impulse(strength):
+	SignalBus.emit_signal("succesful_deflect")
 	spawn_delfect_particles(global_position)
 	var mouse_position = get_global_mouse_position()
 	var projectile_position = global_position
