@@ -24,3 +24,7 @@ signal show_interact_text
 signal hide_interact_text
 
 signal start_mushroom_cutscene
+
+
+
+signal open_door

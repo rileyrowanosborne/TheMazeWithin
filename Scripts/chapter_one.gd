@@ -25,6 +25,7 @@ var total_spleeps_collected : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
+	SignalBus.connect("open_door", open_door)
 	SignalBus.connect("change_level", change_levels)
 	SignalBus.connect("player_died", reset_level)
 	
@@ -33,6 +34,8 @@ func _ready() -> void:
 	GameState.current_floor_boss_max_health = boss_health
 	GameState.current_chapter = current_level
 	GameState.orm_current_phase = 1
+	
+	
 
 
 func begin_boss_spawning():
@@ -68,8 +71,23 @@ func level_boss_died():
 
 
 
+func open_door():
+	if current_level == 1:
+		GameState.chapter_one_door_open = true
+	elif current_level == 2:
+		GameState.chapter_two_door_open = true
+	elif current_level == 3:
+		GameState.chapter_three_door_open = true
+	elif current_level == 4:
+		GameState.chapter_four_door_open = true
+
 
 func change_levels():
+	
+	
+	
+	
+	
 	if GameState.current_chapter != 4:
 		level_boss_is_spawned = false
 		GameState.boss_active = false

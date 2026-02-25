@@ -34,6 +34,12 @@ var total_boss_enemies : int
 var boss_active : int
 
 
+var chapter_one_door_open : bool
+var chapter_two_door_open : bool
+var chapter_three_door_open : bool
+var chapter_four_door_open : bool
+
+
 
 var current_dialogue : String
 

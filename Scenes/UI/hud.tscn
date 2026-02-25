@@ -92,6 +92,13 @@ text = "A STRONG ENEMY IS APPROACHING"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="DoorText" type="RichTextLabel" parent="BossScreenText" unique_id=178752985]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+text = "SOMETHING HAS SHIFTED"
+
 [node name="BossTextTimer" type="Timer" parent="BossScreenText" unique_id=519752637]
 wait_time = 3.0
 one_shot = true
