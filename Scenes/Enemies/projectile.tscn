@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="1_f8cdk"]
 [ext_resource type="Script" uid="uid://cj7t6fx4ttkt5" path="res://Scripts/projectile.gd" id="1_yr2qt"]
 [ext_resource type="PackedScene" uid="uid://jicx35vv3vqe" path="res://Scenes/Effects/deflection_effect.tscn" id="2_tl4hk"]
+[ext_resource type="PackedScene" uid="uid://qpok16xtmsmi" path="res://Scenes/Components/deflect_noise.tscn" id="3_w8apx"]
 [ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/Components/hitbox.tscn" id="4_d4467"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tl4hk"]
@@ -16,7 +17,8 @@ z_index = 5
 collision_layer = 2
 collision_mask = 0
 script = ExtResource("1_yr2qt")
-delfect_particles_scene = ExtResource("2_tl4hk")
+deflect_particles_scene = ExtResource("2_tl4hk")
+deflect_noise_player_scene = ExtResource("3_w8apx")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1398262024]
 position = Vector2(1, 1)
@@ -47,13 +49,3 @@ collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=447813494]
 shape = SubResource("CircleShape2D_d4467")
-
-[node name="AudioPlayer" type="Node2D" parent="." unique_id=1655244771]
-
-[node name="DeflectNoise" type="AudioStreamPlayer2D" parent="AudioPlayer" unique_id=1337846876]
-
-[node name="DeflectNoise2" type="AudioStreamPlayer2D" parent="AudioPlayer" unique_id=1059428244]
-
-[node name="DeflectNoise3" type="AudioStreamPlayer2D" parent="AudioPlayer" unique_id=453446948]
-
-[node name="DeflectNoise4" type="AudioStreamPlayer2D" parent="AudioPlayer" unique_id=2037333337]

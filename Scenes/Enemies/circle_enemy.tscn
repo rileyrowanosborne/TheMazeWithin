@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="2_n57o8"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="4_xw0ou"]
 [ext_resource type="PackedScene" uid="uid://c0e1f14uhvwii" path="res://Scenes/Enemies/circle_shield_segment.tscn" id="5_s5s5c"]
+[ext_resource type="AudioStream" uid="uid://cikptbvd24kyn" path="res://Assets/Sounds/BoneCrunch.wav" id="7_gnw35"]
+[ext_resource type="AudioStream" uid="uid://bolrjvoektlma" path="res://Assets/Sounds/EnemyHit.wav" id="8_gq4a3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n57o8"]
 atlas = ExtResource("1_155j3")
@@ -191,6 +193,15 @@ collision_mask = 18
 shape = SubResource("CircleShape2D_xw0ou")
 
 [node name="CircleShieldSegment" parent="." unique_id=850023334 instance=ExtResource("5_s5s5c")]
+
+[node name="HurtNoise" type="AudioStreamPlayer2D" parent="." unique_id=225798305]
+stream = ExtResource("7_gnw35")
+bus = &"SFX"
+
+[node name="HurtNoise2" type="AudioStreamPlayer2D" parent="." unique_id=600459496]
+stream = ExtResource("8_gq4a3")
+volume_db = 5.2
+bus = &"SFX"
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]

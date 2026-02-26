@@ -20,6 +20,8 @@ extends CharacterBody2D
 @onready var damage_timer: Timer = $Timers/DamageTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
 
+@onready var hurt_noise: AudioStreamPlayer2D = $HurtNoise
+@onready var hurt_noise_2: AudioStreamPlayer2D = $HurtNoise2
 
 
 @export var blood_splat_scene : PackedScene
@@ -83,6 +85,8 @@ func take_damage():
 		current_health -= 1
 		SignalBus.emit_signal("enemy_hit")
 		animated_sprite_2d.play("Hit")
+		hurt_noise.play()
+		hurt_noise_2.play()
 		life_check()
 		spawn_blood_splat(global_position)
 	else:

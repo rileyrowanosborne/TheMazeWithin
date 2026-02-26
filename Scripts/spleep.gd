@@ -2,6 +2,20 @@ extends CharacterBody2D
 
 
 
+
+
+const HURT_BONE_CRUNCH = preload("uid://4ci7ri5715xt")
+const ENEMY_HIT = preload("uid://bolrjvoektlma")
+const BONE_CRUNCH = preload("uid://cikptbvd24kyn")
+const SPLOTCH = preload("uid://cigyj1brbslug")
+
+
+
+
+
+
+
+
 @onready var ray_cast_down: RayCast2D = $Raycasts/RayCastDown
 @onready var ray_cast_down_2: RayCast2D = $Raycasts/RayCastDown2
 @onready var ray_cast_up: RayCast2D = $Raycasts/RayCastUp
@@ -21,6 +35,7 @@ extends CharacterBody2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 @onready var splotch_sounds: AudioStreamPlayer2D = $SplotchSounds
+@onready var classic_splotch: AudioStreamPlayer2D = $ClassicSplotch
 
 const SPEED = 35
 
@@ -95,7 +110,9 @@ func _physics_process(delta: float) -> void:
 	if collision and is_launched:
 		velocity = velocity.bounce(collision.get_normal())
 		splotch_sounds.pitch_scale = randf_range(1.2, 1.4)
+		random_splotch_sound_picker()
 		splotch_sounds.play()
+		classic_splotch.play()
 	
 	
 
@@ -105,6 +122,9 @@ func _on_cooldown_timer_timeout() -> void:
 
 
 func apply_facing_impulse(strength):
+	random_splotch_sound_picker()
+	splotch_sounds.play()
+	classic_splotch.play()
 	if not is_in_spleep_hole:
 		var player_position = GameState.player_position
 		var projectile_position = global_position
@@ -141,6 +161,17 @@ func set_animation(anim : String):
 		animated_sprite_2d.play(anim)
 	
 	
+
+
+func random_splotch_sound_picker():
+	var rando_num : int
+	rando_num = randi_range(1,3)
+	if rando_num == 1:
+		splotch_sounds.stream = BONE_CRUNCH
+	elif rando_num == 2:
+		splotch_sounds.stream = HURT_BONE_CRUNCH
+	elif rando_num == 3:
+		splotch_sounds.stream = ENEMY_HIT
 
 
 func _on_direction_cooldown_timer_timeout() -> void:

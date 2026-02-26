@@ -162,7 +162,7 @@ polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 1, 0
 
 [node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
 stream = ExtResource("5_5shib")
-volume_db = -7.429
+volume_db = -11.143
 pitch_scale = 1.77
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]

@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://qpok16xtmsmi"]
+
+[ext_resource type="Script" uid="uid://by3jijei7uxuq" path="res://Scripts/deflect_noise.gd" id="1_vh6io"]
+[ext_resource type="AudioStream" uid="uid://bbfjtomkjh3h" path="res://Assets/Sounds/BigWoosh.wav" id="2_vt8ty"]
+[ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="3_rtb7k"]
+
+[node name="DeflectNoise" type="Node2D" unique_id=1808811041]
+script = ExtResource("1_vh6io")
+
+[node name="DeflectNoise" type="AudioStreamPlayer2D" parent="." unique_id=671893853]
+stream = ExtResource("2_vt8ty")
+pitch_scale = 2.74
+autoplay = true
+
+[node name="DeflectNoise2" type="AudioStreamPlayer2D" parent="." unique_id=722810604]
+stream = ExtResource("3_rtb7k")
+pitch_scale = 2.2
+autoplay = true
+
+[connection signal="finished" from="DeflectNoise" to="." method="_on_deflect_noise_finished"]

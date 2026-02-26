@@ -2,11 +2,22 @@
 
 [ext_resource type="Script" uid="uid://3sp81uhgo5kh" path="res://Scripts/health_component.gd" id="1_yf5fb"]
 [ext_resource type="AudioStream" uid="uid://cigyj1brbslug" path="res://Assets/Sounds/freesound_community-various-mushy-impacts-or-wet-splats-70685.wav" id="2_atona"]
+[ext_resource type="AudioStream" uid="uid://den1171v072wp" path="res://Assets/Sounds/floraphonic-near-miss-swing-whoosh-20-233433.mp3" id="3_g6isl"]
+[ext_resource type="AudioStream" uid="uid://cikptbvd24kyn" path="res://Assets/Sounds/BoneCrunch.wav" id="4_mre2e"]
 
 [node name="HealthComponent" type="Node2D" unique_id=1949095431]
 script = ExtResource("1_yf5fb")
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." unique_id=749458386]
+[node name="Death" type="AudioStreamPlayer2D" parent="." unique_id=2083362969]
 stream = ExtResource("2_atona")
-volume_db = -5.2
-pitch_scale = 0.8
+volume_db = -11.886
+pitch_scale = 0.6
+
+[node name="Dodge" type="AudioStreamPlayer2D" parent="." unique_id=626204285]
+stream = ExtResource("3_g6isl")
+pitch_scale = 0.49
+
+[node name="HurtNoise" type="AudioStreamPlayer2D" parent="." unique_id=1792355004]
+stream = ExtResource("4_mre2e")
+volume_db = 5.943
+bus = &"SFX"

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4ci7ri5715xt"
+path="res://.godot/imported/Hurt + BoneCrunch.wav-0690290d6fe18e477b1c6d9180e84ce8.sample"
+
+[deps]
+
+source_file="res://Assets/Sounds/Hurt + BoneCrunch.wav"
+dest_files=["res://.godot/imported/Hurt + BoneCrunch.wav-0690290d6fe18e477b1c6d9180e84ce8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

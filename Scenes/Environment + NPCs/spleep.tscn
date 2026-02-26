@@ -131,9 +131,15 @@ one_shot = true
 
 [node name="SplotchSounds" type="AudioStreamPlayer2D" parent="." unique_id=1009090155]
 stream = ExtResource("3_8n1lu")
+volume_db = -10.165
 pitch_scale = 1.5
 max_polyphony = 10
 bus = &"SFX"
+
+[node name="ClassicSplotch" type="AudioStreamPlayer2D" parent="." unique_id=1938488037]
+stream = ExtResource("3_8n1lu")
+volume_db = -12.629
+pitch_scale = 1.63
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]

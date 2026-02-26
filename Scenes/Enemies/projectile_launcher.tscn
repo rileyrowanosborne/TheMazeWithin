@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://lyvygt58cf0q" path="res://Scripts/projectile_launcher.gd" id="1_pt6he"]
 [ext_resource type="PackedScene" uid="uid://ekcj3gn2xbhk" path="res://Scenes/Enemies/projectile.tscn" id="2_t0e2w"]
+[ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="3_ebl0j"]
 
 [node name="ProjectileLauncher" type="Node2D" unique_id=529816459]
 z_index = 4
@@ -10,5 +11,12 @@ projectile_scene = ExtResource("2_t0e2w")
 
 [node name="FireRate" type="Timer" parent="." unique_id=461600808]
 one_shot = true
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="." unique_id=1829448913]
+stream = ExtResource("3_ebl0j")
+volume_db = -23.029
+pitch_scale = 0.8
+max_distance = 150.0
+attenuation = 0.3535535
 
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

@@ -1,9 +1,25 @@
 extends Node2D
 
 
+
+const ENEMY_HIT = preload("uid://bolrjvoektlma")
+const BONE_CRUNCH = preload("uid://cikptbvd24kyn")
+const HURT_BONE_CRUNCH = preload("uid://4ci7ri5715xt")
+
+
+var random_number_picker : int
+
+
+
+
 @onready var blood_splat_1: CPUParticles2D = $BloodSplat1
 @onready var blood_splat_2: CPUParticles2D = $BloodSplat2
-@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+@onready var hurt_noise: AudioStreamPlayer2D = $HurtNoise
+
+
+@onready var death: AudioStreamPlayer2D = $Death
+@onready var dodge: AudioStreamPlayer2D = $Dodge
 
 
 
@@ -22,11 +38,22 @@ func on_player_hit():
 	if GameState.player_alive:
 		if GameState.player_is_invul:
 			print("Dodged!")
+			dodge.play()
 		else:
+			random_number_picker = randi_range(1,3)
+			
 			current_health -= 1
 			blood_splat_1.emitting = true
 			blood_splat_2.emitting = true
-			audio_stream_player_2d.play()
+			if random_number_picker == 1:
+				hurt_noise.stream = BONE_CRUNCH
+			elif random_number_picker == 2:
+				hurt_noise.stream = ENEMY_HIT
+			elif random_number_picker == 3:
+				hurt_noise.stream = HURT_BONE_CRUNCH
+			
+			hurt_noise.play()
+			
 			health_check()
 			print("Hit!")
 		
@@ -39,3 +66,4 @@ func health_check():
 			if current_health <= min_health:
 				GameState.player_alive = false
 				SignalBus.emit_signal("player_died")
+				death.play()

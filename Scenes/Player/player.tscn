@@ -435,7 +435,7 @@ current = true
 
 [node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=1545722686]
 stream = ExtResource("19_aqm4k")
-volume_db = -7.428
+volume_db = -17.2
 pitch_scale = 2.0
 max_polyphony = 5
 bus = &"SFX"
