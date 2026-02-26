@@ -27,11 +27,11 @@ func on_level_boss_died():
 	$BossScreenText/LevelChangeTimer.start()
 	$BossScreenText/BossEnteredText.visible = true
 	$BossScreenText/BossEnteredText.text = "A STRONG ENEMY HAS FALLEN"
-	$BossScreenText/DoorText.visible = true
 
 
 func _on_level_change_timer_timeout() -> void:
-	$BossScreenText/DoorText.visible = false
+	$BossScreenText/BossEnteredText.visible = false
+	$BossScreenText/DoorText.visible = true
 	SignalBus.emit_signal("open_door")
 
 

@@ -22,7 +22,7 @@ const YELLOW_PROJECTILE = preload("res://Assets/Sprites/YellowProjectile.png")
 func _ready() -> void:
 	
 	if get_parent().get_parent().is_shooting  == true:
-		fire_rate.start()
+		fire_rate.start(fire_rate_delay)
 
 
 
@@ -33,7 +33,7 @@ func spawn_projectile(world_location : Vector2, dir : Vector2):
 		get_tree().current_scene.add_child(projectile_instance)
 		projectile_instance.global_position = world_location
 		projectile_instance.dir = dir
-		projectile_instance.apply_central_impulse(dir * 100)
+		projectile_instance.apply_central_impulse(dir * 50)
 		if owner.is_in_group("Square"):
 			projectile_instance.sprite_2d.texture = BLUE_PROJECTILE
 		elif owner.is_in_group("Triangle"):
@@ -46,4 +46,4 @@ func spawn_projectile(world_location : Vector2, dir : Vector2):
 func _on_fire_rate_timeout() -> void:
 	if get_parent().get_parent().is_shooting:
 		spawn_projectile(global_position, direction)
-	fire_rate.start()
+	fire_rate.start(1.0)

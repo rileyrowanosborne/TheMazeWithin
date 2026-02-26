@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://barmuvj1jpwao"]
+[gd_scene format=3 uid="uid://barmuvj1jpwao"]
 
 [ext_resource type="Script" uid="uid://cke6w2l6ugjn7" path="res://Scripts/title_screen.gd" id="1_cdcib"]
 [ext_resource type="Texture2D" uid="uid://c0sg0ygwygx5o" path="res://Assets/Sprites/TheMazeWithinTitleScreen-Static.png" id="2_bvt2h"]
@@ -114,25 +114,25 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="TitleScreen" type="Node2D"]
+[node name="TitleScreen" type="Node2D" unique_id=1954034356]
 script = ExtResource("1_cdcib")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=314098563]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.898039, 0.878431, 0.803922, 1)
 
-[node name="TitleCard" type="Sprite2D" parent="."]
+[node name="TitleCard" type="Sprite2D" parent="." unique_id=263724687]
 position = Vector2(180, 137)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_bvt2h")
 
-[node name="Body" type="Sprite2D" parent="."]
+[node name="Body" type="Sprite2D" parent="." unique_id=950940986]
 position = Vector2(563, 328)
 scale = Vector2(5, 5)
 texture = ExtResource("3_xmqk5")
 
-[node name="Eyes" type="AnimatedSprite2D" parent="."]
+[node name="Eyes" type="AnimatedSprite2D" parent="." unique_id=731657736]
 position = Vector2(566, 332)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_kwrhy")
@@ -140,37 +140,37 @@ animation = &"Blinking"
 autoplay = "Blinking"
 frame_progress = 0.113497
 
-[node name="Mouth" type="AnimatedSprite2D" parent="."]
+[node name="Mouth" type="AnimatedSprite2D" parent="." unique_id=1483566675]
 position = Vector2(555, 332)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_p6h12")
 animation = &"Mouth"
 
-[node name="Hair" type="Sprite2D" parent="."]
+[node name="Hair" type="Sprite2D" parent="." unique_id=267397475]
 position = Vector2(563, 328)
 scale = Vector2(5, 5)
 texture = ExtResource("6_2uv0j")
 
-[node name="Square" type="Sprite2D" parent="."]
+[node name="Square" type="Sprite2D" parent="." unique_id=664488275]
 self_modulate = Color(1, 1, 1, 0.415686)
 position = Vector2(463, 405)
 scale = Vector2(5, 5)
 texture = ExtResource("7_lb2dc")
 
-[node name="Triangle" type="Sprite2D" parent="."]
+[node name="Triangle" type="Sprite2D" parent="." unique_id=1697730022]
 self_modulate = Color(1, 1, 1, 0.415686)
 position = Vector2(705, 376)
 rotation = -0.0925025
 scale = Vector2(5, 5)
 texture = ExtResource("8_c6r3x")
 
-[node name="Circle" type="Sprite2D" parent="."]
+[node name="Circle" type="Sprite2D" parent="." unique_id=41641433]
 self_modulate = Color(1, 1, 1, 0.415686)
 position = Vector2(569, 209)
 scale = Vector2(5, 5)
 texture = ExtResource("9_arl2v")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1367620149]
 offset_left = 853.0
 offset_top = 358.0
 offset_right = 1317.0
@@ -178,19 +178,19 @@ offset_bottom = 794.0
 scale = Vector2(0.6, 0.6)
 theme_override_constants/separation = 50
 
-[node name="StartButton" type="TextureButton" parent="VBoxContainer"]
+[node name="StartButton" type="TextureButton" parent="VBoxContainer" unique_id=1705817401]
 layout_mode = 2
 texture_normal = ExtResource("10_2pymf")
 texture_pressed = ExtResource("11_1wfnt")
 texture_hover = ExtResource("12_tbwdd")
 
-[node name="OptionsButton" type="TextureButton" parent="VBoxContainer"]
+[node name="OptionsButton" type="TextureButton" parent="VBoxContainer" unique_id=1406563274]
 layout_mode = 2
 texture_normal = ExtResource("13_3w7i0")
 texture_pressed = ExtResource("14_sp3kb")
 texture_hover = ExtResource("15_l5tcq")
 
-[node name="QuitButton" type="TextureButton" parent="VBoxContainer"]
+[node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=772138761]
 layout_mode = 2
 texture_normal = ExtResource("16_e0lak")
 texture_pressed = ExtResource("17_afscf")
