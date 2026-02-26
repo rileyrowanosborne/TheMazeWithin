@@ -12,15 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://5hb6le3lnb7s" path="res://Assets/Sprites/Player-Hud-SpecialBar-Progress.png" id="7_qt3ij"]
 [ext_resource type="Texture2D" uid="uid://bcjd5yxf5o4gg" path="res://Assets/Sprites/BossHealthBarUnder.png" id="8_7gr8i"]
 [ext_resource type="Texture2D" uid="uid://cd0xbh5s4rkcm" path="res://Assets/Sprites/BossHealthBarProgress.png" id="9_5ep0j"]
+[ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="9_uidm2"]
 [ext_resource type="FontFile" uid="uid://dv1vxp8vg0bgx" path="res://Assets/Fonts/VeniceClassic.ttf" id="10_5ep0j"]
 [ext_resource type="FontFile" uid="uid://utreg8xo8xlb" path="res://Assets/Fonts/Perfect DOS VGA 437 copy.ttf" id="11_am52h"]
 [ext_resource type="Texture2D" uid="uid://1c5v4513u7vr" path="res://Assets/Sprites/DialogueTextBox.png" id="11_cna6x"]
 [ext_resource type="Script" uid="uid://bu8jyuw3hr3tl" path="res://Scripts/dialogue.gd" id="12_yttkt"]
 [ext_resource type="PackedScene" uid="uid://doem7a4hh4aqy" path="res://Scenes/Environment + NPCs/In-game Cutscenes/mushoom_eating_cutscene.tscn" id="14_mt778"]
 
-[sub_resource type="Theme" id="Theme_fccik"]
+[sub_resource type="Theme" id="Theme_uidm2"]
 default_font = ExtResource("1_e0onf")
-default_font_size = 128
+default_font_size = 64
 
 [sub_resource type="Theme" id="Theme_bjfho"]
 default_font = ExtResource("1_e0onf")
@@ -84,7 +85,7 @@ offset_left = -12.0
 offset_top = -16.0
 offset_right = 585.0
 offset_bottom = 250.0
-theme = SubResource("Theme_fccik")
+theme = ExtResource("9_uidm2")
 theme_override_colors/default_color = Color(0.576471, 0.129412, 0.113725, 1)
 theme_override_colors/font_shadow_color = Color(0.398, 0.0768242, 0.0656822, 1)
 theme_override_constants/shadow_offset_y = 5
@@ -95,9 +96,16 @@ vertical_alignment = 1
 [node name="DoorText" type="RichTextLabel" parent="BossScreenText" unique_id=178752985]
 visible = false
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-text = "SOMETHING HAS SHIFTED"
+offset_left = -58.0
+offset_top = 517.0
+offset_right = 622.0
+offset_bottom = 573.0
+theme = SubResource("Theme_uidm2")
+theme_override_colors/default_color = Color(0.5764706, 0.12941177, 0.11764706, 1)
+theme_override_colors/font_shadow_color = Color(0.39607844, 0.078431375, 0.07058824, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "SOMETHING WITHIN THE HALLS HAS SHIFTED"
 
 [node name="BossTextTimer" type="Timer" parent="BossScreenText" unique_id=519752637]
 wait_time = 3.0

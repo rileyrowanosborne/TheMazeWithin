@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/Environment + NPCs/spleep_hole.tscn" id="13_2k0ak"]
 [ext_resource type="Texture2D" uid="uid://dng653bl1cqec" path="res://Assets/Sprites/Projectile.png" id="16_l7jbk"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_qljol"]
+[ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="18_ub4ti"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
 script = ExtResource("5_2k0ak")
@@ -703,13 +704,13 @@ one_shot = true
 [node name="Spleeps" type="Node2D" parent="." unique_id=182392311]
 
 [node name="Spleep" parent="Spleeps" unique_id=128631161 instance=ExtResource("12_ax664")]
-position = Vector2(97, -1)
+position = Vector2(-40, 56)
 
 [node name="Spleep2" parent="Spleeps" unique_id=1257568016 instance=ExtResource("12_ax664")]
-position = Vector2(109, -10)
+position = Vector2(217, 26)
 
 [node name="Spleep3" parent="Spleeps" unique_id=1234860577 instance=ExtResource("12_ax664")]
-position = Vector2(90, -15)
+position = Vector2(90, 123)
 
 [node name="SpleepHoles" type="Node2D" parent="." unique_id=1277898880]
 
@@ -753,5 +754,8 @@ position = Vector2(481, 321)
 [node name="SawPlayer" type="AnimationPlayer" parent="Saws/SawBlade6" unique_id=820258227]
 libraries/ = SubResource("AnimationLibrary_lahxf")
 autoplay = &"Main"
+
+[node name="LevelChangeChecker" parent="." unique_id=1348532402 instance=ExtResource("18_ub4ti")]
+position = Vector2(328, -552)
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

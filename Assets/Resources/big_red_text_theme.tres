@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://bnm76p0djd4dx"]
+
+[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_1uyox"]
+
+[resource]
+default_font = ExtResource("1_1uyox")
+default_font_size = 128
