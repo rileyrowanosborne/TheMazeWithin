@@ -126,7 +126,7 @@ _data = {
 z_index = 4
 z_as_relative = false
 script = ExtResource("1_0fuc7")
-current_weapon = 2
+current_weapon = 1
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1632561566]
 position = Vector2(-5, -4)
