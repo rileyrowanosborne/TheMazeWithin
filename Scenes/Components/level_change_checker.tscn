@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cl4ssavnd8p1" path="res://Assets/Sprites/NextLevelDoor-Sheet.png" id="1_58e0s"]
 [ext_resource type="Script" uid="uid://bpgjrwek568wx" path="res://Scripts/level_change_checker.gd" id="1_irb6n"]
+[ext_resource type="FontFile" uid="uid://duu8jm2dawjpb" path="res://Assets/Fonts/dogicapixel.ttf" id="3_ir6it"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irb6n"]
 atlas = ExtResource("1_58e0s")
@@ -33,7 +34,11 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58e0s"]
 size = Vector2(42, 45.5)
 
-[node name="LevelChangeChecker" type="Area2D" unique_id=1348532402]
+[sub_resource type="Theme" id="Theme_koi5m"]
+default_font = ExtResource("3_ir6it")
+default_font_size = 8
+
+[node name="NextLevelDoor" type="Area2D" unique_id=1348532402]
 script = ExtResource("1_irb6n")
 
 [node name="Door" type="AnimatedSprite2D" parent="." unique_id=1326877059]
@@ -44,6 +49,20 @@ animation = &"Closed"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1180180539]
 position = Vector2(0, 13.25)
 shape = SubResource("RectangleShape2D_58e0s")
+
+[node name="EnterText" type="RichTextLabel" parent="." unique_id=1837699267]
+visible = false
+z_index = 10
+offset_left = -21.0
+offset_top = -19.0
+offset_right = 21.0
+offset_bottom = -10.0
+theme = SubResource("Theme_koi5m")
+theme_override_colors/default_color = Color(0.8132505, 0.6829211, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.31459916, 0.22471064, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+text = "ENTER?"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

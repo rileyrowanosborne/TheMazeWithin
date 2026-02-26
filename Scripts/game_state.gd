@@ -40,6 +40,11 @@ var chapter_three_door_open : bool
 var chapter_four_door_open : bool
 
 
+var chapter_one_completed : bool
+var chapter_two_completed : bool
+var chapter_three_completed : bool
+var chapter_four_completed : bool
+
 
 var current_dialogue : String
 

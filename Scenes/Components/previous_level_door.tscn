@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://blkf056a2gm3j"]
+
+[ext_resource type="Script" uid="uid://bki7dvqtmh0qo" path="res://Scripts/previous_level_door.gd" id="1_iog4a"]
+[ext_resource type="Texture2D" uid="uid://cl4ssavnd8p1" path="res://Assets/Sprites/NextLevelDoor-Sheet.png" id="1_rsv5j"]
+[ext_resource type="FontFile" uid="uid://duu8jm2dawjpb" path="res://Assets/Fonts/dogicapixel.ttf" id="3_qq1ol"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iog4a"]
+atlas = ExtResource("1_rsv5j")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qq1ol"]
+atlas = ExtResource("1_rsv5j")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yjjuf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iog4a")
+}],
+"loop": false,
+"name": &"Closed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qq1ol")
+}],
+"loop": false,
+"name": &"Open",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rsv5j"]
+size = Vector2(34, 37)
+
+[sub_resource type="Theme" id="Theme_wcs62"]
+default_font = ExtResource("3_qq1ol")
+default_font_size = 8
+
+[node name="PreviousLevelDoor" type="Area2D" unique_id=696931999]
+script = ExtResource("1_iog4a")
+
+[node name="Door" type="AnimatedSprite2D" parent="." unique_id=585212803]
+z_index = 3
+sprite_frames = SubResource("SpriteFrames_yjjuf")
+animation = &"Open"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1465500190]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_rsv5j")
+
+[node name="EnterText" type="RichTextLabel" parent="." unique_id=319255088]
+visible = false
+z_index = 10
+offset_left = -21.0
+offset_top = -21.0
+offset_right = 21.0
+offset_bottom = -12.0
+theme = SubResource("Theme_wcs62")
+theme_override_colors/default_color = Color(0.8117647, 0.68235296, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.3137255, 0.22352941, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+text = "ENTER?"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

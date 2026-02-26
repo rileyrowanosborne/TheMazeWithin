@@ -24,6 +24,8 @@ var total_spleeps_collected : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	GameState.current_chapter = current_level
+	
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
 	SignalBus.connect("open_door", open_door)
 	SignalBus.connect("change_level", change_levels)

@@ -20,7 +20,7 @@ func _process(delta: float) -> void:
 func on_level_boss_spawned():
 	visible = true
 	if GameState.current_chapter == 1:
-		boss_title_text.text = "Oslo, the Under King"
+		boss_title_text.text = "Oslo, the Underking"
 	elif GameState.current_chapter == 2:
 		boss_title_text.text = "Quork, the Unwell"
 	elif GameState.current_chapter == 3:
