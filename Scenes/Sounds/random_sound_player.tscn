@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://011v2leqjbow"]
+
+[ext_resource type="Script" uid="uid://cppeineo3xl2t" path="res://random_sound_player.gd" id="1_56c0r"]
+
+[node name="RandomSoundPlayer" type="AudioStreamPlayer2D" unique_id=536003049]
+script = ExtResource("1_56c0r")
+
+[node name="Timer" type="Timer" parent="." unique_id=1091311836]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

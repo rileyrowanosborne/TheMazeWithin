@@ -4,6 +4,7 @@
 [ext_resource type="SpriteFrames" uid="uid://cd0wxsngxaaxb" path="res://Assets/Resources/BaseBallBatAnims.tres" id="2_wcw3d"]
 [ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="4_kciln"]
 [ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_no2ia"]
+[ext_resource type="AudioStream" uid="uid://bbfjtomkjh3h" path="res://Assets/Sounds/BigWoosh.wav" id="5_5shib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
 atlas = ExtResource("4_kciln")
@@ -158,6 +159,11 @@ script = ExtResource("4_no2ia")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox" unique_id=260844215]
 polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 1, 0)
+
+[node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
+stream = ExtResource("5_5shib")
+volume_db = -7.429
+pitch_scale = 1.77
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
 [connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]

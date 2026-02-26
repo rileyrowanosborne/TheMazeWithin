@@ -36,7 +36,7 @@ size = Vector2(42, 45.5)
 
 [sub_resource type="Theme" id="Theme_koi5m"]
 default_font = ExtResource("3_ir6it")
-default_font_size = 8
+default_font_size = 16
 
 [node name="NextLevelDoor" type="Area2D" unique_id=1348532402]
 script = ExtResource("1_irb6n")
@@ -51,18 +51,24 @@ position = Vector2(0, 13.25)
 shape = SubResource("RectangleShape2D_58e0s")
 
 [node name="EnterText" type="RichTextLabel" parent="." unique_id=1837699267]
-visible = false
 z_index = 10
-offset_left = -21.0
-offset_top = -19.0
-offset_right = 21.0
-offset_bottom = -10.0
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 94.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
 theme = SubResource("Theme_koi5m")
-theme_override_colors/default_color = Color(0.8132505, 0.6829211, 0, 1)
-theme_override_colors/font_shadow_color = Color(0.31459916, 0.22471064, 0, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
+theme_override_colors/default_color = Color(0.6783131, 0.16180775, 0.14747182, 1)
+theme_override_colors/font_outline_color = Color(0.9372549, 0.32941177, 0.28235295, 0.5137255)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.45882353)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
 text = "ENTER?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Door Creak" type="AudioStreamPlayer2D" parent="." unique_id=983520406]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

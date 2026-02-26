@@ -20,6 +20,7 @@ extends CharacterBody2D
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+@onready var splotch_sounds: AudioStreamPlayer2D = $SplotchSounds
 
 const SPEED = 35
 
@@ -93,6 +94,8 @@ func _physics_process(delta: float) -> void:
 	# Only bounce if launched
 	if collision and is_launched:
 		velocity = velocity.bounce(collision.get_normal())
+		splotch_sounds.pitch_scale = randf_range(1.2, 1.4)
+		splotch_sounds.play()
 	
 	
 
@@ -106,7 +109,7 @@ func apply_facing_impulse(strength):
 		var player_position = GameState.player_position
 		var projectile_position = global_position
 		var deflect_direction_vector = (projectile_position - player_position).normalized()
-		velocity = deflect_direction_vector * strength
+		velocity = deflect_direction_vector * (strength * 1.1)
 		lauched_timer.start()
 		is_launched = true
 		direction = Vector2(0,0)

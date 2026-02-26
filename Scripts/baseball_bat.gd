@@ -6,6 +6,8 @@ extends Node2D
 @onready var slash_anim: AnimatedSprite2D = $SlashAnim
 @onready var swing_is_charged_particles: CPUParticles2D = $"../ChargeUI/SwingIsChargedParticles"
 @onready var sprite_2d: AnimatedSprite2D = $Sprite2D
+@onready var woosh: AudioStreamPlayer2D = $Woosh
+
 
 
 @onready var swing_hit_box: Area2D = $SwingHitBox
@@ -93,6 +95,8 @@ func _input(event: InputEvent) -> void:
 		charge = MIN_CHARGE
 		charging = false
 		if is_charged:
+			woosh.play()
+
 			is_charged = false
 			GameState.is_swinging = true
 			animation_player.play("Swing")

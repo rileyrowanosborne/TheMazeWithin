@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ctyo0sx40hogm" path="res://Assets/Sprites/LittleSpleep-Sheet.png" id="1_l4tmf"]
 [ext_resource type="Script" uid="uid://gadc8dkqre3o" path="res://Scripts/spleep.gd" id="1_s6gym"]
+[ext_resource type="AudioStream" uid="uid://cigyj1brbslug" path="res://Assets/Sounds/freesound_community-various-mushy-impacts-or-wet-splats-70685.wav" id="3_8n1lu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smvmp"]
 atlas = ExtResource("1_l4tmf")
@@ -62,47 +63,48 @@ shape = SubResource("CapsuleShape2D_l4tmf")
 [node name="RayCastDown" type="RayCast2D" parent="Raycasts" unique_id=85965290]
 position = Vector2(-4, 0)
 target_position = Vector2(0, 6)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastDown2" type="RayCast2D" parent="Raycasts" unique_id=1071829739]
 position = Vector2(4, 0)
 target_position = Vector2(0, 6)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastUp" type="RayCast2D" parent="Raycasts" unique_id=812804017]
 position = Vector2(4, 0)
 target_position = Vector2(0, -5)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastUp2" type="RayCast2D" parent="Raycasts" unique_id=1761963092]
 position = Vector2(-4, 0)
 target_position = Vector2(0, -5)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastRight" type="RayCast2D" parent="Raycasts" unique_id=548350729]
 position = Vector2(0, 5)
 target_position = Vector2(5, 0)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastRight2" type="RayCast2D" parent="Raycasts" unique_id=2008627719]
 position = Vector2(0, -4)
 target_position = Vector2(5, 0)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastLeft" type="RayCast2D" parent="Raycasts" unique_id=338262717]
 position = Vector2(0, -4)
 target_position = Vector2(-5, 0)
-collision_mask = 5
+collision_mask = 69
 
 [node name="RayCastLeft2" type="RayCast2D" parent="Raycasts" unique_id=94712027]
 position = Vector2(0, 5)
 target_position = Vector2(-5, 0)
-collision_mask = 5
+collision_mask = 69
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=1161798496]
 one_shot = true
 
 [node name="LauchedTimer" type="Timer" parent="." unique_id=1481035040]
+wait_time = 1.5
 one_shot = true
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2118545774]
@@ -126,6 +128,12 @@ one_shot = true
 
 [node name="DirectionCooldownTimer" type="Timer" parent="." unique_id=1099534637]
 one_shot = true
+
+[node name="SplotchSounds" type="AudioStreamPlayer2D" parent="." unique_id=1009090155]
+stream = ExtResource("3_8n1lu")
+pitch_scale = 1.5
+max_polyphony = 10
+bus = &"SFX"
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]

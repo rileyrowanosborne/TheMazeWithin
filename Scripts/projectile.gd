@@ -17,6 +17,10 @@ var speed : float = 100.0
 
 var enemy_hittable : bool = false
 
+@onready var deflect_noise: AudioStreamPlayer2D = $AudioPlayer/DeflectNoise
+@onready var deflect_noise_2: AudioStreamPlayer2D = $AudioPlayer/DeflectNoise2
+@onready var deflect_noise_3: AudioStreamPlayer2D = $AudioPlayer/DeflectNoise3
+@onready var deflect_noise_4: AudioStreamPlayer2D = $AudioPlayer/DeflectNoise4
 
 
 

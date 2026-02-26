@@ -3,6 +3,7 @@ extends Node2D
 
 @onready var blood_splat_1: CPUParticles2D = $BloodSplat1
 @onready var blood_splat_2: CPUParticles2D = $BloodSplat2
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 
 
@@ -25,6 +26,7 @@ func on_player_hit():
 			current_health -= 1
 			blood_splat_1.emitting = true
 			blood_splat_2.emitting = true
+			audio_stream_player_2d.play()
 			health_check()
 			print("Hit!")
 		

@@ -18,7 +18,7 @@ func _ready() -> void:
 
 func _on_change_scene_timer_timeout() -> void:
 	if GameState.current_chapter == 1:
-		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_four_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/initial_cutscene.tscn")
 	
 	elif GameState.current_chapter == 2:
 		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_two_cutscene.tscn")

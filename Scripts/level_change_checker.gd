@@ -3,6 +3,7 @@ extends Area2D
 
 @onready var door: AnimatedSprite2D = $Door
 @onready var enter_text: RichTextLabel = $EnterText
+@onready var door_creak: AudioStreamPlayer2D = $"Door Creak"
 
 
 
@@ -98,4 +99,4 @@ func _input(event: InputEvent) -> void:
 
 
 func on_door_opened():
-	pass
+	door_creak.play()
