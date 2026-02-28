@@ -3,6 +3,9 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	GameState.player_playing = false
+	
 	if GameState.current_chapter == 1:
 		$RichTextLabel.text = "CHAPTER I"
 	elif GameState.current_chapter == 2:

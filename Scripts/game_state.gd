@@ -1,6 +1,11 @@
 extends Node
 
 
+
+var is_paused : bool = false
+
+var player_playing : bool
+
 var player_position : Vector2
 var player_is_invul : bool 
 
@@ -58,6 +63,17 @@ func _process(delta: float) -> void:
 	pass
 
 
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pause") and player_playing:
+		if is_paused:
+			is_paused = false
+			SignalBus.emit_signal("unpause_game")
+			print("game unpaused")
+		else:
+			is_paused = true
+			SignalBus.emit_signal("pause_game")
+			print("game paused")
 
 func on_projectile_delfect():
 	if player_special_amount < MAX_SPECIAL:

@@ -28,3 +28,8 @@ signal start_mushroom_cutscene
 
 
 signal open_door
+
+
+
+signal pause_game
+signal unpause_game
