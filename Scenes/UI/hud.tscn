@@ -110,6 +110,7 @@ default_font_size = 32
 script = ExtResource("1_fccik")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=173331201]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -211,7 +212,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="IngameHud" type="Control" parent="." unique_id=485691671]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

@@ -8,6 +8,7 @@ extends Control
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("player_hit", on_player_hit)
+	SignalBus.connect("player_respawn", reset_health)
 
 
 
@@ -16,4 +17,8 @@ func on_player_hit():
 
 
 func health_check():
-	texture_progress_bar.value = GameState.player_health
+	texture_progress_bar.value = GameState.current_player_health
+
+
+func reset_health():
+	texture_progress_bar.value = 3

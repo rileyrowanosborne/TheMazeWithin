@@ -6,6 +6,7 @@ extends Area2D
 @onready var door_creak: AudioStreamPlayer2D = $"Door Creak"
 
 
+var is_locked
 
 @export var chapter : int
 @export var floor_completed : bool 
@@ -16,7 +17,7 @@ var in_range : bool
 func _ready() -> void:
 	SignalBus.connect("open_door", on_door_opened)
 	
-	
+	is_locked = true
 	in_range = false
 
 
@@ -66,37 +67,38 @@ func set_animation(anim : String):
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact") and in_range:
-		
-		if chapter == 1:
-			if GameState.chapter_two_completed:
-				get_tree().change_scene_to_file("res://Scenes/Chapters/Completed Chapters/completed_chapter_two.tscn")
-			else:
-				if floor_completed:
-					get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_two.tscn")
+		if not is_locked:
+			if chapter == 1:
+				if GameState.chapter_two_completed:
+					get_tree().change_scene_to_file("res://Scenes/Chapters/Completed Chapters/completed_chapter_two.tscn")
 				else:
-					get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
-					GameState.current_chapter += 1
-		elif chapter == 2:
-			if GameState.chapter_three_completed:
-				get_tree().change_scene_to_file("res://Scenes/Chapters/Completed Chapters/completed_chapter_three.tscn")
-			else:
-				if floor_completed:
-					get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_three.tscn")
+					if floor_completed:
+						get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_two.tscn")
+					else:
+						get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
+						GameState.current_chapter += 1
+			elif chapter == 2:
+				if GameState.chapter_three_completed:
+					get_tree().change_scene_to_file("res://Scenes/Chapters/Completed Chapters/completed_chapter_three.tscn")
 				else:
-					get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
-					GameState.current_chapter += 1
-		elif chapter == 3:
-			if GameState.chapter_four_completed:
-				get_tree().change_scene_to_file("res://Scenes/Chapters/Completed Chapters/completed_chapter_four.tscn")
-			else:
-				if floor_completed:
-					get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_four.tscn")
+					if floor_completed:
+						get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_three.tscn")
+					else:
+						get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
+						GameState.current_chapter += 1
+			elif chapter == 3:
+				if GameState.chapter_four_completed:
+					get_tree().change_scene_to_file("res://Scenes/Chapters/Completed Chapters/completed_chapter_four.tscn")
 				else:
-					get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
-					GameState.current_chapter += 1
+					if floor_completed:
+						get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_four.tscn")
+					else:
+						get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
+						GameState.current_chapter += 1
 
 
 
 
 func on_door_opened():
 	door_creak.play()
+	is_locked = false

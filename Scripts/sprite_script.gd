@@ -7,7 +7,6 @@ var is_moving : bool = false
 
 var is_forward : bool = true
 
-@onready var baseball_bat: Node2D = $"../BaseballBat"
 
 @onready var footsteps: AudioStreamPlayer2D = $"../Footsteps"
 
@@ -45,30 +44,35 @@ func _process(delta: float) -> void:
 	
 	else:
 		is_moving = false
-	
-	if GameState.player_alive:
-		if not get_parent().is_dash_animation:
-			
-			if is_moving and is_forward:
-				set_anim("Front Walking")
-				baseball_bat.z_index = 4
-			
-			elif is_moving and not is_forward:
-				set_anim("Back Walking")
-				baseball_bat.z_index = 3
-			
-			elif not is_moving and not is_forward:
-				set_anim("Back Idle")
-				baseball_bat.z_index = 3
-			
-			elif not is_moving and is_forward:
-				set_anim("Front Idle")
-				baseball_bat.z_index = 4
 		
-		else:
-			set_anim("Dash")
+	
+	if is_forward:
+		GameState.player_is_forward = true
 	else:
-		set_anim("Death")
+		GameState.player_is_forward = false
+	
+	if GameState.is_paused:
+		set_anim("Front Idle")
+	else:
+		if GameState.player_alive:
+			if not get_parent().is_dash_animation:
+				
+				if is_moving and is_forward:
+					set_anim("Front Walking")
+
+				elif is_moving and not is_forward:
+					set_anim("Back Walking")
+				
+				elif not is_moving and not is_forward:
+					set_anim("Back Idle")
+				
+				elif not is_moving and is_forward:
+					set_anim("Front Idle")
+			
+			else:
+				set_anim("Dash")
+		else:
+			set_anim("Death")
 
 
 func _input(event: InputEvent) -> void:

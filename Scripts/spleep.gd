@@ -123,6 +123,7 @@ func _on_cooldown_timer_timeout() -> void:
 
 func apply_facing_impulse(strength):
 	random_splotch_sound_picker()
+	SignalBus.emit_signal("start_special_timer")
 	splotch_sounds.play()
 	classic_splotch.play()
 	if not is_in_spleep_hole:

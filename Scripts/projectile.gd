@@ -22,6 +22,8 @@ var enemy_hittable : bool = false
 
 
 
+
+
 func _ready() -> void:
 	add_to_group("Projectile")
 	
@@ -41,9 +43,9 @@ func apply_facing_impulse(strength):
 	SignalBus.emit_signal("succesful_deflect")
 	spawn_deflect_nosie()
 	spawn_deflect_particles(global_position)
-	var mouse_position = get_global_mouse_position()
+	var player_position = GameState.player_position
 	var projectile_position = global_position
-	var deflect_direction_vector = (mouse_position - projectile_position).normalized()
+	var deflect_direction_vector = (projectile_position - player_position).normalized()
 	
 	apply_central_impulse(deflect_direction_vector * strength)
 	

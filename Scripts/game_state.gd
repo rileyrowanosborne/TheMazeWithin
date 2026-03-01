@@ -2,6 +2,12 @@ extends Node
 
 
 
+
+var player_is_forward : bool
+
+var cursor_glo_pos : Vector2
+
+
 var is_paused : bool = false
 
 var player_playing : bool
@@ -20,11 +26,12 @@ var charge : int
 var new_spawn_position : Vector2
 
 var player_alive : bool
-var player_health : int
+var current_player_health : int
 
 var player_special_amount : int
 const MAX_SPECIAL : int = 100
 const MIN_SPECIAL : int = 0
+var charge_rate : float = 1
 var roll_special_cost : int = 25
 
 var current_chapter : int
@@ -53,6 +60,9 @@ var chapter_four_completed : bool
 
 var current_dialogue : String
 
+var player_aim_dir : Vector2
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("succesful_deflect", on_projectile_delfect)
@@ -76,5 +86,4 @@ func _input(event: InputEvent) -> void:
 			print("game paused")
 
 func on_projectile_delfect():
-	if player_special_amount < MAX_SPECIAL:
-		player_special_amount += 10
+	SignalBus.emit_signal("start_special_timer")

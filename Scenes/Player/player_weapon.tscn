@@ -1,33 +1,35 @@
 [gd_scene format=3 uid="uid://18q3ioq6x3oo"]
 
-[ext_resource type="Script" uid="uid://b6wy807ebmx5t" path="res://Scripts/baseball_bat.gd" id="1_0fuc7"]
-[ext_resource type="SpriteFrames" uid="uid://cd0wxsngxaaxb" path="res://Assets/Resources/BaseBallBatAnims.tres" id="2_wcw3d"]
-[ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="4_kciln"]
-[ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_no2ia"]
-[ext_resource type="AudioStream" uid="uid://bbfjtomkjh3h" path="res://Assets/Sounds/BigWoosh.wav" id="5_5shib"]
+[ext_resource type="Script" uid="uid://b6wy807ebmx5t" path="res://Scripts/player_weapon.gd" id="1_2vtmu"]
+[ext_resource type="SpriteFrames" uid="uid://cd0wxsngxaaxb" path="res://Assets/Resources/BaseBallBatAnims.tres" id="2_02wvh"]
+[ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="3_5882p"]
+[ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_jx47f"]
+[ext_resource type="AudioStream" uid="uid://bbfjtomkjh3h" path="res://Assets/Sounds/BigWoosh.wav" id="5_af7t1"]
+[ext_resource type="Script" uid="uid://da6sxvybbrtpo" path="res://Scripts/cursor.gd" id="6_02wvh"]
+[ext_resource type="Texture2D" uid="uid://ik1eb5c4v6ey" path="res://Assets/Sprites/Pointer.png" id="6_clt12"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
-atlas = ExtResource("4_kciln")
+atlas = ExtResource("3_5882p")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6yv6c"]
-atlas = ExtResource("4_kciln")
+atlas = ExtResource("3_5882p")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eroos"]
-atlas = ExtResource("4_kciln")
+atlas = ExtResource("3_5882p")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cjbjx"]
-atlas = ExtResource("4_kciln")
+atlas = ExtResource("3_5882p")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_my6hq"]
-atlas = ExtResource("4_kciln")
+atlas = ExtResource("3_5882p")
 region = Rect2(64, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_eq6mh"]
-atlas = ExtResource("4_kciln")
+atlas = ExtResource("3_5882p")
 region = Rect2(80, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_i2k1v"]
@@ -123,18 +125,21 @@ _data = {
 &"Swing": SubResource("Animation_kciln")
 }
 
+[sub_resource type="Curve" id="Curve_3jn5j"]
+_data = [Vector2(0.0261044, 0.229349), 0.0, 3.33082, 0, 0, Vector2(1, 0.114339), -2.0998, 0.0, 0, 0]
+point_count = 2
+
 [node name="PlayerWeapon" type="Node2D" unique_id=1926795832]
 z_index = 4
 z_as_relative = false
-script = ExtResource("1_0fuc7")
-current_weapon = 1
+script = ExtResource("1_2vtmu")
+current_weapon = 4
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1632561566]
 position = Vector2(-5, -4)
 rotation = -0.897184
-sprite_frames = ExtResource("2_wcw3d")
+sprite_frames = ExtResource("2_02wvh")
 animation = &"Idle"
-autoplay = "Idle"
 
 [node name="SwingTimer" type="Timer" parent="." unique_id=1329643363]
 one_shot = true
@@ -155,15 +160,37 @@ libraries/ = SubResource("AnimationLibrary_no2ia")
 [node name="SwingHitBox" type="Area2D" parent="." unique_id=1723059868]
 collision_layer = 0
 collision_mask = 74
-script = ExtResource("4_no2ia")
+script = ExtResource("4_jx47f")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox" unique_id=260844215]
 polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 1, 0)
 
+[node name="Cursor" type="Sprite2D" parent="SwingHitBox" unique_id=67427269]
+self_modulate = Color(1, 1, 1, 0.5764706)
+position = Vector2(20, -1)
+texture = ExtResource("6_clt12")
+script = ExtResource("6_02wvh")
+
 [node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
-stream = ExtResource("5_5shib")
+stream = ExtResource("5_af7t1")
 volume_db = -11.143
 pitch_scale = 1.77
+
+[node name="SwingIsChargedParticles" type="CPUParticles2D" parent="." unique_id=1838295540]
+position = Vector2(0, -1)
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 176.33
+gravity = Vector2(0, 0)
+initial_velocity_min = 9.0
+initial_velocity_max = 10.0
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_3jn5j")
+color = Color(0.215686, 0.698039, 0.117647, 1)
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
 [connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]

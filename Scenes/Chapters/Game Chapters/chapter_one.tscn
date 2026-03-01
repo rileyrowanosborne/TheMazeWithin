@@ -660,6 +660,8 @@ chapter_seed = 3245888123
 boss_location = Vector2(350, -415)
 boss_health = 5
 current_level = 1
+normal_spawn = Vector2(86, -800)
+checkpoint_spawn = Vector2(168, -200)
 level_boss = ExtResource("2_hhpeq")
 total_level_spleep_holes = 3
 

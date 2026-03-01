@@ -6,6 +6,7 @@ signal succesful_deflect
 signal player_hit
 signal room_generated 
 signal player_died
+signal player_respawn
 signal enemy_hit
 
 
@@ -33,3 +34,7 @@ signal open_door
 
 signal pause_game
 signal unpause_game
+
+
+
+signal start_special_timer

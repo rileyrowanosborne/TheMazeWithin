@@ -7,11 +7,14 @@ extends Node2D
 
 @export var current_level : int
 
+@export var normal_spawn : Vector2
+@export var checkpoint_spawn : Vector2
+
 var level_boss_is_spawned : bool = false
 
 
-
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
+@onready var player: CharacterBody2D = $Player
 
 
 @export var level_boss : PackedScene
@@ -31,6 +34,7 @@ func _ready() -> void:
 	SignalBus.connect("open_door", open_door)
 	SignalBus.connect("change_level", change_levels)
 	SignalBus.connect("player_died", reset_level)
+	SignalBus.connect("player_respawn", respawn_player)
 	
 	
 	GameState.current_boss_health = boss_health
@@ -101,11 +105,15 @@ func change_levels():
 
 
 func reset_level():
-	GameState.boss_active = false
 	level_boss_is_spawned = false
-	total_spleeps_collected = 0
 	await get_tree().create_timer(1.5).timeout
 	if level_boss_instance:
 		level_boss_instance.queue_free()
 	
-	
+
+func respawn_player():
+	if GameState.boss_active:
+		player.global_position = checkpoint_spawn
+		begin_boss_spawning()
+	else:
+		player.global_position = normal_spawn

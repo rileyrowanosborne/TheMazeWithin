@@ -25,13 +25,11 @@ var random_number_picker : int
 
 @export var max_health : int
 var min_health : int = 0
-var current_health : int
 
 
 func _ready() -> void:
 	SignalBus.connect("player_hit", on_player_hit)
-	current_health = max_health
-	GameState.player_health = max_health
+	GameState.current_player_health = max_health
 
 
 func on_player_hit():
@@ -42,7 +40,10 @@ func on_player_hit():
 		else:
 			random_number_picker = randi_range(1,3)
 			
-			current_health -= 1
+			if GameState.player_special_amount > GameState.MIN_SPECIAL:
+				GameState.player_special_amount -= 50.0
+			else:
+				GameState.current_player_health -= 1
 			blood_splat_1.emitting = true
 			blood_splat_2.emitting = true
 			if random_number_picker == 1:
@@ -60,10 +61,8 @@ func on_player_hit():
 
 
 func health_check():
-	GameState.player_health = current_health
 	if GameState.player_alive:
 		if get_parent().is_in_group("Player"):
-			if current_health <= min_health:
-				GameState.player_alive = false
+			if GameState.current_player_health <= min_health:
 				SignalBus.emit_signal("player_died")
 				death.play()

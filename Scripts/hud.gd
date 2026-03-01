@@ -10,6 +10,8 @@ extends CanvasLayer
 @onready var player_died_text: Control = $IngameHud/PlayerDiedText
 @onready var death_text_timer: Timer = $IngameHud/PlayerDiedText/DeathTextTimer
 
+@onready var pause_menu: Control = $PauseMenu
+@onready var ingame_hud: Control = $IngameHud
 
 
 
@@ -60,9 +62,11 @@ func _on_death_text_timer_timeout() -> void:
 	
 
 func on_pause_signal_received():
-	pass
+	pause_menu.visible = true
+	ingame_hud.visible = false
 
 
 
 func on_unpause_signal_received():
-	pass
+	pause_menu.visible = false
+	ingame_hud.visible = true
