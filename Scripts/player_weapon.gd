@@ -108,6 +108,7 @@ func _process(delta: float) -> void:
 	
 	if aim_direction.length() > JOY_DEADZONE:
 		rotation = aim_direction.angle()
+		GameState.player_aim_dir = aim_direction
 		
 	
 	if aim_direction != Vector2(0,0):

@@ -17,7 +17,10 @@ var in_range : bool
 func _ready() -> void:
 	SignalBus.connect("open_door", on_door_opened)
 	
-	is_locked = true
+	if floor_completed:
+		is_locked = false
+	else:
+		is_locked = true
 	in_range = false
 
 

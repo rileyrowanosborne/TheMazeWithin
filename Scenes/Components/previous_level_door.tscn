@@ -34,9 +34,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rsv5j"]
 size = Vector2(34, 37)
 
-[sub_resource type="Theme" id="Theme_wcs62"]
+[sub_resource type="Theme" id="Theme_qq1ol"]
 default_font = ExtResource("3_qq1ol")
-default_font_size = 8
+default_font_size = 16
 
 [node name="PreviousLevelDoor" type="Area2D" unique_id=696931999]
 script = ExtResource("1_iog4a")
@@ -50,19 +50,24 @@ animation = &"Open"
 position = Vector2(0, 10)
 shape = SubResource("RectangleShape2D_rsv5j")
 
-[node name="EnterText" type="RichTextLabel" parent="." unique_id=319255088]
+[node name="EnterText" type="RichTextLabel" parent="." unique_id=1388755017]
 visible = false
 z_index = 10
-offset_left = -21.0
-offset_top = -21.0
-offset_right = 21.0
-offset_bottom = -12.0
-theme = SubResource("Theme_wcs62")
-theme_override_colors/default_color = Color(0.654902, 0.62352943, 0.61960787, 1)
-theme_override_colors/font_shadow_color = Color(0.54901963, 0.5372549, 0.5176471, 1)
-theme_override_constants/shadow_offset_x = 0
-theme_override_constants/shadow_offset_y = 1
+offset_left = -30.0
+offset_top = -35.0
+offset_right = 94.0
+offset_bottom = 21.0
+scale = Vector2(0.5, 0.5)
+theme = SubResource("Theme_qq1ol")
+theme_override_colors/default_color = Color(0.6783131, 0.16180775, 0.14747182, 1)
+theme_override_colors/font_outline_color = Color(0.9372549, 0.32941177, 0.28235295, 0.5137255)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.45882353)
+theme_override_constants/shadow_offset_x = 10
+theme_override_constants/shadow_offset_y = 10
+theme_override_constants/outline_size = 10
 text = "ENTER?"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

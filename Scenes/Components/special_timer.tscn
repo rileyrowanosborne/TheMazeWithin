@@ -1,10 +1,6 @@
 [gd_scene format=3 uid="uid://roum10rao2hq"]
 
-[ext_resource type="Script" uid="uid://chrw8nsaa0ddf" path="res://Scripts/special_timer.gd" id="1_3lxfn"]
-
 [node name="SpecialTimer" type="Timer" unique_id=1569465154]
 one_shot = true
-script = ExtResource("1_3lxfn")
-timer_length = 0.2
 
 [connection signal="timeout" from="." to="." method="_on_timeout"]

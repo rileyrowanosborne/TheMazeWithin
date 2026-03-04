@@ -30,6 +30,11 @@ var in_range_of_interactable : bool = false
 @onready var interact_label: RichTextLabel = $InteractLabel
 
 
+@onready var special_timer: Timer = $SpecialTimer
+@onready var special_decay_timer: Timer = $SpecialDecayTimer
+var special_is_charging : bool = false
+var special_is_decaying : bool = false
+@export var special_timer_length : float = .2
 
 
 func _ready() -> void:
@@ -41,6 +46,7 @@ func _ready() -> void:
 	SignalBus.connect("player_hit", on_player_hit)
 	SignalBus.connect("show_interact_text", show_interact_text)
 	SignalBus.connect("hide_interact_text", hide_interact_text)
+	SignalBus.connect("start_special_timer", on_special_timer_start)
 
 func get_input():
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -69,9 +75,26 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	
+	
+	if special_is_charging:
+		if GameState.player_special_amount < GameState.MAX_SPECIAL:
+			GameState.player_special_amount += GameState.charge_rate
+	
+		elif  GameState.player_special_amount > GameState.MAX_SPECIAL:
+			GameState.player_special_amount = GameState.MAX_SPECIAL
+		
+	
+	elif special_is_decaying:
+		if GameState.player_special_amount > GameState.MIN_SPECIAL:
+			GameState.player_special_amount -= GameState.charge_rate
+		elif GameState.player_special_amount < GameState.MIN_SPECIAL:
+			GameState.player_special_amount = GameState.MIN_SPECIAL
+	
+	
+	
 	GameState.player_position = global_position
 	
-	dash_direction = global_position.direction_to(GameState.cursor_glo_pos)
+	dash_direction = GameState.player_aim_dir.normalized()
 
 
 func _input(event: InputEvent) -> void:
@@ -131,7 +154,7 @@ func _on_death_timer_timeout() -> void:
 
 func on_player_respawned():
 	GameState.player_alive = true
-	GameState.current_player_health = 3
+	GameState.current_player_health = 4
 	GameState.player_special_amount = 0
 
 func on_player_hit():
@@ -145,8 +168,6 @@ func spawn_blood_splat(world_location : Vector2):
 		blood_splat_instance.global_position = world_location
 
 
-
-
 func show_interact_text():
 	print("In range yes")
 	interact_label.visible = true
@@ -154,3 +175,18 @@ func show_interact_text():
 func hide_interact_text():
 	print("In range no")
 	interact_label.visible = false
+
+
+func on_special_timer_start():
+	special_is_decaying = false
+	special_is_charging = true
+	special_timer.start(special_timer_length)
+
+func _on_special_timer_timeout() -> void:
+	special_is_charging = false
+	special_decay_timer.start()
+
+
+func _on_special_decay_timer_timeout() -> void:
+	if special_timer.is_stopped():
+		special_is_decaying = true

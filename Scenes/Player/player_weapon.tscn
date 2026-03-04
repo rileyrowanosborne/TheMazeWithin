@@ -5,7 +5,6 @@
 [ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="3_5882p"]
 [ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_jx47f"]
 [ext_resource type="AudioStream" uid="uid://bbfjtomkjh3h" path="res://Assets/Sounds/BigWoosh.wav" id="5_af7t1"]
-[ext_resource type="Script" uid="uid://da6sxvybbrtpo" path="res://Scripts/cursor.gd" id="6_02wvh"]
 [ext_resource type="Texture2D" uid="uid://ik1eb5c4v6ey" path="res://Assets/Sprites/Pointer.png" id="6_clt12"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
@@ -169,7 +168,6 @@ polygon = PackedVector2Array(8, -14, 12, -12, 18, -5, 18, 3, 13, 10, 9, 13, 1, 0
 self_modulate = Color(1, 1, 1, 0.5764706)
 position = Vector2(20, -1)
 texture = ExtResource("6_clt12")
-script = ExtResource("6_02wvh")
 
 [node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
 stream = ExtResource("5_af7t1")

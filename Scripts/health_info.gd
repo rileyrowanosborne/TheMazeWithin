@@ -2,6 +2,7 @@ extends Control
 
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var player_shielded_icon: TextureRect = $PlayerShieldedIcon
 
 
 
@@ -21,4 +22,12 @@ func health_check():
 
 
 func reset_health():
-	texture_progress_bar.value = 3
+	texture_progress_bar.value = 4
+
+
+func _process(delta: float) -> void:
+	if GameState.player_special_amount > 0:
+		player_shielded_icon.visible = true
+	else:
+		player_shielded_icon.visible = false
+		
