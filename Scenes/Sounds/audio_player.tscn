@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://011v2leqjbow" path="res://Scenes/Sounds/random_sound_player.tscn" id="2_mf7qv"]
 [ext_resource type="AudioStream" uid="uid://cayoxjrew8dqy" path="res://Assets/Sounds/capaholiczsfx-distant-thunder-405128.mp3" id="3_046fp"]
 [ext_resource type="AudioStream" uid="uid://dds7pmwg60177" path="res://Assets/Sounds/dragon-studio-creepy-distant-footsteps-482883.mp3" id="4_tvddi"]
-[ext_resource type="AudioStream" uid="uid://5a75806kccol" path="res://Assets/Sounds/dragon-studio-distant-dog-barking-472373.mp3" id="5_0t6tm"]
+[ext_resource type="AudioStream" uid="uid://bv2v4q4yscsia" path="res://Assets/Sounds/freesound_community-nuclear-distant-73138.mp3" id="5_0t6tm"]
 [ext_resource type="AudioStream" uid="uid://d06vkimkjc2lk" path="res://Assets/Sounds/freesound_community-church-atmosphere-with-choir-54511.mp3" id="6_3n2vm"]
 [ext_resource type="AudioStream" uid="uid://b7eknv4jkjfk5" path="res://Assets/Sounds/freesound_community-distant-continuous-thunder-25005.mp3" id="7_1wqeo"]
 [ext_resource type="AudioStream" uid="uid://clccbs2mp6aij" path="res://Assets/Sounds/freesound_community-distant-thunder-clap_gentle-72248.mp3" id="8_3xihs"]
@@ -103,3 +103,4 @@ attenuation = 0.49999997
 max_polyphony = 10
 bus = &"Music"
 timer_delay = 0
+starting_delay = 10

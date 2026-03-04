@@ -8,7 +8,8 @@ var is_moving : bool = false
 var is_forward : bool = true
 
 
-@onready var footsteps: AudioStreamPlayer2D = $"../Footsteps"
+@export var foot_steps_scene : PackedScene
+
 
 
 # Called when the node enters the scene tree for the first time.
@@ -22,10 +23,6 @@ func _process(delta: float) -> void:
 		flip_h = false
 	else:
 		flip_h = true
-	
-	if (animation == "Front Walking") or (animation == "Back Walking"):
-		if (frame == 1) or (frame == 3): 
-			set_walk_audio()
 	
 	
 	
@@ -83,10 +80,20 @@ func _input(event: InputEvent) -> void:
 
 
 
-func set_walk_audio():
-	if !footsteps.playing:
-		footsteps.play()
+func spawn_footsteps():
+	if foot_steps_scene:
+		var foot_step_audio = foot_steps_scene.instantiate()
+		get_tree().current_scene.add_child(foot_step_audio)
+		foot_step_audio.global_position = global_position - Vector2(0,5)
 
 func set_anim(anim : String):
 	if animation != anim:
 		play(anim)
+
+
+
+func _on_frame_changed() -> void:
+	print("Frame Changed")
+	if is_moving:
+		if (frame == 0) or (frame == 2): 
+				spawn_footsteps()

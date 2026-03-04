@@ -9,8 +9,15 @@ extends CharacterBody2D
 
 
 @onready var player_sprites: AnimatedSprite2D = $PlayerSprites
+@onready var change_dir_timer: Timer = $ChangeDirTimer
 
 
+
+@export var is_player : bool
+
+var input : Vector2
+const ACCEL : float = 6
+var speed : float = 150
 
 var sprite_direction = [
 	"Front",
@@ -18,8 +25,6 @@ var sprite_direction = [
 	"Left",
 	"Right"
 ]
-
-
 
 var sprite_state = [
 	"Idle",
@@ -30,7 +35,6 @@ var sprite_state = [
 
 var current_direction : Vector2
 
-const SPEED : int = 50
 
 
 var is_alive : bool = true
@@ -38,31 +42,50 @@ var is_alive : bool = true
 
 func _physics_process(delta: float) -> void:
 	
-	velocity = current_direction * SPEED
-	
+	var player_input = get_input()
+	if is_alive:
+		if is_player:
+			velocity = lerp(velocity, player_input * speed, delta * ACCEL)
+		else:
+			velocity = current_direction * speed
+	else:
+		velocity = Vector2.ZERO
+		
 	move_and_slide()
 
 func _ready() -> void:
-	direction_change()
 	
+	if not is_player:
+		speed = 50
+		direction_change()
+	else:
+		speed = 150
 
 
 func _process(delta: float) -> void:
 	
-	if ray_cast_down.is_colliding()\
-	or ray_cast_left.is_colliding()\
-	or ray_cast_right.is_colliding()\
-	or ray_cast_up.is_colliding():
-		direction_change()
+	if not is_player:
+		if change_dir_timer.is_stopped():
+			if ray_cast_down.is_colliding()\
+			or ray_cast_left.is_colliding()\
+			or ray_cast_right.is_colliding()\
+			or ray_cast_up.is_colliding():
+				change_dir_timer.start()
+				direction_change()
+			
 		
-	
-	
+
+func get_input():
+	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
+	input.y = Input.get_action_strength("Down") - Input.get_action_strength("Up")
+	return input.normalized()
 
 
 
 func direction_change():
-	current_direction.x = randf_range(-1,1)
-	current_direction.y = randf_range(-1,1)
+	if not is_player:
+		current_direction.x = randf_range(-1,1)
+		current_direction.y = randf_range(-1,1)
 	
 	if current_direction.x < 0:
 		sprite_direction = "Right"

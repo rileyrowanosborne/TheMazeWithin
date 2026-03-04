@@ -250,6 +250,7 @@ z_index = 4
 collision_layer = 128
 collision_mask = 4
 script = ExtResource("1_j0jec")
+is_player = null
 
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="." unique_id=853796529]
 position = Vector2(0, 4)
@@ -281,6 +282,10 @@ target_position = Vector2(0, -2)
 collision_mask = 207
 
 [node name="DeathTimer" type="Timer" parent="." unique_id=769581966]
+one_shot = true
+
+[node name="ChangeDirTimer" type="Timer" parent="." unique_id=11307807]
+wait_time = 0.5
 one_shot = true
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

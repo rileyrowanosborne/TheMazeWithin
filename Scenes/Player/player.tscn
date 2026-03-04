@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/Effects/blood_splat.tscn" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://dtulix6ndpvie" path="res://Scripts/sprite_script.gd" id="3_6t5aa"]
 [ext_resource type="PackedScene" uid="uid://18q3ioq6x3oo" path="res://Scenes/Player/player_weapon.tscn" id="4_vgqql"]
+[ext_resource type="PackedScene" uid="uid://bxfikn8ovlysh" path="res://Scenes/Sounds/footsteps.tscn" id="6_aqm4k"]
 [ext_resource type="PackedScene" uid="uid://cy72xmp2bnc3w" path="res://Scenes/Components/health_component.tscn" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://c0ap1iws77bd5" path="res://Scripts/in_wall_checker.gd" id="8_8erm5"]
 [ext_resource type="PackedScene" uid="uid://54amq6ybpquf" path="res://Scenes/Components/shake_camera.tscn" id="9_f1ek2"]
@@ -17,7 +18,6 @@
 [ext_resource type="Texture2D" uid="uid://c8b1fkh5154mi" path="res://Assets/Sprites/ChargeProgressBarProgress.png" id="16_fd4e3"]
 [ext_resource type="PackedScene" uid="uid://rkbtvrbvynps" path="res://Scenes/Effects/in_range_checker.tscn" id="17_ks1b7"]
 [ext_resource type="FontFile" uid="uid://duu8jm2dawjpb" path="res://Assets/Fonts/dogicapixel.ttf" id="18_hnuln"]
-[ext_resource type="AudioStream" uid="uid://8tyo0wqc244y" path="res://Assets/Sounds/freesound_community-foot-steps-on-carpet-70604.wav" id="19_aqm4k"]
 [ext_resource type="PackedScene" uid="uid://roum10rao2hq" path="res://Scenes/Components/special_timer.tscn" id="19_rcvs5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
@@ -287,6 +287,7 @@ position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_vgqql")
 animation = &"Back Walking"
 script = ExtResource("3_6t5aa")
+foot_steps_scene = ExtResource("6_aqm4k")
 
 [node name="PlayerWeapon" parent="." unique_id=509974704 instance=ExtResource("4_vgqql")]
 position = Vector2(-1, -6)
@@ -409,20 +410,15 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=393722967]
+position = Vector2(-1, -12)
 current = true
-
-[node name="Footsteps" type="AudioStreamPlayer2D" parent="." unique_id=1545722686]
-stream = ExtResource("19_aqm4k")
-volume_db = -5.0
-pitch_scale = 2.0
-max_polyphony = 5
-bus = &"SFX"
 
 [node name="SpecialTimer" parent="." unique_id=1569465154 instance=ExtResource("19_rcvs5")]
 
 [node name="SpecialDecayTimer" type="Timer" parent="." unique_id=948191661]
 one_shot = true
 
+[connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]

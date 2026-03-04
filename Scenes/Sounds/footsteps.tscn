@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bxfikn8ovlysh"]
+
+[ext_resource type="AudioStream" uid="uid://8tyo0wqc244y" path="res://Assets/Sounds/freesound_community-foot-steps-on-carpet-70604.wav" id="1_h02lj"]
+[ext_resource type="Script" uid="uid://c4t2infgl5613" path="res://Scripts/footsteps.gd" id="2_jgp77"]
+
+[node name="Footsteps" type="AudioStreamPlayer2D" unique_id=316788415]
+stream = ExtResource("1_h02lj")
+volume_db = -15.0
+pitch_scale = 2.5
+autoplay = true
+max_distance = 15.0
+max_polyphony = 5
+bus = &"SFX"
+script = ExtResource("2_jgp77")
+
+[connection signal="finished" from="." to="." method="_on_finished"]
