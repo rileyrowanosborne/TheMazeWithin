@@ -15,7 +15,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 [application]
 
 config/name="The Maze Within"
-run/main_scene="uid://o4mpcfwdbbj3"
+run/main_scene="uid://bdoqnkak5s2p3"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="uid://ixhqxi7c1oqx"
 
@@ -147,6 +147,7 @@ Pause={
 2d_physics/layer_5="Environment"
 2d_physics/layer_6="Interactable"
 2d_physics/layer_7="Spleep"
+2d_physics/layer_8="MiniMe"
 
 [physics]
 

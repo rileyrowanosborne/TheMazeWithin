@@ -144,7 +144,7 @@ animation = &"Idle"
 one_shot = true
 
 [node name="SlashAnim" type="AnimatedSprite2D" parent="." unique_id=215163223]
-modulate = Color(0.531051, 0.531051, 0.531051, 1)
+modulate = Color(0.5294118, 0.5294118, 0.5294118, 0.5058824)
 z_index = 5
 position = Vector2(14, 0)
 scale = Vector2(2, 2)

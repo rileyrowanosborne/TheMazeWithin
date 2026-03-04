@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="9_iafda"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="11_wv2xt"]
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/Player/player.tscn" id="12_ei72r"]
+[ext_resource type="PackedScene" uid="uid://cbtwep8826duk" path="res://Scenes/Player/mini_me.tscn" id="14_8fp34"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="14_fgfdw"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
@@ -602,3 +603,15 @@ position = Vector2(-55, -12)
 
 [node name="Spleep3" parent="." unique_id=277130465 instance=ExtResource("14_fgfdw")]
 position = Vector2(6, 5)
+
+[node name="MiniMe" parent="." unique_id=1160471521 instance=ExtResource("14_8fp34")]
+position = Vector2(-52, -115)
+
+[node name="MiniMe2" parent="." unique_id=1808960806 instance=ExtResource("14_8fp34")]
+position = Vector2(-53, -135)
+
+[node name="MiniMe3" parent="." unique_id=1383431312 instance=ExtResource("14_8fp34")]
+position = Vector2(-67, -127)
+
+[node name="MiniMe4" parent="." unique_id=954260258 instance=ExtResource("14_8fp34")]
+position = Vector2(-40, -113)
