@@ -3,6 +3,7 @@
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
 [ext_resource type="FontFile" uid="uid://d23k1m2werx6o" path="res://Assets/Fonts/dogicapixelbold.ttf" id="2_8c63k"]
+[ext_resource type="Texture2D" uid="uid://bxnt4sbdyqh6s" path="res://Assets/Sprites/HighResFace-Sheet.png" id="2_iiebs"]
 [ext_resource type="Script" uid="uid://81ovgw6dbg8t" path="res://Scripts/health_info.gd" id="2_t1xeu"]
 [ext_resource type="Texture2D" uid="uid://cmaxkd1cy2je4" path="res://Assets/Sprites/TextSprite.png" id="3_e17ao"]
 [ext_resource type="Texture2D" uid="uid://bug53in74rox5" path="res://Assets/Sprites/PlayerHealthBar_V3_UNDER.png" id="3_mt778"]
@@ -10,9 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://du885u2uv4vdy" path="res://Assets/Sprites/PlayerHealthBar_V3_OVER.png" id="4_8km2t"]
 [ext_resource type="Texture2D" uid="uid://c0ibmauxdkoky" path="res://Assets/Sprites/Cube Sprite.png" id="4_e17ao"]
 [ext_resource type="Texture2D" uid="uid://83os67p4ra77" path="res://Assets/Sprites/PlayerHealthBar_V3_PROGRESS.png" id="5_k24i8"]
-[ext_resource type="Script" uid="uid://bsfyremh16nm4" path="res://Scripts/pause_text_parallax.gd" id="5_pc4p0"]
 [ext_resource type="Script" uid="uid://rvxr8m46b5x8" path="res://Scripts/special_bar.gd" id="5_qt3ij"]
 [ext_resource type="Texture2D" uid="uid://kbec8nh3f2e8" path="res://Assets/Sprites/Player-Hud-SpecialBar-Under.png" id="6_k24i8"]
+[ext_resource type="Texture2D" uid="uid://7ha4a2h7whie" path="res://Assets/Sprites/HighResBodyTest.png" id="6_n5w8m"]
 [ext_resource type="Script" uid="uid://chwrv33jemh77" path="res://Scripts/boss_health.gd" id="7_7gr8i"]
 [ext_resource type="Texture2D" uid="uid://5hb6le3lnb7s" path="res://Assets/Sprites/Player-Hud-SpecialBar-Progress.png" id="7_qt3ij"]
 [ext_resource type="Texture2D" uid="uid://bcjd5yxf5o4gg" path="res://Assets/Sprites/BossHealthBarUnder.png" id="8_7gr8i"]
@@ -87,6 +88,89 @@ _data = {
 &"RESET": SubResource("Animation_pc4p0")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_n5w8m"]
+atlas = ExtResource("2_iiebs")
+region = Rect2(0, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3omb4"]
+atlas = ExtResource("2_iiebs")
+region = Rect2(512, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mu5ro"]
+atlas = ExtResource("2_iiebs")
+region = Rect2(1024, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lb081"]
+atlas = ExtResource("2_iiebs")
+region = Rect2(1536, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ragyo"]
+atlas = ExtResource("2_iiebs")
+region = Rect2(2048, 0, 512, 512)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxyk2"]
+atlas = ExtResource("2_iiebs")
+region = Rect2(2560, 0, 512, 512)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_q8e8b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3omb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mu5ro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lb081")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ragyo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxyk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n5w8m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Theme" id="Theme_qff6j"]
 default_font = ExtResource("2_8c63k")
 default_font_size = 16
@@ -108,10 +192,10 @@ default_font = ExtResource("11_am52h")
 default_font_size = 32
 
 [node name="Hud" type="CanvasLayer" unique_id=134060989]
+process_mode = 3
 script = ExtResource("1_fccik")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=173331201]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
@@ -123,8 +207,9 @@ modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
 [node name="Sky" type="ColorRect" parent="PauseMenu/Background" unique_id=209226302]
 z_index = 1
 z_as_relative = false
+offset_top = 1.0
 offset_right = 1152.0
-offset_bottom = 648.0
+offset_bottom = 649.0
 color = Color(0.72996414, 0.82880306, 0.9086106, 1)
 
 [node name="Sky2" type="ColorRect" parent="PauseMenu/Background" unique_id=359807209]
@@ -164,6 +249,68 @@ offset_bottom = 825.3292
 rotation = 1.2212119
 color = Color(0.59389746, 0.7364435, 0.8543736, 1)
 
+[node name="ColorRect" type="ColorRect" parent="PauseMenu/Background" unique_id=1672009768]
+z_index = 3
+offset_left = 226.0
+offset_top = 658.00006
+offset_right = 362.0
+offset_bottom = 758.00006
+rotation = -0.8245473
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="PauseMenu/Background" unique_id=522486616]
+z_index = 3
+offset_left = 226.00002
+offset_top = 728.0
+offset_right = 362.0
+offset_bottom = 828.0
+rotation = -2.126734
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
+[node name="ColorRect3" type="ColorRect" parent="PauseMenu/Background" unique_id=1818178924]
+z_index = 3
+offset_left = 866.0
+offset_top = 725.0
+offset_right = 1002.0
+offset_bottom = 825.0
+rotation = -2.3663168
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
+[node name="ColorRect4" type="ColorRect" parent="PauseMenu/Background" unique_id=1909059135]
+z_index = 3
+offset_left = 821.0
+offset_top = 670.0
+offset_right = 957.0
+offset_bottom = 770.0
+rotation = -0.942875
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
+[node name="ColorRect5" type="ColorRect" parent="PauseMenu/Background" unique_id=100508952]
+z_index = 3
+offset_left = 836.1645
+offset_top = 754.0559
+offset_right = 1040.5581
+offset_bottom = 1158.9426
+rotation = -1.2431284
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
+[node name="ColorRect6" type="ColorRect" parent="PauseMenu/Background" unique_id=220921510]
+z_index = 3
+offset_left = -81.000015
+offset_top = 884.0
+offset_right = 123.3936
+offset_bottom = 1288.8867
+rotation = -1.8943648
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
+[node name="ColorRect7" type="ColorRect" parent="PauseMenu/Background" unique_id=1790693445]
+z_index = 3
+offset_left = 319.0
+offset_top = 558.0
+offset_right = 839.0
+offset_bottom = 748.0
+color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+
 [node name="Cube" type="Sprite2D" parent="PauseMenu" unique_id=669528420]
 z_index = 4
 z_as_relative = false
@@ -177,7 +324,7 @@ position = Vector2(569, 293)
 texture = ExtResource("3_e17ao")
 
 [node name="CubeShadow" type="Sprite2D" parent="PauseMenu" unique_id=11302142]
-self_modulate = Color(0.116007306, 0.16174987, 0.22224584, 1)
+self_modulate = Color(0.20149073, 0.16428208, 0.11853369, 1)
 z_index = 4
 z_as_relative = false
 position = Vector2(569, 380)
@@ -188,19 +335,77 @@ texture = ExtResource("4_0hfmd")
 libraries/ = SubResource("AnimationLibrary_iiebs")
 autoplay = &"Main"
 
+[node name="Head" type="AnimatedSprite2D" parent="PauseMenu" unique_id=1220282378]
+self_modulate = Color(1, 1, 1, 0.25882354)
+z_index = 3
+z_as_relative = false
+position = Vector2(1037, 269.1463)
+rotation = 0.33161256
+scale = Vector2(0.49283737, 0.7516826)
+skew = -0.33161256
+sprite_frames = SubResource("SpriteFrames_q8e8b")
+autoplay = "default"
+
+[node name="Body" type="Sprite2D" parent="PauseMenu" unique_id=2101866641]
+self_modulate = Color(1, 1, 1, 0.25882354)
+z_index = 3
+z_as_relative = false
+position = Vector2(1047, 320.99994)
+rotation = 0.3308567
+scale = Vector2(0.65588844, 1.1343467)
+skew = -0.33161256
+texture = ExtResource("6_n5w8m")
+
+[node name="Head2" type="AnimatedSprite2D" parent="PauseMenu" unique_id=1294454496]
+self_modulate = Color(1, 1, 1, 0.25882354)
+z_index = 3
+z_as_relative = false
+position = Vector2(87.75972, 276.2044)
+rotation = -0.33161256
+scale = Vector2(0.49283737, 0.7516826)
+skew = 0.33161256
+sprite_frames = SubResource("SpriteFrames_q8e8b")
+autoplay = "default"
+
+[node name="Body2" type="Sprite2D" parent="PauseMenu" unique_id=978553366]
+self_modulate = Color(1, 1, 1, 0.25882354)
+z_index = 3
+z_as_relative = false
+position = Vector2(97.7596, 321.05807)
+rotation = -0.33161256
+scale = Vector2(0.65588844, 1.1343467)
+skew = 0.33161256
+texture = ExtResource("6_n5w8m")
+
+[node name="Head3" type="AnimatedSprite2D" parent="PauseMenu" unique_id=736770135]
+self_modulate = Color(1, 1, 1, 0.25882354)
+z_index = 3
+z_as_relative = false
+position = Vector2(563.45636, 204.15771)
+scale = Vector2(0.8380606, 0.8873348)
+sprite_frames = SubResource("SpriteFrames_q8e8b")
+autoplay = "default"
+
+[node name="Body3" type="Sprite2D" parent="PauseMenu" unique_id=552303279]
+self_modulate = Color(1, 1, 1, 0.25882354)
+z_index = 3
+z_as_relative = false
+position = Vector2(581.89526, 307.3518)
+scale = Vector2(1.112872, 0.98061085)
+texture = ExtResource("6_n5w8m")
+
 [node name="PauseTextParallax" type="Parallax2D" parent="PauseMenu" unique_id=1211423632]
 scroll_offset = Vector2(124, -6)
 repeat_size = Vector2(500, 0)
 autoscroll = Vector2(20, 0)
 repeat_times = 5
-script = ExtResource("5_pc4p0")
 
 [node name="PauseText" type="RichTextLabel" parent="PauseMenu/PauseTextParallax" unique_id=1737861723]
 z_index = 10
-offset_left = -403.0
-offset_top = -45.0
-offset_right = 27.0
-offset_bottom = 189.0
+offset_left = 486.0
+offset_top = -24.0
+offset_right = 916.0
+offset_bottom = 210.0
 theme = SubResource("Theme_qff6j")
 theme_override_colors/default_color = Color(0.627451, 0.61960787, 0.43137255, 1)
 theme_override_colors/font_shadow_color = Color(0.7372549, 0.7137255, 0.47058824, 0.10980392)
@@ -213,6 +418,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="IngameHud" type="Control" parent="." unique_id=485691671]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0

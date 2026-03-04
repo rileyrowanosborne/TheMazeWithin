@@ -68,22 +68,6 @@ func _ready() -> void:
 	SignalBus.connect("succesful_deflect", on_projectile_delfect)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-
-
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Pause") and player_playing:
-		if is_paused:
-			is_paused = false
-			SignalBus.emit_signal("unpause_game")
-			print("game unpaused")
-		else:
-			is_paused = true
-			SignalBus.emit_signal("pause_game")
-			print("game paused")
 
 func on_projectile_delfect():
 	SignalBus.emit_signal("start_special_timer")

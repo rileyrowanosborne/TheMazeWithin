@@ -12,9 +12,10 @@
 [ext_resource type="AudioStream" uid="uid://dvh5p0xk0trs5" path="res://Assets/Sounds/freesound_community-electric-gate-open-26892.mp3" id="10_2c5fb"]
 [ext_resource type="AudioStream" uid="uid://bbx14h04g7s6l" path="res://Assets/Sounds/freesound_community-female-choir-ambience-54296.mp3" id="11_d7oc4"]
 [ext_resource type="AudioStream" uid="uid://dgkwl3pp18xbs" path="res://Assets/Sounds/cusi_sound-sci-fi-synth-2-233554.mp3" id="12_tvddi"]
-[ext_resource type="AudioStream" uid="uid://dvsobl3gf2pji" path="res://Assets/Sounds/Mysterious Queries.wav" id="13_0t6tm"]
+[ext_resource type="AudioStream" uid="uid://b7jje1ur12heo" path="res://Assets/Sounds/Mysterious Queries nO hARDsYNTH.wav" id="13_0t6tm"]
 
 [node name="AudioPlayer" type="Node2D" unique_id=567523487]
+process_mode = 3
 
 [node name="AmbientNoisePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1208163743]
 stream = ExtResource("1_238cj")
@@ -104,3 +105,4 @@ max_polyphony = 10
 bus = &"Music"
 timer_delay = 0
 starting_delay = 10
+music_player = true

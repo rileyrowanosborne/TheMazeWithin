@@ -59,14 +59,31 @@ func on_player_died():
 func _on_death_text_timer_timeout() -> void:
 	player_died_text.visible = false
 	
-	
+
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Pause") and GameState.player_playing:
+		if GameState.is_paused:
+			GameState.is_paused = false
+			SignalBus.emit_signal("unpause_game")
+			print("game unpaused")
+		else:
+			GameState.is_paused = true
+			SignalBus.emit_signal("pause_game")
+			print("game paused")
+
+
 
 func on_pause_signal_received():
+	get_tree().paused = true
+	
 	pause_menu.visible = true
 	ingame_hud.visible = false
 
 
 
 func on_unpause_signal_received():
+	get_tree().paused = false
+	
 	pause_menu.visible = false
 	ingame_hud.visible = true
