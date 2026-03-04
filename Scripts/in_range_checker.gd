@@ -14,6 +14,10 @@ func _on_body_entered(body: Node2D) -> void:
 	
 	elif body.is_in_group("Mushroom"):
 		GameState.current_dialogue = "Mushroom"
+		
+	elif body.is_in_group("Mini Me"):
+		GameState.current_dialogue = "Mini Me"
+		
 
 
 func _on_body_exited(body: Node2D) -> void:

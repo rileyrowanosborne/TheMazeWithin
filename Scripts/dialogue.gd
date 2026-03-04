@@ -25,6 +25,8 @@ func show_dialogue():
 	elif GameState.current_dialogue == "Mushroom":
 		dialogue_text.text = "Hmmmm... I prolly shouldn't have eaten that... Was that an old man?"
 		mushroom_timer.start()
+	elif GameState.current_dialogue == "Mini Me":
+		dialogue_text.text = "... Weird"
 	
 
 

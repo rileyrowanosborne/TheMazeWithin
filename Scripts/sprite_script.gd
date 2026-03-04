@@ -93,7 +93,6 @@ func set_anim(anim : String):
 
 
 func _on_frame_changed() -> void:
-	print("Frame Changed")
 	if is_moving:
 		if (frame == 0) or (frame == 2): 
 				spawn_footsteps()

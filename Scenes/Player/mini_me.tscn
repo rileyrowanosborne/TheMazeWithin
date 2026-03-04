@@ -247,10 +247,10 @@ height = 2.0
 [node name="MiniMe" type="CharacterBody2D" unique_id=1160471521]
 modulate = Color(1, 1, 1, 0.7411765)
 z_index = 4
-collision_layer = 128
+collision_layer = 160
 collision_mask = 4
 script = ExtResource("1_j0jec")
-is_player = null
+interactable_type = "Mini Me"
 
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="." unique_id=853796529]
 position = Vector2(0, 4)

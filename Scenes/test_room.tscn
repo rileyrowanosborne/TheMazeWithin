@@ -605,13 +605,19 @@ position = Vector2(-55, -12)
 position = Vector2(6, 5)
 
 [node name="MiniMe" parent="." unique_id=1160471521 instance=ExtResource("14_8fp34")]
-position = Vector2(-52, -115)
+position = Vector2(-170, -221)
 
-[node name="MiniMe2" parent="." unique_id=1808960806 instance=ExtResource("14_8fp34")]
-position = Vector2(-53, -135)
+[node name="MiniMe2" parent="." unique_id=1989810586 instance=ExtResource("14_8fp34")]
+position = Vector2(-187, -248)
 
-[node name="MiniMe3" parent="." unique_id=1383431312 instance=ExtResource("14_8fp34")]
-position = Vector2(-67, -127)
+[node name="MiniMe3" parent="." unique_id=1754767038 instance=ExtResource("14_8fp34")]
+position = Vector2(-116, -204)
 
-[node name="MiniMe4" parent="." unique_id=954260258 instance=ExtResource("14_8fp34")]
-position = Vector2(-40, -113)
+[node name="MiniMe4" parent="." unique_id=1812102383 instance=ExtResource("14_8fp34")]
+position = Vector2(-142, -244)
+
+[node name="MiniMe5" parent="." unique_id=410103343 instance=ExtResource("14_8fp34")]
+position = Vector2(-217, -209)
+
+[node name="MiniMe6" parent="." unique_id=1030813358 instance=ExtResource("14_8fp34")]
+position = Vector2(-176, -273)

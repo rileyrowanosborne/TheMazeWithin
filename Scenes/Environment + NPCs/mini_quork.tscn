@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://c7rr3a36d1nwq"]
+[gd_scene format=3 uid="uid://c7rr3a36d1nwq"]
 
 [ext_resource type="Script" uid="uid://cnv1nifjff2m1" path="res://Scripts/interactable.gd" id="1_6to7c"]
 [ext_resource type="Texture2D" uid="uid://b5ln4avok25da" path="res://Assets/Sprites/Quork-Idle-Sheet.png" id="1_ora4m"]
@@ -89,18 +89,18 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6to7c"]
 
-[node name="MiniQuork" type="CharacterBody2D"]
+[node name="MiniQuork" type="CharacterBody2D" unique_id=1732850285]
 z_index = 4
 collision_layer = 32
 script = ExtResource("1_6to7c")
 interactable_type = "Quork"
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1835199993]
 position = Vector2(0, -4)
 sprite_frames = SubResource("SpriteFrames_u6ll5")
 animation = &"Idle"
 autoplay = "Idle"
 frame_progress = 0.854414
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1932943426]
 shape = SubResource("RectangleShape2D_6to7c")
