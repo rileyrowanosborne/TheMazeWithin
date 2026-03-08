@@ -9,15 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dlu6fh0yh2kl6" path="res://Assets/Sprites/SquareForCutscene.png" id="7_lb2dc"]
 [ext_resource type="Texture2D" uid="uid://cn7k0wbw0e603" path="res://Assets/Sprites/TriangleForCutscene.png" id="8_c6r3x"]
 [ext_resource type="Texture2D" uid="uid://b7guu4jsraumv" path="res://Assets/Sprites/CircleForCutscene.png" id="9_arl2v"]
-[ext_resource type="Texture2D" uid="uid://dlap2wfvi4v0d" path="res://Assets/Sprites/StartRed.png" id="10_2pymf"]
-[ext_resource type="Texture2D" uid="uid://d4lc6oiw0ovop" path="res://Assets/Sprites/StartYellow.png" id="11_1wfnt"]
-[ext_resource type="Texture2D" uid="uid://cpsvtnts02oav" path="res://Assets/Sprites/StartBlue.png" id="12_tbwdd"]
-[ext_resource type="Texture2D" uid="uid://cg6nmekv8ouds" path="res://Assets/Sprites/OptionsYellow.png" id="13_3w7i0"]
-[ext_resource type="Texture2D" uid="uid://cq666m5rc44m1" path="res://Assets/Sprites/OptionsRed.png" id="14_sp3kb"]
-[ext_resource type="Texture2D" uid="uid://cwgxnu0utrbvr" path="res://Assets/Sprites/OptionsBlue.png" id="15_l5tcq"]
-[ext_resource type="Texture2D" uid="uid://bxnks6d8jmhfn" path="res://Assets/Sprites/QuitBlue.png" id="16_e0lak"]
-[ext_resource type="Texture2D" uid="uid://dnppjfjhgib4s" path="res://Assets/Sprites/QuitYellow.png" id="17_afscf"]
-[ext_resource type="Texture2D" uid="uid://y3mjkdod05pq" path="res://Assets/Sprites/QuitRed.png" id="18_vpo55"]
+[ext_resource type="Texture2D" uid="uid://dpfsj30jaf8xx" path="res://Assets/Sprites/NewButton-New-Red.png" id="10_fak6x"]
+[ext_resource type="Texture2D" uid="uid://cme05aiwn1iu2" path="res://Assets/Sprites/LoadButton-New-Red.png" id="11_a1qtk"]
+[ext_resource type="Texture2D" uid="uid://lonusv3j5ta0" path="res://Assets/Sprites/OptionsButton-RedNew.png" id="12_01rf7"]
+[ext_resource type="Texture2D" uid="uid://cuiw8ubruo0tj" path="res://Assets/Sprites/QuitButton-New_red.png" id="13_djmsw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kh1w"]
 atlas = ExtResource("4_3fahe")
@@ -172,28 +167,28 @@ texture = ExtResource("9_arl2v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1367620149]
 offset_left = 853.0
-offset_top = 358.0
+offset_top = 271.0
 offset_right = 1317.0
-offset_bottom = 794.0
+offset_bottom = 869.0
 scale = Vector2(0.6, 0.6)
 theme_override_constants/separation = 50
 
-[node name="StartButton" type="TextureButton" parent="VBoxContainer" unique_id=1705817401]
+[node name="NewButton" type="TextureButton" parent="VBoxContainer" unique_id=1705817401]
 layout_mode = 2
-texture_normal = ExtResource("10_2pymf")
-texture_pressed = ExtResource("11_1wfnt")
-texture_hover = ExtResource("12_tbwdd")
+texture_normal = ExtResource("10_fak6x")
+
+[node name="LoadButton" type="TextureButton" parent="VBoxContainer" unique_id=779420224]
+layout_mode = 2
+texture_normal = ExtResource("11_a1qtk")
 
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer" unique_id=1406563274]
 layout_mode = 2
-texture_normal = ExtResource("13_3w7i0")
-texture_pressed = ExtResource("14_sp3kb")
-texture_hover = ExtResource("15_l5tcq")
+texture_normal = ExtResource("12_01rf7")
 
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=772138761]
 layout_mode = 2
-texture_normal = ExtResource("16_e0lak")
-texture_pressed = ExtResource("17_afscf")
-texture_hover = ExtResource("18_vpo55")
+texture_normal = ExtResource("13_djmsw")
 
-[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

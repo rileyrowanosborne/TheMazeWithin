@@ -101,5 +101,8 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	#save logic fires and then return to home screen.
-	pass # Replace with function body.
+	GameState.is_paused = false
+	SignalBus.emit_signal("unpause_game")
+	print("game unpaused")
+	SaveLoad._save()
+	get_tree().change_scene_to_file("res://Scenes/Chapters/Title Screen/title_screen.tscn")

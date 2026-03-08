@@ -34,7 +34,7 @@ const MIN_SPECIAL : int = 0
 var charge_rate : float = 1
 var roll_special_cost : int = 25
 
-var current_chapter : int
+var current_chapter : int = 1
 
 
 var current_boss_health : int

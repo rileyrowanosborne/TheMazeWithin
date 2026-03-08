@@ -28,6 +28,7 @@ buses/default_bus_layout="uid://djd2qso74daxs"
 SignalBus="*res://Scripts/signal_bus.gd"
 GameState="*res://Scripts/game_state.gd"
 AudioPlayer="*uid://bihpqutwcqxqq"
+SaveLoad="*uid://bomcppsdal8sg"
 
 [display]
 
