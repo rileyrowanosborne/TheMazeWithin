@@ -38,3 +38,7 @@ signal unpause_game
 
 
 signal start_special_timer
+
+
+
+signal update_health

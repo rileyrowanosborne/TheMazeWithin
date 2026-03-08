@@ -19,6 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://rkbtvrbvynps" path="res://Scenes/Effects/in_range_checker.tscn" id="17_ks1b7"]
 [ext_resource type="FontFile" uid="uid://duu8jm2dawjpb" path="res://Assets/Fonts/dogicapixel.ttf" id="18_hnuln"]
 [ext_resource type="PackedScene" uid="uid://roum10rao2hq" path="res://Scenes/Components/special_timer.tscn" id="19_rcvs5"]
+[ext_resource type="AudioStream" uid="uid://dx7y4lnb0t1pk" path="res://Assets/Sounds/RollSound.wav" id="20_h8ma5"]
+[ext_resource type="AudioStream" uid="uid://0ng70we67k01" path="res://Assets/Sounds/Roll2.wav" id="21_eksi1"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
@@ -417,6 +419,14 @@ current = true
 
 [node name="SpecialDecayTimer" type="Timer" parent="." unique_id=948191661]
 one_shot = true
+
+[node name="Roll1" type="AudioStreamPlayer2D" parent="." unique_id=2067847513]
+stream = ExtResource("20_h8ma5")
+bus = &"SFX"
+
+[node name="Roll2" type="AudioStreamPlayer2D" parent="." unique_id=2087682292]
+stream = ExtResource("21_eksi1")
+bus = &"SFX"
 
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]

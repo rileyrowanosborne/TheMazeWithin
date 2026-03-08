@@ -87,3 +87,19 @@ func on_unpause_signal_received():
 	
 	pause_menu.visible = false
 	ingame_hud.visible = true
+
+
+func _on_resume_button_pressed() -> void:
+	GameState.is_paused = false
+	SignalBus.emit_signal("unpause_game")
+	print("game unpaused")
+
+
+func _on_options_button_pressed() -> void:
+	#open up options hud
+	pass # Replace with function body.
+
+
+func _on_quit_button_pressed() -> void:
+	#save logic fires and then return to home screen.
+	pass # Replace with function body.

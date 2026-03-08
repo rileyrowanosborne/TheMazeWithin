@@ -2,6 +2,7 @@
 
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_e0onf"]
 [ext_resource type="Script" uid="uid://du6lmjo86oyfp" path="res://Scripts/hud.gd" id="1_fccik"]
+[ext_resource type="Theme" uid="uid://b7q8lce55nm7l" path="res://PauseTheme.tres" id="2_3omb4"]
 [ext_resource type="FontFile" uid="uid://d23k1m2werx6o" path="res://Assets/Fonts/dogicapixelbold.ttf" id="2_8c63k"]
 [ext_resource type="Texture2D" uid="uid://bxnt4sbdyqh6s" path="res://Assets/Sprites/HighResFace-Sheet.png" id="2_iiebs"]
 [ext_resource type="Script" uid="uid://81ovgw6dbg8t" path="res://Scripts/health_info.gd" id="2_t1xeu"]
@@ -18,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://5hb6le3lnb7s" path="res://Assets/Sprites/Player-Hud-SpecialBar-Progress.png" id="7_qt3ij"]
 [ext_resource type="Texture2D" uid="uid://bcjd5yxf5o4gg" path="res://Assets/Sprites/BossHealthBarUnder.png" id="8_7gr8i"]
 [ext_resource type="Texture2D" uid="uid://cd0xbh5s4rkcm" path="res://Assets/Sprites/BossHealthBarProgress.png" id="9_5ep0j"]
+[ext_resource type="Script" uid="uid://ciaevmihmrwwg" path="res://Scripts/buttons.gd" id="9_mu5ro"]
 [ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="9_uidm2"]
 [ext_resource type="FontFile" uid="uid://dv1vxp8vg0bgx" path="res://Assets/Fonts/VeniceClassic.ttf" id="10_5ep0j"]
 [ext_resource type="FontFile" uid="uid://utreg8xo8xlb" path="res://Assets/Fonts/Perfect DOS VGA 437 copy.ttf" id="11_am52h"]
@@ -199,8 +201,9 @@ script = ExtResource("1_fccik")
 visible = false
 layout_mode = 3
 anchors_preset = 0
-offset_right = 1152.0
-offset_bottom = 648.0
+offset_right = 1155.0
+offset_bottom = 647.0
+theme = ExtResource("2_3omb4")
 
 [node name="Background" type="Node2D" parent="PauseMenu" unique_id=516013046]
 modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
@@ -208,9 +211,8 @@ modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
 [node name="Sky" type="ColorRect" parent="PauseMenu/Background" unique_id=209226302]
 z_index = 1
 z_as_relative = false
-offset_top = 1.0
 offset_right = 1152.0
-offset_bottom = 649.0
+offset_bottom = 648.0
 color = Color(0.72996414, 0.82880306, 0.9086106, 1)
 
 [node name="Sky2" type="ColorRect" parent="PauseMenu/Background" unique_id=359807209]
@@ -418,6 +420,52 @@ text = "A MOMENT OF REFLECTION"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="Buttons" type="Control" parent="PauseMenu" unique_id=878366094]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("9_mu5ro")
+
+[node name="ResumeButton" type="Button" parent="PauseMenu/Buttons" unique_id=94326868]
+process_mode = 3
+z_index = 5
+layout_mode = 0
+offset_left = 1157.0
+offset_top = 465.0
+offset_right = 1377.0
+offset_bottom = 501.0
+theme = ExtResource("2_3omb4")
+theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
+text = "Resume"
+flat = true
+
+[node name="OptionsButton" type="Button" parent="PauseMenu/Buttons" unique_id=1208669882]
+process_mode = 3
+z_index = 5
+layout_mode = 0
+offset_left = 1157.0
+offset_top = 521.0
+offset_right = 1377.0
+offset_bottom = 557.0
+theme = ExtResource("2_3omb4")
+theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
+text = "Options
+"
+flat = true
+
+[node name="QuitButton" type="Button" parent="PauseMenu/Buttons" unique_id=42383486]
+process_mode = 3
+z_index = 5
+layout_mode = 0
+offset_left = 1157.0
+offset_top = 577.0
+offset_right = 1377.0
+offset_bottom = 613.0
+theme = ExtResource("2_3omb4")
+theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
+text = "Quit"
+flat = true
+
 [node name="IngameHud" type="Control" parent="." unique_id=485691671]
 layout_mode = 3
 anchors_preset = 0
@@ -604,6 +652,9 @@ offset_bottom = 40.0
 [node name="MushoomEatingCutscene" parent="IngameHud/InGameCutscenes" unique_id=2136428375 instance=ExtResource("14_mt778")]
 visible = false
 
+[connection signal="pressed" from="PauseMenu/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="PauseMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="IngameHud/BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="IngameHud/BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]
 [connection signal="timeout" from="IngameHud/PlayerDiedText/DeathTextTimer" to="." method="_on_death_text_timer_timeout"]

@@ -10,12 +10,16 @@ extends Control
 func _ready() -> void:
 	SignalBus.connect("player_hit", on_player_hit)
 	SignalBus.connect("player_respawn", reset_health)
+	SignalBus.connect("update_health", update_health)
 
 
 
 func on_player_hit():
 	health_check()
 
+
+func update_health():
+	health_check()
 
 func health_check():
 	texture_progress_bar.value = GameState.current_player_health
