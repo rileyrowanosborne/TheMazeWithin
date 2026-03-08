@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxtp6u8f8c4xj"]
+[gd_scene format=3 uid="uid://cxtp6u8f8c4xj"]
 
 [ext_resource type="Script" uid="uid://bckhkmlgg7mfm" path="res://Scripts/triangle_enemy.gd" id="1_81x11"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="2_343q2"]
 [ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/Effects/blood_splat.tscn" id="2_jmayn"]
 [ext_resource type="Texture2D" uid="uid://5ose8gw74fkw" path="res://Assets/Sprites/EnemySprite-export copy.png" id="2_m2jwi"]
+[ext_resource type="PackedScene" uid="uid://cbtwep8826duk" path="res://Scenes/Player/mini_me.tscn" id="3_d34te"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="3_ntdtf"]
 [ext_resource type="PackedScene" uid="uid://dx6hw1e5dab2q" path="res://Scenes/Enemies/triangle_shield_segment.tscn" id="5_28wd8"]
+[ext_resource type="AudioStream" uid="uid://cikptbvd24kyn" path="res://Assets/Sounds/BoneCrunch.wav" id="8_52ndy"]
+[ext_resource type="AudioStream" uid="uid://bolrjvoektlma" path="res://Assets/Sounds/EnemyHit.wav" id="9_xucii"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntdtf"]
 atlas = ExtResource("2_m2jwi")
@@ -52,89 +55,90 @@ animations = [{
 _data = [Vector2(0.0162602, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36039, 0.0, 0, 0]
 point_count = 2
 
-[node name="TriangleEnemy" type="CharacterBody2D"]
+[node name="TriangleEnemy" type="CharacterBody2D" unique_id=359370211]
 z_index = 3
 collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_81x11")
 blood_splat_scene = ExtResource("2_jmayn")
+mini_me_scene = ExtResource("3_d34te")
 is_shooting = true
 
-[node name="Lauchers" type="Node2D" parent="."]
+[node name="Lauchers" type="Node2D" parent="." unique_id=980612229]
 position = Vector2(9, -2)
 
-[node name="ProjectileLauncher" parent="Lauchers" instance=ExtResource("3_ntdtf")]
+[node name="ProjectileLauncher" parent="Lauchers" unique_id=704564589 instance=ExtResource("3_ntdtf")]
 direction = Vector2(1, -1)
 
-[node name="ProjectileLauncher2" parent="Lauchers" instance=ExtResource("3_ntdtf")]
+[node name="ProjectileLauncher2" parent="Lauchers" unique_id=227023324 instance=ExtResource("3_ntdtf")]
 position = Vector2(-9, 14)
 direction = Vector2(0, 1)
 
-[node name="ProjectileLauncher3" parent="Lauchers" instance=ExtResource("3_ntdtf")]
+[node name="ProjectileLauncher3" parent="Lauchers" unique_id=30301469 instance=ExtResource("3_ntdtf")]
 position = Vector2(-18, 0)
 direction = Vector2(-1, -1)
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1647205964]
 position = Vector2(1, -1)
 sprite_frames = SubResource("SpriteFrames_m2jwi")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." unique_id=886717759]
 polygon = PackedVector2Array(12, 9, 0, -14, -12, 9)
 
-[node name="RayCasts" type="Node2D" parent="."]
+[node name="RayCasts" type="Node2D" parent="." unique_id=27536538]
 
-[node name="RayCastLeft" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastLeft" type="RayCast2D" parent="RayCasts" unique_id=481051282]
 position = Vector2(0, -13)
 target_position = Vector2(-15, 0)
 collision_mask = 12
 
-[node name="RayCastLeft2" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastLeft2" type="RayCast2D" parent="RayCasts" unique_id=1936298305]
 position = Vector2(0, 13)
 target_position = Vector2(-15, 0)
 collision_mask = 12
 
-[node name="RayCastDown" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastDown" type="RayCast2D" parent="RayCasts" unique_id=227463192]
 position = Vector2(13, 0)
 target_position = Vector2(0, 14)
 collision_mask = 12
 
-[node name="RayCastDown2" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastDown2" type="RayCast2D" parent="RayCasts" unique_id=2105065998]
 position = Vector2(-13, 0)
 target_position = Vector2(0, 14)
 collision_mask = 12
 
-[node name="RayCastRight" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastRight" type="RayCast2D" parent="RayCasts" unique_id=1085059885]
 position = Vector2(0, -13)
 target_position = Vector2(15, 0)
 collision_mask = 12
 
-[node name="RayCastRight2" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastRight2" type="RayCast2D" parent="RayCasts" unique_id=1109823089]
 position = Vector2(0, 13)
 target_position = Vector2(15, 0)
 collision_mask = 12
 
-[node name="RayCastUp" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastUp" type="RayCast2D" parent="RayCasts" unique_id=1884475080]
 position = Vector2(-13, 0)
 target_position = Vector2(0, -15)
 collision_mask = 12
 
-[node name="RayCastUp2" type="RayCast2D" parent="RayCasts"]
+[node name="RayCastUp2" type="RayCast2D" parent="RayCasts" unique_id=133112114]
 position = Vector2(13, 0)
 target_position = Vector2(0, -15)
 collision_mask = 12
 
-[node name="Timers" type="Node" parent="."]
+[node name="Timers" type="Node" parent="." unique_id=1201340406]
 
-[node name="DeathTimer" type="Timer" parent="Timers"]
+[node name="DeathTimer" type="Timer" parent="Timers" unique_id=434623051]
 one_shot = true
 
-[node name="DamageTimer" type="Timer" parent="Timers"]
+[node name="DamageTimer" type="Timer" parent="Timers" unique_id=4291607]
 wait_time = 0.3
 one_shot = true
 
-[node name="DeathParticles" type="CPUParticles2D" parent="."]
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=1117691682]
 emitting = false
 one_shot = true
 explosiveness = 0.7
@@ -151,15 +155,24 @@ scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_ntdtf")
 color = Color(0.845341, 0.000162417, 0.0440511, 1)
 
-[node name="Hurtbox" parent="." instance=ExtResource("2_343q2")]
+[node name="Hurtbox" parent="." unique_id=1493349884 instance=ExtResource("2_343q2")]
 collision_layer = 8
 collision_mask = 2
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox"]
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Hurtbox" unique_id=831687523]
 polygon = PackedVector2Array(13, 10, 0, -15, -13, 10)
 
-[node name="TriangleShieldSegment" parent="." instance=ExtResource("5_28wd8")]
+[node name="TriangleShieldSegment" parent="." unique_id=1619382780 instance=ExtResource("5_28wd8")]
 position = Vector2(0, -22)
+
+[node name="HurtNoise" type="AudioStreamPlayer2D" parent="." unique_id=1276984938]
+stream = ExtResource("8_52ndy")
+bus = &"SFX"
+
+[node name="HurtNoise2" type="AudioStreamPlayer2D" parent="." unique_id=254832530]
+stream = ExtResource("9_xucii")
+volume_db = 5.2
+bus = &"SFX"
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]

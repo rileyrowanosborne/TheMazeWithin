@@ -25,9 +25,13 @@ extends CharacterBody2D
 @onready var direction_timer: Timer = $Timers/DirectionTimer
 @onready var death_timer: Timer = $Timers/DeathTimer
 
+@onready var hurt_noise: AudioStreamPlayer2D = $HurtNoise
+@onready var hurt_noise_2: AudioStreamPlayer2D = $HurtNoise2
+
+
 
 @export var blood_splat_scene : PackedScene
-
+@export var mini_me_scene : PackedScene
 
 #general variables
 @export var is_shooting : bool = true
@@ -90,6 +94,8 @@ func take_damage():
 		SignalBus.emit_signal("enemy_hit")
 		animated_sprite_2d.play("Hit")
 		damage_timer.start()
+		hurt_noise.play()
+		hurt_noise_2.play()
 		life_check()
 	else:
 		print("Destroy a shield first")
@@ -119,6 +125,7 @@ func die():
 
 
 func _on_death_timer_timeout() -> void:
+	spawn_mini_me(global_position)
 	if GameState.current_chapter == 4:
 		if GameState.total_boss_enemies > 0:
 			GameState.total_boss_enemies -= 1
@@ -143,6 +150,11 @@ func spawn_blood_splat(world_location : Vector2):
 		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
 		blood_splat_instance.global_position = world_location
 
+func spawn_mini_me(world_location : Vector2):
+	if mini_me_scene:
+		var mini_me_instance = mini_me_scene.instantiate()
+		get_tree().current_scene.call_deferred("add_child", mini_me_instance)
+		mini_me_instance.global_position = world_location
 
 
 func on_player_died():

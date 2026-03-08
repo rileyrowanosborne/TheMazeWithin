@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bchcmttriie2e" path="res://Scripts/mini_me.gd" id="1_j0jec"]
 [ext_resource type="Texture2D" uid="uid://dk7lnbfbx1xxo" path="res://Assets/Sprites/MiniMeSpriteSheet.png" id="1_xke7x"]
+[ext_resource type="AudioStream" uid="uid://dt83me50thlp0" path="res://Assets/Sounds/MiniMeMunch.wav" id="3_52ljq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5uvo"]
 atlas = ExtResource("1_xke7x")
@@ -245,7 +246,6 @@ radius = 1.0
 height = 2.0
 
 [node name="MiniMe" type="CharacterBody2D" unique_id=1160471521]
-modulate = Color(1, 1, 1, 0.7411765)
 z_index = 4
 collision_layer = 160
 collision_mask = 4
@@ -287,5 +287,9 @@ one_shot = true
 [node name="ChangeDirTimer" type="Timer" parent="." unique_id=11307807]
 wait_time = 0.5
 one_shot = true
+
+[node name="Munch" type="AudioStreamPlayer2D" parent="." unique_id=1609020674]
+stream = ExtResource("3_52ljq")
+bus = &"SFX"
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]

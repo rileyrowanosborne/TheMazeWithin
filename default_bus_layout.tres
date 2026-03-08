@@ -2,6 +2,7 @@
 
 [sub_resource type="AudioEffectChorus" id="AudioEffectChorus_j3pel"]
 resource_name = "Chorus"
+wet = 0.68
 
 [resource]
 bus/0/bypass_fx = true

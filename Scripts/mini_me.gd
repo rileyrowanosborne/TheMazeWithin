@@ -12,6 +12,7 @@ extends CharacterBody2D
 @onready var change_dir_timer: Timer = $ChangeDirTimer
 
 @onready var death_timer: Timer = $DeathTimer
+@onready var munch: AudioStreamPlayer2D = $Munch
 
 
 @export var is_player : bool
@@ -87,6 +88,10 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if player_in_range:
 		if event.is_action_pressed("Interact"):
+			munch.play()
+			if GameState.current_player_health < 4:
+				GameState.current_player_health += 1
+			SignalBus.emit_signal("update_health")
 			player_sprites.play("Death")
 			death_timer.start(.5)
 			current_direction = Vector2(0,0)

@@ -25,7 +25,7 @@ extends CharacterBody2D
 
 
 @export var blood_splat_scene : PackedScene
-
+@export var mini_me_scene : PackedScene
 
 #general variables
 @export var is_shooting : bool = true
@@ -122,6 +122,7 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_death_timer_timeout() -> void:
+	spawn_mini_me(global_position)
 	if GameState.current_chapter == 4:
 		if GameState.total_boss_enemies > 0:
 			GameState.total_boss_enemies -= 1
@@ -138,6 +139,14 @@ func spawn_blood_splat(world_location : Vector2):
 		var blood_splat_instance = blood_splat_scene.instantiate()
 		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
 		blood_splat_instance.global_position = world_location
+
+func spawn_mini_me(world_location : Vector2):
+	if mini_me_scene:
+		var mini_me_instance = mini_me_scene.instantiate()
+		get_tree().current_scene.call_deferred("add_child", mini_me_instance)
+		mini_me_instance.global_position = world_location
+
+
 
 func on_player_died():
 	queue_free()

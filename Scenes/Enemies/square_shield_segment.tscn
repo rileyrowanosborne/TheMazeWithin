@@ -1,8 +1,9 @@
-[gd_scene load_steps=10 format=3 uid="uid://bu47na2aprlhq"]
+[gd_scene format=3 uid="uid://bu47na2aprlhq"]
 
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="1_u25u5"]
 [ext_resource type="Script" uid="uid://drglv0j3du5m" path="res://Scripts/square_shield_segment.gd" id="1_x54c3"]
 [ext_resource type="Texture2D" uid="uid://c8ln220p6tf0q" path="res://Assets/Sprites/SquareSheildLayer-Sheet.png" id="2_x54c3"]
+[ext_resource type="AudioStream" uid="uid://ca8pay6kevluo" path="res://Assets/Sounds/ShieldBreak.wav" id="4_2er62"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3q1td"]
 size = Vector2(36, 36)
@@ -48,44 +49,50 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SquareShieldSegment" type="Node2D"]
+[node name="SquareShieldSegment" type="Node2D" unique_id=921115797]
 script = ExtResource("1_x54c3")
 
-[node name="Hurtbox" parent="." instance=ExtResource("1_u25u5")]
+[node name="Hurtbox" parent="." unique_id=1368627971 instance=ExtResource("1_u25u5")]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1122958967]
 position = Vector2(0, 17)
 shape = SubResource("RectangleShape2D_3q1td")
 
-[node name="TopShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
+[node name="TopShieldSegment" type="AnimatedSprite2D" parent="Hurtbox" unique_id=638729367]
 sprite_frames = SubResource("SpriteFrames_mnt55")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="RightShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
+[node name="RightShieldSegment" type="AnimatedSprite2D" parent="Hurtbox" unique_id=1318077809]
 position = Vector2(17, 17)
 rotation = 1.5708
 sprite_frames = SubResource("SpriteFrames_mnt55")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="LeftShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
+[node name="LeftShieldSegment" type="AnimatedSprite2D" parent="Hurtbox" unique_id=963423985]
 position = Vector2(-17, 17)
 rotation = -1.5708
 sprite_frames = SubResource("SpriteFrames_mnt55")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="BottomShieldSegment" type="AnimatedSprite2D" parent="Hurtbox"]
+[node name="BottomShieldSegment" type="AnimatedSprite2D" parent="Hurtbox" unique_id=2107058915]
 position = Vector2(0, 34)
 rotation = -3.14159
 sprite_frames = SubResource("SpriteFrames_mnt55")
 animation = &"Idle"
 autoplay = "Idle"
 
-[node name="ShieldBreakTimer" type="Timer" parent="."]
+[node name="ShieldBreakTimer" type="Timer" parent="." unique_id=1007135112]
 wait_time = 0.5
 one_shot = true
+
+[node name="ShieldBreak" type="AudioStreamPlayer2D" parent="." unique_id=897810503]
+stream = ExtResource("4_2er62")
+volume_db = -7.924
+pitch_scale = 1.72
+bus = &"SFX"
 
 [connection signal="timeout" from="ShieldBreakTimer" to="." method="_on_shield_break_timer_timeout"]

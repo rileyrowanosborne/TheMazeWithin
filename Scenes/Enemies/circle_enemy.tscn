@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://bwjqyivbmn7w3" path="res://Assets/Sprites/CircleEnemy.png" id="1_155j3"]
 [ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/Effects/blood_splat.tscn" id="2_gk0i5"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="2_n57o8"]
+[ext_resource type="PackedScene" uid="uid://cbtwep8826duk" path="res://Scenes/Player/mini_me.tscn" id="3_gq4a3"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="4_xw0ou"]
 [ext_resource type="PackedScene" uid="uid://c0e1f14uhvwii" path="res://Scenes/Enemies/circle_shield_segment.tscn" id="5_s5s5c"]
 [ext_resource type="AudioStream" uid="uid://cikptbvd24kyn" path="res://Assets/Sounds/BoneCrunch.wav" id="7_gnw35"]
@@ -66,6 +67,7 @@ collision_layer = 8
 collision_mask = 4
 script = ExtResource("1_4b532")
 blood_splat_scene = ExtResource("2_gk0i5")
+mini_me_scene = ExtResource("3_gq4a3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=193805323]
 sprite_frames = SubResource("SpriteFrames_gk0i5")

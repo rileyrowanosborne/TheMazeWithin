@@ -25,6 +25,10 @@ var in_range_of_interactable : bool = false
 
 
 @export var blood_splat_scene : PackedScene
+@onready var roll_1: AudioStreamPlayer2D = $Roll1
+@onready var roll_2: AudioStreamPlayer2D = $Roll2
+
+var random_roll_picker : int = 1
 
 
 @onready var interact_label: RichTextLabel = $InteractLabel
@@ -120,6 +124,11 @@ func _on_dash_animation_timer_timeout() -> void:
 
 
 func dash():
+	random_roll_picker = randi_range(1,2)
+	if random_roll_picker == 1:
+		roll_1.play()
+	else:
+		roll_2.play()
 	is_dash_animation = true
 	$DashAnimationTimer.start(dash_animation_length)
 	is_dashing = true
