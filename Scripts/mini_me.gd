@@ -70,6 +70,9 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	
+	
+	
+	
 	if not is_player:
 		if change_dir_timer.is_stopped():
 			if ray_cast_down.is_colliding()\

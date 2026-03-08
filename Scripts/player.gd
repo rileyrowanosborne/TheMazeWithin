@@ -76,6 +76,7 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	
 	
+	
 	if special_is_charging:
 		if GameState.player_special_amount < GameState.MAX_SPECIAL:
 			GameState.player_special_amount += GameState.charge_rate
