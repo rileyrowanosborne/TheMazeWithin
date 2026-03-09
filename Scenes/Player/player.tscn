@@ -293,7 +293,6 @@ foot_steps_scene = ExtResource("6_aqm4k")
 
 [node name="PlayerWeapon" parent="." unique_id=509974704 instance=ExtResource("4_vgqql")]
 position = Vector2(-1, -6)
-current_weapon = 2
 
 [node name="HealthComponent" parent="." unique_id=196407504 instance=ExtResource("7_3smsa")]
 z_index = 5
