@@ -823,4 +823,6 @@ chapter = 2
 position = Vector2(-520, 152)
 chapter = 2
 
+[node name="Decor" type="TileMapLayer" parent="." unique_id=1800899841]
+
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]
