@@ -43,6 +43,8 @@ var player_in_range : bool = false
 
 var is_alive : bool = true
 
+var last_dir : Vector2
+
 
 func _physics_process(delta: float) -> void:
 	
@@ -55,8 +57,14 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity = Vector2.ZERO
 		
+	
+	if player_input != Vector2.ZERO:
+		last_dir = player_input
+	
 	move_and_slide()
-
+	
+	
+	
 func _ready() -> void:
 	
 	add_to_group("Interactable")
@@ -72,6 +80,9 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	
 	
+	
+
+	
 	if is_player:
 		if input.x == 1:
 			player_sprites.flip_h = false
@@ -80,8 +91,13 @@ func _process(delta: float) -> void:
 			player_sprites.flip_h = true
 	
 		if input == Vector2.ZERO:
-			player_sprites.play("FrontIdle")
-		
+			if last_dir.x != 0:
+				player_sprites.play("SideIdle")
+			else:
+				if last_dir.y > 0:
+					player_sprites.play("FrontIdle")
+				else:
+					player_sprites.play("BackIdle")
 		else:
 			if input.y == 1 and input.x == 0:
 				player_sprites.play("FrontWalk")
