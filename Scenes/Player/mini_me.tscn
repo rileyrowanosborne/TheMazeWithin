@@ -255,7 +255,7 @@ interactable_type = "Mini Me"
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="." unique_id=853796529]
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_inrtw")
-animation = &"Death"
+animation = &"SideIdle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2065492064]
 position = Vector2(0, 7)

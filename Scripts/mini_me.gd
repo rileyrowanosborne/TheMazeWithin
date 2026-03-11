@@ -19,7 +19,7 @@ extends CharacterBody2D
 
 var input : Vector2
 const ACCEL : float = 6
-var speed : float = 150
+var speed : float = 100
 
 var sprite_direction = [
 	"Front",
@@ -66,11 +66,30 @@ func _ready() -> void:
 		speed = 50
 		direction_change()
 	else:
-		speed = 150
+		speed = 100
 
 
 func _process(delta: float) -> void:
 	
+	
+	if is_player:
+		if input.x == 1:
+			player_sprites.flip_h = false
+		
+		elif input.x == -1:
+			player_sprites.flip_h = true
+	
+		if input == Vector2.ZERO:
+			player_sprites.play("FrontIdle")
+		
+		else:
+			if input.y == 1 and input.x == 0:
+				player_sprites.play("FrontWalk")
+			elif input.y == -1 and input.x == 0:
+				player_sprites.play("BackWalk")
+				
+			else:
+				player_sprites.play("SideWalk")
 	
 	
 	

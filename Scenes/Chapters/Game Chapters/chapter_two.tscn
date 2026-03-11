@@ -21,6 +21,7 @@
 [ext_resource type="Texture2D" uid="uid://jq3mr0cpi8yr" path="res://Assets/Sprites/GrassPatch.png" id="19_mghme"]
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="20_jvcct"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="21_vd1cg"]
+[ext_resource type="Texture2D" uid="uid://c1cdtphokng0p" path="res://Assets/Sprites/MoreDetailsTileSet.png" id="22_p857g"]
 
 [sub_resource type="Resource" id="Resource_6mlxp"]
 script = ExtResource("7_4s7gi")
@@ -703,6 +704,74 @@ _data = {
 &"Saws": SubResource("Animation_3y6ve")
 }
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cydy7"]
+texture = ExtResource("22_p857g")
+3:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+5:1/size_in_atlas = Vector2i(2, 1)
+5:1/0 = 0
+0:0/size_in_atlas = Vector2i(3, 1)
+0:0/0 = 0
+3:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 1)
+4:0/0 = 0
+0:1/size_in_atlas = Vector2i(3, 1)
+0:1/0 = 0
+0:7/size_in_atlas = Vector2i(8, 2)
+0:7/0 = 0
+12:10/size_in_atlas = Vector2i(4, 2)
+12:10/0 = 0
+9:12/size_in_atlas = Vector2i(7, 4)
+9:12/0 = 0
+2:13/size_in_atlas = Vector2i(7, 2)
+2:13/0 = 0
+4:12/size_in_atlas = Vector2i(5, 1)
+4:12/0 = 0
+6:15/size_in_atlas = Vector2i(3, 1)
+6:15/0 = 0
+0:3/size_in_atlas = Vector2i(6, 2)
+0:3/0 = 0
+6:2/size_in_atlas = Vector2i(3, 1)
+6:2/0 = 0
+7:0/size_in_atlas = Vector2i(2, 1)
+7:0/0 = 0
+9:0/size_in_atlas = Vector2i(6, 2)
+9:0/0 = 0
+15:0/0 = 0
+15:1/0 = 0
+15:2/0 = 0
+15:3/0 = 0
+9:2/size_in_atlas = Vector2i(6, 2)
+9:2/0 = 0
+6:3/size_in_atlas = Vector2i(3, 1)
+6:3/0 = 0
+7:4/size_in_atlas = Vector2i(3, 1)
+7:4/0 = 0
+10:4/size_in_atlas = Vector2i(2, 1)
+10:4/0 = 0
+12:4/size_in_atlas = Vector2i(4, 1)
+12:4/0 = 0
+14:5/size_in_atlas = Vector2i(2, 1)
+14:5/0 = 0
+11:5/size_in_atlas = Vector2i(3, 1)
+11:5/0 = 0
+11:6/size_in_atlas = Vector2i(2, 2)
+11:6/0 = 0
+13:6/size_in_atlas = Vector2i(3, 2)
+13:6/0 = 0
+8:5/size_in_atlas = Vector2i(3, 2)
+8:5/0 = 0
+8:7/size_in_atlas = Vector2i(3, 1)
+8:7/0 = 0
+2:9/size_in_atlas = Vector2i(9, 3)
+2:9/0 = 0
+11:8/size_in_atlas = Vector2i(5, 2)
+11:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_g1b0x"]
+sources/0 = SubResource("TileSetAtlasSource_cydy7")
+
 [node name="ChapterTwo" type="Node2D" unique_id=1656812687]
 z_as_relative = false
 y_sort_enabled = true
@@ -824,5 +893,6 @@ position = Vector2(-520, 152)
 chapter = 2
 
 [node name="Decor" type="TileMapLayer" parent="." unique_id=1800899841]
+tile_set = SubResource("TileSet_g1b0x")
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

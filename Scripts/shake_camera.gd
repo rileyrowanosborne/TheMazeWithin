@@ -7,8 +7,8 @@ extends Camera2D
 
 
 
-var boss_zoom : Vector2 = Vector2(3,3)
-var normal_zoom : Vector2 = Vector2(4,4)
+@export var boss_zoom : Vector2 = Vector2(3,3)
+@export var normal_zoom : Vector2 = Vector2(4,4)
 
 var trauma : float = 0.0
 var trauma_power : int = 2
