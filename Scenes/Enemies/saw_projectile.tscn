@@ -13,7 +13,7 @@ radius = 14.035668
 radius = 13.0
 
 [node name="SawProjectile" type="RigidBody2D" unique_id=1277612292]
-modulate = Color(0.45585245, 0.46599025, 0.80265486, 1)
+modulate = Color(0.7831445, 0.36621866, 0.26455063, 1)
 z_index = 4
 z_as_relative = false
 collision_layer = 2
@@ -29,6 +29,7 @@ deflect_noise_player_scene = ExtResource("3_26r8m")
 texture = ExtResource("1_tvqb7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=399869941]
+visible = false
 shape = SubResource("CircleShape2D_tvqb7")
 
 [node name="RayCastDown" type="RayCast2D" parent="." unique_id=1759259661]
@@ -52,4 +53,11 @@ collision_layer = 2
 collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=541391830]
+visible = false
 shape = SubResource("CircleShape2D_jr8x5")
+
+[node name="RaycastTimer" type="Timer" parent="." unique_id=898273673]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="RaycastTimer" to="." method="_on_raycast_timer_timeout"]

@@ -7,6 +7,7 @@ extends RigidBody2D
 @onready var ray_cast_up: RayCast2D = $RayCastUp
 @onready var ray_cast_left: RayCast2D = $RayCastLeft
 @onready var ray_cast_right: RayCast2D = $RayCastRight
+@onready var raycast_timer: Timer = $RaycastTimer
 
 
 
@@ -25,7 +26,11 @@ var speed : float = 100.0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("Projectile")
-
+	raycast_timer.start()
+	ray_cast_down.enabled = false
+	ray_cast_left.enabled = false
+	ray_cast_right.enabled = false
+	ray_cast_up.enabled = false
 
 
 func _process(delta: float) -> void:
@@ -67,3 +72,10 @@ func spawn_deflect_nosie():
 		var deflect_noise_instance = deflect_noise_player_scene.instantiate()
 		get_tree().current_scene.add_child(deflect_noise_instance)
 		deflect_noise_instance.global_position = global_position
+
+
+func _on_raycast_timer_timeout() -> void:
+	ray_cast_down.enabled = true
+	ray_cast_left.enabled = true
+	ray_cast_right.enabled = true
+	ray_cast_up.enabled = true

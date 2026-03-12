@@ -703,16 +703,16 @@ is_world_launcher = true
 position = Vector2(-383, -287)
 
 [node name="SawBladeLauncher2" parent="Launchers" unique_id=578560659 instance=ExtResource("17_t2m5r")]
-position = Vector2(-344, 312)
+position = Vector2(-311, 346)
 initial_fire_rate_delay = 0.3
 
 [node name="SawBladeLauncher3" parent="Launchers" unique_id=2032711470 instance=ExtResource("17_t2m5r")]
-position = Vector2(-72, 312)
+position = Vector2(-92, 298)
 direction = Vector2(-1, 0)
 initial_fire_rate_delay = 0.1
 
 [node name="SawBladeLauncher4" parent="Launchers" unique_id=452491483 instance=ExtResource("17_t2m5r")]
-position = Vector2(-72, 312)
+position = Vector2(-173, 299)
 direction = Vector2(0, 1)
 initial_fire_rate_delay = 0.6
 

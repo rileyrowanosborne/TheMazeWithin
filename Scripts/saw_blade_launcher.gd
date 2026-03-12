@@ -5,6 +5,8 @@ extends Node2D
 @export var projectile_scene : PackedScene
 @onready var fire_sound: AudioStreamPlayer2D = $FireSound
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var mouth_anims: AnimatedSprite2D = $MouthAnims
+@onready var anim_timer: Timer = $AnimTimer
 
 
 
@@ -20,6 +22,7 @@ extends Node2D
 
 func _ready() -> void:
 	fire_rate.start(initial_fire_rate_delay)
+	
 
 
 
@@ -37,5 +40,11 @@ func spawn_projectile(world_location : Vector2, dir : Vector2):
 
 
 func _on_fire_rate_timeout() -> void:
+	mouth_anims.play("default")
+	anim_timer.start()
+	
+
+
+func _on_anim_timer_timeout() -> void:
 	spawn_projectile(global_position, direction)
 	fire_rate.start(normal_fire_rate_delay)
