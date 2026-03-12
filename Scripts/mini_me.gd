@@ -15,14 +15,24 @@ extends CharacterBody2D
 @onready var death_timer: Timer = $DeathTimer
 @onready var munch: AudioStreamPlayer2D = $Munch
 
+
+@onready var launched_timer: Timer = $LaunchedTimer
+@onready var slow_down_timer: Timer = $SlowDownTimer
+
+
+
+
+
+
+
 @export var health : int = 4
 
 
 @export var is_player : bool
 
 var input : Vector2
-const ACCEL : float = 6
-var speed : float = 100
+const ACCEL : float = .1
+var speed : float 
 
 var sprite_direction = [
 	"Front",
@@ -38,6 +48,13 @@ var sprite_state = [
 	
 ]
 
+
+var dir
+
+var is_moving : bool
+var is_forward : bool
+
+
 var current_direction : Vector2
 
 var player_in_range : bool = false
@@ -49,32 +66,10 @@ var is_alive : bool = true
 var last_dir : Vector2
 
 
-func _physics_process(delta: float) -> void:
-	
-	var player_input = get_input()
-	if is_alive:
-		if is_player:
-			velocity = lerp(velocity, player_input * speed, delta * ACCEL)
-		else:
-			velocity = current_direction * speed
-	else:
-		velocity = Vector2.ZERO
-		
-	
-	if player_input != Vector2.ZERO:
-		last_dir = player_input
-	
-	move_and_slide()
-	
-	
 
-func take_damage():
-	if health > 0:
-		print("Youch!")
-		health -= 1
-	else:
-		health = 4
-		get_tree().call_deferred("reload_current_scene")
+var is_launched : bool
+var slow_down : bool
+var is_bouncing : bool = false
 
 
 
@@ -92,6 +87,50 @@ func _ready() -> void:
 		audio_listener_2d.make_current()
 
 
+
+
+func _physics_process(delta: float) -> void:
+	
+	
+	
+	var player_input = get_input()
+	if is_alive:
+			if is_player:
+				if not is_launched:
+					velocity = lerp(velocity, player_input * speed, ACCEL)
+				else:
+					if slow_down:
+						velocity = lerp(velocity, Vector2.ZERO, 0.1)
+			else:
+				velocity = current_direction * speed
+		
+	else:
+		velocity = Vector2.ZERO
+			
+	
+	move_and_slide()
+	
+	
+	if is_bouncing:
+		var collision = get_last_slide_collision()
+		if collision:
+			velocity = velocity.bounce(collision.get_normal())
+			velocity *= 0.9
+
+func apply_facing_impulse(saw_position, strength):
+	var deflect_direction_vector = (global_position - saw_position).normalized()
+	velocity = deflect_direction_vector * (strength * 1.1)
+	is_bouncing = true
+	launched_timer.start()
+	is_launched = true
+	
+
+
+func take_damage(saw_position):
+	print("Youch!")
+	apply_facing_impulse(saw_position, 2000)
+
+
 func _process(delta: float) -> void:
 	
 	
@@ -99,28 +138,66 @@ func _process(delta: float) -> void:
 
 	
 	if is_player:
-		if input.x == 1:
-			player_sprites.flip_h = false
 		
-		elif input.x == -1:
+		if dir == 1:
+			player_sprites.flip_h = false
+		else:
 			player_sprites.flip_h = true
+		
+		
+		if Input.is_action_pressed("Down"):
+			is_moving = true
+			is_forward = true
+			
+		
+		elif Input.is_action_pressed("Up"):
+			is_forward = false
+			is_moving = true
+			
+		elif Input.is_action_pressed("Left")\
+		 || Input.is_action_pressed("Right"):
+			is_moving = true
+			
+		
+		else:
+			is_moving = false
+		
+		
+		#if GameState.is_paused:
+			#set_anim("Front Idle")
+		#else:
+			#if is_moving and is_forward:
+				#set_anim("Front Walking")
+			#
+			#elif is_moving and not is_forward:
+				#set_anim("Back Walking")
+			#
+			#elif not is_moving and not is_forward:
+				#set_anim("Back Idle")
+			#
+			#elif not is_moving and is_forward:
+				#set_anim("Front Idle")
+
+		
+		
+		
+		
+		
+		
+		
 	
 		if input == Vector2.ZERO:
-			if last_dir.x != 0:
-				player_sprites.play("SideIdle")
+
+			if is_forward:
+				player_sprites.play("Front Idle")
 			else:
-				if last_dir.y > 0:
-					player_sprites.play("FrontIdle")
-				else:
-					player_sprites.play("BackIdle")
+				player_sprites.play("Back Idle")
 		else:
-			if input.y == 1 and input.x == 0:
-				player_sprites.play("FrontWalk")
-			elif input.y == -1 and input.x == 0:
-				player_sprites.play("BackWalk")
+			if is_moving and is_forward:
+				player_sprites.play("Front Walking")
+			elif is_moving and not is_forward:
+				player_sprites.play("Back Walking")
 				
-			else:
-				player_sprites.play("SideWalk")
 	
 	
 	
@@ -146,8 +223,12 @@ func _input(event: InputEvent) -> void:
 			death_timer.start(.5)
 			current_direction = Vector2(0,0)
 			is_alive = false
-
-
+	
+	if event.is_action_pressed("Left"):
+		dir = -1
+	elif event.is_action_pressed("Right"):
+		dir = 1
+	
 
 func get_input():
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -181,22 +262,46 @@ func direction_change():
 	
 		if sprite_state == "Walking":
 			if sprite_direction == "Front":
-				player_sprites.play("FrontWalk")
+				player_sprites.play("Front Walking")
 			elif sprite_direction == "Back":
-				player_sprites.play("BackWalk")
+				player_sprites.play("Back Walking")
 			elif sprite_direction == "Right":
 				player_sprites.flip_h = false
-				player_sprites.play("SideWalk")
+				player_sprites.play("Side Walk")
 			elif sprite_direction == "Left":
-				player_sprites.play("SideWalk")
+				player_sprites.play("Side Walk")
 				player_sprites.flip_h = true
 		elif sprite_direction == "Idle":
 			if sprite_direction == "Front":
-				player_sprites.play("FrontIdle")
+				player_sprites.play("Front Idle")
 			elif sprite_direction == "Back":
-				player_sprites.play("BackIdle")
+				player_sprites.play("Back Idle")
 			
+
+
+
+func set_anim(anim : String):
+	if player_sprites.animation != anim:
+		player_sprites.play(anim)
+
+
+
+
+
+
+
 
 
 func _on_death_timer_timeout() -> void:
 	queue_free()
+
+
+func _on_launched_timer_timeout() -> void:
+	is_bouncing = false
+	slow_down_timer.start()
+	slow_down = true
+
+
+func _on_slow_down_timer_timeout() -> void:
+	is_launched = false
+	slow_down = false

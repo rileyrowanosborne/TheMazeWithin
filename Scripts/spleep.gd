@@ -45,7 +45,7 @@ var is_launched : bool = false
 var slow_down : bool = false
 
 
-var bounce_mode : bool
+var is_bouncing : bool
 
 #0,0 means stationary
 #1,0 means right
@@ -75,8 +75,8 @@ func _process(delta: float) -> void:
 			or ray_cast_right_2.is_colliding()\
 			or ray_cast_up.is_colliding()\
 			or ray_cast_up_2.is_colliding():
-				if is_launched and not bounce_mode:
-					bounce_mode = true
+				if is_launched and not is_bouncing:
+					is_bouncing = true
 				else:
 					change_direction()
 	
@@ -140,7 +140,7 @@ func apply_facing_impulse(strength):
 
 
 func _on_lauched_timer_timeout() -> void:
-	bounce_mode = false
+	is_bouncing = false
 	slow_down_timer.start()
 	slow_down = true
 

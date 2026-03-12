@@ -45,7 +45,7 @@ point_count = 2
 [node name="Spleep" type="CharacterBody2D" unique_id=508731667]
 z_index = 3
 collision_layer = 64
-collision_mask = 4
+collision_mask = 77
 motion_mode = 1
 script = ExtResource("1_s6gym")
 
@@ -63,42 +63,42 @@ shape = SubResource("CapsuleShape2D_l4tmf")
 [node name="RayCastDown" type="RayCast2D" parent="Raycasts" unique_id=85965290]
 position = Vector2(-4, 0)
 target_position = Vector2(0, 6)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastDown2" type="RayCast2D" parent="Raycasts" unique_id=1071829739]
 position = Vector2(4, 0)
 target_position = Vector2(0, 6)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastUp" type="RayCast2D" parent="Raycasts" unique_id=812804017]
 position = Vector2(4, 0)
 target_position = Vector2(0, -5)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastUp2" type="RayCast2D" parent="Raycasts" unique_id=1761963092]
 position = Vector2(-4, 0)
 target_position = Vector2(0, -5)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastRight" type="RayCast2D" parent="Raycasts" unique_id=548350729]
 position = Vector2(0, 5)
 target_position = Vector2(5, 0)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastRight2" type="RayCast2D" parent="Raycasts" unique_id=2008627719]
 position = Vector2(0, -4)
 target_position = Vector2(5, 0)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastLeft" type="RayCast2D" parent="Raycasts" unique_id=338262717]
 position = Vector2(0, -4)
 target_position = Vector2(-5, 0)
-collision_mask = 69
+collision_mask = 68
 
 [node name="RayCastLeft2" type="RayCast2D" parent="Raycasts" unique_id=94712027]
 position = Vector2(0, 5)
 target_position = Vector2(-5, 0)
-collision_mask = 69
+collision_mask = 68
 
 [node name="CooldownTimer" type="Timer" parent="." unique_id=1161798496]
 one_shot = true

@@ -15,19 +15,19 @@ region = Rect2(8, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipoku"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(16, 8, 8, 8)
+region = Rect2(64, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ygvqr"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(24, 8, 8, 8)
+region = Rect2(72, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bshg0"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(32, 8, 8, 8)
+region = Rect2(80, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_n425u"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(40, 8, 8, 8)
+region = Rect2(88, 8, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_j0jec"]
 atlas = ExtResource("1_xke7x")
@@ -79,19 +79,19 @@ region = Rect2(8, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4o7qt"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(16, 0, 8, 8)
+region = Rect2(64, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y1jem"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(24, 0, 8, 8)
+region = Rect2(72, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_neb1u"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(32, 0, 8, 8)
+region = Rect2(80, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cj0oq"]
 atlas = ExtResource("1_xke7x")
-region = Rect2(40, 0, 8, 8)
+region = Rect2(88, 0, 8, 8)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xke7x"]
 atlas = ExtResource("1_xke7x")
@@ -127,7 +127,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_aqlyn")
 }],
 "loop": true,
-"name": &"BackIdle",
+"name": &"Back Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -144,7 +144,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_n425u")
 }],
 "loop": true,
-"name": &"BackWalk",
+"name": &"Back Walking",
 "speed": 5.0
 }, {
 "frames": [{
@@ -193,7 +193,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6otsd")
 }],
 "loop": true,
-"name": &"FrontIdle",
+"name": &"Front Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -210,7 +210,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_cj0oq")
 }],
 "loop": true,
-"name": &"FrontWalk",
+"name": &"Front Walking",
 "speed": 5.0
 }, {
 "frames": [{
@@ -221,7 +221,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_6mtyd")
 }],
 "loop": true,
-"name": &"SideIdle",
+"name": &"Side Idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -238,7 +238,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_lqtyu")
 }],
 "loop": true,
-"name": &"SideWalk",
+"name": &"Side Walk",
 "speed": 5.0
 }]
 
@@ -261,7 +261,7 @@ interactable_type = "Mini Me"
 [node name="PlayerSprites" type="AnimatedSprite2D" parent="." unique_id=853796529]
 position = Vector2(0, 4)
 sprite_frames = SubResource("SpriteFrames_inrtw")
-animation = &"SideIdle"
+animation = &"Back Walking"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2065492064]
 position = Vector2(0, 7)
@@ -309,4 +309,14 @@ collision_mask = 16
 position = Vector2(0, 4)
 shape = SubResource("CapsuleShape2D_xdao4")
 
+[node name="LaunchedTimer" type="Timer" parent="." unique_id=2010430379]
+wait_time = 0.5
+one_shot = true
+
+[node name="SlowDownTimer" type="Timer" parent="." unique_id=2050238655]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
+[connection signal="timeout" from="LaunchedTimer" to="." method="_on_launched_timer_timeout"]
+[connection signal="timeout" from="SlowDownTimer" to="." method="_on_slow_down_timer_timeout"]

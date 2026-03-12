@@ -21,7 +21,7 @@ func take_damage():
 	
 	if get_parent().is_in_group("Mini Me"):
 		if get_parent().has_method("take_damage"):
-			get_parent().take_damage()
+			get_parent().take_damage(global_position)
 
 
 func _on_body_entered(body: Node2D) -> void:

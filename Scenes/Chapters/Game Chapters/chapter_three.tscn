@@ -581,7 +581,7 @@ tile_set = SubResource("TileSet_exq2e")
 script = ExtResource("10_w6ife")
 
 [node name="Player" parent="." unique_id=485099542 instance=ExtResource("11_ibxrj")]
-position = Vector2(-263, -268)
+position = Vector2(248, -68)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=12526998]
 visible = false
@@ -596,13 +596,13 @@ one_shot = true
 [node name="Spleeps" type="Node2D" parent="." unique_id=1223666167]
 
 [node name="Spleep" parent="Spleeps" unique_id=727892631 instance=ExtResource("13_mp2lk")]
-position = Vector2(9, 72)
+position = Vector2(-132, 18)
 
 [node name="Spleep2" parent="Spleeps" unique_id=1210978706 instance=ExtResource("13_mp2lk")]
-position = Vector2(-207, 425)
+position = Vector2(-336, 561)
 
 [node name="Spleep3" parent="Spleeps" unique_id=270643584 instance=ExtResource("13_mp2lk")]
-position = Vector2(634, -139)
+position = Vector2(887, -269)
 
 [node name="SpleepHoles" type="Node2D" parent="." unique_id=1542417309]
 
