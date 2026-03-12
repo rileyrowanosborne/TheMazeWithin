@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://3r18x1sbt3bd" path="res://Scripts/saw_blade_launcher.gd" id="1_7gnyq"]
 [ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="1_ar6j8"]
 [ext_resource type="PackedScene" uid="uid://c8hof5dvyrwol" path="res://Scenes/Enemies/saw_projectile.tscn" id="2_cvnln"]
+[ext_resource type="Texture2D" uid="uid://fh2hf4jxnjxx" path="res://Assets/Sprites/LittlePuffParticle.png" id="4_vycg2"]
+
+[sub_resource type="Curve" id="Curve_vycg2"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7735426, 0.72329915), -0.9688783, -0.9688783, 0, 0, Vector2(1, 0.004370928), -6.6111727, 0.0, 0, 0]
+point_count = 3
 
 [node name="SawBladeLauncher" type="Node2D" unique_id=1384301299]
 script = ExtResource("1_7gnyq")
@@ -19,5 +24,21 @@ volume_db = -23.029
 pitch_scale = 0.8
 max_distance = 150.0
 attenuation = 0.3535535
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=990815968]
+z_index = 5
+z_as_relative = false
+emitting = false
+texture = ExtResource("4_vycg2")
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+scale_amount_max = 2.0
+scale_amount_curve = SubResource("Curve_vycg2")
 
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

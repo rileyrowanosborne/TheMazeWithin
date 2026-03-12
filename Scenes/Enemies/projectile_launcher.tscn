@@ -3,6 +3,11 @@
 [ext_resource type="Script" uid="uid://lyvygt58cf0q" path="res://Scripts/projectile_launcher.gd" id="1_pt6he"]
 [ext_resource type="PackedScene" uid="uid://ekcj3gn2xbhk" path="res://Scenes/Enemies/projectile.tscn" id="2_t0e2w"]
 [ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="3_ebl0j"]
+[ext_resource type="Texture2D" uid="uid://fh2hf4jxnjxx" path="res://Assets/Sprites/LittlePuffParticle.png" id="4_scdcj"]
+
+[sub_resource type="Curve" id="Curve_ljs2o"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7735426, 0.72329915), -0.9688783, -0.9688783, 0, 0, Vector2(1, 0.004370928), -6.6111727, 0.0, 0, 0]
+point_count = 3
 
 [node name="ProjectileLauncher" type="Node2D" unique_id=529816459]
 z_index = 4
@@ -18,5 +23,21 @@ volume_db = -23.029
 pitch_scale = 0.8
 max_distance = 150.0
 attenuation = 0.3535535
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2022770843]
+z_index = 5
+z_as_relative = false
+emitting = false
+texture = ExtResource("4_scdcj")
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_ljs2o")
 
 [connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

@@ -3,6 +3,7 @@ extends Node2D
 
 @export var projectile_scene : PackedScene
 @onready var fire_sound: AudioStreamPlayer2D = $FireSound
+@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
 
 
 @export var direction : Vector2
@@ -35,6 +36,7 @@ func _ready() -> void:
 
 func spawn_projectile(world_location : Vector2, dir : Vector2):
 	if projectile_scene:
+		cpu_particles_2d.emitting = true
 		fire_sound.play()
 		var projectile_instance = projectile_scene.instantiate()
 		get_tree().current_scene.add_child(projectile_instance)

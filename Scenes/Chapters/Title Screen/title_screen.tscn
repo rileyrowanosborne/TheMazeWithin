@@ -10,9 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://cn7k0wbw0e603" path="res://Assets/Sprites/TriangleForCutscene.png" id="8_c6r3x"]
 [ext_resource type="Texture2D" uid="uid://b7guu4jsraumv" path="res://Assets/Sprites/CircleForCutscene.png" id="9_arl2v"]
 [ext_resource type="Texture2D" uid="uid://dpfsj30jaf8xx" path="res://Assets/Sprites/NewButton-New-Red.png" id="10_fak6x"]
+[ext_resource type="Texture2D" uid="uid://cy580m7cg8iam" path="res://Assets/Sprites/NewButton-New-Yellow.png" id="11_01rf7"]
 [ext_resource type="Texture2D" uid="uid://cme05aiwn1iu2" path="res://Assets/Sprites/LoadButton-New-Red.png" id="11_a1qtk"]
 [ext_resource type="Texture2D" uid="uid://lonusv3j5ta0" path="res://Assets/Sprites/OptionsButton-RedNew.png" id="12_01rf7"]
 [ext_resource type="Texture2D" uid="uid://cuiw8ubruo0tj" path="res://Assets/Sprites/QuitButton-New_red.png" id="13_djmsw"]
+[ext_resource type="Texture2D" uid="uid://dung45pcokrpy" path="res://Assets/Sprites/LoadButton-New-Yellow.png" id="13_oi6mp"]
+[ext_resource type="Texture2D" uid="uid://db4lx3e1nmjc4" path="res://Assets/Sprites/LoadButton-New-Blue.png" id="14_cdcib"]
+[ext_resource type="Texture2D" uid="uid://6w83vthlks6x" path="res://Assets/Sprites/OptionsButton-New-Yellow.png" id="16_oi6mp"]
+[ext_resource type="Texture2D" uid="uid://db18rg2ypgww7" path="res://Assets/Sprites/QuitButton-New-Yellow.png" id="18_cdcib"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kh1w"]
 atlas = ExtResource("4_3fahe")
@@ -176,18 +181,27 @@ theme_override_constants/separation = 50
 [node name="NewButton" type="TextureButton" parent="VBoxContainer" unique_id=1705817401]
 layout_mode = 2
 texture_normal = ExtResource("10_fak6x")
+texture_hover = ExtResource("11_01rf7")
+texture_focused = ExtResource("11_01rf7")
 
 [node name="LoadButton" type="TextureButton" parent="VBoxContainer" unique_id=779420224]
 layout_mode = 2
 texture_normal = ExtResource("11_a1qtk")
+texture_hover = ExtResource("13_oi6mp")
+texture_disabled = ExtResource("14_cdcib")
+texture_focused = ExtResource("13_oi6mp")
 
 [node name="OptionsButton" type="TextureButton" parent="VBoxContainer" unique_id=1406563274]
 layout_mode = 2
 texture_normal = ExtResource("12_01rf7")
+texture_hover = ExtResource("16_oi6mp")
+texture_focused = ExtResource("16_oi6mp")
 
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=772138761]
 layout_mode = 2
 texture_normal = ExtResource("13_djmsw")
+texture_hover = ExtResource("18_cdcib")
+texture_focused = ExtResource("18_cdcib")
 
 [connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]

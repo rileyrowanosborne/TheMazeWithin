@@ -289,7 +289,7 @@ script = ExtResource("1_vsw1g")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=992272942]
 offset_right = 1148.0
 offset_bottom = 647.0
-color = Color(0.83161974, 0.8022386, 0.6919547, 1)
+color = Color(0.67284834, 0.6511869, 0.57382905, 1)
 
 [node name="EyesAnim" type="AnimatedSprite2D" parent="." unique_id=963911234]
 top_level = true
@@ -311,7 +311,6 @@ animation = &"Idle"
 autoplay = "Idle"
 
 [node name="BaseFace" type="Sprite2D" parent="." unique_id=203284668]
-self_modulate = Color(1, 1, 1, 0.5803922)
 light_mask = 0
 position = Vector2(555, 328)
 scale = Vector2(5, 5)
@@ -324,7 +323,7 @@ scale = Vector2(5, 5)
 texture = ExtResource("4_bbexb")
 
 [node name="ChangeSceneTimer" type="Timer" parent="." unique_id=2000602081]
-wait_time = 4.0
+wait_time = 4.5
 one_shot = true
 
 [connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]
