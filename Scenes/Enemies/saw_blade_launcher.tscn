@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://cbs8q2nu6mm8w"]
+
+[ext_resource type="Script" uid="uid://3r18x1sbt3bd" path="res://Scripts/saw_blade_launcher.gd" id="1_7gnyq"]
+[ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="1_ar6j8"]
+[ext_resource type="PackedScene" uid="uid://c8hof5dvyrwol" path="res://Scenes/Enemies/saw_projectile.tscn" id="2_cvnln"]
+
+[node name="SawBladeLauncher" type="Node2D" unique_id=1384301299]
+script = ExtResource("1_7gnyq")
+projectile_scene = ExtResource("2_cvnln")
+direction = Vector2(1, 0)
+normal_fire_rate_delay = 4.0
+
+[node name="FireRate" type="Timer" parent="." unique_id=160997456]
+one_shot = true
+
+[node name="FireSound" type="AudioStreamPlayer2D" parent="." unique_id=1178324831]
+stream = ExtResource("1_ar6j8")
+volume_db = -23.029
+pitch_scale = 0.8
+max_distance = 150.0
+attenuation = 0.3535535
+
+[connection signal="timeout" from="FireRate" to="." method="_on_fire_rate_timeout"]

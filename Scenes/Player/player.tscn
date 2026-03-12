@@ -417,6 +417,7 @@ current = true
 [node name="SpecialTimer" parent="." unique_id=1569465154 instance=ExtResource("19_rcvs5")]
 
 [node name="SpecialDecayTimer" type="Timer" parent="." unique_id=948191661]
+wait_time = 2.0
 one_shot = true
 
 [node name="Roll1" type="AudioStreamPlayer2D" parent="." unique_id=2067847513]

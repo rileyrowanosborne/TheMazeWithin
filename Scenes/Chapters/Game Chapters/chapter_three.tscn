@@ -9,9 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://bbaqv1c523qrd" path="res://Assets/Sprites/BossSpawnIcon2.png" id="13_6emj7"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="13_mp2lk"]
 [ext_resource type="Texture2D" uid="uid://c1cdtphokng0p" path="res://Assets/Sprites/MoreDetailsTileSet.png" id="14_0b002"]
+[ext_resource type="Script" uid="uid://bpcywjw5b1r2e" path="res://Scripts/launchers.gd" id="15_gwu4a"]
+[ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="15_pjlpc"]
 [ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/Enemies/triangle_enemy.tscn" id="16_bient"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_w6ife"]
 [ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="17_qear5"]
+[ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="17_t2m5r"]
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="19_d0hoc"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="20_6emj7"]
 
@@ -581,7 +584,7 @@ tile_set = SubResource("TileSet_exq2e")
 script = ExtResource("10_w6ife")
 
 [node name="Player" parent="." unique_id=485099542 instance=ExtResource("11_ibxrj")]
-position = Vector2(248, -68)
+position = Vector2(-281, 276)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=12526998]
 visible = false
@@ -677,5 +680,45 @@ chapter = 3
 
 [node name="Decor" type="TileMapLayer" parent="." unique_id=777958512]
 tile_set = SubResource("TileSet_gwu4a")
+
+[node name="Launchers" type="Node2D" parent="." unique_id=1312829249]
+script = ExtResource("15_gwu4a")
+
+[node name="ProjectileLauncher" parent="Launchers" unique_id=529816459 instance=ExtResource("15_pjlpc")]
+position = Vector2(-440, 8)
+direction = Vector2(1, 0)
+is_world_launcher = true
+
+[node name="ProjectileLauncher3" parent="Launchers" unique_id=1137233257 instance=ExtResource("15_pjlpc")]
+position = Vector2(-440, 167)
+direction = Vector2(1, 0)
+is_world_launcher = true
+
+[node name="ProjectileLauncher2" parent="Launchers" unique_id=1889638766 instance=ExtResource("15_pjlpc")]
+position = Vector2(-312, 72)
+direction = Vector2(-1, 0)
+is_world_launcher = true
+
+[node name="SawBladeLauncher" parent="Launchers" unique_id=1384301299 instance=ExtResource("17_t2m5r")]
+position = Vector2(-383, -287)
+
+[node name="SawBladeLauncher2" parent="Launchers" unique_id=578560659 instance=ExtResource("17_t2m5r")]
+position = Vector2(-344, 312)
+initial_fire_rate_delay = 0.3
+
+[node name="SawBladeLauncher3" parent="Launchers" unique_id=2032711470 instance=ExtResource("17_t2m5r")]
+position = Vector2(-72, 312)
+direction = Vector2(-1, 0)
+initial_fire_rate_delay = 0.1
+
+[node name="SawBladeLauncher4" parent="Launchers" unique_id=452491483 instance=ExtResource("17_t2m5r")]
+position = Vector2(-72, 312)
+direction = Vector2(0, 1)
+initial_fire_rate_delay = 0.6
+
+[node name="SawBladeLauncher5" parent="Launchers" unique_id=1846872356 instance=ExtResource("17_t2m5r")]
+position = Vector2(-200, 569)
+direction = Vector2(0, -1)
+initial_fire_rate_delay = 0.9
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

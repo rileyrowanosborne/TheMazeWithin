@@ -6,6 +6,7 @@ extends Node2D
 
 
 @export var direction : Vector2
+@export var is_world_launcher : bool = false
 
 
 @onready var fire_rate: Timer = $FireRate
@@ -22,7 +23,11 @@ const YELLOW_PROJECTILE = preload("res://Assets/Sprites/YellowProjectile.png")
 
 func _ready() -> void:
 	
-	if get_parent().get_parent().is_shooting  == true:
+	
+	if not is_world_launcher:
+		if get_parent().get_parent().is_shooting  == true:
+			fire_rate.start(fire_rate_delay)
+	else:
 		fire_rate.start(fire_rate_delay)
 
 
@@ -42,10 +47,15 @@ func spawn_projectile(world_location : Vector2, dir : Vector2):
 			projectile_instance.sprite_2d.texture = YELLOW_PROJECTILE
 		elif owner.is_in_group("Circle"):
 			projectile_instance.sprite_2d.texture = RED_PROJECTILE
+		elif get_parent().is_in_group("World"):
+			projectile_instance.sprite_2d.texture = GREEN_PROJECTILE
 		
 
 
 func _on_fire_rate_timeout() -> void:
-	if get_parent().get_parent().is_shooting:
+	if is_world_launcher:
 		spawn_projectile(global_position, direction)
+	else:
+		if get_parent().get_parent().is_shooting:
+			spawn_projectile(global_position, direction)
 	fire_rate.start(1.0)
