@@ -29,6 +29,8 @@ radius = 2.0
 height = 4.0
 
 [node name="Sprudge" type="CharacterBody2D" unique_id=910548486]
+z_index = 4
+z_as_relative = false
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1648727555]
 z_index = 4

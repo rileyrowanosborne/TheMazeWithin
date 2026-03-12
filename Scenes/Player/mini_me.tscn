@@ -252,6 +252,7 @@ height = 8.0
 
 [node name="MiniMe" type="CharacterBody2D" unique_id=1160471521]
 z_index = 4
+z_as_relative = false
 collision_layer = 160
 collision_mask = 52
 script = ExtResource("1_j0jec")
