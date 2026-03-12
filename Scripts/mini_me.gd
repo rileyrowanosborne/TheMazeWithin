@@ -1,5 +1,6 @@
 extends CharacterBody2D
 
+@onready var audio_listener_2d: AudioListener2D = $AudioListener2D
 
 
 @onready var ray_cast_down: RayCast2D = $Raycasts/RayCastDown
@@ -13,6 +14,8 @@ extends CharacterBody2D
 
 @onready var death_timer: Timer = $DeathTimer
 @onready var munch: AudioStreamPlayer2D = $Munch
+
+@export var health : int = 4
 
 
 @export var is_player : bool
@@ -64,7 +67,17 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	
-	
+
+func take_damage():
+	if health > 0:
+		print("Youch!")
+		health -= 1
+	else:
+		health = 4
+		get_tree().call_deferred("reload_current_scene")
+
+
+
 func _ready() -> void:
 	
 	add_to_group("Interactable")
@@ -73,8 +86,10 @@ func _ready() -> void:
 	if not is_player:
 		speed = 50
 		direction_change()
+		audio_listener_2d.clear_current()
 	else:
 		speed = 100
+		audio_listener_2d.make_current()
 
 
 func _process(delta: float) -> void:

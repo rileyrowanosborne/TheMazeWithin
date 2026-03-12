@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bchcmttriie2e" path="res://Scripts/mini_me.gd" id="1_j0jec"]
 [ext_resource type="Texture2D" uid="uid://dk7lnbfbx1xxo" path="res://Assets/Sprites/MiniMeSpriteSheet.png" id="1_xke7x"]
 [ext_resource type="AudioStream" uid="uid://dt83me50thlp0" path="res://Assets/Sounds/MiniMeMunch.wav" id="3_52ljq"]
+[ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="4_ieaf2"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i5uvo"]
 atlas = ExtResource("1_xke7x")
@@ -245,10 +246,14 @@ animations = [{
 radius = 1.0
 height = 2.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xdao4"]
+radius = 2.0
+height = 8.0
+
 [node name="MiniMe" type="CharacterBody2D" unique_id=1160471521]
 z_index = 4
 collision_layer = 160
-collision_mask = 4
+collision_mask = 52
 script = ExtResource("1_j0jec")
 interactable_type = "Mini Me"
 
@@ -291,5 +296,16 @@ one_shot = true
 [node name="Munch" type="AudioStreamPlayer2D" parent="." unique_id=1609020674]
 stream = ExtResource("3_52ljq")
 bus = &"SFX"
+
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=861114571]
+position = Vector2(-1, -12)
+
+[node name="Hurtbox" parent="." unique_id=2059056326 instance=ExtResource("4_ieaf2")]
+collision_layer = 128
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=163668970]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_xdao4")
 
 [connection signal="timeout" from="DeathTimer" to="." method="_on_death_timer_timeout"]
