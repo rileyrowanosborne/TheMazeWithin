@@ -5,7 +5,6 @@ resource_name = "Chorus"
 wet = 0.68
 
 [resource]
-bus/0/mute = true
 bus/0/bypass_fx = true
 bus/1/name = &"SFX"
 bus/1/solo = false
