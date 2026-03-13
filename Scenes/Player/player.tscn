@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxfikn8ovlysh" path="res://Scenes/Sounds/footsteps.tscn" id="6_aqm4k"]
 [ext_resource type="PackedScene" uid="uid://cy72xmp2bnc3w" path="res://Scenes/Components/health_component.tscn" id="7_3smsa"]
 [ext_resource type="Script" uid="uid://dw1s1lkjgt1ky" path="res://Scripts/shield_bubble.gd" id="8_jincj"]
-[ext_resource type="Texture2D" uid="uid://dg6rv21fuv0j8" path="res://Assets/Sprites/ShieldBubble2.png" id="8_qr1w5"]
+[ext_resource type="Texture2D" uid="uid://cq0oa4g4jroa2" path="res://Assets/Sprites/ShieldBubble3.png" id="8_qr1w5"]
 [ext_resource type="PackedScene" uid="uid://54amq6ybpquf" path="res://Scenes/Components/shake_camera.tscn" id="9_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/UI/hud.tscn" id="10_tx1dd"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="11_gymyn"]
@@ -262,18 +262,6 @@ animations = [{
 "speed": 8.0
 }]
 
-[sub_resource type="Curve" id="Curve_3smsa"]
-_data = [Vector2(0.0025, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.54034, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
-radius = 3.0
-height = 16.0
-
-[sub_resource type="Theme" id="Theme_aqm4k"]
-default_font = ExtResource("18_hnuln")
-default_font_size = 8
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_ythyg"]
 atlas = ExtResource("24_rqdc0")
 region = Rect2(32, 0, 32, 32)
@@ -470,6 +458,18 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="Curve" id="Curve_3smsa"]
+_data = [Vector2(0.0025, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.54034, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
+radius = 3.0
+height = 16.0
+
+[sub_resource type="Theme" id="Theme_aqm4k"]
+default_font = ExtResource("18_hnuln")
+default_font_size = 8
+
 [node name="Player" type="CharacterBody2D" unique_id=1316684380]
 light_mask = 0
 z_index = 4
@@ -496,12 +496,44 @@ script = ExtResource("3_6t5aa")
 foot_steps_scene = ExtResource("6_aqm4k")
 
 [node name="ShieldBubble" type="Sprite2D" parent="." unique_id=1753014625]
-visible = false
 z_index = 4
 z_as_relative = false
-position = Vector2(-1, -6)
+position = Vector2(0, -7)
 texture = ExtResource("8_qr1w5")
 script = ExtResource("8_jincj")
+
+[node name="RollBubble" type="AnimatedSprite2D" parent="." unique_id=1586581190]
+modulate = Color(0, 0, 0, 0.6627451)
+z_index = 4
+z_as_relative = false
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1agin")
+frame = 6
+frame_progress = 1.0
+
+[node name="DashWoosh" type="AnimatedSprite2D" parent="." unique_id=1336759203]
+z_index = 4
+position = Vector2(5.231768, -6.402905)
+rotation = 0.17732033
+sprite_frames = SubResource("SpriteFrames_ythyg")
+frame = 10
+frame_progress = 1.0
+
+[node name="DashWoosh2" type="AnimatedSprite2D" parent="." unique_id=748232764]
+z_index = 4
+position = Vector2(-3.7682323, -3.4029047)
+rotation = 2.235767
+sprite_frames = SubResource("SpriteFrames_bmb2s")
+frame = 10
+frame_progress = 1.0
+
+[node name="DashWoosh3" type="AnimatedSprite2D" parent="." unique_id=1202703819]
+z_index = 4
+position = Vector2(-1.7682319, -13.4029045)
+rotation = -1.9983666
+sprite_frames = SubResource("SpriteFrames_qr1w5")
+frame = 10
+frame_progress = 1.0
 
 [node name="PlayerWeapon" parent="." unique_id=509974704 instance=ExtResource("4_vgqql")]
 position = Vector2(-1, -6)
@@ -633,39 +665,6 @@ bus = &"SFX"
 [node name="Roll2" type="AudioStreamPlayer2D" parent="." unique_id=2087682292]
 stream = ExtResource("21_eksi1")
 bus = &"SFX"
-
-[node name="RollBubble" type="AnimatedSprite2D" parent="." unique_id=1586581190]
-modulate = Color(0, 0, 0, 0.6627451)
-z_index = 5
-z_as_relative = false
-position = Vector2(0, -8)
-sprite_frames = SubResource("SpriteFrames_1agin")
-frame = 6
-frame_progress = 1.0
-
-[node name="DashWoosh" type="AnimatedSprite2D" parent="." unique_id=1336759203]
-z_index = 5
-position = Vector2(5.231768, -6.402905)
-rotation = 0.17732033
-sprite_frames = SubResource("SpriteFrames_ythyg")
-frame = 10
-frame_progress = 1.0
-
-[node name="DashWoosh2" type="AnimatedSprite2D" parent="." unique_id=748232764]
-z_index = 5
-position = Vector2(-3.7682323, -3.4029047)
-rotation = 2.235767
-sprite_frames = SubResource("SpriteFrames_bmb2s")
-frame = 10
-frame_progress = 1.0
-
-[node name="DashWoosh3" type="AnimatedSprite2D" parent="." unique_id=1202703819]
-z_index = 5
-position = Vector2(-1.7682319, -13.4029045)
-rotation = 4.2848186
-sprite_frames = SubResource("SpriteFrames_qr1w5")
-frame = 10
-frame_progress = 1.0
 
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
