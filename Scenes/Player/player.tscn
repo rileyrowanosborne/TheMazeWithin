@@ -5,10 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://dif8wteble2vw" path="res://Assets/Sprites/Main Character Sprite Sheet copy-export.png" id="2_fkybt"]
 [ext_resource type="PackedScene" uid="uid://s81a8opp5kg8" path="res://Scenes/Effects/blood_splat.tscn" id="2_pu2lt"]
 [ext_resource type="Script" uid="uid://dtulix6ndpvie" path="res://Scripts/sprite_script.gd" id="3_6t5aa"]
+[ext_resource type="Shader" uid="uid://c38tabf7tpn0n" path="res://Assets/Resources/player_shield_test_one.gdshader" id="3_qr1w5"]
 [ext_resource type="PackedScene" uid="uid://18q3ioq6x3oo" path="res://Scenes/Player/player_weapon.tscn" id="4_vgqql"]
 [ext_resource type="PackedScene" uid="uid://bxfikn8ovlysh" path="res://Scenes/Sounds/footsteps.tscn" id="6_aqm4k"]
 [ext_resource type="PackedScene" uid="uid://cy72xmp2bnc3w" path="res://Scenes/Components/health_component.tscn" id="7_3smsa"]
-[ext_resource type="Script" uid="uid://c0ap1iws77bd5" path="res://Scripts/in_wall_checker.gd" id="8_8erm5"]
+[ext_resource type="Script" uid="uid://dw1s1lkjgt1ky" path="res://Scripts/shield_bubble.gd" id="8_jincj"]
 [ext_resource type="PackedScene" uid="uid://54amq6ybpquf" path="res://Scenes/Components/shake_camera.tscn" id="9_f1ek2"]
 [ext_resource type="PackedScene" uid="uid://bo5hhn2iciqfy" path="res://Scenes/UI/hud.tscn" id="10_tx1dd"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="11_gymyn"]
@@ -21,10 +22,16 @@
 [ext_resource type="PackedScene" uid="uid://roum10rao2hq" path="res://Scenes/Components/special_timer.tscn" id="19_rcvs5"]
 [ext_resource type="AudioStream" uid="uid://dx7y4lnb0t1pk" path="res://Assets/Sounds/RollSound.wav" id="20_h8ma5"]
 [ext_resource type="AudioStream" uid="uid://0ng70we67k01" path="res://Assets/Sounds/Roll2.wav" id="21_eksi1"]
+[ext_resource type="Texture2D" uid="uid://du8tf735vl15o" path="res://Assets/Sprites/ShieldBubble.png" id="22_eksi1"]
+[ext_resource type="Texture2D" uid="uid://dfgj4q0ogdvgj" path="res://Assets/Sprites/RollSpark-Sheet.png" id="24_rqdc0"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
 height = 4.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ythyg"]
+shader = ExtResource("3_qr1w5")
+shader_parameter/in_color = Vector4(1, 1, 1, 1)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqcod"]
 atlas = ExtResource("2_fkybt")
@@ -258,9 +265,6 @@ animations = [{
 _data = [Vector2(0.0025, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.54034, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3smsa"]
-radius = 1.0
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gymyn"]
 radius = 3.0
 height = 16.0
@@ -268,6 +272,59 @@ height = 16.0
 [sub_resource type="Theme" id="Theme_aqm4k"]
 default_font = ExtResource("18_hnuln")
 default_font_size = 8
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ythyg"]
+atlas = ExtResource("24_rqdc0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmb2s"]
+atlas = ExtResource("24_rqdc0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ur3l4"]
+atlas = ExtResource("24_rqdc0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ahak"]
+atlas = ExtResource("24_rqdc0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rukb4"]
+atlas = ExtResource("24_rqdc0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fcwna"]
+atlas = ExtResource("24_rqdc0")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1agin"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ythyg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmb2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ur3l4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ahak")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rukb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fcwna")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D" unique_id=1316684380]
 light_mask = 0
@@ -285,11 +342,19 @@ position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_fkybt")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=913315970]
+material = SubResource("ShaderMaterial_ythyg")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_vgqql")
-animation = &"Back Walking"
+animation = &"Front Walking"
 script = ExtResource("3_6t5aa")
 foot_steps_scene = ExtResource("6_aqm4k")
+
+[node name="ShieldBubble" type="Sprite2D" parent="." unique_id=1753014625]
+z_index = 4
+z_as_relative = false
+position = Vector2(-1, -6)
+texture = ExtResource("22_eksi1")
+script = ExtResource("8_jincj")
 
 [node name="PlayerWeapon" parent="." unique_id=509974704 instance=ExtResource("4_vgqql")]
 position = Vector2(-1, -6)
@@ -329,13 +394,6 @@ initial_velocity_max = 5.0
 scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_3smsa")
 color = Color(0.777418, 0.0445057, 0.144454, 1)
-
-[node name="InWallChecker" type="Area2D" parent="." unique_id=1904570349]
-script = ExtResource("8_8erm5")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InWallChecker" unique_id=284654748]
-position = Vector2(0, -2)
-shape = SubResource("CircleShape2D_3smsa")
 
 [node name="ShakeCamera" parent="." unique_id=578677047 instance=ExtResource("9_f1ek2")]
 position = Vector2(0, -9)
@@ -428,8 +486,15 @@ bus = &"SFX"
 stream = ExtResource("21_eksi1")
 bus = &"SFX"
 
+[node name="RollBubble" type="AnimatedSprite2D" parent="." unique_id=1586581190]
+z_index = 5
+z_as_relative = false
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_1agin")
+frame = 6
+frame_progress = 1.0
+
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
-[connection signal="body_entered" from="InWallChecker" to="InWallChecker" method="_on_body_entered"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="DashCooldown" to="." method="_on_dash_cooldown_timeout"]
 [connection signal="timeout" from="DashAnimationTimer" to="." method="_on_dash_animation_timer_timeout"]

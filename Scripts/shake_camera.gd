@@ -13,6 +13,8 @@ extends Camera2D
 var trauma : float = 0.0
 var trauma_power : int = 2
 
+@onready var trauma_cooldown: Timer = $TraumaCooldown
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -29,13 +31,16 @@ func _process(delta: float) -> void:
 		shake()
 	
 	if GameState.boss_active:
-		zoom = boss_zoom
+		if zoom > boss_zoom:
+			zoom -= Vector2(.5,.5)
 	else:
-		zoom = normal_zoom
+		if zoom < normal_zoom:
+			zoom += Vector2(.5,.5)
 
 
 func add_trauma(amount : float):
 	trauma = min(trauma + amount, 1.0)
+	trauma_cooldown.start()
 
 
 func shake() -> void: 
@@ -47,16 +52,21 @@ func shake() -> void:
 
 
 func orm_attack():
-	add_trauma(.1)
+	if trauma_cooldown.is_stopped():
+		add_trauma(.3)
 
 
 func on_enemy_hit():
-	add_trauma(.2)
+	if trauma_cooldown.is_stopped():
+		add_trauma(.4)
 
 func on_succesful_deflect():
-	add_trauma(.05)
+	if trauma_cooldown.is_stopped():
+		add_trauma(.4)
+	
 
 
 func on_player_hit():
 	if not GameState.player_is_invul:
-		add_trauma(.3)
+		if trauma_cooldown.is_stopped():
+			add_trauma(.5)

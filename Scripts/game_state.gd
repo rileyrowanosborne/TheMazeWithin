@@ -27,6 +27,9 @@ var new_spawn_position : Vector2
 
 var player_alive : bool
 var current_player_health : int
+const NORMAL_ACCEL : float = 6.0
+var current_accel : float = 6.0
+
 
 var player_special_amount : int
 const MAX_SPECIAL : int = 100

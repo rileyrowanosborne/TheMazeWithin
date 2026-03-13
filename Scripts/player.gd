@@ -2,7 +2,7 @@ extends CharacterBody2D
 
 
 const SPEED : float = 150.0
-const ACCEL : float = 6
+
 
 const DASH_POWER : float = 150.0
 
@@ -27,6 +27,7 @@ var in_range_of_interactable : bool = false
 @export var blood_splat_scene : PackedScene
 @onready var roll_1: AudioStreamPlayer2D = $Roll1
 @onready var roll_2: AudioStreamPlayer2D = $Roll2
+@onready var roll_bubble: AnimatedSprite2D = $RollBubble
 
 var random_roll_picker : int = 1
 
@@ -65,7 +66,7 @@ func _physics_process(delta: float) -> void:
 	if not GameState.is_paused:
 		if GameState.player_alive:
 			if not is_dashing:
-				velocity = lerp(velocity, player_input * SPEED, delta * ACCEL)
+				velocity = lerp(velocity, player_input * SPEED, delta * GameState.current_accel)
 			else:
 				velocity = dash_direction * SPEED * DASH_POWER * delta
 			
@@ -124,6 +125,7 @@ func _on_dash_animation_timer_timeout() -> void:
 
 
 func dash():
+	roll_bubble.play("default")
 	random_roll_picker = randi_range(1,2)
 	if random_roll_picker == 1:
 		roll_1.play()
