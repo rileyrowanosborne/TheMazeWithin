@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://br00vtsedt7aw" path="res://Scripts/test_room.gd" id="1_3rmdf"]
 [ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/Enemies/circle_enemy.tscn" id="8_8h618"]
 [ext_resource type="Texture2D" uid="uid://d6p7rxj03n63" path="res://Assets/Sprites/AnotherTileSet.png" id="8_275od"]
+[ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="9_f2n0o"]
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="9_iafda"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="11_wv2xt"]
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/Player/player.tscn" id="12_ei72r"]
@@ -564,3 +565,10 @@ position = Vector2(-176, -273)
 
 [node name="CircleEnemy" parent="." unique_id=1149841438 instance=ExtResource("8_8h618")]
 position = Vector2(-164, -189)
+
+[node name="SawBladeLauncher" parent="." unique_id=1384301299 instance=ExtResource("9_f2n0o")]
+position = Vector2(-269, -307)
+direction = Vector2(0, 1)
+
+[node name="SawBladeLauncher2" parent="." unique_id=1289997661 instance=ExtResource("9_f2n0o")]
+position = Vector2(-269, -307)

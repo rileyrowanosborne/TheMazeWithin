@@ -6,6 +6,8 @@
 [ext_resource type="Script" uid="uid://c4ut2vmba2ys7" path="res://Scripts/swing_hit_box.gd" id="4_jx47f"]
 [ext_resource type="AudioStream" uid="uid://bbfjtomkjh3h" path="res://Assets/Sounds/BigWoosh.wav" id="5_af7t1"]
 [ext_resource type="Texture2D" uid="uid://ik1eb5c4v6ey" path="res://Assets/Sprites/Pointer.png" id="6_clt12"]
+[ext_resource type="Texture2D" uid="uid://fh2hf4jxnjxx" path="res://Assets/Sprites/LittlePuffParticle.png" id="7_02wvh"]
+[ext_resource type="Texture2D" uid="uid://dum1cosdii0o7" path="res://Assets/Sprites/SparkAnim-Sheet.png" id="8_5882p"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_no2ia"]
 atlas = ExtResource("3_5882p")
@@ -124,9 +126,55 @@ _data = {
 &"Swing": SubResource("Animation_kciln")
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5882p"]
+atlas = ExtResource("8_5882p")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jx47f"]
+atlas = ExtResource("8_5882p")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af7t1"]
+atlas = ExtResource("8_5882p")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_be2i4"]
+atlas = ExtResource("8_5882p")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ec0c1"]
+atlas = ExtResource("8_5882p")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jx47f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5882p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jx47f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af7t1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_be2i4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ec0c1")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="Curve" id="Curve_3jn5j"]
-_data = [Vector2(0.0261044, 0.229349), 0.0, 3.33082, 0, 0, Vector2(1, 0.114339), -2.0998, 0.0, 0, 0]
-point_count = 2
+_data = [Vector2(0.031390138, 0.3206005), 0.0, 3.33082, 0, 0, Vector2(0.62780267, 0.5355378), 0.0, 0.0, 0, 0, Vector2(1, 0.114339), -2.0998, 0.0, 0, 0]
+point_count = 3
 
 [node name="PlayerWeapon" type="Node2D" unique_id=1926795832]
 z_index = 4
@@ -166,8 +214,12 @@ polygon = PackedVector2Array(5, -22, 15, -15, 20, -6, 20, 3, 16, 13, 2, 21, 1, 0
 
 [node name="Cursor" type="Sprite2D" parent="SwingHitBox" unique_id=67427269]
 self_modulate = Color(1, 1, 1, 0.5764706)
-position = Vector2(20, -1)
+position = Vector2(20, 0)
 texture = ExtResource("6_clt12")
+
+[node name="SparkAnim" type="AnimatedSprite2D" parent="SwingHitBox" unique_id=497524015]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_jx47f")
 
 [node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
 stream = ExtResource("5_af7t1")
@@ -177,6 +229,7 @@ pitch_scale = 1.77
 [node name="SwingIsChargedParticles" type="CPUParticles2D" parent="." unique_id=1838295540]
 position = Vector2(0, -1)
 emitting = false
+texture = ExtResource("7_02wvh")
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
@@ -185,10 +238,8 @@ spread = 176.33
 gravity = Vector2(0, 0)
 initial_velocity_min = 9.0
 initial_velocity_max = 10.0
-scale_amount_min = 2.0
-scale_amount_max = 2.0
 scale_amount_curve = SubResource("Curve_3jn5j")
-color = Color(0.215686, 0.698039, 0.117647, 1)
+color = Color(0.6188235, 0.9979221, 0.55680317, 1)
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
 [connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]
