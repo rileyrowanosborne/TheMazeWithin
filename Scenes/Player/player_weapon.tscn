@@ -210,6 +210,7 @@ collision_mask = 74
 script = ExtResource("4_jx47f")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="SwingHitBox" unique_id=260844215]
+visible = false
 polygon = PackedVector2Array(5, -22, 15, -15, 20, -6, 20, 3, 16, 13, 2, 21, 1, 0)
 
 [node name="Cursor" type="Sprite2D" parent="SwingHitBox" unique_id=67427269]
@@ -227,7 +228,7 @@ volume_db = -11.143
 pitch_scale = 1.77
 
 [node name="SwingIsChargedParticles" type="CPUParticles2D" parent="." unique_id=1838295540]
-position = Vector2(0, -1)
+position = Vector2(-3, -3)
 emitting = false
 texture = ExtResource("7_02wvh")
 lifetime = 0.5
@@ -239,7 +240,6 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 9.0
 initial_velocity_max = 10.0
 scale_amount_curve = SubResource("Curve_3jn5j")
-color = Color(0.6188235, 0.9979221, 0.55680317, 1)
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
 [connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]

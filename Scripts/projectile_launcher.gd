@@ -3,7 +3,8 @@ extends Node2D
 
 @export var projectile_scene : PackedScene
 @onready var fire_sound: AudioStreamPlayer2D = $FireSound
-@onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
+@onready var cloud_emitter: CPUParticles2D = $CloudEmitter
+
 
 
 @export var direction : Vector2
@@ -36,7 +37,6 @@ func _ready() -> void:
 
 func spawn_projectile(world_location : Vector2, dir : Vector2):
 	if projectile_scene:
-		cpu_particles_2d.emitting = true
 		fire_sound.play()
 		var projectile_instance = projectile_scene.instantiate()
 		get_tree().current_scene.add_child(projectile_instance)
@@ -45,13 +45,17 @@ func spawn_projectile(world_location : Vector2, dir : Vector2):
 		projectile_instance.apply_central_impulse(dir * 50)
 		if owner.is_in_group("Square"):
 			projectile_instance.sprite_2d.texture = BLUE_PROJECTILE
+			cloud_emitter.color = Color.ROYAL_BLUE
 		elif owner.is_in_group("Triangle"):
 			projectile_instance.sprite_2d.texture = YELLOW_PROJECTILE
+			cloud_emitter.color = Color.YELLOW
 		elif owner.is_in_group("Circle"):
 			projectile_instance.sprite_2d.texture = RED_PROJECTILE
+			cloud_emitter.color = Color.INDIAN_RED
 		elif get_parent().is_in_group("World"):
 			projectile_instance.sprite_2d.texture = GREEN_PROJECTILE
-		
+			cloud_emitter.color = Color.MEDIUM_SEA_GREEN
+		cloud_emitter.emitting = true
 
 
 func _on_fire_rate_timeout() -> void:

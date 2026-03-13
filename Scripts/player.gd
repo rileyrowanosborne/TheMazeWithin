@@ -28,6 +28,14 @@ var in_range_of_interactable : bool = false
 @onready var roll_1: AudioStreamPlayer2D = $Roll1
 @onready var roll_2: AudioStreamPlayer2D = $Roll2
 @onready var roll_bubble: AnimatedSprite2D = $RollBubble
+@onready var dash_woosh: AnimatedSprite2D = $DashWoosh
+@onready var dash_woosh_2: AnimatedSprite2D = $DashWoosh2
+@onready var dash_woosh_3: AnimatedSprite2D = $DashWoosh3
+
+
+
+
+
 
 var random_roll_picker : int = 1
 
@@ -126,6 +134,9 @@ func _on_dash_animation_timer_timeout() -> void:
 
 func dash():
 	roll_bubble.play("default")
+	dash_woosh.play("default")
+	dash_woosh_2.play("default")
+	dash_woosh_3.play("default")
 	random_roll_picker = randi_range(1,2)
 	if random_roll_picker == 1:
 		roll_1.play()

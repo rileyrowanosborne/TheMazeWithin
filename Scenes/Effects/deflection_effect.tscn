@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dgma24ip36j3l" path="res://Scripts/deflection_effect.gd" id="1_srq86"]
 [ext_resource type="Texture2D" uid="uid://fh2hf4jxnjxx" path="res://Assets/Sprites/LittlePuffParticle.png" id="2_3jtxj"]
+[ext_resource type="Texture2D" uid="uid://dum1cosdii0o7" path="res://Assets/Sprites/SparkAnim-Sheet.png" id="3_3jtxj"]
 
 [sub_resource type="Curve" id="Curve_haokb"]
 _data = [Vector2(0.0175, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0256901), -3.05732, 0.0, 0, 0]
@@ -10,6 +11,52 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_srq86"]
 offsets = PackedFloat32Array(0.6875, 1)
 colors = PackedColorArray(1, 0.84924364, 0.37316906, 1, 0.9118775, 0.8690814, 0.8401402, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p7rik"]
+atlas = ExtResource("3_3jtxj")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6e1b"]
+atlas = ExtResource("3_3jtxj")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybm46"]
+atlas = ExtResource("3_3jtxj")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4uqii"]
+atlas = ExtResource("3_3jtxj")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0h37"]
+atlas = ExtResource("3_3jtxj")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4calt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p7rik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k6e1b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybm46")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4uqii")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0h37")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="DeflectionEffect" type="Node2D" unique_id=144918745]
 z_index = 5
@@ -31,5 +78,8 @@ color_ramp = SubResource("Gradient_srq86")
 
 [node name="SelfDeleteTimer" type="Timer" parent="." unique_id=2020422921]
 one_shot = true
+
+[node name="SparkRing" type="AnimatedSprite2D" parent="." unique_id=553170033]
+sprite_frames = SubResource("SpriteFrames_4calt")
 
 [connection signal="timeout" from="SelfDeleteTimer" to="." method="_on_self_delete_timer_timeout"]
