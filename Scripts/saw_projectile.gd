@@ -61,7 +61,7 @@ func apply_facing_impulse(strength):
 func spawn_deflect_particles(world_location : Vector2):
 	if deflect_particles_scene:
 		var deflection_instance = deflect_particles_scene.instantiate()
-		add_child(deflection_instance)
+		get_tree().current_scene.add_child(deflection_instance)
 		deflection_instance.global_position = world_location
 		
 	

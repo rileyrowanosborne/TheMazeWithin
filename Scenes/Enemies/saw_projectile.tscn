@@ -13,7 +13,6 @@ radius = 14.035668
 radius = 13.0
 
 [node name="SawProjectile" type="RigidBody2D" unique_id=1277612292]
-modulate = Color(0.7831445, 0.36621866, 0.26455063, 1)
 z_index = 4
 z_as_relative = false
 collision_layer = 2

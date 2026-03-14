@@ -3,16 +3,17 @@ extends Node2D
 
 @export var delete_after_amount : float = 1.0
 
-@onready var deflect_particles: CPUParticles2D = $DeflectParticles
+
 @onready var self_delete_timer: Timer = $SelfDeleteTimer
 @onready var spark_ring: AnimatedSprite2D = $SparkRing
+@onready var spark_ring_2: AnimatedSprite2D = $SparkRing2
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	deflect_particles.emitting = true
 	spark_ring.play("default")
+	spark_ring_2.play("default")
 	self_delete_timer.start(delete_after_amount)
 
 

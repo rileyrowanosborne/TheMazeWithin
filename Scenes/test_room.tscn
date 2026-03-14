@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="9_f2n0o"]
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="9_iafda"]
 [ext_resource type="PackedScene" uid="uid://cpl0o8a4s1b0k" path="res://Scenes/Effects/ice_zone.tscn" id="10_3rmdf"]
+[ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="10_wv2xt"]
+[ext_resource type="PackedScene" uid="uid://b187imi7j3b47" path="res://Scenes/Enemies/enemy_launcher.tscn" id="11_wv2xt"]
 [ext_resource type="PackedScene" uid="uid://c5mv5gvhbyv0d" path="res://Scenes/Player/player.tscn" id="12_ei72r"]
 [ext_resource type="PackedScene" uid="uid://cbtwep8826duk" path="res://Scenes/Player/mini_me.tscn" id="14_8fp34"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="14_fgfdw"]
@@ -536,12 +538,8 @@ position = Vector2(-176, -273)
 [node name="CircleEnemy" parent="." unique_id=1149841438 instance=ExtResource("8_8h618")]
 position = Vector2(-164, -189)
 
-[node name="SawBladeLauncher" parent="." unique_id=1384301299 instance=ExtResource("9_f2n0o")]
-position = Vector2(-269, -307)
-direction = Vector2(0, 1)
-
 [node name="SawBladeLauncher2" parent="." unique_id=1289997661 instance=ExtResource("9_f2n0o")]
-position = Vector2(-269, -307)
+position = Vector2(-128, 65)
 
 [node name="IceZone" parent="." unique_id=1968943444 instance=ExtResource("10_3rmdf")]
 position = Vector2(-171, -226)
@@ -557,3 +555,13 @@ offset_top = -94.0
 offset_right = 139.0
 offset_bottom = 129.0
 color = Color(0, 0.78431374, 0.9372549, 0.1882353)
+
+[node name="ProjectileLauncher" parent="." unique_id=529816459 instance=ExtResource("10_wv2xt")]
+position = Vector2(44, 129)
+direction = Vector2(0, -1)
+is_world_launcher = true
+
+[node name="EnemyLauncher" parent="." unique_id=2113506899 instance=ExtResource("11_wv2xt")]
+position = Vector2(-265, -297)
+enemy_scene = ExtResource("8_8h618")
+spawn_delay = 5.0

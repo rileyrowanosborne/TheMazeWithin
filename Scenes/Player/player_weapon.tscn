@@ -176,6 +176,14 @@ animations = [{
 _data = [Vector2(0.031390138, 0.3206005), 0.0, 3.33082, 0, 0, Vector2(0.62780267, 0.5355378), 0.0, 0.0, 0, 0, Vector2(1, 0.114339), -2.0998, 0.0, 0, 0]
 point_count = 3
 
+[sub_resource type="Curve" id="Curve_5882p"]
+_data = [Vector2(0.0175, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0256901), -3.05732, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_jx47f"]
+offsets = PackedFloat32Array(0.6875, 1)
+colors = PackedColorArray(0.6151298, 0.8211886, 0.89978, 1, 0.9118775, 0.8690814, 0.8401402, 1)
+
 [node name="PlayerWeapon" type="Node2D" unique_id=1926795832]
 z_index = 4
 z_as_relative = false
@@ -219,8 +227,10 @@ position = Vector2(20, 0)
 texture = ExtResource("6_clt12")
 
 [node name="SparkAnim" type="AnimatedSprite2D" parent="SwingHitBox" unique_id=497524015]
-scale = Vector2(2, 2)
+scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_jx47f")
+frame = 5
+frame_progress = 1.0
 
 [node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
 stream = ExtResource("5_af7t1")
@@ -240,6 +250,20 @@ gravity = Vector2(0, 0)
 initial_velocity_min = 9.0
 initial_velocity_max = 10.0
 scale_amount_curve = SubResource("Curve_3jn5j")
+
+[node name="DeflectParticles" type="CPUParticles2D" parent="." unique_id=119062506]
+emitting = false
+texture = ExtResource("7_02wvh")
+one_shot = true
+speed_scale = 0.7
+explosiveness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 3.0
+initial_velocity_max = 10.0
+scale_amount_curve = SubResource("Curve_5882p")
+color_ramp = SubResource("Gradient_jx47f")
 
 [connection signal="timeout" from="SwingTimer" to="." method="_on_swing_timer_timeout"]
 [connection signal="body_entered" from="SwingHitBox" to="SwingHitBox" method="_on_body_entered"]

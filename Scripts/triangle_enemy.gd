@@ -48,7 +48,7 @@ func _ready() -> void:
 	add_to_group("Enemy")
 	add_to_group("Triangle")
 	current_health = max_health
-	current_direction = Vector2(1,0)
+	current_direction = Vector2(randf_range(-1,1),randf_range(-1,1))
 	
 	SignalBus.connect("player_died", on_player_died)
 
