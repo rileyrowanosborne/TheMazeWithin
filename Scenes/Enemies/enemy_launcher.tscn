@@ -8,8 +8,8 @@
 load_path = "res://.godot/imported/LittlePuffParticle.png-bdf9f4c17dbb8e7f84572683b042367a.ctex"
 
 [sub_resource type="Curve" id="Curve_ljs2o"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7735426, 0.72329915), -0.9688783, -0.9688783, 0, 0, Vector2(1, 0.004370928), -6.6111727, 0.0, 0, 0]
-point_count = 3
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.96428573, 0.5168539), -2.7904234, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_esemm"]
 atlas = ExtResource("3_fc2p8")
@@ -195,11 +195,28 @@ max_distance = 150.0
 attenuation = 0.3535535
 
 [node name="CloudEmitter" type="CPUParticles2D" parent="." unique_id=2022770843]
-z_index = 2
+z_index = 5
 z_as_relative = false
 emitting = false
 texture = SubResource("CompressedTexture2D_l2qmk")
-lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 1.0
+initial_velocity_max = 10.0
+scale_amount_min = 2.0
+scale_amount_max = 3.0
+scale_amount_curve = SubResource("Curve_ljs2o")
+color = Color(0.583047, 0.583047, 0.5830469, 1)
+
+[node name="CloudEmitter2" type="CPUParticles2D" parent="." unique_id=164972346]
+z_index = 5
+z_as_relative = false
+emitting = false
+texture = SubResource("CompressedTexture2D_l2qmk")
 one_shot = true
 explosiveness = 1.0
 randomness = 1.0

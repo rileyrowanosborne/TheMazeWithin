@@ -161,6 +161,7 @@ Pause={
 2d_physics/layer_6="Interactable"
 2d_physics/layer_7="Spleep"
 2d_physics/layer_8="MiniMe"
+2d_physics/layer_9="Crystal Shard"
 
 [physics]
 
