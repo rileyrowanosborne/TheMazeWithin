@@ -166,6 +166,7 @@ func _on_dash_invul_timer_timeout() -> void:
 
 
 func on_player_died():
+	print("death timer signal recieved")
 	GameState.player_alive = false
 	GameState.is_swinging = false
 	$DeathTimer.start()
@@ -191,9 +192,11 @@ func spawn_blood_splat(world_location : Vector2):
 
 
 func show_interact_text():
+	print("In range yes")
 	interact_label.visible = true
 
 func hide_interact_text():
+	print("In range no")
 	interact_label.visible = false
 
 

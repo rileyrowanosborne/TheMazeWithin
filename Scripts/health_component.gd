@@ -23,11 +23,8 @@ var random_number_picker : int
 
 
 
-
 @export var max_health : int
 var min_health : int = 0
-
-@export var cloud_dropper_scene : PackedScene
 
 
 func _ready() -> void:
@@ -38,13 +35,13 @@ func _ready() -> void:
 func on_player_hit():
 	if GameState.player_alive:
 		if GameState.player_is_invul:
-			spawn_cloud()
+			print("Dodged!")
 			dodge.play()
 		else:
 			random_number_picker = randi_range(1,3)
 			
 			if GameState.player_special_amount > GameState.MIN_SPECIAL:
-				GameState.player_special_amount = 0
+				GameState.player_special_amount -= 50.0
 			else:
 				GameState.current_player_health -= 1
 			blood_splat_1.emitting = true
@@ -69,10 +66,3 @@ func health_check():
 			if GameState.current_player_health <= min_health:
 				SignalBus.emit_signal("player_died")
 				death.play()
-
-
-func spawn_cloud():
-	if cloud_dropper_scene:
-		var cloud_instance = cloud_dropper_scene.instantiate()
-		cloud_instance.global_position = global_position
-		get_tree().current_scene.add_child(cloud_instance)
