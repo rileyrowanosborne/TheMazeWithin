@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b57tittgo3as"]
+[gd_scene format=3 uid="uid://cbtwep8826duk"]
 
 [ext_resource type="Script" uid="uid://bchcmttriie2e" path="res://Scripts/mini_me.gd" id="1_j0jec"]
 [ext_resource type="Texture2D" uid="uid://dk7lnbfbx1xxo" path="res://Assets/Sprites/MiniMeSpriteSheet.png" id="1_xke7x"]
