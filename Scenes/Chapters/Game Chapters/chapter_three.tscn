@@ -11,9 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://c1cdtphokng0p" path="res://Assets/Sprites/MoreDetailsTileSet.png" id="14_0b002"]
 [ext_resource type="Script" uid="uid://bpcywjw5b1r2e" path="res://Scripts/launchers.gd" id="15_gwu4a"]
 [ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="15_pjlpc"]
-[ext_resource type="PackedScene" uid="uid://cxtp6u8f8c4xj" path="res://Scenes/Enemies/triangle_enemy.tscn" id="16_bient"]
+[ext_resource type="PackedScene" uid="uid://b187imi7j3b47" path="res://Scenes/Enemies/enemy_launcher.tscn" id="16_gwu4a"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_w6ife"]
-[ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="17_qear5"]
 [ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="17_t2m5r"]
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="19_d0hoc"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="20_6emj7"]
@@ -570,12 +569,13 @@ sources/0 = SubResource("TileSetAtlasSource_pjlpc")
 script = ExtResource("1_upm4h")
 chapter_seed = 1572848714
 boss_location = Vector2(-200, -300)
-boss_health = 10
+boss_health = 20
 current_level = 3
 normal_spawn = Vector2(247, -75)
 checkpoint_spawn = Vector2(111, -230)
 level_boss = ExtResource("2_mpfnk")
 total_level_spleep_holes = 3
+floor_enemy_cap = 5
 
 [node name="Main" type="TileMapLayer" parent="." unique_id=438337007]
 modulate = Color(0.958233, 0.88368, 0.931973, 1)
@@ -650,26 +650,6 @@ position = Vector2(129, 94)
 [node name="SawBlade10" parent="Saws" unique_id=414269525 instance=ExtResource("16_w6ife")]
 position = Vector2(98, -32)
 
-[node name="Enemies" type="Node2D" parent="." unique_id=2090486736]
-
-[node name="TriangleEnemy" parent="Enemies" unique_id=54076595 instance=ExtResource("16_bient")]
-position = Vector2(-126, 494)
-
-[node name="TriangleEnemy3" parent="Enemies" unique_id=1358742046 instance=ExtResource("16_bient")]
-position = Vector2(-275, 376)
-
-[node name="TriangleEnemy2" parent="Enemies" unique_id=703018230 instance=ExtResource("16_bient")]
-position = Vector2(-47, 114)
-
-[node name="SquareEnemy2" parent="Enemies" unique_id=1387447621 instance=ExtResource("17_qear5")]
-position = Vector2(-16, 6)
-
-[node name="SquareEnemy3" parent="Enemies" unique_id=1889349041 instance=ExtResource("17_qear5")]
-position = Vector2(-388, 31)
-
-[node name="SquareEnemy4" parent="Enemies" unique_id=739492083 instance=ExtResource("17_qear5")]
-position = Vector2(-277, 510)
-
 [node name="PreviousLevelDoor" parent="." unique_id=696931999 instance=ExtResource("19_d0hoc")]
 position = Vector2(248, -88)
 chapter = 3
@@ -700,7 +680,7 @@ direction = Vector2(-1, 0)
 is_world_launcher = true
 
 [node name="SawBladeLauncher" parent="Launchers" unique_id=1384301299 instance=ExtResource("17_t2m5r")]
-position = Vector2(-383, -287)
+position = Vector2(45, -224)
 
 [node name="SawBladeLauncher2" parent="Launchers" unique_id=578560659 instance=ExtResource("17_t2m5r")]
 position = Vector2(-311, 346)
@@ -720,5 +700,41 @@ initial_fire_rate_delay = 0.6
 position = Vector2(-200, 569)
 direction = Vector2(0, -1)
 initial_fire_rate_delay = 0.9
+
+[node name="EnemyLauncher" parent="Launchers" unique_id=448314587 instance=ExtResource("16_gwu4a")]
+position = Vector2(-383, 75)
+enemy_health = 5
+enemy_scene = ExtResource("2_mpfnk")
+spawn_delay = 5.0
+
+[node name="EnemyLauncher2" parent="Launchers" unique_id=104168402 instance=ExtResource("16_gwu4a")]
+position = Vector2(-298, 426)
+enemy_health = 5
+enemy_scene = ExtResource("2_mpfnk")
+spawn_delay = 5.0
+
+[node name="EnemyLauncher3" parent="Launchers" unique_id=1556553717 instance=ExtResource("16_gwu4a")]
+position = Vector2(-108, 427)
+enemy_health = 5
+enemy_scene = ExtResource("2_mpfnk")
+spawn_delay = 5.0
+
+[node name="EnemyLauncher4" parent="Launchers" unique_id=458246873 instance=ExtResource("16_gwu4a")]
+position = Vector2(-358, -406)
+enemy_health = 5
+enemy_scene = ExtResource("2_mpfnk")
+spawn_delay = 5.0
+
+[node name="EnemyLauncher5" parent="Launchers" unique_id=2025041496 instance=ExtResource("16_gwu4a")]
+position = Vector2(-18, -450)
+enemy_health = 5
+enemy_scene = ExtResource("2_mpfnk")
+spawn_delay = 5.0
+
+[node name="EnemyLauncher6" parent="Launchers" unique_id=1309460235 instance=ExtResource("16_gwu4a")]
+position = Vector2(-204, -266)
+enemy_health = 5
+enemy_scene = ExtResource("2_mpfnk")
+spawn_delay = 5.0
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]
