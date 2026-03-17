@@ -112,7 +112,6 @@ func life_check():
 	
 
 func die():
-	SignalBus.emit_signal("enemy_died")
 	is_shooting = false
 	is_dying = true
 	animated_sprite_2d.play("Hit")

@@ -66,13 +66,6 @@ var current_dialogue : String
 var player_aim_dir : Vector2
 
 
-
-var floor_enemies_cap : int
-var floor_enemies_spawned : int
-
-
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("succesful_deflect", on_projectile_delfect)
