@@ -7,6 +7,7 @@ extends Node2D
 @onready var self_delete_timer: Timer = $SelfDeleteTimer
 @onready var spark_ring: AnimatedSprite2D = $SparkRing
 @onready var spark_ring_2: AnimatedSprite2D = $SparkRing2
+@onready var cloud_emitter_2: CPUParticles2D = $CloudEmitter2
 
 
 
@@ -14,6 +15,7 @@ extends Node2D
 func _ready() -> void:
 	spark_ring.play("default")
 	spark_ring_2.play("default")
+	cloud_emitter_2.emitting = true
 	self_delete_timer.start(delete_after_amount)
 
 
