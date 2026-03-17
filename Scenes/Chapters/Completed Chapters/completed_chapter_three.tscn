@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="7_g1wu8"]
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="8_s2sb1"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="9_lsf0o"]
+[ext_resource type="Texture2D" uid="uid://c1cdtphokng0p" path="res://Assets/Sprites/MoreDetailsTileSet.png" id="10_6q3i6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_34yu0"]
 texture = ExtResource("1_bwq73")
@@ -472,6 +473,74 @@ terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
 sources/1 = SubResource("TileSetAtlasSource_34yu0")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ubl5n"]
+texture = ExtResource("10_6q3i6")
+3:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+5:1/size_in_atlas = Vector2i(2, 1)
+5:1/0 = 0
+0:0/size_in_atlas = Vector2i(3, 1)
+0:0/0 = 0
+3:0/0 = 0
+4:0/size_in_atlas = Vector2i(2, 1)
+4:0/0 = 0
+0:1/size_in_atlas = Vector2i(3, 1)
+0:1/0 = 0
+0:7/size_in_atlas = Vector2i(8, 2)
+0:7/0 = 0
+12:10/size_in_atlas = Vector2i(4, 2)
+12:10/0 = 0
+9:12/size_in_atlas = Vector2i(7, 4)
+9:12/0 = 0
+2:13/size_in_atlas = Vector2i(7, 2)
+2:13/0 = 0
+4:12/size_in_atlas = Vector2i(5, 1)
+4:12/0 = 0
+6:15/size_in_atlas = Vector2i(3, 1)
+6:15/0 = 0
+0:3/size_in_atlas = Vector2i(6, 2)
+0:3/0 = 0
+6:2/size_in_atlas = Vector2i(3, 1)
+6:2/0 = 0
+7:0/size_in_atlas = Vector2i(2, 1)
+7:0/0 = 0
+9:0/size_in_atlas = Vector2i(6, 2)
+9:0/0 = 0
+15:0/0 = 0
+15:1/0 = 0
+15:2/0 = 0
+15:3/0 = 0
+9:2/size_in_atlas = Vector2i(6, 2)
+9:2/0 = 0
+6:3/size_in_atlas = Vector2i(3, 1)
+6:3/0 = 0
+7:4/size_in_atlas = Vector2i(3, 1)
+7:4/0 = 0
+10:4/size_in_atlas = Vector2i(2, 1)
+10:4/0 = 0
+12:4/size_in_atlas = Vector2i(4, 1)
+12:4/0 = 0
+14:5/size_in_atlas = Vector2i(2, 1)
+14:5/0 = 0
+11:5/size_in_atlas = Vector2i(3, 1)
+11:5/0 = 0
+11:6/size_in_atlas = Vector2i(2, 2)
+11:6/0 = 0
+13:6/size_in_atlas = Vector2i(3, 2)
+13:6/0 = 0
+8:5/size_in_atlas = Vector2i(3, 2)
+8:5/0 = 0
+8:7/size_in_atlas = Vector2i(3, 1)
+8:7/0 = 0
+2:9/size_in_atlas = Vector2i(9, 3)
+2:9/0 = 0
+11:8/size_in_atlas = Vector2i(5, 2)
+11:8/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_00lhp"]
+sources/0 = SubResource("TileSetAtlasSource_ubl5n")
+
 [node name="CompletedChapterThree" type="Node2D" unique_id=1795288377]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=966421891]
@@ -635,3 +704,7 @@ chapter = 3
 position = Vector2(-200, -472)
 chapter = 3
 floor_completed = true
+
+[node name="Decor" type="TileMapLayer" parent="." unique_id=937167077]
+tile_map_data = PackedByteArray("AADz/wIAAAAJAAIAAAACAPr/AAAJAAIAAADa//z/AAAJAAIAAADf/wQAAAAJAAIAAADh/wEAAAAPAAMAAADZ/wkAAAALAAUAAADh//j/AAAIAAUAAADa//3/AAAPAAEAAADc//3/AAAGAAMAAAD2/wMAAAAGAAMAAAD9/+//AAAGAAMAAAD5/+v/AAAIAAEAAADp/+3/AAAIAAEAAADp/+7/AAAIAAEAAADy/+7/AAAFAAEAAAAAAPX/AAAFAAEAAAAEAPb/AAAFAAEAAAAJAP7/AAAFAAEAAAACABAAAAAFAAEAAAABAA8AAAAAAAEAAAABABAAAAADAAAAAAADABAAAAADAAAAAAAFAA4AAAADAAAAAAAIAP7/AAADAAAAAAAHAPb/AAADAAAAAAAJAPb/AAAAAAEAAAAGAPb/AAAAAAAAAAAKAPn/AAAAAAAAAAD///7/AAAAAAAAAAD5//X/AAAAAAAAAAD6//T/AAAAAAAAAAD+/+7/AAAAAAAAAAD7/+v/AAAAAAAAAADt/+7/AAAAAAAAAADi/9L/AAAAAAAAAADm/9P/AAAEAAAAAADk/9L/AAAEAAAAAADe/9T/AAAEAAAAAADc/9b/AAAEAAAAAADd/9b/AAADAAAAAADm/9T/AAADAAAAAADp/9b/AAAAAAAAAADf/9P/AAAAAAEAAADg/9L/AAAAAAAAAADl/+7/AAAAAAEAAADo/+3/AAADAAEAAADo/+7/AAADAAEAAADn/+7/AAAAAAAAAADr/+7/AAADAAAAAADx/+7/AAAEAAAAAAD3/+z/AAAEAAAAAAD8/+3/AAAEAAAAAAD0//v/AAAEAAAAAADy//v/AAAFAAEAAAD3//j/AAAFAAEAAADs//3/AAAEAAAAAADk//3/AAAAAAAAAADn//3/AAADAAAAAADt//3/AAADAAAAAADh/wkAAAADAAAAAADY/wQAAAADAAAAAADZ/wQAAAAAAAAAAADf//b/AAAAAAAAAADa//b/AAAEAAAAAADi//b/AAAEAAAAAADg//b/AAADAAAAAADY//b/AAADAAAAAADh//b/AAAAAAEAAADX//b/AAAAAAEAAADl//3/AAAAAAEAAADv//z/AAAAAAEAAAD1//n/AAAAAAEAAAD4//X/AAAAAAEAAAACAPj/AAAAAAEAAAALAP//AAAAAAEAAAD8/wwAAAAAAAEAAAAAAAwAAAAAAAEAAAD1/+3/AAAAAAEAAADv/+7/AAAAAAEAAADo/9X/AAAAAAEAAADg/9v/AAAIAAcAAADm/9j/AAANAAYAAADg/9b/AAAMAAQAAADp/9r/AAAHAAQAAADc/9f/AAAHAAQAAADf/97/AAAHAAQAAADk/+X/AAAHAAQAAADi/+//AAAHAAQAAAD9//f/AAAHAAQAAAD7//b/AAAKAAQAAAD6//j/AAAKAAQAAAD2//3/AAALAAUAAAAGAAYAAAALAAUAAAAJAAsAAAALAAUAAAAJAAkAAAANAAYAAAAKAAAAAAANAAYAAAAKAPv/AAANAAYAAADm////AAANAAYAAADu////AAAJAAIAAADu/wcAAAALAAUAAADy/wUAAAAOAAUAAAA=")
+tile_set = SubResource("TileSet_00lhp")
