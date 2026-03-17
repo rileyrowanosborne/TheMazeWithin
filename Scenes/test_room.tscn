@@ -526,6 +526,18 @@ position = Vector2(-187, -248)
 [node name="MiniMe3" parent="." unique_id=1754767038 instance=ExtResource("14_8fp34")]
 position = Vector2(-116, -204)
 
+[node name="MiniMe4" parent="." unique_id=1812102383 instance=ExtResource("14_8fp34")]
+position = Vector2(-142, -244)
+
+[node name="MiniMe5" parent="." unique_id=410103343 instance=ExtResource("14_8fp34")]
+position = Vector2(-217, -209)
+
+[node name="MiniMe6" parent="." unique_id=1030813358 instance=ExtResource("14_8fp34")]
+position = Vector2(-176, -273)
+
+[node name="CircleEnemy" parent="." unique_id=1149841438 instance=ExtResource("8_8h618")]
+position = Vector2(-164, -189)
+
 [node name="SawBladeLauncher2" parent="." unique_id=1289997661 instance=ExtResource("9_f2n0o")]
 position = Vector2(-128, 65)
 
