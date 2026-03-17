@@ -12,6 +12,11 @@ extends RigidBody2D
 @onready var spark_3: AnimatedSprite2D = $Spark3
 
 
+@onready var spark_4: AnimatedSprite2D = $Spark4
+@onready var spark_5: AnimatedSprite2D = $Spark5
+@onready var spark_6: AnimatedSprite2D = $Spark6
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -28,6 +33,7 @@ func health_check():
 		set_anim("Hit")
 		hit_sparks()
 	else:
+		break_sparks()
 		set_anim("Break")
 		
 
@@ -35,7 +41,12 @@ func hit_sparks():
 	spark.play("default")
 	spark_2.play("default")
 	spark_3.play("default")
+	
 
+func break_sparks():
+	spark_4.play("default")
+	spark_5.play("default")
+	spark_6.play("default")
 
 func take_damage():
 	health -= 1
