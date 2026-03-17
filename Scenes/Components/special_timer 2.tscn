@@ -1,6 +1,0 @@
-[gd_scene format=3 uid="uid://bv7mtwjswo076"]
-
-[node name="SpecialTimer" type="Timer" unique_id=1569465154]
-one_shot = true
-
-[connection signal="timeout" from="." to="." method="_on_timeout"]
