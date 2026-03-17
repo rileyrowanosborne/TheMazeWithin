@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://ce7olmvmweml0"]
+
+[ext_resource type="Script" uid="uid://bb7510ruo2kyw" path="res://addons/gaea/renderers/2D/tilemap_gaea_renderer.gd" id="1_1dgy2"]
+[ext_resource type="Script" uid="uid://bmrlep3pb88hn" path="res://addons/gaea/generators/2D/walker_generator/walker_generator.gd" id="2_y2xsa"]
+[ext_resource type="Script" uid="uid://cocm7s423jyt0" path="res://addons/gaea/modifiers/2D/modifier_2d.gd" id="3_b4yv7"]
+[ext_resource type="Script" uid="uid://djki60misy7m5" path="res://addons/gaea/modifiers/2D/fill.gd" id="4_fh35e"]
+[ext_resource type="Script" uid="uid://rkwsu0rs86df" path="res://addons/gaea/tile_info/tilemap_tile_info.gd" id="5_n6gyv"]
+[ext_resource type="Script" uid="uid://bhqsk21dp4lv0" path="res://addons/gaea/modifiers/2D/walls.gd" id="6_37mb5"]
+[ext_resource type="Script" uid="uid://bugvdl63j42uk" path="res://addons/gaea/generators/2D/walker_generator/walker_generator_settings.gd" id="7_bmypt"]
+
+[sub_resource type="Resource" id="Resource_6mlxp"]
+script = ExtResource("5_n6gyv")
+type = 1
+terrain = 2
+metadata/_custom_type_script = "uid://rkwsu0rs86df"
+
+[sub_resource type="Resource" id="Resource_dfolm"]
+script = ExtResource("4_fh35e")
+tile = SubResource("Resource_6mlxp")
+expand_left = 15
+expand_top = 15
+expand_right = 15
+expand_bottom = 15
+metadata/_custom_type_script = "uid://djki60misy7m5"
+
+[sub_resource type="Resource" id="Resource_nil73"]
+script = ExtResource("5_n6gyv")
+type = 1
+terrain = 1
+metadata/_custom_type_script = "uid://rkwsu0rs86df"
+
+[sub_resource type="Resource" id="Resource_bpmid"]
+script = ExtResource("6_37mb5")
+wall_tile = SubResource("Resource_nil73")
+metadata/_custom_type_script = "uid://bhqsk21dp4lv0"
+
+[sub_resource type="Resource" id="Resource_mvp4d"]
+script = ExtResource("5_n6gyv")
+type = 1
+metadata/_custom_type_script = "uid://rkwsu0rs86df"
+
+[sub_resource type="Resource" id="Resource_348co"]
+resource_name = "Settings"
+script = ExtResource("7_bmypt")
+tile = SubResource("Resource_mvp4d")
+max_tiles = 400
+modifiers = Array[ExtResource("3_b4yv7")]([SubResource("Resource_dfolm"), SubResource("Resource_bpmid")])
+metadata/_custom_type_script = "uid://bugvdl63j42uk"
+
+[node name="RoomBuilder" type="Node2D" unique_id=2022833268]
+
+[node name="TilemapGaeaRenderer" type="Node" parent="." unique_id=1180067311 node_paths=PackedStringArray("tile_map_layers", "generator")]
+script = ExtResource("1_1dgy2")
+tile_map_layers = [NodePath("")]
+generator = NodePath("WalkerGenerator")
+metadata/_custom_type_script = "uid://bb7510ruo2kyw"
+
+[node name="WalkerGenerator" type="Node" parent="TilemapGaeaRenderer" unique_id=2055725980]
+script = ExtResource("2_y2xsa")
+settings = SubResource("Resource_348co")
+generate_on_ready = false
+random_seed = false
+seed = 1947982880
+metadata/_custom_type_script = "uid://bmrlep3pb88hn"

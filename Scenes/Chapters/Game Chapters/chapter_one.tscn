@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_qljol"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="18_ub4ti"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kd1eg"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bubq"]
 texture = ExtResource("8_l7jbk")
 0:0/0 = 0
 0:0/0/z_index = 5
@@ -476,7 +476,7 @@ terrain_set_0/terrain_1/name = "Walls"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_kd1eg")
+sources/1 = SubResource("TileSetAtlasSource_3bubq")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybajq"]
 atlas = ExtResource("14_ub4ti")
@@ -496,7 +496,121 @@ animations = [{
 "speed": 2.0
 }]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8s8na"]
+[sub_resource type="Animation" id="Animation_1j8nb"]
+resource_name = "Main"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(80, 353), Vector2(80, 150)]
+}
+
+[sub_resource type="Animation" id="Animation_ub4ti"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(80, 353)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ub4ti"]
+_data = {
+&"Main": SubResource("Animation_1j8nb"),
+&"RESET": SubResource("Animation_ub4ti")
+}
+
+[sub_resource type="Animation" id="Animation_3bubq"]
+resource_name = "Main"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(15, 312), Vector2(498, 312)]
+}
+
+[sub_resource type="Animation" id="Animation_ybajq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(15, 312)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ybajq"]
+_data = {
+&"Main": SubResource("Animation_3bubq"),
+&"RESET": SubResource("Animation_ybajq")
+}
+
+[sub_resource type="Animation" id="Animation_bwu57"]
+resource_name = "Main"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 2.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(480, 321), Vector2(480, 110)]
+}
+
+[sub_resource type="Animation" id="Animation_lahxf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(481, 321)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lahxf"]
+_data = {
+&"Main": SubResource("Animation_bwu57"),
+&"RESET": SubResource("Animation_lahxf")
+}
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptkal"]
 texture = ExtResource("12_58e3g")
 3:1/0 = 0
 7:1/0 = 0
@@ -562,7 +676,7 @@ texture = ExtResource("12_58e3g")
 11:8/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_uocvk"]
-sources/0 = SubResource("TileSetAtlasSource_8s8na")
+sources/0 = SubResource("TileSetAtlasSource_ptkal")
 
 [node name="ChapterOne" type="Node2D" unique_id=11620854]
 z_as_relative = false

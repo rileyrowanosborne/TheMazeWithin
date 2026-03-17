@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cve27wlgaxjqd"]
+
+[ext_resource type="Texture2D" uid="uid://dwu4ujom7yjcq" path="res://Assets/Sprites/Pencil-Sheet.png" id="1_fvgxf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xn18g"]
+atlas = ExtResource("1_fvgxf")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r6n1c"]
+atlas = ExtResource("1_fvgxf")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i58c7"]
+atlas = ExtResource("1_fvgxf")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xn18g")
+}],
+"loop": true,
+"name": &"Charged",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r6n1c")
+}],
+"loop": true,
+"name": &"Charging",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i58c7")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
