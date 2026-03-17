@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://tkls2nh8yr0c"]
+[gd_scene format=3 uid="uid://b187imi7j3b47"]
 
 [ext_resource type="Script" uid="uid://q0fxfpxihqim" path="res://Scripts/circle_launcher.gd" id="1_xugcd"]
 [ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="2_fc2p8"]

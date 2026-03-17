@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://2bfbrtp0fuy0"]
+[gd_scene format=3 uid="uid://bur6o3m8y3yff"]
 
 [ext_resource type="Script" uid="uid://b2plg3vyaldtd" path="res://Scripts/windows_within_cutscene.gd" id="1_0p61m"]
 [ext_resource type="Texture2D" uid="uid://bkdan8ju2cdtq" path="res://Assets/Sprites/FullFace1.png" id="1_2v556"]

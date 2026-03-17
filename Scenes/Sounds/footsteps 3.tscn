@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dutr7r4ghsxme"]
+[gd_scene format=3 uid="uid://bxfikn8ovlysh"]
 
 [ext_resource type="AudioStream" uid="uid://8tyo0wqc244y" path="res://Assets/Sounds/freesound_community-foot-steps-on-carpet-70604.wav" id="1_h02lj"]
 [ext_resource type="Script" uid="uid://c4t2infgl5613" path="res://Scripts/footsteps.gd" id="2_jgp77"]

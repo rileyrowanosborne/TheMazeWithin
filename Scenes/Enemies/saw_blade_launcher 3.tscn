@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://dqdemmcxu8i2t"]
+[gd_scene format=3 uid="uid://cbs8q2nu6mm8w"]
 
 [ext_resource type="Script" uid="uid://3r18x1sbt3bd" path="res://Scripts/saw_blade_launcher.gd" id="1_7gnyq"]
 [ext_resource type="AudioStream" uid="uid://cr6baql6g1dss" path="res://Assets/Sounds/ProjectileFire.wav" id="1_ar6j8"]
