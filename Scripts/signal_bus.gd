@@ -8,6 +8,7 @@ signal room_generated
 signal player_died
 signal player_respawn
 signal enemy_hit
+signal enemy_died(spawner_id)
 
 
 signal begin_boss_spawning
@@ -39,6 +40,8 @@ signal unpause_game
 
 signal start_special_timer
 
+
+signal crystal_break
 
 
 signal update_health

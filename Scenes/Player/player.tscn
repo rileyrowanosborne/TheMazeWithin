@@ -525,7 +525,7 @@ z_index = 4
 z_as_relative = false
 y_sort_enabled = true
 collision_layer = 9
-collision_mask = 12
+collision_mask = 268
 script = ExtResource("1_cvnsp")
 dash_cooldown_length = 1.0
 blood_splat_scene = ExtResource("2_pu2lt")
@@ -636,6 +636,7 @@ one_shot = true
 one_shot = true
 
 [node name="DashInvulTimer" type="Timer" parent="." unique_id=2024580742]
+wait_time = 0.5
 one_shot = true
 
 [node name="Hud" parent="." unique_id=1269952279 instance=ExtResource("10_tx1dd")]
