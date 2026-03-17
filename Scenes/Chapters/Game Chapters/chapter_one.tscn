@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_qljol"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="18_ub4ti"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptkal"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3bubq"]
 texture = ExtResource("8_l7jbk")
 0:0/0 = 0
 0:0/0/z_index = 5
@@ -473,7 +473,7 @@ terrain_set_0/terrain_1/name = "Walls"
 terrain_set_0/terrain_1/color = Color(0.5, 0.4375, 0.25, 1)
 terrain_set_0/terrain_2/name = "Filler"
 terrain_set_0/terrain_2/color = Color(0.46875, 0.5, 0.25, 1)
-sources/1 = SubResource("TileSetAtlasSource_ptkal")
+sources/1 = SubResource("TileSetAtlasSource_3bubq")
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ybajq"]
 atlas = ExtResource("14_ub4ti")
@@ -607,7 +607,7 @@ _data = {
 &"RESET": SubResource("Animation_lahxf")
 }
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_58e3g"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ptkal"]
 texture = ExtResource("12_58e3g")
 3:1/0 = 0
 7:1/0 = 0
@@ -673,7 +673,7 @@ texture = ExtResource("12_58e3g")
 11:8/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_uocvk"]
-sources/0 = SubResource("TileSetAtlasSource_58e3g")
+sources/0 = SubResource("TileSetAtlasSource_ptkal")
 
 [node name="ChapterOne" type="Node2D" unique_id=11620854]
 z_as_relative = false
