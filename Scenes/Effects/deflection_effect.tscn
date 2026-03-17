@@ -46,7 +46,7 @@ animations = [{
 }],
 "loop": false,
 "name": &"default",
-"speed": 8.0
+"speed": 5.0
 }]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3jtxj"]
@@ -75,15 +75,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m67bk"]
-load_path = "res://.godot/imported/LittlePuffParticle.png-bdf9f4c17dbb8e7f84572683b042367a.ctex"
-
-[sub_resource type="Curve" id="Curve_3jtxj"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.96428573, 0.5168539), -2.7904234, 0.0, 0, 0]
-point_count = 2
-
 [node name="DeflectionEffect" type="Node2D" unique_id=144918745]
-z_index = 6
+z_index = 5
 script = ExtResource("1_srq86")
 
 [node name="SelfDeleteTimer" type="Timer" parent="." unique_id=2020422921]
@@ -101,23 +94,5 @@ sprite_frames = SubResource("SpriteFrames_3jtxj")
 frame = 5
 frame_progress = 1.0
 speed_scale = 1.5
-
-[node name="CloudEmitter2" type="CPUParticles2D" parent="." unique_id=356852085]
-z_index = 5
-z_as_relative = false
-texture = SubResource("CompressedTexture2D_m67bk")
-one_shot = true
-speed_scale = 2.0
-explosiveness = 1.0
-randomness = 1.0
-direction = Vector2(0, 0)
-spread = 180.0
-gravity = Vector2(0, 0)
-initial_velocity_min = 1.0
-initial_velocity_max = 10.0
-scale_amount_min = 0.1
-scale_amount_max = 0.5
-scale_amount_curve = SubResource("Curve_3jtxj")
-color = Color(0.99999994, 0.32118618, 0.13999972, 1)
 
 [connection signal="timeout" from="SelfDeleteTimer" to="." method="_on_self_delete_timer_timeout"]

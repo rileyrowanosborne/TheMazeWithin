@@ -13,7 +13,6 @@ extends CanvasLayer
 @onready var pause_menu: Control = $PauseMenu
 @onready var ingame_hud: Control = $IngameHud
 
-@onready var crystal_timer: Timer = $IngameHud/BossScreenText/CrystalTimer
 
 
 
@@ -24,7 +23,6 @@ func _ready() -> void:
 	SignalBus.connect("player_died", on_player_died)
 	SignalBus.connect("pause_game", on_pause_signal_received)
 	SignalBus.connect("unpause_game", on_unpause_signal_received)
-	SignalBus.connect("crystal_break", on_crystal_break)
 	
 	visible = true
 
@@ -68,11 +66,11 @@ func _input(event: InputEvent) -> void:
 		if GameState.is_paused:
 			GameState.is_paused = false
 			SignalBus.emit_signal("unpause_game")
-
+			print("game unpaused")
 		else:
 			GameState.is_paused = true
 			SignalBus.emit_signal("pause_game")
-
+			print("game paused")
 
 
 
@@ -94,7 +92,7 @@ func on_unpause_signal_received():
 func _on_resume_button_pressed() -> void:
 	GameState.is_paused = false
 	SignalBus.emit_signal("unpause_game")
-
+	print("game unpaused")
 
 
 func _on_options_button_pressed() -> void:
@@ -104,16 +102,7 @@ func _on_options_button_pressed() -> void:
 
 func _on_quit_button_pressed() -> void:
 	GameState.is_paused = false
-	SignalBus.emit_signal("unpause_game") 
+	SignalBus.emit_signal("unpause_game")
+	print("game unpaused")
 	SaveLoad._save()
 	get_tree().change_scene_to_file("res://Scenes/Chapters/Title Screen/title_screen.tscn")
-	
-
-func on_crystal_break():
-	crystal_timer.start()
-	boss_entered_text.visible = true
-	boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED"
-
-
-func _on_crystal_timer_timeout() -> void:
-	boss_entered_text.visible = false

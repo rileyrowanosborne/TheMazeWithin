@@ -526,7 +526,7 @@ layout_mode = 0
 offset_left = -12.0
 offset_top = -16.0
 offset_right = 585.0
-offset_bottom = 544.0
+offset_bottom = 250.0
 theme = ExtResource("9_uidm2")
 theme_override_colors/default_color = Color(0.576471, 0.129412, 0.113725, 1)
 theme_override_colors/font_shadow_color = Color(0.398, 0.0768242, 0.0656822, 1)
@@ -554,10 +554,6 @@ wait_time = 3.0
 one_shot = true
 
 [node name="LevelChangeTimer" type="Timer" parent="IngameHud/BossScreenText" unique_id=989466802]
-wait_time = 3.0
-one_shot = true
-
-[node name="CrystalTimer" type="Timer" parent="IngameHud/BossScreenText" unique_id=1202840181]
 wait_time = 3.0
 one_shot = true
 
@@ -661,6 +657,5 @@ visible = false
 [connection signal="pressed" from="PauseMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="timeout" from="IngameHud/BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="IngameHud/BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]
-[connection signal="timeout" from="IngameHud/BossScreenText/CrystalTimer" to="." method="_on_crystal_timer_timeout"]
 [connection signal="timeout" from="IngameHud/PlayerDiedText/DeathTextTimer" to="." method="_on_death_text_timer_timeout"]
 [connection signal="timeout" from="IngameHud/Dialogue/MushroomTimer" to="IngameHud/Dialogue" method="_on_mushroom_timer_timeout"]
