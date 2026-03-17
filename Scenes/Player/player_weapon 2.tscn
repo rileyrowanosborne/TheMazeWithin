@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://18q3ioq6x3oo"]
+[gd_scene format=3 uid="uid://bh8lem1xmc1j6"]
 
 [ext_resource type="Script" uid="uid://b6wy807ebmx5t" path="res://Scripts/player_weapon.gd" id="1_2vtmu"]
 [ext_resource type="SpriteFrames" uid="uid://cd0wxsngxaaxb" path="res://Assets/Resources/BaseBallBatAnims.tres" id="2_02wvh"]

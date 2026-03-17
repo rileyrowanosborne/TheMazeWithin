@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c8hof5dvyrwol"]
+[gd_scene format=3 uid="uid://6dmuvd7bn3nw"]
 
 [ext_resource type="Script" uid="uid://cj513iax0a40r" path="res://Scripts/saw_projectile.gd" id="1_jr8x5"]
 [ext_resource type="Texture2D" uid="uid://dcg6ly7hhnso6" path="res://Assets/Sprites/SawBlade.png" id="1_tvqb7"]
