@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://c8hof5dvyrwol"]
+
+[ext_resource type="Script" uid="uid://cj513iax0a40r" path="res://Scripts/saw_projectile.gd" id="1_jr8x5"]
+[ext_resource type="Texture2D" uid="uid://dcg6ly7hhnso6" path="res://Assets/Sprites/SawBlade.png" id="1_tvqb7"]
+[ext_resource type="PackedScene" uid="uid://c7xdexu7mxf6p" path="res://Scenes/Components/hitbox.tscn" id="2_kt45m"]
+[ext_resource type="PackedScene" uid="uid://jicx35vv3vqe" path="res://Scenes/Effects/deflection_effect.tscn" id="2_sb5pu"]
+[ext_resource type="PackedScene" uid="uid://qpok16xtmsmi" path="res://Scenes/Components/deflect_noise.tscn" id="3_26r8m"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tvqb7"]
+radius = 14.035668
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jr8x5"]
+radius = 13.0
+
+[node name="SawProjectile" type="RigidBody2D" unique_id=1277612292]
+z_index = 4
+z_as_relative = false
+collision_layer = 2
+collision_mask = 0
+linear_damp_mode = 1
+angular_velocity = 13.08997
+angular_damp_mode = 1
+script = ExtResource("1_jr8x5")
+deflect_particles_scene = ExtResource("2_sb5pu")
+deflect_noise_player_scene = ExtResource("3_26r8m")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1570116635]
+texture = ExtResource("1_tvqb7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=399869941]
+visible = false
+shape = SubResource("CircleShape2D_tvqb7")
+
+[node name="RayCastDown" type="RayCast2D" parent="." unique_id=1759259661]
+target_position = Vector2(0, 4)
+collision_mask = 4
+
+[node name="RayCastUp" type="RayCast2D" parent="." unique_id=1893810387]
+target_position = Vector2(0, -4)
+collision_mask = 4
+
+[node name="RayCastLeft" type="RayCast2D" parent="." unique_id=679373742]
+target_position = Vector2(-4, 0)
+collision_mask = 4
+
+[node name="RayCastRight" type="RayCast2D" parent="." unique_id=139722804]
+target_position = Vector2(4, 0)
+collision_mask = 4
+
+[node name="Hitbox" parent="." unique_id=1199174079 instance=ExtResource("2_kt45m")]
+collision_layer = 2
+collision_mask = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=541391830]
+visible = false
+shape = SubResource("CircleShape2D_jr8x5")
+
+[node name="RaycastTimer" type="Timer" parent="." unique_id=898273673]
+wait_time = 0.5
+one_shot = true
+
+[connection signal="timeout" from="RaycastTimer" to="." method="_on_raycast_timer_timeout"]

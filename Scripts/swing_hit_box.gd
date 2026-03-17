@@ -30,3 +30,7 @@ func _on_body_entered(body: Node2D) -> void:
 			body.apply_facing_impulse(150)
 			SignalBus.emit_signal("succesful_deflect")
 			spark_anim.play("default")
+			
+			
+	if body.is_in_group("Crystal"):
+		body.take_damage()

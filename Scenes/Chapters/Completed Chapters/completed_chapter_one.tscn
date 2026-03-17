@@ -612,30 +612,9 @@ position = Vector2(-2, 98)
 [node name="SawBlade2" parent="Saws" unique_id=1416386660 instance=ExtResource("5_rsjsb")]
 position = Vector2(184, 97)
 
-[node name="SawBlade4" parent="Saws" unique_id=2038091880 instance=ExtResource("5_rsjsb")]
-position = Vector2(80, 353)
-
-[node name="SawPlayer" type="AnimationPlayer" parent="Saws/SawBlade4" unique_id=1265618598]
-libraries/ = SubResource("AnimationLibrary_ucyih")
-autoplay = &"Main"
-
-[node name="SawBlade5" parent="Saws" unique_id=528940061 instance=ExtResource("5_rsjsb")]
-position = Vector2(15, 312)
-
-[node name="SawPlayer" type="AnimationPlayer" parent="Saws/SawBlade5" unique_id=1043567799]
-libraries/ = SubResource("AnimationLibrary_i2w5l")
-autoplay = &"Main"
-
-[node name="SawBlade6" parent="Saws" unique_id=1633368984 instance=ExtResource("5_rsjsb")]
-position = Vector2(481, 321)
-
-[node name="SawPlayer" type="AnimationPlayer" parent="Saws/SawBlade6" unique_id=907980646]
-libraries/ = SubResource("AnimationLibrary_tsy1f")
-autoplay = &"Main"
-
 [node name="MiniQuork" parent="." unique_id=1359759804 instance=ExtResource("7_i2w5l")]
 z_as_relative = false
-position = Vector2(495, 56)
+position = Vector2(760, -162)
 
 [node name="Spleeps" type="Node2D" parent="." unique_id=902937038]
 

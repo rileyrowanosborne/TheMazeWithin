@@ -39,6 +39,7 @@ var current_health : int
 var is_dying : bool = false
 var boss_mode_active : bool = false
 
+
 var is_hittable : bool = false
 
 
@@ -99,6 +100,7 @@ func life_check():
 
 
 func die():
+	SignalBus.emit_signal("enemy_died")
 	is_shooting = false
 	is_dying = true
 	animated_sprite_2d.play("Hit")
