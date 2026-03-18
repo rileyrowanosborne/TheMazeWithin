@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bohnfk5qbkv28"]
+
+[ext_resource type="Texture2D" uid="uid://bkdan8ju2cdtq" path="res://Assets/Sprites/FullFace1.png" id="1_b3wma"]
+[ext_resource type="Texture2D" uid="uid://cb038lcaxhx1h" path="res://Assets/Sprites/FullAnimForWindowFace-Eyes-Sheet.png" id="2_hp83g"]
+[ext_resource type="Texture2D" uid="uid://byq7p4wfq7w1d" path="res://Assets/Sprites/SPRITEDHEET FOR LITTLE MAMN.png" id="3_377hx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kpay6"]
+atlas = ExtResource("2_hp83g")
+region = Rect2(11529, 0, 549, 324)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cnt34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kpay6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8plf"]
+atlas = ExtResource("3_377hx")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hu1gy"]
+atlas = ExtResource("3_377hx")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8mivw"]
+atlas = ExtResource("3_377hx")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rv5j3"]
+atlas = ExtResource("3_377hx")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pyiff"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8plf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hu1gy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8mivw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rv5j3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Chaos Screen" type="Node2D" unique_id=100350496]
+
+[node name="BackGround" type="ColorRect" parent="." unique_id=1935089639]
+offset_right = 1153.0
+offset_bottom = 648.0
+color = Color(0.5041406, 0.55021006, 0.45920306, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=173364574]
+position = Vector2(576, 323.5)
+scale = Vector2(2, 2)
+texture = ExtResource("1_b3wma")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1005322823]
+position = Vector2(577, 322)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_cnt34")
+
+[node name="MainPLayerBase" type="AnimatedSprite2D" parent="." unique_id=1467625079]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(210, 473)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_pyiff")
+autoplay = "default"
+frame_progress = 0.8187691
+
+[node name="MainPLayerBase2" type="AnimatedSprite2D" parent="." unique_id=270043906]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(943.00006, 491.00003)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_pyiff")
+autoplay = "default"
