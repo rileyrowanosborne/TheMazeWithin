@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://2gw0268kohul"]
 
+[ext_resource type="Script" uid="uid://qq8otupce1nv" path="res://Scripts/completed_chapter_one.gd" id="1_1gd02"]
 [ext_resource type="Texture2D" uid="uid://d6p7rxj03n63" path="res://Assets/Sprites/AnotherTileSet.png" id="1_egba6"]
 [ext_resource type="Script" uid="uid://dykuyecjqf6s8" path="res://Scripts/tile_map_layer.gd" id="2_ktdw1"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="3_ktdw1"]
@@ -541,6 +542,7 @@ texture = ExtResource("9_242bg")
 sources/0 = SubResource("TileSetAtlasSource_1gd02")
 
 [node name="CompletedChapterOne" type="Node2D" unique_id=1795288377]
+script = ExtResource("1_1gd02")
 
 [node name="NextLevelDoor" parent="." unique_id=1348532402 instance=ExtResource("3_ktdw1")]
 position = Vector2(328, -552)

@@ -188,7 +188,6 @@ colors = PackedColorArray(0.6151298, 0.8211886, 0.89978, 1, 0.9118775, 0.8690814
 z_index = 4
 z_as_relative = false
 script = ExtResource("1_2vtmu")
-current_weapon = 2
 charge_rate = 300
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1632561566]

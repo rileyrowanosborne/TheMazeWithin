@@ -30,12 +30,19 @@ func _process(delta: float) -> void:
 		trauma = max(trauma - decay * delta, 0)
 		shake()
 	
-	if GameState.boss_active:
-		if zoom > boss_zoom:
-			zoom -= Vector2(.5,.5)
+	
+	if GameState.museum_active:
+		zoom = Vector2(3,3)
+	
 	else:
-		if zoom < normal_zoom:
-			zoom += Vector2(.5,.5)
+		if GameState.boss_active:
+			if zoom > boss_zoom:
+				zoom -= Vector2(.1,.1)
+		else:
+			if zoom < normal_zoom:
+				zoom += Vector2(.1,.1)
+		
+
 
 
 func add_trauma(amount : float):

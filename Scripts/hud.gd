@@ -66,33 +66,25 @@ func _on_death_text_timer_timeout() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Pause") and GameState.player_playing:
 		if GameState.is_paused:
-			GameState.is_paused = false
 			SignalBus.emit_signal("unpause_game")
-
 		else:
-			GameState.is_paused = true
 			SignalBus.emit_signal("pause_game")
 
 
 
 
 func on_pause_signal_received():
-	get_tree().paused = true
-	
 	pause_menu.visible = true
 	ingame_hud.visible = false
 
 
 
 func on_unpause_signal_received():
-	get_tree().paused = false
-	
 	pause_menu.visible = false
 	ingame_hud.visible = true
 
 
 func _on_resume_button_pressed() -> void:
-	GameState.is_paused = false
 	SignalBus.emit_signal("unpause_game")
 
 
@@ -103,7 +95,6 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	GameState.is_paused = false
 	SignalBus.emit_signal("unpause_game") 
 	SaveLoad._save()
 	get_tree().change_scene_to_file("res://Scenes/Chapters/Title Screen/title_screen.tscn")
@@ -117,3 +108,7 @@ func on_crystal_break():
 
 func _on_crystal_timer_timeout() -> void:
 	boss_entered_text.visible = false
+
+
+func _on_wepon_select_pressed() -> void:
+	SignalBus.emit_signal("unpause_game")

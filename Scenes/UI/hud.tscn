@@ -22,8 +22,10 @@
 [ext_resource type="Script" uid="uid://ciaevmihmrwwg" path="res://Scripts/buttons.gd" id="9_mu5ro"]
 [ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="9_uidm2"]
 [ext_resource type="FontFile" uid="uid://dv1vxp8vg0bgx" path="res://Assets/Fonts/VeniceClassic.ttf" id="10_5ep0j"]
+[ext_resource type="Texture2D" uid="uid://clnj2xdsa22no" path="res://Assets/Sprites/Skeleton.png" id="10_ragyo"]
 [ext_resource type="FontFile" uid="uid://utreg8xo8xlb" path="res://Assets/Fonts/Perfect DOS VGA 437 copy.ttf" id="11_am52h"]
 [ext_resource type="Texture2D" uid="uid://1c5v4513u7vr" path="res://Assets/Sprites/DialogueTextBox.png" id="11_cna6x"]
+[ext_resource type="Texture2D" uid="uid://dthlv28tw38vf" path="res://Assets/Sprites/Brain.png" id="11_yxyk2"]
 [ext_resource type="Script" uid="uid://bu8jyuw3hr3tl" path="res://Scripts/dialogue.gd" id="12_yttkt"]
 [ext_resource type="Texture2D" uid="uid://wsq0u0mjhwr" path="res://Assets/Sprites/PlayerShieldedIcon.png" id="14_iiebs"]
 [ext_resource type="PackedScene" uid="uid://doem7a4hh4aqy" path="res://Scenes/Environment + NPCs/In-game Cutscenes/mushoom_eating_cutscene.tscn" id="14_mt778"]
@@ -466,6 +468,20 @@ theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
 text = "Quit"
 flat = true
 
+[node name="WeponSelect" type="TextureButton" parent="PauseMenu" unique_id=1836507775]
+z_index = 6
+layout_mode = 0
+offset_left = 384.00003
+offset_top = 117.0
+offset_right = 512.0
+offset_bottom = 245.0
+rotation = 1.5707964
+scale = Vector2(3, 3)
+texture_normal = ExtResource("10_ragyo")
+texture_pressed = ExtResource("10_ragyo")
+texture_hover = ExtResource("11_yxyk2")
+texture_focused = ExtResource("11_yxyk2")
+
 [node name="IngameHud" type="Control" parent="." unique_id=485691671]
 layout_mode = 3
 anchors_preset = 0
@@ -659,6 +675,8 @@ visible = false
 [connection signal="pressed" from="PauseMenu/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="PauseMenu/WeponSelect" to="." method="_on_wepon_select_pressed"]
+[connection signal="pressed" from="PauseMenu/WeponSelect" to="PauseMenu/Buttons" method="_on_wepon_select_pressed"]
 [connection signal="timeout" from="IngameHud/BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="IngameHud/BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]
 [connection signal="timeout" from="IngameHud/BossScreenText/CrystalTimer" to="." method="_on_crystal_timer_timeout"]

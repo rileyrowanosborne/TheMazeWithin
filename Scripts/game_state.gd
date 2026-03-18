@@ -37,7 +37,7 @@ const MIN_SPECIAL : int = 0
 var charge_rate : float = 1
 var roll_special_cost : int = 25
 
-var current_chapter : int = 1
+var current_chapter : float = 1
 
 
 var current_boss_health : int
@@ -70,14 +70,39 @@ var player_aim_dir : Vector2
 var floor_enemies_cap : int
 var floor_enemies_spawned : int
 
+var current_weapon : weapon_types
+
+enum weapon_types {
+	golf_club,
+	baseball_bat,
+	sword,
+	pencil,
+	spoon,
+	
+	
+}
+
+
+var museum_active : bool = false
 
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("succesful_deflect", on_projectile_delfect)
-
+	SignalBus.connect("unpause_game", on_uppause_signal_received)
+	SignalBus.connect("pause_game", on_pause_signal_received)
 
 
 func on_projectile_delfect():
 	SignalBus.emit_signal("start_special_timer")
+
+
+
+func on_uppause_signal_received():
+	GameState.is_paused = false
+	get_tree().paused = false
+
+func on_pause_signal_received():
+	GameState.is_paused = true 
+	get_tree().paused = true

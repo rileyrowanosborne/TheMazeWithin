@@ -83,7 +83,7 @@ func _ready() -> void:
 		direction_change()
 		audio_listener_2d.clear_current()
 	else:
-		speed = 100
+		speed = 150
 		audio_listener_2d.make_current()
 
 

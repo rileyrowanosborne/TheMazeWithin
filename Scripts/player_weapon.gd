@@ -33,17 +33,6 @@ const JOY_DEADZONE = 0.2
 
 
 
-enum weapon_types {
-	golf_club,
-	baseball_bat,
-	sword,
-	pencil,
-	spoon,
-	
-	
-}
-
-@export var current_weapon : weapon_types
 
 
 var is_swinging: bool
@@ -58,15 +47,15 @@ var on_cooldown : bool = false
 
 
 func _ready() -> void:
-	if current_weapon == weapon_types.golf_club:
+	if GameState.current_weapon == GameState.weapon_types.golf_club:
 		sprite_2d.sprite_frames = GOLF_CLUB_ANIMS
-	elif current_weapon == weapon_types.baseball_bat:
+	elif GameState.current_weapon == GameState.weapon_types.baseball_bat:
 		sprite_2d.sprite_frames = BASE_BALL_BAT_ANIMS
-	elif current_weapon == weapon_types.sword:
+	elif GameState.current_weapon == GameState.weapon_types.sword:
 		sprite_2d.sprite_frames = SWORD_ANIMS
-	elif current_weapon == weapon_types.pencil:
+	elif GameState.current_weapon == GameState.weapon_types.pencil:
 		sprite_2d.sprite_frames = PENCIL_ANIMS
-	elif current_weapon == weapon_types.spoon:
+	elif GameState.current_weapon == GameState.weapon_types.spoon:
 		sprite_2d.sprite_frames = SPOON_ANIMS
 	
 	

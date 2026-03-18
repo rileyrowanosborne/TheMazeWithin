@@ -7,6 +7,11 @@ zoom = Vector2(6, 6)
 position_smoothing_enabled = true
 position_smoothing_speed = 8.0
 script = ExtResource("1_tpdyu")
+decay = null
+max_offset = null
+max_roll = null
+boss_zoom = null
+normal_zoom = null
 
 [node name="TraumaCooldown" type="Timer" parent="." unique_id=1441423164]
 one_shot = true

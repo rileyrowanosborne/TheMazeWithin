@@ -33,6 +33,7 @@ var total_spleeps_collected : int
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
 	GameState.player_playing = true
 	GameState.current_chapter = current_level
 	GameState.floor_enemies_cap = floor_enemy_cap

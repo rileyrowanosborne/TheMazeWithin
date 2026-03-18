@@ -51,6 +51,8 @@ var special_is_decaying : bool = false
 
 
 func _ready() -> void:
+	
+	
 	add_to_group("Player")
 	GameState.player_alive = true
 	GameState.player_is_invul = false
@@ -181,7 +183,8 @@ func on_player_respawned():
 
 func on_player_hit():
 	if not GameState.player_is_invul:
-		spawn_blood_splat(global_position)
+		if GameState.player_alive:
+				spawn_blood_splat(global_position)
 
 func spawn_blood_splat(world_location : Vector2):
 	if blood_splat_scene:
