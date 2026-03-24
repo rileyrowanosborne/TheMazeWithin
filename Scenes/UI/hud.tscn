@@ -29,6 +29,9 @@
 [ext_resource type="Script" uid="uid://bu8jyuw3hr3tl" path="res://Scripts/dialogue.gd" id="12_yttkt"]
 [ext_resource type="Texture2D" uid="uid://wsq0u0mjhwr" path="res://Assets/Sprites/PlayerShieldedIcon.png" id="14_iiebs"]
 [ext_resource type="PackedScene" uid="uid://doem7a4hh4aqy" path="res://Scenes/Environment + NPCs/In-game Cutscenes/mushoom_eating_cutscene.tscn" id="14_mt778"]
+[ext_resource type="Texture2D" uid="uid://dlhfl6emf0ylm" path="res://Assets/Sprites/Item-Shield.png" id="30_yxyk2"]
+[ext_resource type="Texture2D" uid="uid://bjtf2yeggi6tp" path="res://Assets/Sprites/Item-Dash.png" id="31_f1jpe"]
+[ext_resource type="Texture2D" uid="uid://dq7sdgsfhb2l3" path="res://Assets/Sprites/Item-MiniMe.png" id="32_mgdch"]
 
 [sub_resource type="Animation" id="Animation_0hfmd"]
 resource_name = "Main"
@@ -671,6 +674,45 @@ offset_bottom = 40.0
 
 [node name="MushoomEatingCutscene" parent="IngameHud/InGameCutscenes" unique_id=2136428375 instance=ExtResource("14_mt778")]
 visible = false
+
+[node name="Items" type="Control" parent="IngameHud" unique_id=1000608285]
+anchors_preset = 0
+offset_left = 16.0
+offset_top = 594.0
+offset_right = 68.0
+offset_bottom = 643.0
+
+[node name="Panel" type="Panel" parent="IngameHud/Items" unique_id=1600512294]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 0
+offset_left = 922.0
+offset_top = -609.0
+offset_right = 1158.0
+offset_bottom = 77.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="IngameHud/Items" unique_id=2049587770]
+layout_mode = 0
+offset_left = 970.0
+offset_top = -578.0
+offset_right = 1114.0
+offset_bottom = 34.0
+theme_override_constants/separation = 15
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="IngameHud/Items/VBoxContainer" unique_id=2023565179]
+layout_mode = 2
+texture = ExtResource("30_yxyk2")
+expand_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="IngameHud/Items/VBoxContainer" unique_id=19630124]
+layout_mode = 2
+texture = ExtResource("31_f1jpe")
+expand_mode = 5
+
+[node name="TextureRect3" type="TextureRect" parent="IngameHud/Items/VBoxContainer" unique_id=1862924702]
+layout_mode = 2
+texture = ExtResource("32_mgdch")
+expand_mode = 5
 
 [connection signal="pressed" from="PauseMenu/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
