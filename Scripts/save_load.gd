@@ -9,6 +9,9 @@ var contents_to_save : Dictionary = {
 	"chapter_two_completed" : false,
 	"chapter_three_completed" : false,
 	"chapter_four_completed" : false,
+	"master" : true,
+	"sfx" : true,
+	"music" : true
 }
 
 

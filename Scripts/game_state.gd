@@ -86,9 +86,19 @@ enum weapon_types {
 var museum_active : bool = false
 
 
+var master_volume : bool
+var sfx_volume : bool
+var music_volume : bool
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	master_volume = true
+	music_volume = true
+	sfx_volume = true
+	
+	
+	
 	SignalBus.connect("succesful_deflect", on_projectile_delfect)
 	SignalBus.connect("unpause_game", on_uppause_signal_received)
 	SignalBus.connect("pause_game", on_pause_signal_received)

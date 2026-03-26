@@ -37,6 +37,7 @@ signal pause_game
 signal unpause_game
 
 
+signal audio_update
 
 signal start_special_timer
 

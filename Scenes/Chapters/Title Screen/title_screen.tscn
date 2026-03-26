@@ -12,11 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://dpfsj30jaf8xx" path="res://Assets/Sprites/NewButton-New-Red.png" id="10_fak6x"]
 [ext_resource type="Texture2D" uid="uid://cy580m7cg8iam" path="res://Assets/Sprites/NewButton-New-Yellow.png" id="11_01rf7"]
 [ext_resource type="Texture2D" uid="uid://cme05aiwn1iu2" path="res://Assets/Sprites/LoadButton-New-Red.png" id="11_a1qtk"]
-[ext_resource type="Texture2D" uid="uid://lonusv3j5ta0" path="res://Assets/Sprites/OptionsButton-RedNew.png" id="12_01rf7"]
 [ext_resource type="Texture2D" uid="uid://cuiw8ubruo0tj" path="res://Assets/Sprites/QuitButton-New_red.png" id="13_djmsw"]
 [ext_resource type="Texture2D" uid="uid://dung45pcokrpy" path="res://Assets/Sprites/LoadButton-New-Yellow.png" id="13_oi6mp"]
 [ext_resource type="Texture2D" uid="uid://db4lx3e1nmjc4" path="res://Assets/Sprites/LoadButton-New-Blue.png" id="14_cdcib"]
-[ext_resource type="Texture2D" uid="uid://6w83vthlks6x" path="res://Assets/Sprites/OptionsButton-New-Yellow.png" id="16_oi6mp"]
 [ext_resource type="Texture2D" uid="uid://db18rg2ypgww7" path="res://Assets/Sprites/QuitButton-New-Yellow.png" id="18_cdcib"]
 [ext_resource type="Theme" uid="uid://b7q8lce55nm7l" path="res://PauseTheme.tres" id="19_xmqk5"]
 [ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="20_3fahe"]
@@ -206,10 +204,10 @@ scale = Vector2(5, 5)
 texture = ExtResource("9_arl2v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1367620149]
-offset_left = 853.0
-offset_top = 271.0
-offset_right = 1317.0
-offset_bottom = 869.0
+offset_left = 921.0
+offset_top = 362.0
+offset_right = 1353.0
+offset_bottom = 828.6666
 scale = Vector2(0.6, 0.6)
 theme_override_constants/separation = 50
 
@@ -226,12 +224,6 @@ texture_hover = ExtResource("13_oi6mp")
 texture_disabled = ExtResource("14_cdcib")
 texture_focused = ExtResource("13_oi6mp")
 
-[node name="OptionsButton" type="TextureButton" parent="VBoxContainer" unique_id=1406563274]
-layout_mode = 2
-texture_normal = ExtResource("12_01rf7")
-texture_hover = ExtResource("16_oi6mp")
-texture_focused = ExtResource("16_oi6mp")
-
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=772138761]
 layout_mode = 2
 texture_normal = ExtResource("13_djmsw")
@@ -239,7 +231,6 @@ texture_hover = ExtResource("18_cdcib")
 texture_focused = ExtResource("18_cdcib")
 
 [node name="ConfirmText" type="Control" parent="." unique_id=635572820]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 802.0

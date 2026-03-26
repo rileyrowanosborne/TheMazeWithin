@@ -55,3 +55,7 @@ func _on_no_pressed() -> void:
 func _on_yes_pressed() -> void:
 	SaveLoad.contents_to_save.current_chapter = 1
 	get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
+
+
+func _on_options_button_pressed() -> void:
+	get_tree().change_scene_to_file("res://Scenes/UI/options_screen.tscn")

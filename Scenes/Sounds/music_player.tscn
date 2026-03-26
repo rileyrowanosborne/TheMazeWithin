@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://s5y0tog6t4x6"]
+
+[ext_resource type="AudioStream" uid="uid://d3xv7aeh28xgp" path="res://Assets/Sounds/FrequentlyEthereal.wav" id="1_pa4pj"]
+[ext_resource type="Script" uid="uid://dfloy8f6hcj0u" path="res://Scripts/music_2.gd" id="2_pa4pj"]
+
+[node name="MusicPlayer" type="Node2D" unique_id=1644631998]
+
+[node name="Music2" type="AudioStreamPlayer2D" parent="." unique_id=2134297381]
+stream = ExtResource("1_pa4pj")
+volume_db = 11.884
+bus = &"Music"
+script = ExtResource("2_pa4pj")
+
+[node name="Timer" type="Timer" parent="Music2" unique_id=96272954]
+one_shot = true
+
+[connection signal="timeout" from="Music2/Timer" to="Music2" method="_on_timer_timeout"]
