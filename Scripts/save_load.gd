@@ -11,7 +11,8 @@ var contents_to_save : Dictionary = {
 	"chapter_four_completed" : false,
 	"master" : true,
 	"sfx" : true,
-	"music" : true
+	"music" : true,
+	"current_weapon" : GameState.current_weapon
 }
 
 
@@ -32,3 +33,4 @@ func _load():
 		
 		var save_data = data.duplicate()
 		contents_to_save.current_chapter = save_data.current_chapter
+		contents_to_save.current_weapon = save_data.current_weapon

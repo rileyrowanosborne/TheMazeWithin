@@ -15,9 +15,6 @@ extends CanvasLayer
 
 @onready var crystal_timer: Timer = $IngameHud/BossScreenText/CrystalTimer
 
-@onready var mini_game_one: Node2D = $MiniGameOne
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
@@ -75,7 +72,6 @@ func _input(event: InputEvent) -> void:
 
 
 
-
 func on_pause_signal_received():
 	pause_menu.visible = true
 	ingame_hud.visible = false
@@ -110,4 +106,3 @@ func _on_crystal_timer_timeout() -> void:
 
 func _on_wepon_select_pressed() -> void:
 	SignalBus.emit_signal("unpause_game")
-	mini_game_one.visible = true

@@ -20,13 +20,14 @@ var in_range_ : String
 
 
 
-
 func _ready() -> void:
 	current_weapon_text.text = ""
 	
 	
 	
-	
+
+
+
 
 
 func _input(event: InputEvent) -> void:
@@ -34,14 +35,24 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("Interact"):
 		if in_range_ == "Bat":
 			GameState.current_weapon = GameState.weapon_types.baseball_bat
+			SaveLoad.contents_to_save.current_weapon = GameState.weapon_types.baseball_bat
+			SaveLoad._save()
 		elif in_range_ == "Club":
 			GameState.current_weapon = GameState.weapon_types.golf_club
+			SaveLoad.contents_to_save.current_weapon = GameState.weapon_types.golf_club
+			SaveLoad._save()
 		elif in_range_ == "Spoon":
 			GameState.current_weapon = GameState.weapon_types.spoon
+			SaveLoad.contents_to_save.current_weapon = GameState.weapon_types.spoon
+			SaveLoad._save()
 		elif in_range_ == "Pencil":
 			GameState.current_weapon = GameState.weapon_types.pencil
+			SaveLoad.contents_to_save.current_weapon = GameState.weapon_types.pencil
+			SaveLoad._save()
 		elif in_range_ == "Sword":
 			GameState.current_weapon = GameState.weapon_types.sword
+			SaveLoad.contents_to_save.current_weapon = GameState.weapon_types.sword
+			SaveLoad._save()
 		SignalBus.emit_signal("unpause_game") 
 		
 	

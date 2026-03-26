@@ -231,6 +231,7 @@ texture_hover = ExtResource("18_cdcib")
 texture_focused = ExtResource("18_cdcib")
 
 [node name="ConfirmText" type="Control" parent="." unique_id=635572820]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_left = 802.0

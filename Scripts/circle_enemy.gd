@@ -110,6 +110,7 @@ func die():
 	if boss_mode_active:
 		SignalBus.emit_signal("level_boss_died")
 		boss_mode_active = false
+		GameState.boss_active = false
 
 
 func _input(event: InputEvent) -> void:

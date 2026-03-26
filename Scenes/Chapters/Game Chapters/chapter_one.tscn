@@ -589,7 +589,7 @@ z_as_relative = false
 position = Vector2(495, 56)
 
 [node name="Player" parent="." unique_id=554147121 instance=ExtResource("11_annyx")]
-position = Vector2(308, -333)
+position = Vector2(85, 5)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276414016]
 visible = false

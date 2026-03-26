@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://1b1h2bi4gsiu" path="res://Scripts/mini_game_one.gd" id="1_614yq"]
 [ext_resource type="Texture2D" uid="uid://3ualinflnvw3" path="res://Assets/Sprites/GIAGTileSet.png" id="1_qt7r6"]
 [ext_resource type="Texture2D" uid="uid://c1cdtphokng0p" path="res://Assets/Sprites/MoreDetailsTileSet.png" id="2_c52ak"]
+[ext_resource type="PackedScene" uid="uid://cbtwep8826duk" path="res://Scenes/Player/mini_me.tscn" id="4_ritp1"]
+[ext_resource type="PackedScene" uid="uid://54amq6ybpquf" path="res://Scenes/Components/shake_camera.tscn" id="5_614yq"]
 [ext_resource type="Texture2D" uid="uid://x4yhyumvh2w6" path="res://Assets/Sprites/GolfClubSolo.png" id="6_04b0k"]
 [ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="6_7m0oq"]
 [ext_resource type="Texture2D" uid="uid://bbnc6as8sh0l8" path="res://ItemFrame.png" id="6_hquc3"]
@@ -862,6 +864,13 @@ tile_set = SubResource("TileSet_1m1jr")
 [node name="Decor" type="TileMapLayer" parent="." unique_id=2819197]
 tile_map_data = PackedByteArray("AAAAAOz/AAADAAAAAAAKAOz/AAAEAAAAAAACAPD/AAAEAAAAAAD///T/AAAEAAAAAAD5//j/AAAEAAAAAADy/+z/AAAEAAAAAAD5/+z/AAAEAAAAAAD9//z/AAAEAAAAAAAFAPz/AAAEAAAAAAACAAUAAAAEAAAAAAAHAAUAAAAEAAAAAAACAA0AAAAEAAAAAAAJAAkAAAAEAAAAAAALAPz/AAAEAAAAAAAHABEAAAAEAAAAAAD7/xEAAAAEAAAAAAD6/xEAAAAAAAAAAAAEABEAAAAAAAAAAAALAA0AAAAAAAAAAAAEAA0AAAAAAAAAAAAGAAkAAAAAAAAAAAAAAPz/AAAAAAAAAAAFAPj/AAAAAAAAAAAIAPT/AAAAAAAAAAAJAPD/AAAAAAAAAAD3//D/AAAAAAAAAAD//+z/AAAAAAAAAAANAOz/AAAAAAAAAADy/wkAAAAAAAAAAAD1/xEAAAAAAAAAAAD2/xEAAAADAAAAAAD1/w0AAAADAAAAAAD5/wkAAAADAAAAAAD0/wUAAAADAAAAAAD7/wUAAAADAAAAAAAAAAUAAAADAAAAAAAIAAUAAAADAAAAAAALAAUAAAADAAAAAAACAAAAAAADAAAAAAABAPz/AAADAAAAAAAMAPz/AAADAAAAAAAIAPj/AAADAAAAAAABAPT/AAADAAAAAADy//b/AAADAAAAAAD7/+7/AAADAAAAAAD1/+z/AAADAAAAAAABAOz/AAADAAAAAAAMAOz/AAADAAAAAAAOAAAAAAADAAAAAAALABEAAAADAAAAAAD+/xEAAAADAAAAAADv//L/AAADAAAAAADx//L/AAAEAAAAAAD0//L/AAADAAAAAADx//j/AAADAAAAAADz//j/AAAAAAAAAADs/+7/AAAAAAAAAAD///D/AAADAAAAAAD7//j/AAADAAAAAADo/+7/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_hquc3")
+
+[node name="MiniMe" parent="." unique_id=1160471521 instance=ExtResource("4_ritp1")]
+position = Vector2(-372, -261)
+is_player = true
+
+[node name="ShakeCamera" parent="MiniMe" unique_id=1071904036 instance=ExtResource("5_614yq")]
+position = Vector2(0, -1)
 
 [node name="FillerTiles" type="TileMapLayer" parent="." unique_id=1644062271]
 modulate = Color(0.6039216, 0.7137255, 0.83137256, 1)

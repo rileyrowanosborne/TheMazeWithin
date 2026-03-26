@@ -10,6 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bedalb2fhi1qt" path="res://Scenes/Environment + NPCs/crystal_shard.tscn" id="14_c6bct"]
 [ext_resource type="PackedScene" uid="uid://b187imi7j3b47" path="res://Scenes/Enemies/enemy_launcher.tscn" id="14_jarec"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/Environment + NPCs/spleep_hole.tscn" id="14_wnyg8"]
+[ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="15_3k050"]
+[ext_resource type="PackedScene" uid="uid://dxidibs7rd68f" path="res://Scenes/Enemies/projectile_launcher.tscn" id="16_aseug"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="17_iq6gh"]
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="20_jvcct"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="21_vd1cg"]
@@ -571,6 +573,8 @@ chapter_seed = 1947982880
 boss_location = Vector2(-660, 140)
 boss_health = 15
 current_level = 2
+normal_spawn = Vector2(-23, 219)
+checkpoint_spawn = Vector2(-279, 52)
 level_boss = ExtResource("2_mvp4d")
 total_level_spleep_holes = 3
 floor_enemy_cap = 3
@@ -650,7 +654,7 @@ tile_map_data = PackedByteArray("AADj/9j/AAAAAAcAAADX//z/AAAAAAAAAADu//z/AAAAAAA
 tile_set = SubResource("TileSet_g1b0x")
 
 [node name="CrystalShard" parent="." unique_id=1656156115 instance=ExtResource("14_c6bct")]
-position = Vector2(-456, -666)
+position = Vector2(-731, -260)
 
 [node name="EnemyLauncher" parent="." unique_id=529816459 instance=ExtResource("14_jarec")]
 position = Vector2(-663, 140)
@@ -659,5 +663,43 @@ enemy_scene = ExtResource("2_mvp4d")
 [node name="EnemyLauncher2" parent="." unique_id=845725180 instance=ExtResource("14_jarec")]
 position = Vector2(-764, -629)
 enemy_scene = ExtResource("2_mvp4d")
+
+[node name="SawBladeLauncher" parent="." unique_id=1384301299 instance=ExtResource("15_3k050")]
+position = Vector2(-710, -462)
+
+[node name="ProjectileLauncher" parent="." unique_id=1044979908 instance=ExtResource("16_aseug")]
+position = Vector2(-287, -341)
+direction = Vector2(0, -1)
+is_world_launcher = true
+
+[node name="ProjectileLauncher2" parent="." unique_id=1529427717 instance=ExtResource("16_aseug")]
+position = Vector2(-786, -458)
+direction = Vector2(0, -1)
+is_world_launcher = true
+
+[node name="ProjectileLauncher3" parent="." unique_id=531975871 instance=ExtResource("16_aseug")]
+position = Vector2(-719, -823)
+direction = Vector2(0, 1)
+is_world_launcher = true
+
+[node name="ProjectileLauncher4" parent="." unique_id=1711755933 instance=ExtResource("16_aseug")]
+position = Vector2(14, -583)
+direction = Vector2(0, 1)
+is_world_launcher = true
+
+[node name="ProjectileLauncher5" parent="." unique_id=1601953101 instance=ExtResource("16_aseug")]
+position = Vector2(99, -583)
+direction = Vector2(-1, 0)
+is_world_launcher = true
+
+[node name="ProjectileLauncher6" parent="." unique_id=1652231787 instance=ExtResource("16_aseug")]
+position = Vector2(101, -525)
+direction = Vector2(-1, 0)
+is_world_launcher = true
+
+[node name="ProjectileLauncher7" parent="." unique_id=1526112525 instance=ExtResource("16_aseug")]
+position = Vector2(16, -460)
+direction = Vector2(0, -1)
+is_world_launcher = true
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]
