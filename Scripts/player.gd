@@ -64,7 +64,7 @@ func _ready() -> void:
 	SignalBus.connect("show_interact_text", show_interact_text)
 	SignalBus.connect("hide_interact_text", hide_interact_text)
 	SignalBus.connect("start_special_timer", on_special_timer_start)
-	SignalBus.connect("level_boss_died", on_level_boss_died)
+	SignalBus.connect("crystal_break", on_crystal_break)
 
 func get_input():
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -219,6 +219,6 @@ func _on_special_decay_timer_timeout() -> void:
 
 
 
-func on_level_boss_died():
+func on_crystal_break():
 	upgrade_back_anim.play("default")
 	upgrade_fore_anim.play("default")
