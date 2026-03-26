@@ -91,12 +91,20 @@ func level_boss_died():
 func open_door():
 	if current_level == 1:
 		GameState.chapter_one_door_open = true
+		SaveLoad.contents_to_save.mini_me = true
+		SaveLoad.contents_to_save.chapter_one_completed = true
 	elif current_level == 2:
 		GameState.chapter_two_door_open = true
+		SaveLoad.contents_to_save.dash = true
+		SaveLoad.contents_to_save.chapter_two_completed = true
 	elif current_level == 3:
 		GameState.chapter_three_door_open = true
+		SaveLoad.contents_to_save.shield = true
+		SaveLoad.contents_to_save.chapter_three_completed = true
 	elif current_level == 4:
 		GameState.chapter_four_door_open = true
+		SaveLoad.contents_to_save.super = true
+		SaveLoad.contents_to_save.chapter_four_completed = true
 
 
 func change_levels():

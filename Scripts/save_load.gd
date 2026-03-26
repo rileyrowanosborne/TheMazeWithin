@@ -12,7 +12,11 @@ var contents_to_save : Dictionary = {
 	"master" : true,
 	"sfx" : true,
 	"music" : true,
-	"current_weapon" : GameState.current_weapon
+	"current_weapon" : GameState.current_weapon,
+	"mini_me" : false,
+	"dash" : false,
+	"shield" : false,
+	"super" : false,
 }
 
 
@@ -34,3 +38,7 @@ func _load():
 		var save_data = data.duplicate()
 		contents_to_save.current_chapter = save_data.current_chapter
 		contents_to_save.current_weapon = save_data.current_weapon
+		contents_to_save.mini_me = save_data.mini_me
+		contents_to_save.dash = save_data.dash
+		contents_to_save.shield = save_data.shield
+		contents_to_save.super = save_data.super

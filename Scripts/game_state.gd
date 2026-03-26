@@ -70,6 +70,13 @@ var player_aim_dir : Vector2
 var floor_enemies_cap : int
 var floor_enemies_spawned : int
 
+
+var ability_mini : bool = false
+var ability_dash : bool = false
+var ability_shield : bool = false
+var ability_super : bool = false
+
+
 var current_weapon : weapon_types
 
 enum weapon_types {

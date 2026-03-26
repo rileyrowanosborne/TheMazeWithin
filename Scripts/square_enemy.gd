@@ -127,7 +127,8 @@ func die():
 
 
 func _on_death_timer_timeout() -> void:
-	spawn_mini_me(global_position)
+	if SaveLoad.contents_to_save.mini_me == true:
+		spawn_mini_me(global_position)
 	if GameState.current_chapter == 4:
 		if GameState.total_boss_enemies > 0:
 			GameState.total_boss_enemies -= 1

@@ -90,21 +90,20 @@ func _physics_process(delta: float) -> void:
 
 func _process(delta: float) -> void:
 	
-	
-	
-	if special_is_charging:
-		if GameState.player_special_amount < GameState.MAX_SPECIAL:
-			GameState.player_special_amount += GameState.charge_rate
-	
-		elif  GameState.player_special_amount > GameState.MAX_SPECIAL:
-			GameState.player_special_amount = GameState.MAX_SPECIAL
+	if SaveLoad.contents_to_save.shield == true:
+		if special_is_charging:
+			if GameState.player_special_amount < GameState.MAX_SPECIAL:
+				GameState.player_special_amount += GameState.charge_rate
 		
-	
-	elif special_is_decaying:
-		if GameState.player_special_amount > GameState.MIN_SPECIAL:
-			GameState.player_special_amount -= GameState.charge_rate
-		elif GameState.player_special_amount < GameState.MIN_SPECIAL:
-			GameState.player_special_amount = GameState.MIN_SPECIAL
+			elif  GameState.player_special_amount > GameState.MAX_SPECIAL:
+				GameState.player_special_amount = GameState.MAX_SPECIAL
+			
+		
+		elif special_is_decaying:
+			if GameState.player_special_amount > GameState.MIN_SPECIAL:
+				GameState.player_special_amount -= GameState.charge_rate
+			elif GameState.player_special_amount < GameState.MIN_SPECIAL:
+				GameState.player_special_amount = GameState.MIN_SPECIAL
 	
 	
 	
@@ -117,8 +116,9 @@ func _input(event: InputEvent) -> void:
 	
 
 	if event.is_action_pressed("Dash") and not dash_is_on_cooldown:
-		start_dash_invul()
-		dash()
+		if SaveLoad.contents_to_save.dash == true:
+			start_dash_invul()
+			dash()
 
 
 func _on_dash_timer_timeout() -> void:

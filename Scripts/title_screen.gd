@@ -12,6 +12,7 @@ func _ready() -> void:
 	
 	
 	if SaveLoad.contents_to_save.current_chapter != 1:
+		
 		load_button.disabled = false
 	else:
 		load_button.disabled = true
