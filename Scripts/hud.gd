@@ -99,7 +99,6 @@ func on_crystal_break():
 	boss_entered_text.visible = true
 	boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED"
 
-
 func _on_crystal_timer_timeout() -> void:
 	boss_entered_text.visible = false
 

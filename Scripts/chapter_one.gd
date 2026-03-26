@@ -45,7 +45,7 @@ func _ready() -> void:
 	SignalBus.connect("change_level", change_levels)
 	SignalBus.connect("player_died", reset_level)
 	SignalBus.connect("player_respawn", respawn_player)
-	
+	SignalBus.connect("crystal_break", on_crystal_break)
 	
 	GameState.current_boss_health = boss_health
 	GameState.current_floor_boss_max_health = boss_health
@@ -91,28 +91,19 @@ func level_boss_died():
 func open_door():
 	if current_level == 1:
 		GameState.chapter_one_door_open = true
-		SaveLoad.contents_to_save.mini_me = true
 		SaveLoad.contents_to_save.chapter_one_completed = true
 	elif current_level == 2:
 		GameState.chapter_two_door_open = true
-		SaveLoad.contents_to_save.dash = true
 		SaveLoad.contents_to_save.chapter_two_completed = true
 	elif current_level == 3:
 		GameState.chapter_three_door_open = true
-		SaveLoad.contents_to_save.shield = true
 		SaveLoad.contents_to_save.chapter_three_completed = true
 	elif current_level == 4:
 		GameState.chapter_four_door_open = true
-		SaveLoad.contents_to_save.super = true
 		SaveLoad.contents_to_save.chapter_four_completed = true
 
 
 func change_levels():
-	
-	
-	
-	
-	
 	if GameState.current_chapter != 4:
 		level_boss_is_spawned = false
 		GameState.boss_active = false
@@ -135,3 +126,14 @@ func respawn_player():
 		begin_boss_spawning()
 	else:
 		player.global_position = normal_spawn
+
+
+func on_crystal_break():
+	if current_level == 1:
+		SaveLoad.contents_to_save.mini_me = true
+	elif current_level == 2:
+		SaveLoad.contents_to_save.dash = true
+	elif current_level == 3:
+		SaveLoad.contents_to_save.shield = true
+	elif current_level == 4:
+		SaveLoad.contents_to_save.super = true
