@@ -2,6 +2,9 @@ extends Node2D
 
 @onready var new_button: TextureButton = $VBoxContainer/NewButton
 @onready var load_button: TextureButton = $VBoxContainer/LoadButton
+@onready var confirm_text: Control = $ConfirmText
+@onready var no: Button = $ConfirmText/No
+
 
 
 func _ready() -> void:
@@ -18,9 +21,10 @@ func _ready() -> void:
 
 
 func _on_new_button_pressed() -> void:
-	print("click")
-	SaveLoad.contents_to_save.current_chapter = 1
-	get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
+	confirm_text.visible = true
+	no.grab_focus()
+	
+
 
 
 func _on_load_button_pressed() -> void:
@@ -42,3 +46,12 @@ func _on_load_button_pressed() -> void:
 func _on_quit_button_pressed() -> void:
 	SaveLoad._save()
 	get_tree().quit()
+
+
+func _on_no_pressed() -> void:
+	confirm_text.visible = false
+	new_button.grab_focus()
+
+func _on_yes_pressed() -> void:
+	SaveLoad.contents_to_save.current_chapter = 1
+	get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
