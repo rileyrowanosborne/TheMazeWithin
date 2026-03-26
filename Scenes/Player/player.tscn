@@ -26,10 +26,71 @@
 [ext_resource type="AudioStream" uid="uid://0ng70we67k01" path="res://Assets/Sounds/Roll2.wav" id="21_eksi1"]
 [ext_resource type="Texture2D" uid="uid://dfgj4q0ogdvgj" path="res://Assets/Sprites/RollSpark-Sheet.png" id="24_rqdc0"]
 [ext_resource type="Texture2D" uid="uid://c6iav7dxdyf6k" path="res://Assets/Sprites/SlashAnimation-Sheet copy.png" id="25_qr1w5"]
+[ext_resource type="Texture2D" uid="uid://b8eu55pmsmpln" path="res://Assets/Sprites/UpgradeAnimForeGround.png" id="27_ur3l4"]
+[ext_resource type="Texture2D" uid="uid://cvdjmt216x1x8" path="res://Assets/Sprites/UpgradeAnimBackGround.png" id="28_2ahak"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
 height = 4.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qflxp"]
+atlas = ExtResource("28_2ahak")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0pk7v"]
+atlas = ExtResource("28_2ahak")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rblve"]
+atlas = ExtResource("28_2ahak")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fn4qh"]
+atlas = ExtResource("28_2ahak")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5omc3"]
+atlas = ExtResource("28_2ahak")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcwjh"]
+atlas = ExtResource("28_2ahak")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ejxfg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qflxp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0pk7v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rblve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fn4qh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5omc3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcwjh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qflxp")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ythyg"]
 shader = ExtResource("3_qr1w5")
@@ -507,6 +568,65 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6uq4"]
+atlas = ExtResource("27_ur3l4")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5u0x"]
+atlas = ExtResource("27_ur3l4")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_po18e"]
+atlas = ExtResource("27_ur3l4")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v37cr"]
+atlas = ExtResource("27_ur3l4")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d028"]
+atlas = ExtResource("27_ur3l4")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0liok"]
+atlas = ExtResource("27_ur3l4")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gyc8k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6uq4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5u0x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_po18e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v37cr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d028")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0liok")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6uq4")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="Curve" id="Curve_3smsa"]
 _data = [Vector2(0.0025, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.54034, 0.0, 0, 0]
 point_count = 2
@@ -533,6 +653,12 @@ blood_splat_scene = ExtResource("2_pu2lt")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=255656249]
 position = Vector2(0, -2)
 shape = SubResource("CapsuleShape2D_fkybt")
+
+[node name="UpgradeBackAnim" type="AnimatedSprite2D" parent="." unique_id=597214232]
+z_as_relative = false
+position = Vector2(0.40000153, -18.599998)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_ejxfg")
 
 [node name="Sprite" type="AnimatedSprite2D" parent="." unique_id=913315970]
 material = SubResource("ShaderMaterial_ythyg")
@@ -584,6 +710,12 @@ frame_progress = 1.0
 
 [node name="PlayerWeapon" parent="." unique_id=509974704 instance=ExtResource("4_vgqql")]
 position = Vector2(-1, -6)
+
+[node name="UpgradeForeAnim" type="AnimatedSprite2D" parent="." unique_id=1931783137]
+z_index = 5
+position = Vector2(0.40000153, -18.599998)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_gyc8k")
 
 [node name="HealthComponent" parent="." unique_id=196407504 instance=ExtResource("7_3smsa")]
 z_index = 5
@@ -656,7 +788,7 @@ position = Vector2(1, -5)
 shape = SubResource("CapsuleShape2D_gymyn")
 
 [node name="PointLight2D" type="PointLight2D" parent="." unique_id=1932045270]
-position = Vector2(0, -12)
+position = Vector2(0, -8)
 color = Color(0.00682764, 0.235301, 0.986332, 1)
 energy = 0.1
 blend_mode = 1

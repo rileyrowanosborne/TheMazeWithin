@@ -55,6 +55,11 @@ func _on_no_pressed() -> void:
 
 func _on_yes_pressed() -> void:
 	SaveLoad.contents_to_save.current_chapter = 1
+	SaveLoad.contents_to_save.mini_me = false
+	SaveLoad.contents_to_save.dash = false
+	SaveLoad.contents_to_save.shield = false
+	SaveLoad.contents_to_save.super = false
+	SaveLoad.contents_to_save.current_weapon = GameState.weapon_types.baseball_bat
 	get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
 
 

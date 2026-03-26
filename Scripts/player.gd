@@ -31,6 +31,8 @@ var in_range_of_interactable : bool = false
 @onready var dash_woosh: AnimatedSprite2D = $DashWoosh
 @onready var dash_woosh_2: AnimatedSprite2D = $DashWoosh2
 @onready var dash_woosh_3: AnimatedSprite2D = $DashWoosh3
+@onready var upgrade_back_anim: AnimatedSprite2D = $UpgradeBackAnim
+@onready var upgrade_fore_anim: AnimatedSprite2D = $UpgradeForeAnim
 
 
 
@@ -62,6 +64,7 @@ func _ready() -> void:
 	SignalBus.connect("show_interact_text", show_interact_text)
 	SignalBus.connect("hide_interact_text", hide_interact_text)
 	SignalBus.connect("start_special_timer", on_special_timer_start)
+	SignalBus.connect("level_boss_died", on_level_boss_died)
 
 func get_input():
 	input.x = Input.get_action_strength("Right") - Input.get_action_strength("Left")
@@ -213,3 +216,9 @@ func _on_special_timer_timeout() -> void:
 func _on_special_decay_timer_timeout() -> void:
 	if special_timer.is_stopped():
 		special_is_decaying = true
+
+
+
+func on_level_boss_died():
+	upgrade_back_anim.play("default")
+	upgrade_fore_anim.play("default")
