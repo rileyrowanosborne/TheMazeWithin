@@ -1,0 +1,7 @@
+[gd_resource type="Theme" format=3 uid="uid://mqsgktjucht2"]
+
+[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="1_k0krk"]
+
+[resource]
+default_font = ExtResource("1_k0krk")
+default_font_size = 32

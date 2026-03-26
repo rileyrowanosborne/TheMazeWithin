@@ -109,6 +109,7 @@ func die():
 	if boss_mode_active:
 		SignalBus.emit_signal("level_boss_died")
 		boss_mode_active = false
+		GameState.boss_active = false
 	
 
 
@@ -123,7 +124,8 @@ func _input(event: InputEvent) -> void:
 
 
 func _on_death_timer_timeout() -> void:
-	spawn_mini_me(global_position)
+	if SaveLoad.contents_to_save.mini_me == true:
+		spawn_mini_me(global_position)
 	if GameState.current_chapter == 4:
 		if GameState.total_boss_enemies > 0:
 			GameState.total_boss_enemies -= 1

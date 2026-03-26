@@ -15,8 +15,6 @@ extends CanvasLayer
 
 @onready var crystal_timer: Timer = $IngameHud/BossScreenText/CrystalTimer
 
-
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
@@ -26,6 +24,8 @@ func _ready() -> void:
 	SignalBus.connect("unpause_game", on_unpause_signal_received)
 	SignalBus.connect("crystal_break", on_crystal_break)
 	
+	
+	SignalBus.emit_signal("unpause_game")
 	visible = true
 
 
@@ -72,7 +72,6 @@ func _input(event: InputEvent) -> void:
 
 
 
-
 func on_pause_signal_received():
 	pause_menu.visible = true
 	ingame_hud.visible = false
@@ -87,11 +86,6 @@ func on_unpause_signal_received():
 func _on_resume_button_pressed() -> void:
 	SignalBus.emit_signal("unpause_game")
 
-
-
-func _on_options_button_pressed() -> void:
-	#open up options hud
-	pass # Replace with function body.
 
 
 func _on_quit_button_pressed() -> void:

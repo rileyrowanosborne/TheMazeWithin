@@ -29,6 +29,7 @@
 [ext_resource type="Script" uid="uid://bu8jyuw3hr3tl" path="res://Scripts/dialogue.gd" id="12_yttkt"]
 [ext_resource type="Texture2D" uid="uid://wsq0u0mjhwr" path="res://Assets/Sprites/PlayerShieldedIcon.png" id="14_iiebs"]
 [ext_resource type="PackedScene" uid="uid://doem7a4hh4aqy" path="res://Scenes/Environment + NPCs/In-game Cutscenes/mushoom_eating_cutscene.tscn" id="14_mt778"]
+[ext_resource type="Script" uid="uid://cxr0hmgmsjk2d" path="res://Scripts/option_button.gd" id="15_mgdch"]
 [ext_resource type="Texture2D" uid="uid://dlhfl6emf0ylm" path="res://Assets/Sprites/Item-Shield.png" id="30_yxyk2"]
 [ext_resource type="Texture2D" uid="uid://bjtf2yeggi6tp" path="res://Assets/Sprites/Item-Dash.png" id="31_f1jpe"]
 [ext_resource type="Texture2D" uid="uid://dq7sdgsfhb2l3" path="res://Assets/Sprites/Item-MiniMe.png" id="32_mgdch"]
@@ -180,7 +181,10 @@ animations = [{
 
 [sub_resource type="Theme" id="Theme_qff6j"]
 default_font = ExtResource("2_8c63k")
-default_font_size = 16
+default_font_size = 32
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f1jpe"]
+load_path = "res://.godot/imported/Brain.png-439be4c120cca924da206d779c695300.ctex"
 
 [sub_resource type="Theme" id="Theme_uidm2"]
 default_font = ExtResource("1_e0onf")
@@ -203,7 +207,6 @@ process_mode = 3
 script = ExtResource("1_fccik")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=173331201]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1155.0
@@ -211,7 +214,7 @@ offset_bottom = 647.0
 theme = ExtResource("2_3omb4")
 
 [node name="Background" type="Node2D" parent="PauseMenu" unique_id=516013046]
-modulate = Color(0.29954746, 0.29954746, 0.29954743, 1)
+modulate = Color(0.9313614, 0.6071455, 0.55344915, 1)
 
 [node name="Sky" type="ColorRect" parent="PauseMenu/Background" unique_id=209226302]
 z_index = 1
@@ -264,7 +267,7 @@ offset_top = 658.00006
 offset_right = 362.0
 offset_bottom = 758.00006
 rotation = -0.8245473
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="ColorRect2" type="ColorRect" parent="PauseMenu/Background" unique_id=522486616]
 z_index = 3
@@ -273,7 +276,7 @@ offset_top = 728.0
 offset_right = 362.0
 offset_bottom = 828.0
 rotation = -2.126734
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="ColorRect3" type="ColorRect" parent="PauseMenu/Background" unique_id=1818178924]
 z_index = 3
@@ -282,7 +285,7 @@ offset_top = 725.0
 offset_right = 1002.0
 offset_bottom = 825.0
 rotation = -2.3663168
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="ColorRect4" type="ColorRect" parent="PauseMenu/Background" unique_id=1909059135]
 z_index = 3
@@ -291,7 +294,7 @@ offset_top = 670.0
 offset_right = 957.0
 offset_bottom = 770.0
 rotation = -0.942875
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="ColorRect5" type="ColorRect" parent="PauseMenu/Background" unique_id=100508952]
 z_index = 3
@@ -300,7 +303,7 @@ offset_top = 754.0559
 offset_right = 1040.5581
 offset_bottom = 1158.9426
 rotation = -1.2431284
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="ColorRect6" type="ColorRect" parent="PauseMenu/Background" unique_id=220921510]
 z_index = 3
@@ -309,7 +312,7 @@ offset_top = 884.0
 offset_right = 123.3936
 offset_bottom = 1288.8867
 rotation = -1.8943648
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="ColorRect7" type="ColorRect" parent="PauseMenu/Background" unique_id=1790693445]
 z_index = 3
@@ -317,7 +320,7 @@ offset_left = 319.0
 offset_top = 558.0
 offset_right = 839.0
 offset_bottom = 748.0
-color = Color(0.7786097, 0.6699151, 0.69345456, 1)
+color = Color(0.6321001, 0.6639133, 0.6221261, 1)
 
 [node name="Cube" type="Sprite2D" parent="PauseMenu" unique_id=669528420]
 z_index = 4
@@ -411,11 +414,11 @@ repeat_times = 5
 [node name="PauseText" type="RichTextLabel" parent="PauseMenu/PauseTextParallax" unique_id=1737861723]
 z_index = 10
 offset_left = 486.0
-offset_top = -24.0
+offset_top = -10.0
 offset_right = 916.0
-offset_bottom = 210.0
+offset_bottom = 224.0
 theme = SubResource("Theme_qff6j")
-theme_override_colors/default_color = Color(0.627451, 0.61960787, 0.43137255, 1)
+theme_override_colors/default_color = Color(0.8360249, 0.50298065, 0.4662075, 1)
 theme_override_colors/font_shadow_color = Color(0.7372549, 0.7137255, 0.47058824, 0.10980392)
 theme_override_constants/line_separation = 50
 theme_override_constants/shadow_outline_size = 0
@@ -427,45 +430,40 @@ vertical_alignment = 1
 
 [node name="Buttons" type="Control" parent="PauseMenu" unique_id=878366094]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = -271.0
+offset_top = -309.0
+offset_right = -231.0
+offset_bottom = -269.0
 script = ExtResource("9_mu5ro")
 
 [node name="ResumeButton" type="Button" parent="PauseMenu/Buttons" unique_id=94326868]
 process_mode = 3
 z_index = 5
 layout_mode = 0
-offset_left = 1157.0
+offset_left = 1075.0
 offset_top = 465.0
-offset_right = 1377.0
+offset_right = 1283.0
 offset_bottom = 501.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_left = NodePath("../../WeponSelect")
+focus_neighbor_bottom = NodePath("../QuitButton")
 theme = ExtResource("2_3omb4")
 theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
 text = "Resume"
-flat = true
-
-[node name="OptionsButton" type="Button" parent="PauseMenu/Buttons" unique_id=1208669882]
-process_mode = 3
-z_index = 5
-layout_mode = 0
-offset_left = 1157.0
-offset_top = 521.0
-offset_right = 1377.0
-offset_bottom = 557.0
-theme = ExtResource("2_3omb4")
-theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
-text = "Options
-"
 flat = true
 
 [node name="QuitButton" type="Button" parent="PauseMenu/Buttons" unique_id=42383486]
 process_mode = 3
 z_index = 5
 layout_mode = 0
-offset_left = 1157.0
-offset_top = 577.0
-offset_right = 1377.0
-offset_bottom = 613.0
+offset_left = 1201.0
+offset_top = 537.0
+offset_right = 1325.0
+offset_bottom = 573.0
+scale = Vector2(1.5, 1.5)
+focus_neighbor_left = NodePath("../../WeponSelect")
+focus_neighbor_top = NodePath("../ResumeButton")
+focus_neighbor_bottom = NodePath("../../Items/Shield")
 theme = ExtResource("2_3omb4")
 theme_override_colors/font_color = Color(0.8666667, 0.8352941, 0.52156866, 1)
 text = "Quit"
@@ -481,11 +479,93 @@ offset_bottom = 245.0
 rotation = 1.5707964
 scale = Vector2(3, 3)
 texture_normal = ExtResource("10_ragyo")
-texture_pressed = ExtResource("10_ragyo")
 texture_hover = ExtResource("11_yxyk2")
-texture_focused = ExtResource("11_yxyk2")
+texture_focused = SubResource("CompressedTexture2D_f1jpe")
+
+[node name="Items" type="Control" parent="PauseMenu" unique_id=1000608285]
+visible = false
+z_index = 10
+anchors_preset = 0
+offset_left = 21.0
+offset_top = 803.0
+offset_right = 73.0
+offset_bottom = 852.0
+
+[node name="Panel" type="Panel" parent="PauseMenu/Items" unique_id=1600512294]
+layout_mode = 0
+offset_left = 714.0
+offset_top = -307.0
+offset_right = 1106.0
+offset_bottom = -170.0
+
+[node name="Shield" type="TextureRect" parent="PauseMenu/Items" unique_id=2023565179]
+layout_mode = 0
+offset_left = 982.0
+offset_top = -295.0
+offset_right = 1094.0
+offset_bottom = -183.0
+tooltip_text = "Shield"
+focus_neighbor_left = NodePath("../Dash")
+focus_neighbor_top = NodePath("../../Buttons/QuitButton")
+texture = ExtResource("30_yxyk2")
+expand_mode = 5
+
+[node name="Dash" type="TextureRect" parent="PauseMenu/Items" unique_id=19630124]
+layout_mode = 0
+offset_left = 854.0
+offset_top = -295.0
+offset_right = 966.0
+offset_bottom = -183.0
+tooltip_text = "Dash"
+focus_neighbor_left = NodePath("../MiniMeChomp")
+focus_neighbor_top = NodePath("../../Buttons/QuitButton")
+focus_neighbor_right = NodePath("../Shield")
+texture = ExtResource("31_f1jpe")
+expand_mode = 5
+
+[node name="MiniMeChomp" type="TextureRect" parent="PauseMenu/Items" unique_id=1862924702]
+layout_mode = 0
+offset_left = 726.0
+offset_top = -295.0
+offset_right = 838.0
+offset_bottom = -183.0
+tooltip_text = "Mini Me
+"
+focus_neighbor_top = NodePath("../../Buttons/QuitButton")
+focus_neighbor_right = NodePath("../Dash")
+texture = ExtResource("32_mgdch")
+expand_mode = 5
+
+[node name="OptionButton" type="OptionButton" parent="PauseMenu" unique_id=666228065]
+z_index = 6
+layout_mode = 0
+offset_left = 773.0
+offset_top = 309.0
+offset_right = 1079.0
+offset_bottom = 352.0
+theme_override_font_sizes/font_size = 16
+expand_icon = true
+selected = 2
+item_count = 3
+popup/item_0/text = "Mini Me Chomp"
+popup/item_0/id = 0
+popup/item_1/text = "Tuck and Roll"
+popup/item_1/id = 1
+popup/item_2/text = "Blockade parameter"
+popup/item_2/id = 2
+script = ExtResource("15_mgdch")
+
+[node name="TextureRect" type="TextureRect" parent="PauseMenu/OptionButton" unique_id=932857443]
+layout_mode = 0
+offset_left = 56.999992
+offset_top = 78.0
+offset_right = 96.99999
+offset_bottom = 118.00001
+scale = Vector2(5, 5)
+texture = ExtResource("32_mgdch")
 
 [node name="IngameHud" type="Control" parent="." unique_id=485691671]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -675,50 +755,11 @@ offset_bottom = 40.0
 [node name="MushoomEatingCutscene" parent="IngameHud/InGameCutscenes" unique_id=2136428375 instance=ExtResource("14_mt778")]
 visible = false
 
-[node name="Items" type="Control" parent="IngameHud" unique_id=1000608285]
-anchors_preset = 0
-offset_left = 16.0
-offset_top = 594.0
-offset_right = 68.0
-offset_bottom = 643.0
-
-[node name="Panel" type="Panel" parent="IngameHud/Items" unique_id=1600512294]
-modulate = Color(0, 0, 0, 1)
-layout_mode = 0
-offset_left = 922.0
-offset_top = -609.0
-offset_right = 1158.0
-offset_bottom = 77.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="IngameHud/Items" unique_id=2049587770]
-layout_mode = 0
-offset_left = 970.0
-offset_top = -578.0
-offset_right = 1114.0
-offset_bottom = 34.0
-theme_override_constants/separation = 15
-alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="IngameHud/Items/VBoxContainer" unique_id=2023565179]
-layout_mode = 2
-texture = ExtResource("30_yxyk2")
-expand_mode = 5
-
-[node name="TextureRect2" type="TextureRect" parent="IngameHud/Items/VBoxContainer" unique_id=19630124]
-layout_mode = 2
-texture = ExtResource("31_f1jpe")
-expand_mode = 5
-
-[node name="TextureRect3" type="TextureRect" parent="IngameHud/Items/VBoxContainer" unique_id=1862924702]
-layout_mode = 2
-texture = ExtResource("32_mgdch")
-expand_mode = 5
-
 [connection signal="pressed" from="PauseMenu/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="PauseMenu/Buttons/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="PauseMenu/WeponSelect" to="." method="_on_wepon_select_pressed"]
 [connection signal="pressed" from="PauseMenu/WeponSelect" to="PauseMenu/Buttons" method="_on_wepon_select_pressed"]
+[connection signal="item_selected" from="PauseMenu/OptionButton" to="PauseMenu/OptionButton" method="_on_item_selected"]
 [connection signal="timeout" from="IngameHud/BossScreenText/BossTextTimer" to="." method="_on_boss_text_timer_timeout"]
 [connection signal="timeout" from="IngameHud/BossScreenText/LevelChangeTimer" to="." method="_on_level_change_timer_timeout"]
 [connection signal="timeout" from="IngameHud/BossScreenText/CrystalTimer" to="." method="_on_crystal_timer_timeout"]

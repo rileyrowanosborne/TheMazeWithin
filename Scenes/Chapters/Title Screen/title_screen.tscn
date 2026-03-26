@@ -12,12 +12,12 @@
 [ext_resource type="Texture2D" uid="uid://dpfsj30jaf8xx" path="res://Assets/Sprites/NewButton-New-Red.png" id="10_fak6x"]
 [ext_resource type="Texture2D" uid="uid://cy580m7cg8iam" path="res://Assets/Sprites/NewButton-New-Yellow.png" id="11_01rf7"]
 [ext_resource type="Texture2D" uid="uid://cme05aiwn1iu2" path="res://Assets/Sprites/LoadButton-New-Red.png" id="11_a1qtk"]
-[ext_resource type="Texture2D" uid="uid://lonusv3j5ta0" path="res://Assets/Sprites/OptionsButton-RedNew.png" id="12_01rf7"]
 [ext_resource type="Texture2D" uid="uid://cuiw8ubruo0tj" path="res://Assets/Sprites/QuitButton-New_red.png" id="13_djmsw"]
 [ext_resource type="Texture2D" uid="uid://dung45pcokrpy" path="res://Assets/Sprites/LoadButton-New-Yellow.png" id="13_oi6mp"]
 [ext_resource type="Texture2D" uid="uid://db4lx3e1nmjc4" path="res://Assets/Sprites/LoadButton-New-Blue.png" id="14_cdcib"]
-[ext_resource type="Texture2D" uid="uid://6w83vthlks6x" path="res://Assets/Sprites/OptionsButton-New-Yellow.png" id="16_oi6mp"]
 [ext_resource type="Texture2D" uid="uid://db18rg2ypgww7" path="res://Assets/Sprites/QuitButton-New-Yellow.png" id="18_cdcib"]
+[ext_resource type="Theme" uid="uid://b7q8lce55nm7l" path="res://PauseTheme.tres" id="19_xmqk5"]
+[ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="20_3fahe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1kh1w"]
 atlas = ExtResource("4_3fahe")
@@ -93,6 +93,33 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_t53g2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1kh1w")
 }],
 "loop": true,
 "name": &"Blinking",
@@ -113,6 +140,12 @@ animations = [{
 "name": &"Mouth",
 "speed": 5.0
 }]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3fahe"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xmqk5"]
+draw_center = false
 
 [node name="TitleScreen" type="Node2D" unique_id=1954034356]
 script = ExtResource("1_cdcib")
@@ -171,10 +204,10 @@ scale = Vector2(5, 5)
 texture = ExtResource("9_arl2v")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1367620149]
-offset_left = 853.0
-offset_top = 271.0
-offset_right = 1317.0
-offset_bottom = 869.0
+offset_left = 921.0
+offset_top = 362.0
+offset_right = 1353.0
+offset_bottom = 828.6666
 scale = Vector2(0.6, 0.6)
 theme_override_constants/separation = 50
 
@@ -191,18 +224,73 @@ texture_hover = ExtResource("13_oi6mp")
 texture_disabled = ExtResource("14_cdcib")
 texture_focused = ExtResource("13_oi6mp")
 
-[node name="OptionsButton" type="TextureButton" parent="VBoxContainer" unique_id=1406563274]
-layout_mode = 2
-texture_normal = ExtResource("12_01rf7")
-texture_hover = ExtResource("16_oi6mp")
-texture_focused = ExtResource("16_oi6mp")
-
 [node name="QuitButton" type="TextureButton" parent="VBoxContainer" unique_id=772138761]
 layout_mode = 2
 texture_normal = ExtResource("13_djmsw")
 texture_hover = ExtResource("18_cdcib")
 texture_focused = ExtResource("18_cdcib")
 
+[node name="ConfirmText" type="Control" parent="." unique_id=635572820]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = 802.0
+offset_top = 3.0
+offset_right = 1152.0
+offset_bottom = 649.0
+
+[node name="ColorRect2" type="ColorRect" parent="ConfirmText" unique_id=1591755223]
+layout_mode = 0
+offset_left = 45.0
+offset_top = 247.0
+offset_right = 350.0
+offset_bottom = 645.0
+color = Color(0.8980392, 0.8784314, 0.8039216, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ConfirmText" unique_id=1977553345]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.10700001
+anchor_right = -0.10700001
+offset_left = 61.449997
+offset_top = 237.0
+offset_right = 361.45
+offset_bottom = 412.0
+theme = ExtResource("19_xmqk5")
+theme_override_colors/default_color = Color(0.8666667, 0.7764706, 0.47843137, 1)
+theme_override_constants/line_separation = 15
+text = "Overwrite a prior save?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Yes" type="Button" parent="ConfirmText" unique_id=743375334]
+layout_mode = 0
+offset_left = 68.0
+offset_top = 449.0
+offset_right = 172.0
+offset_bottom = 567.0
+theme = ExtResource("20_3fahe")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.5176471, 0.6, 0.68235296, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_3fahe")
+text = "YES"
+flat = true
+
+[node name="No" type="Button" parent="ConfirmText" unique_id=2138648619]
+layout_mode = 0
+offset_left = 213.0
+offset_top = 449.0
+offset_right = 293.0
+offset_bottom = 567.0
+theme = ExtResource("20_3fahe")
+theme_type_variation = &"FlatButton"
+theme_override_colors/font_color = Color(0.78431374, 0.5568628, 0.49411765, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_xmqk5")
+text = "NO"
+flat = true
+
 [connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/LoadButton" to="." method="_on_load_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="ConfirmText/Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="ConfirmText/No" to="." method="_on_no_pressed"]

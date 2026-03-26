@@ -36,11 +36,9 @@ func _process(delta: float) -> void:
 	
 	else:
 		if GameState.boss_active:
-			if zoom > boss_zoom:
-				zoom -= Vector2(.1,.1)
+			zoom = zoom.move_toward(boss_zoom, 0.05)
 		else:
-			if zoom < normal_zoom:
-				zoom += Vector2(.1,.1)
+			zoom = zoom.move_toward(normal_zoom, 0.05)
 		
 
 

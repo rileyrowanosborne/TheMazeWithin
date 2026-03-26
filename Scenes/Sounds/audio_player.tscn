@@ -12,14 +12,13 @@
 [ext_resource type="AudioStream" uid="uid://dvh5p0xk0trs5" path="res://Assets/Sounds/freesound_community-electric-gate-open-26892.mp3" id="10_2c5fb"]
 [ext_resource type="AudioStream" uid="uid://bbx14h04g7s6l" path="res://Assets/Sounds/freesound_community-female-choir-ambience-54296.mp3" id="11_d7oc4"]
 [ext_resource type="AudioStream" uid="uid://dgkwl3pp18xbs" path="res://Assets/Sounds/cusi_sound-sci-fi-synth-2-233554.mp3" id="12_tvddi"]
-[ext_resource type="AudioStream" uid="uid://b7jje1ur12heo" path="res://Assets/Sounds/Mysterious Queries nO hARDsYNTH.wav" id="13_0t6tm"]
 
 [node name="AudioPlayer" type="Node2D" unique_id=567523487]
 process_mode = 3
 
 [node name="AmbientNoisePlayer" type="AudioStreamPlayer2D" parent="." unique_id=1208163743]
 stream = ExtResource("1_238cj")
-volume_db = -23.372
+volume_db = -40.0
 autoplay = true
 bus = &"SFX"
 
@@ -27,82 +26,71 @@ bus = &"SFX"
 stream = ExtResource("3_046fp")
 volume_db = -16.533
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer2" parent="." unique_id=402403244 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("1_238cj")
 volume_db = -23.771
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer3" parent="." unique_id=1186311551 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("4_tvddi")
 volume_db = -12.628
 pitch_scale = 0.83
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer4" parent="." unique_id=1741023673 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("5_0t6tm")
 volume_db = -34.486
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer5" parent="." unique_id=1980884753 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("6_3n2vm")
 volume_db = -7.43
 pitch_scale = 0.4
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer6" parent="." unique_id=1659775692 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("7_1wqeo")
 volume_db = 2.228
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer7" parent="." unique_id=1864244865 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("8_3xihs")
 volume_db = -9.657
 pitch_scale = 0.35
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer8" parent="." unique_id=150056442 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("9_26ecm")
 volume_db = -16.881
 pitch_scale = 0.38
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer9" parent="." unique_id=216722866 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("10_2c5fb")
 volume_db = -7.429
 pitch_scale = 0.26
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer10" parent="." unique_id=1917796717 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("11_d7oc4")
 volume_db = -10.4
 pitch_scale = 0.69
 bus = &"SFX"
-starting_delay = 10
+starting_delay = 50
 
 [node name="RandomSoundPlayer11" parent="." unique_id=1223310099 instance=ExtResource("2_mf7qv")]
 stream = ExtResource("12_tvddi")
-volume_db = -23.771
+volume_db = -19.352
 pitch_scale = 0.8
 bus = &"SFX"
-starting_delay = 10
-
-[node name="RandomSoundPlayer12" parent="." unique_id=986259821 instance=ExtResource("2_mf7qv")]
-stream = ExtResource("13_0t6tm")
-volume_db = 11.885
-max_distance = 4096.0
-attenuation = 0.49999997
-max_polyphony = 10
-bus = &"Music"
-timer_delay = 0
-starting_delay = 10
-music_player = true
+starting_delay = 50

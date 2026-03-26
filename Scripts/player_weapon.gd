@@ -47,15 +47,15 @@ var on_cooldown : bool = false
 
 
 func _ready() -> void:
-	if GameState.current_weapon == GameState.weapon_types.golf_club:
+	if SaveLoad.contents_to_save.current_weapon == GameState.weapon_types.golf_club:
 		sprite_2d.sprite_frames = GOLF_CLUB_ANIMS
-	elif GameState.current_weapon == GameState.weapon_types.baseball_bat:
+	elif SaveLoad.contents_to_save.current_weapon == GameState.weapon_types.baseball_bat:
 		sprite_2d.sprite_frames = BASE_BALL_BAT_ANIMS
-	elif GameState.current_weapon == GameState.weapon_types.sword:
+	elif SaveLoad.contents_to_save.current_weapon == GameState.weapon_types.sword:
 		sprite_2d.sprite_frames = SWORD_ANIMS
-	elif GameState.current_weapon == GameState.weapon_types.pencil:
+	elif SaveLoad.contents_to_save.current_weapon == GameState.weapon_types.pencil:
 		sprite_2d.sprite_frames = PENCIL_ANIMS
-	elif GameState.current_weapon == GameState.weapon_types.spoon:
+	elif SaveLoad.contents_to_save.current_weapon== GameState.weapon_types.spoon:
 		sprite_2d.sprite_frames = SPOON_ANIMS
 	
 	

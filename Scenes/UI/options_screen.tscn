@@ -1,0 +1,234 @@
+[gd_scene format=3 uid="uid://b201ku46ycde8"]
+
+[ext_resource type="Script" uid="uid://dshsnbkfr0t0u" path="res://Scripts/options_screen.gd" id="1_ecfc1"]
+[ext_resource type="Texture2D" uid="uid://dup6u860f2vrl" path="res://Assets/Sprites/TheMindPalaceWithWindow.png" id="1_twksr"]
+[ext_resource type="Texture2D" uid="uid://qlrxeu7nrju4" path="res://Assets/Sprites/cRYSTALtILEsET2.png" id="2_15tsi"]
+[ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="2_c1qd6"]
+[ext_resource type="FontFile" uid="uid://2fdrvsepkwml" path="res://Assets/Fonts/alittlebit.ttf" id="3_c1qd6"]
+[ext_resource type="Theme" uid="uid://mqsgktjucht2" path="res://ButtonsTheme.tres" id="5_idmpt"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icqsp"]
+atlas = ExtResource("2_15tsi")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbuic"]
+atlas = ExtResource("2_15tsi")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1gci1"]
+atlas = ExtResource("2_15tsi")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rd54h"]
+atlas = ExtResource("2_15tsi")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pogdx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icqsp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbuic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbuic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbuic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1gci1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd54h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd54h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rd54h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="Theme" id="Theme_ecfc1"]
+default_font = ExtResource("3_c1qd6")
+default_font_size = 64
+
+[node name="OptionsScreen" type="Node2D" unique_id=1718058676]
+script = ExtResource("1_ecfc1")
+
+[node name="SkyColorRect" type="ColorRect" parent="." unique_id=1242969725]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.770903, 0.8475638, 0.9048, 1)
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=1516874056]
+position = Vector2(218, 182.00002)
+scale = Vector2(3.7, 3.7)
+sprite_frames = SubResource("SpriteFrames_pogdx")
+autoplay = "default"
+
+[node name="MindPalaceSprite" type="Sprite2D" parent="." unique_id=590938471]
+position = Vector2(215.00002, 235)
+scale = Vector2(3, 3)
+texture = ExtResource("1_twksr")
+region_rect = Rect2(22.6936, 0, 233.306, 256)
+
+[node name="Buttons" type="Control" parent="." unique_id=1060039981]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 541.0
+offset_top = 27.0
+offset_right = 1125.0
+offset_bottom = 622.0
+
+[node name="NoisesText" type="RichTextLabel" parent="." unique_id=1565829765]
+offset_left = 882.0
+offset_top = 27.0
+offset_right = 1078.0
+offset_bottom = 143.0
+theme = ExtResource("2_c1qd6")
+theme_override_colors/default_color = Color(0.8939506, 0.91373974, 0.48955792, 1)
+theme_override_colors/font_shadow_color = Color(0.6412587, 0.6548917, 0.20604056, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+text = "Noises"
+
+[node name="Master" type="CheckButton" parent="." unique_id=230728984]
+offset_left = 386.00003
+offset_top = 168.0
+offset_right = 488.00003
+offset_bottom = 204.0
+scale = Vector2(3, 3)
+focus_neighbor_left = NodePath("../Music")
+focus_neighbor_top = NodePath("../SFX")
+focus_neighbor_right = NodePath("../SFX")
+theme = ExtResource("5_idmpt")
+theme_override_colors/font_color = Color(0.89411765, 0.9137255, 0.49019608, 1)
+theme_override_colors/font_pressed_color = Color(0.59340155, 0.21358606, 0.1810703, 1)
+theme_override_colors/button_checked_color = Color(0.9777264, 0.116593115, 0, 1)
+theme_override_colors/button_unchecked_color = Color(0.89411765, 0.9137255, 0.49019608, 1)
+text = "Master"
+flat = true
+
+[node name="SFX" type="CheckButton" parent="." unique_id=908192716]
+offset_left = 613.0
+offset_top = 64.0
+offset_right = 685.0
+offset_bottom = 100.0
+scale = Vector2(3, 3)
+focus_neighbor_left = NodePath("../Master")
+focus_neighbor_right = NodePath("../Music")
+theme = ExtResource("5_idmpt")
+theme_override_colors/font_color = Color(0.89411765, 0.9137255, 0.49019608, 1)
+theme_override_colors/font_pressed_color = Color(0.59340155, 0.21358606, 0.1810703, 1)
+theme_override_colors/button_checked_color = Color(0.9777264, 0.116593115, 0, 1)
+theme_override_colors/button_unchecked_color = Color(0.89411765, 0.9137255, 0.49019608, 1)
+text = "SFX"
+flat = true
+
+[node name="Music" type="CheckButton" parent="." unique_id=736433367]
+offset_left = 799.00006
+offset_top = 150.0
+offset_right = 889.00006
+offset_bottom = 186.0
+scale = Vector2(3, 3)
+focus_neighbor_left = NodePath("../SFX")
+focus_neighbor_top = NodePath("../SFX")
+focus_neighbor_right = NodePath("../Master")
+theme = ExtResource("5_idmpt")
+theme_override_colors/font_color = Color(0.89411765, 0.9137255, 0.49019608, 1)
+theme_override_colors/font_pressed_color = Color(0.59340155, 0.21358606, 0.1810703, 1)
+theme_override_colors/button_checked_color = Color(0.9777264, 0.116593115, 0, 1)
+theme_override_colors/button_unchecked_color = Color(0.89411765, 0.9137255, 0.49019608, 1)
+text = "Music"
+flat = true
+
+[node name="Panel" type="Panel" parent="." unique_id=411006538]
+visible = false
+modulate = Color(0, 1, 1, 0.09411765)
+offset_left = 372.0
+offset_top = 292.0
+offset_right = 603.0
+offset_bottom = 613.0
+
+[node name="Panel2" type="Panel" parent="." unique_id=1968306810]
+visible = false
+modulate = Color(0, 1, 1, 0.09411765)
+offset_left = 635.0
+offset_top = 384.0
+offset_right = 896.0
+offset_bottom = 613.0
+
+[node name="Panel3" type="Panel" parent="." unique_id=557260019]
+visible = false
+modulate = Color(0, 1, 1, 0.09411765)
+offset_left = 929.0
+offset_top = 264.0
+offset_right = 1115.0
+offset_bottom = 613.0
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="." unique_id=1145970989]
+visible = false
+offset_left = 385.0
+offset_top = 305.0
+offset_right = 505.0
+offset_bottom = 420.0
+theme = SubResource("Theme_ecfc1")
+theme_override_colors/default_color = Color(0.8236042, 0.3434573, 0.43912762, 1)
+theme_override_colors/font_shadow_color = Color(0.3169657, 0.2684902, 0.3815788, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "Input
+Method"
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="." unique_id=1941008396]
+visible = false
+offset_left = 736.0
+offset_top = 394.0
+offset_right = 796.0
+offset_bottom = 453.0
+theme = SubResource("Theme_ecfc1")
+theme_override_colors/default_color = Color(0.8236042, 0.3434573, 0.43912762, 1)
+theme_override_colors/font_shadow_color = Color(0.3169657, 0.2684902, 0.3815788, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "SFX
+"
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="." unique_id=1890827585]
+visible = false
+offset_left = 1012.0
+offset_top = 272.0
+offset_right = 1106.0
+offset_bottom = 331.0
+theme = SubResource("Theme_ecfc1")
+theme_override_colors/default_color = Color(0.8236042, 0.3434573, 0.43912762, 1)
+theme_override_colors/font_shadow_color = Color(0.3169657, 0.2684902, 0.3815788, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+text = "Music
+"
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=1965407588]
+visible = false
+offset_left = 640.0
+offset_top = 279.0
+offset_right = 904.0
+offset_bottom = 395.0
+theme = ExtResource("2_c1qd6")
+theme_override_colors/default_color = Color(0.8939506, 0.91373974, 0.48955792, 1)
+theme_override_colors/font_shadow_color = Color(0.6412587, 0.6548917, 0.20604056, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+text = "Controls
+"
+
+[connection signal="toggled" from="Master" to="." method="_on_master_toggled"]
+[connection signal="toggled" from="SFX" to="." method="_on_sfx_toggled"]
+[connection signal="toggled" from="Music" to="." method="_on_music_toggled"]

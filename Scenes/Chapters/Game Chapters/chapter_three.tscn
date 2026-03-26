@@ -584,7 +584,7 @@ tile_set = SubResource("TileSet_exq2e")
 script = ExtResource("10_w6ife")
 
 [node name="Player" parent="." unique_id=485099542 instance=ExtResource("11_ibxrj")]
-position = Vector2(-281, 276)
+position = Vector2(248, -66)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=12526998]
 visible = false

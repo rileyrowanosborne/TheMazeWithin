@@ -3,7 +3,6 @@ extends Control
 
 
 @onready var resume_button: Button = $ResumeButton
-@onready var options_button: Button = $OptionsButton
 @onready var quit_button: Button = $QuitButton
 
 
@@ -13,22 +12,7 @@ func _ready() -> void:
 	SignalBus.connect("unpause_game",on_game_unpaused)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	
-	if resume_button.position.x < -230:
-		resume_button.position.x = 1160
-	
-	if quit_button.position.x < -230:
-		quit_button.position.x = 1160
-	
-	if options_button.position.x < -230:
-		options_button.position.x = 1160
-	
-	
-	resume_button.position.x -= 50 * delta
-	options_button.position.x -= 50 * delta
-	quit_button.position.x -= 50 * delta
+
 
 
 
