@@ -3,7 +3,9 @@ extends Control
 
 @onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
 @onready var player_shielded_icon: TextureRect = $PlayerShieldedIcon
+@onready var hit_anim: AnimatedSprite2D = $HitAnim
 
+@onready var low_hp: AnimatedSprite2D = $LowHP
 
 
 # Called when the node enters the scene tree for the first time.
@@ -15,6 +17,11 @@ func _ready() -> void:
 
 
 func on_player_hit():
+	
+	if GameState.player_is_invul:
+		print("Dodged")
+	else:
+		hit_anim.play("default") 
 	health_check()
 
 

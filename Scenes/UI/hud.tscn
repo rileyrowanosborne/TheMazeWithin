@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://dlhfl6emf0ylm" path="res://Assets/Sprites/Item-Shield.png" id="30_yxyk2"]
 [ext_resource type="Texture2D" uid="uid://bjtf2yeggi6tp" path="res://Assets/Sprites/Item-Dash.png" id="31_f1jpe"]
 [ext_resource type="Texture2D" uid="uid://dq7sdgsfhb2l3" path="res://Assets/Sprites/Item-MiniMe.png" id="32_mgdch"]
+[ext_resource type="Texture2D" uid="uid://ciujv2h7p6k35" path="res://Assets/Sprites/BloodSplatSpriteSheet.png" id="34_k32gu"]
 
 [sub_resource type="Animation" id="Animation_0hfmd"]
 resource_name = "Main"
@@ -186,6 +187,71 @@ default_font_size = 32
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f1jpe"]
 load_path = "res://.godot/imported/Brain.png-439be4c120cca924da206d779c695300.ctex"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_k32gu"]
+atlas = ExtResource("34_k32gu")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yl4g0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k32gu")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"Low HP",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yl4g0"]
+atlas = ExtResource("34_k32gu")
+region = Rect2(0, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q71jo"]
+atlas = ExtResource("34_k32gu")
+region = Rect2(2304, 0, 1152, 648)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jxctp"]
+atlas = ExtResource("34_k32gu")
+region = Rect2(1152, 0, 1152, 648)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_81d8i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": null
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl4g0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q71jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q71jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q71jo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jxctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yl4g0")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
 [sub_resource type="Theme" id="Theme_uidm2"]
 default_font = ExtResource("1_e0onf")
 default_font_size = 64
@@ -207,6 +273,7 @@ process_mode = 3
 script = ExtResource("1_fccik")
 
 [node name="PauseMenu" type="Control" parent="." unique_id=173331201]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1155.0
@@ -565,7 +632,6 @@ scale = Vector2(5, 5)
 texture = ExtResource("32_mgdch")
 
 [node name="IngameHud" type="Control" parent="." unique_id=485691671]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -576,6 +642,16 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("2_t1xeu")
+
+[node name="LowHP" type="AnimatedSprite2D" parent="IngameHud/HealthInfo" unique_id=1841678040]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_yl4g0")
+animation = &"Low HP"
+
+[node name="HitAnim" type="AnimatedSprite2D" parent="IngameHud/HealthInfo" unique_id=1683396315]
+position = Vector2(576, 324)
+sprite_frames = SubResource("SpriteFrames_81d8i")
 
 [node name="SpecialBar" type="TextureProgressBar" parent="IngameHud/HealthInfo" unique_id=2035558445]
 layout_mode = 0
