@@ -233,8 +233,9 @@ frame_progress = 1.0
 
 [node name="Woosh" type="AudioStreamPlayer2D" parent="." unique_id=1845568790]
 stream = ExtResource("5_af7t1")
-volume_db = -11.143
+volume_db = -15.0
 pitch_scale = 1.77
+bus = &"SFX"
 
 [node name="SwingIsChargedParticles" type="CPUParticles2D" parent="." unique_id=1838295540]
 position = Vector2(-3, -3)

@@ -238,11 +238,16 @@ position = Vector2(0, -17)
 
 [node name="HurtNoise" type="AudioStreamPlayer2D" parent="." unique_id=1499194330]
 stream = ExtResource("8_lju7u")
+volume_db = -10.0
+max_distance = 200.0
+attenuation = 0.4352752
 bus = &"SFX"
 
 [node name="HurtNoise2" type="AudioStreamPlayer2D" parent="." unique_id=24269064]
 stream = ExtResource("9_42b4m")
-volume_db = 5.2
+volume_db = -10.0
+max_distance = 200.0
+attenuation = 0.4352752
 bus = &"SFX"
 
 [node name="Spark" type="AnimatedSprite2D" parent="." unique_id=313543215]
@@ -269,9 +274,9 @@ sprite_frames = SubResource("SpriteFrames_r5svo")
 
 [node name="ShieldBreakAudio" type="AudioStreamPlayer2D" parent="." unique_id=841124569]
 stream = ExtResource("11_r5svo")
-volume_db = 1.0
-pitch_scale = 2.0
-max_polyphony = 10
+volume_db = -10.0
+max_distance = 200.0
+attenuation = 0.4352752
 bus = &"SFX"
 
 [connection signal="timeout" from="Timers/DamageTimer" to="." method="_on_damage_timer_timeout"]

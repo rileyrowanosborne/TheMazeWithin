@@ -17,15 +17,22 @@ pitch_scale = 0.6
 max_polyphony = 5
 bus = &"SFX"
 
+[node name="Death2" type="AudioStreamPlayer2D" parent="." unique_id=2030505698]
+stream = ExtResource("4_mre2e")
+volume_db = -11.886
+pitch_scale = 0.6
+max_polyphony = 5
+bus = &"SFX"
+
 [node name="Dodge" type="AudioStreamPlayer2D" parent="." unique_id=626204285]
 stream = ExtResource("3_g6isl")
-volume_db = -12.876
+volume_db = -10.0
 pitch_scale = 0.34
 max_polyphony = 3
 bus = &"SFX"
 
 [node name="HurtNoise" type="AudioStreamPlayer2D" parent="." unique_id=1792355004]
 stream = ExtResource("4_mre2e")
-volume_db = 5.943
+volume_db = -5.0
 max_polyphony = 3
 bus = &"SFX"

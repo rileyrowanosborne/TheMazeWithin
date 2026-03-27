@@ -19,7 +19,7 @@ one_shot = true
 
 [node name="FireSound" type="AudioStreamPlayer2D" parent="." unique_id=1829448913]
 stream = ExtResource("3_ebl0j")
-volume_db = -23.029
+volume_db = -15.0
 pitch_scale = 0.8
 max_distance = 150.0
 attenuation = 0.3535535

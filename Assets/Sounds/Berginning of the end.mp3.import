@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://tvvb2ow17jyt"
+path="res://.godot/imported/Berginning of the end.mp3-aa04987d93730ac6c1f248e6635cf819.mp3str"
+
+[deps]
+
+source_file="res://Assets/Sounds/Berginning of the end.mp3"
+dest_files=["res://.godot/imported/Berginning of the end.mp3-aa04987d93730ac6c1f248e6635cf819.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

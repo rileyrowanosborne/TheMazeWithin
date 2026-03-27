@@ -19,6 +19,7 @@ var random_number_picker : int
 
 
 @onready var death: AudioStreamPlayer2D = $Death
+@onready var death_2: AudioStreamPlayer2D = $Death2
 @onready var dodge: AudioStreamPlayer2D = $Dodge
 
 
@@ -69,6 +70,7 @@ func health_check():
 			if GameState.current_player_health <= min_health:
 				SignalBus.emit_signal("player_died")
 				death.play()
+				death_2.play()
 
 
 func spawn_cloud():

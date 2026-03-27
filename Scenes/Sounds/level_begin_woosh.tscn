@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b51ru7jtfpepa"]
+
+[ext_resource type="AudioStream" uid="uid://bmvydvy0l2k8o" path="res://Assets/Sounds/SmallWoosh.mp3" id="1_iyfwf"]
+
+[node name="LevelBeginWoosh" type="AudioStreamPlayer2D" unique_id=360362539]
+stream = ExtResource("1_iyfwf")

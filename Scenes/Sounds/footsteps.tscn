@@ -5,7 +5,7 @@
 
 [node name="Footsteps" type="AudioStreamPlayer2D" unique_id=316788415]
 stream = ExtResource("1_h02lj")
-volume_db = -15.0
+volume_db = -25.0
 pitch_scale = 2.5
 autoplay = true
 max_distance = 15.0

@@ -12,11 +12,13 @@ stream = ExtResource("2_vt8ty")
 volume_db = -9.646
 pitch_scale = 2.74
 autoplay = true
+bus = &"SFX"
 
 [node name="DeflectNoise2" type="AudioStreamPlayer2D" parent="." unique_id=722810604]
 stream = ExtResource("3_rtb7k")
 volume_db = -7.968
 pitch_scale = 2.58
 autoplay = true
+bus = &"SFX"
 
 [connection signal="finished" from="DeflectNoise" to="." method="_on_deflect_noise_finished"]

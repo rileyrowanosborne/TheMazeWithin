@@ -140,6 +140,7 @@ bus = &"SFX"
 stream = ExtResource("3_8n1lu")
 volume_db = -12.629
 pitch_scale = 1.63
+bus = &"SFX"
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]

@@ -189,10 +189,11 @@ one_shot = true
 
 [node name="FireSound" type="AudioStreamPlayer2D" parent="." unique_id=1829448913]
 stream = ExtResource("2_fc2p8")
-volume_db = -23.029
-pitch_scale = 0.8
+volume_db = 3.666
+pitch_scale = 0.3
 max_distance = 150.0
 attenuation = 0.3535535
+bus = &"SFX"
 
 [node name="CloudEmitter" type="CPUParticles2D" parent="." unique_id=2022770843]
 z_index = 5
