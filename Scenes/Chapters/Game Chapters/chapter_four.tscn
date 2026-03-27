@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="14_ldt4b"]
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="14_wn0ym"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/Environment + NPCs/spleep_hole.tscn" id="15_3uakb"]
+[ext_resource type="PackedScene" uid="uid://b51ru7jtfpepa" path="res://Scenes/Sounds/level_begin_woosh.tscn" id="15_8nl6p"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_dxyxo"]
 [ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="17_34st2"]
 [ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/Enemies/circle_enemy.tscn" id="18_ttyy5"]
@@ -573,6 +574,7 @@ normal_spawn = Vector2(552, 806)
 checkpoint_spawn = Vector2(420, -102)
 level_boss = ExtResource("2_xn4bs")
 total_level_spleep_holes = 4
+floor_enemy_cap = 10
 
 [node name="MainTiles" type="TileMapLayer" parent="." unique_id=1197682666]
 modulate = Color(0.958233, 0.88368, 0.931973, 1)
@@ -686,5 +688,8 @@ tile_set = SubResource("TileSet_8nl6p")
 [node name="PreviousLevelDoor" parent="." unique_id=696931999 instance=ExtResource("14_ldt4b")]
 position = Vector2(552, 792)
 chapter = 4
+
+[node name="LevelBeginWoosh" parent="." unique_id=360362539 instance=ExtResource("15_8nl6p")]
+autoplay = true
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

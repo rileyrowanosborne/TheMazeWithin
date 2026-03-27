@@ -99,6 +99,7 @@ func open_door():
 		GameState.chapter_three_door_open = true
 		SaveLoad.contents_to_save.chapter_three_completed = true
 	elif current_level == 4:
+		SignalBus.emit_signal("you_win")
 		GameState.chapter_four_door_open = true
 		SaveLoad.contents_to_save.chapter_four_completed = true
 

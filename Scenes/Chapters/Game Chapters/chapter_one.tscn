@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://bbaqv1c523qrd" path="res://Assets/Sprites/BossSpawnIcon2.png" id="14_ub4ti"]
 [ext_resource type="PackedScene" uid="uid://bedalb2fhi1qt" path="res://Scenes/Environment + NPCs/crystal_shard.tscn" id="14_uocvk"]
 [ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="15_kd1eg"]
+[ext_resource type="PackedScene" uid="uid://b51ru7jtfpepa" path="res://Scenes/Sounds/level_begin_woosh.tscn" id="16_8s8na"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_qljol"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="18_ub4ti"]
 
@@ -586,10 +587,10 @@ script = ExtResource("9_qljol")
 
 [node name="MiniQuork" parent="." unique_id=714081183 instance=ExtResource("12_1j8nb")]
 z_as_relative = false
-position = Vector2(495, 56)
+position = Vector2(-96, 54)
 
 [node name="Player" parent="." unique_id=554147121 instance=ExtResource("11_annyx")]
-position = Vector2(85, 5)
+position = Vector2(87, -802)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=276414016]
 visible = false
@@ -662,5 +663,8 @@ initial_fire_rate_delay = 1.5
 position = Vector2(481, 329)
 direction = Vector2(0, -1)
 initial_fire_rate_delay = 0.5
+
+[node name="LevelBeginWoosh" parent="." unique_id=360362539 instance=ExtResource("16_8s8na")]
+autoplay = true
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

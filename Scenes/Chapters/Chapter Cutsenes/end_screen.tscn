@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bsahmn5utl3sd"]
+
+[ext_resource type="Script" uid="uid://b8foliyv7ksgp" path="res://Scripts/end_screen.gd" id="1_g4gsf"]
+[ext_resource type="Theme" uid="uid://bnm76p0djd4dx" path="res://Assets/Resources/big_red_text_theme.tres" id="1_lsnys"]
+
+[node name="EndScreen" type="Node2D" unique_id=1500226258]
+script = ExtResource("1_g4gsf")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1570432375]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.898039, 0.878431, 0.803922, 1)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1170430991]
+offset_left = 59.0
+offset_top = -25.0
+offset_right = 1066.0
+offset_bottom = 547.0
+theme = ExtResource("1_lsnys")
+theme_override_colors/default_color = Color(0.47890478, 0.54426426, 0.6617823, 1)
+theme_override_colors/font_shadow_color = Color(0.15980038, 0.21049717, 0.42372453, 1)
+theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
+theme_override_font_sizes/normal_font_size = 256
+text = "THANK YOU FOR PLAYING!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="." unique_id=949421869]
+offset_left = 69.0
+offset_top = 471.0
+offset_right = 1085.0
+offset_bottom = 617.0
+theme = ExtResource("1_lsnys")
+theme_override_colors/default_color = Color(0.86143947, 0.35424677, 0.33059523, 1)
+theme_override_colors/font_shadow_color = Color(0.49425316, 0.15620905, 0.14713821, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_font_sizes/normal_font_size = 64
+text = "IF YOU LIKED IT PLEASE LET ME KNOW. IF YOU DID NOT LIKE IT PLEASE DO NOT LET ME KNOW!"
+horizontal_alignment = 1
+vertical_alignment = 1

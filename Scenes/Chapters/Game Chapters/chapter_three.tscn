@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://b187imi7j3b47" path="res://Scenes/Enemies/enemy_launcher.tscn" id="16_gwu4a"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_w6ife"]
 [ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="17_t2m5r"]
+[ext_resource type="PackedScene" uid="uid://b51ru7jtfpepa" path="res://Scenes/Sounds/level_begin_woosh.tscn" id="18_v2x3r"]
 [ext_resource type="PackedScene" uid="uid://blkf056a2gm3j" path="res://Scenes/Components/previous_level_door.tscn" id="19_d0hoc"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="20_6emj7"]
 
@@ -687,6 +688,72 @@ position = Vector2(157, 400)
 [node name="SawBlade9" parent="Saws" unique_id=7244569 instance=ExtResource("16_w6ife")]
 position = Vector2(129, 94)
 
+[node name="SawBlade11" parent="Saws" unique_id=1198000354 instance=ExtResource("16_w6ife")]
+position = Vector2(224, 56)
+
+[node name="SawBlade12" parent="Saws" unique_id=1666256815 instance=ExtResource("16_w6ife")]
+position = Vector2(426, 175)
+
+[node name="SawBlade13" parent="Saws" unique_id=661468826 instance=ExtResource("16_w6ife")]
+position = Vector2(389, 175)
+
+[node name="SawBlade15" parent="Saws" unique_id=1710314803 instance=ExtResource("16_w6ife")]
+position = Vector2(98, 371)
+
+[node name="SawBlade16" parent="Saws" unique_id=934504771 instance=ExtResource("16_w6ife")]
+position = Vector2(61, 444)
+
+[node name="SawBlade17" parent="Saws" unique_id=2112549562 instance=ExtResource("16_w6ife")]
+position = Vector2(96, 501)
+
+[node name="SawBlade18" parent="Saws" unique_id=373186291 instance=ExtResource("16_w6ife")]
+position = Vector2(-449, 78)
+
+[node name="SawBlade19" parent="Saws" unique_id=1911688595 instance=ExtResource("16_w6ife")]
+position = Vector2(-303, 36)
+
+[node name="SawBlade20" parent="Saws" unique_id=119858514 instance=ExtResource("16_w6ife")]
+position = Vector2(-320, 112)
+
+[node name="SawBlade21" parent="Saws" unique_id=1262884911 instance=ExtResource("16_w6ife")]
+position = Vector2(-302, -150)
+
+[node name="SawBlade22" parent="Saws" unique_id=1069242174 instance=ExtResource("16_w6ife")]
+position = Vector2(-48, -342)
+
+[node name="SawBlade23" parent="Saws" unique_id=562116320 instance=ExtResource("16_w6ife")]
+position = Vector2(33, -342)
+
+[node name="SawBlade24" parent="Saws" unique_id=574971144 instance=ExtResource("16_w6ife")]
+position = Vector2(-7, -385)
+
+[node name="SawBlade25" parent="Saws" unique_id=552189542 instance=ExtResource("16_w6ife")]
+position = Vector2(-155, -544)
+
+[node name="SawBlade26" parent="Saws" unique_id=630339517 instance=ExtResource("16_w6ife")]
+position = Vector2(-246, -545)
+
+[node name="SawBlade27" parent="Saws" unique_id=1948589696 instance=ExtResource("16_w6ife")]
+position = Vector2(116, -224)
+
+[node name="SawBlade28" parent="Saws" unique_id=673003215 instance=ExtResource("16_w6ife")]
+position = Vector2(480, 33)
+
+[node name="SawBlade29" parent="Saws" unique_id=1544935357 instance=ExtResource("16_w6ife")]
+position = Vector2(481, 122)
+
+[node name="SawBlade30" parent="Saws" unique_id=849935279 instance=ExtResource("16_w6ife")]
+position = Vector2(316, 545)
+
+[node name="SawBlade31" parent="Saws" unique_id=383847047 instance=ExtResource("16_w6ife")]
+position = Vector2(426, 545)
+
+[node name="SawBlade32" parent="Saws" unique_id=737594816 instance=ExtResource("16_w6ife")]
+position = Vector2(219, 468)
+
+[node name="SawBlade14" parent="Saws" unique_id=1335475821 instance=ExtResource("16_w6ife")]
+position = Vector2(352, 175)
+
 [node name="SawBlade10" parent="Saws" unique_id=414269525 instance=ExtResource("16_w6ife")]
 position = Vector2(98, -32)
 
@@ -775,5 +842,8 @@ spawn_delay = 5.0
 
 [node name="CrystalShard" parent="." unique_id=1656156115 instance=ExtResource("8_t2m5r")]
 position = Vector2(616, 495)
+
+[node name="LevelBeginWoosh" parent="." unique_id=360362539 instance=ExtResource("18_v2x3r")]
+autoplay = true
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

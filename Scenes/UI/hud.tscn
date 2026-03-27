@@ -831,6 +831,10 @@ offset_bottom = 40.0
 [node name="MushoomEatingCutscene" parent="IngameHud/InGameCutscenes" unique_id=2136428375 instance=ExtResource("14_mt778")]
 visible = false
 
+[node name="WinTimer" type="Timer" parent="." unique_id=1355081661]
+wait_time = 3.0
+one_shot = true
+
 [connection signal="pressed" from="PauseMenu/Buttons/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="PauseMenu/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="PauseMenu/WeponSelect" to="." method="_on_wepon_select_pressed"]
@@ -841,3 +845,4 @@ visible = false
 [connection signal="timeout" from="IngameHud/BossScreenText/CrystalTimer" to="." method="_on_crystal_timer_timeout"]
 [connection signal="timeout" from="IngameHud/PlayerDiedText/DeathTextTimer" to="." method="_on_death_text_timer_timeout"]
 [connection signal="timeout" from="IngameHud/Dialogue/MushroomTimer" to="IngameHud/Dialogue" method="_on_mushroom_timer_timeout"]
+[connection signal="timeout" from="WinTimer" to="." method="_on_win_timer_timeout"]

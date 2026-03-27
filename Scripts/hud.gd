@@ -5,6 +5,7 @@ extends CanvasLayer
 @onready var boss_text_timer: Timer = $IngameHud/BossScreenText/BossTextTimer
 @onready var level_change_timer: Timer = $IngameHud/BossScreenText/LevelChangeTimer
 @onready var door_text: RichTextLabel = $IngameHud/BossScreenText/DoorText
+@onready var win_timer: Timer = $WinTimer
 
 
 @onready var player_died_text: Control = $IngameHud/PlayerDiedText
@@ -44,6 +45,8 @@ func on_level_boss_died():
 	level_change_timer.start()
 	boss_entered_text.visible = true
 	boss_entered_text.text = "A STRONG ENEMY HAS FALLEN"
+	if SaveLoad.contents_to_save.current_chapter == 4:
+		win_timer.start()
 
 
 func _on_level_change_timer_timeout() -> void:
@@ -105,3 +108,7 @@ func _on_crystal_timer_timeout() -> void:
 
 func _on_wepon_select_pressed() -> void:
 	SignalBus.emit_signal("unpause_game")
+
+
+func _on_win_timer_timeout() -> void:
+	get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chaos_screen.tscn")

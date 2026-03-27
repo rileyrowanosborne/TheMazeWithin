@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://d1jfwllgae285"]
+[gd_scene format=3 uid="uid://d1jfwllgae285"]
 
 [ext_resource type="Script" uid="uid://bkl2iyx0uos6r" path="res://Scripts/chapter_one_cutscene.gd" id="1_acy4x"]
 [ext_resource type="Texture2D" uid="uid://dagt201len3u5" path="res://Assets/Sprites/BaseFaceSprite.png" id="2_hhval"]
@@ -289,15 +289,15 @@ animations = [{
 default_font = ExtResource("7_4s6nt")
 default_font_size = 128
 
-[node name="ChapterOneCutscene" type="Node2D"]
+[node name="ChapterOneCutscene" type="Node2D" unique_id=793475765]
 script = ExtResource("1_acy4x")
 
-[node name="ColorRect2" type="ColorRect" parent="."]
+[node name="ColorRect2" type="ColorRect" parent="." unique_id=414954090]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.241565, 0.319785, 0.476562, 1)
 
-[node name="EyesAnim" type="AnimatedSprite2D" parent="."]
+[node name="EyesAnim" type="AnimatedSprite2D" parent="." unique_id=723645156]
 top_level = true
 light_mask = 0
 position = Vector2(555, 328)
@@ -306,7 +306,7 @@ sprite_frames = SubResource("SpriteFrames_acy4x")
 animation = &"Blinking"
 autoplay = "Blinking"
 
-[node name="MouthAnim" type="AnimatedSprite2D" parent="."]
+[node name="MouthAnim" type="AnimatedSprite2D" parent="." unique_id=891829622]
 top_level = true
 light_mask = 0
 position = Vector2(555, 324)
@@ -315,32 +315,32 @@ sprite_frames = SubResource("SpriteFrames_eusqj")
 animation = &"Talking"
 autoplay = "Talking"
 
-[node name="BaseFace" type="Sprite2D" parent="."]
+[node name="BaseFace" type="Sprite2D" parent="." unique_id=1812116630]
 light_mask = 0
 position = Vector2(555, 328)
 scale = Vector2(5, 5)
 texture = ExtResource("2_hhval")
 
-[node name="Hair" type="Sprite2D" parent="."]
+[node name="Hair" type="Sprite2D" parent="." unique_id=1603102396]
 light_mask = 0
 position = Vector2(555, 328)
 scale = Vector2(5, 5)
 texture = ExtResource("3_eusqj")
 
-[node name="ChangeSceneTimer" type="Timer" parent="."]
+[node name="ChangeSceneTimer" type="Timer" parent="." unique_id=1817548681]
 one_shot = true
 
-[node name="Monologue" type="AudioStreamPlayer2D" parent="."]
+[node name="Monologue" type="AudioStreamPlayer2D" parent="." unique_id=1935585372]
 stream = ExtResource("6_1e1gq")
 
-[node name="CutsceneText" type="Control" parent="."]
+[node name="CutsceneText" type="Control" parent="." unique_id=399025226]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 1152.0
 offset_bottom = 648.0
 theme = SubResource("Theme_2s38o")
 
-[node name="IText" type="RichTextLabel" parent="CutsceneText"]
+[node name="IText" type="RichTextLabel" parent="CutsceneText" unique_id=1930877609]
 visible = false
 layout_mode = 0
 offset_left = 12.0
@@ -349,13 +349,13 @@ offset_right = 126.0
 offset_bottom = 166.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = " I"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="AmText" type="RichTextLabel" parent="CutsceneText"]
+[node name="AmText" type="RichTextLabel" parent="CutsceneText" unique_id=417537756]
 visible = false
 layout_mode = 0
 offset_left = 165.0
@@ -364,13 +364,13 @@ offset_right = 340.0
 offset_bottom = 167.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = " AM"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EveryoneText" type="RichTextLabel" parent="CutsceneText"]
+[node name="EveryoneText" type="RichTextLabel" parent="CutsceneText" unique_id=1878956805]
 visible = false
 layout_mode = 0
 offset_left = 675.0
@@ -379,13 +379,13 @@ offset_right = 1159.0
 offset_bottom = 170.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "EVERYONE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="IText2" type="RichTextLabel" parent="CutsceneText"]
+[node name="IText2" type="RichTextLabel" parent="CutsceneText" unique_id=1788133322]
 visible = false
 layout_mode = 0
 offset_left = 123.0
@@ -394,13 +394,13 @@ offset_right = 207.0
 offset_bottom = 371.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "I"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HaveText" type="RichTextLabel" parent="CutsceneText"]
+[node name="HaveText" type="RichTextLabel" parent="CutsceneText" unique_id=1302097100]
 visible = false
 layout_mode = 0
 offset_left = 839.0
@@ -409,13 +409,13 @@ offset_right = 1131.0
 offset_bottom = 376.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "HAVE"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="EverText" type="RichTextLabel" parent="CutsceneText"]
+[node name="EverText" type="RichTextLabel" parent="CutsceneText" unique_id=2073240304]
 visible = false
 layout_mode = 0
 offset_left = 36.0
@@ -424,13 +424,13 @@ offset_right = 315.0
 offset_bottom = 596.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "EVER"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="LovedText" type="RichTextLabel" parent="CutsceneText"]
+[node name="LovedText" type="RichTextLabel" parent="CutsceneText" unique_id=729616205]
 visible = false
 layout_mode = 0
 offset_left = 830.0
@@ -439,13 +439,13 @@ offset_right = 1130.0
 offset_bottom = 587.0
 theme_override_colors/default_color = Color(0.820351, 0.707921, 0.353618, 1)
 theme_override_colors/font_shadow_color = Color(0.501954, 0.41428, 0.0585762, 1)
-theme_override_constants/shadow_offset_y = 5
 theme_override_constants/shadow_offset_x = 5
+theme_override_constants/shadow_offset_y = 5
 text = "LOVED"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextTimer" type="Timer" parent="."]
+[node name="TextTimer" type="Timer" parent="." unique_id=1978539835]
 wait_time = 0.4
 one_shot = true
 

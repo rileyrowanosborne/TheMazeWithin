@@ -25,4 +25,4 @@ func _on_windows_animation_finished() -> void:
 
 
 func _on_end_timer_timeout() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_four.tscn")

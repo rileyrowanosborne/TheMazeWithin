@@ -29,7 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://b8eu55pmsmpln" path="res://Assets/Sprites/UpgradeAnimForeGround.png" id="27_ur3l4"]
 [ext_resource type="Texture2D" uid="uid://cvdjmt216x1x8" path="res://Assets/Sprites/UpgradeAnimBackGround.png" id="28_2ahak"]
 [ext_resource type="AudioStream" uid="uid://de4uh4h0e7chg" path="res://Assets/Sounds/Upgrade Woosh.mp3" id="29_2ahak"]
-[ext_resource type="PackedScene" uid="uid://b51ru7jtfpepa" path="res://Scenes/Sounds/level_begin_woosh.tscn" id="30_rukb4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fkybt"]
 radius = 2.0
@@ -862,14 +861,12 @@ volume_db = -15.0
 bus = &"SFX"
 
 [node name="UpgradeTimer" type="Timer" parent="." unique_id=1948775244]
-wait_time = 5.0
+wait_time = 4.5
 one_shot = true
 
 [node name="UpgradeNoise" type="AudioStreamPlayer2D" parent="." unique_id=618625496]
 stream = ExtResource("29_2ahak")
 bus = &"SFX"
-
-[node name="LevelBeginWoosh" parent="." unique_id=360362539 instance=ExtResource("30_rukb4")]
 
 [connection signal="frame_changed" from="Sprite" to="Sprite" method="_on_frame_changed"]
 [connection signal="timeout" from="DashTimer" to="." method="_on_dash_timer_timeout"]

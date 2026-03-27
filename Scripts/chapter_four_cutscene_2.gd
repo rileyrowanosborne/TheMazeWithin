@@ -9,5 +9,5 @@ func _ready() -> void:
 
 
 func _on_change_scene_timer_timeout() -> void:
-	pass
+	get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_one.tscn")
 	
