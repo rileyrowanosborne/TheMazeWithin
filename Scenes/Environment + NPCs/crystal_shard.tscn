@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://wybmwq3a54r5" path="res://Scripts/crystal_shard.gd" id="1_l82rg"]
 [ext_resource type="Texture2D" uid="uid://qlrxeu7nrju4" path="res://Assets/Sprites/cRYSTALtILEsET2.png" id="2_2hui8"]
 [ext_resource type="Texture2D" uid="uid://dum1cosdii0o7" path="res://Assets/Sprites/SparkAnim-Sheet.png" id="3_2hui8"]
+[ext_resource type="AudioStream" uid="uid://ca8pay6kevluo" path="res://Assets/Sounds/ShieldBreak.wav" id="4_7o1b7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7o1b7"]
 atlas = ExtResource("2_2hui8")
@@ -373,5 +374,9 @@ scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_mkc5u")
 frame = 6
 frame_progress = 1.0
+
+[node name="CrunchNoise" type="AudioStreamPlayer2D" parent="." unique_id=880799485]
+stream = ExtResource("4_7o1b7")
+volume_db = -20.0
 
 [connection signal="animation_finished" from="ShardAnims" to="." method="_on_shard_anims_animation_finished"]

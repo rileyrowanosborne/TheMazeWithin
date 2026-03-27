@@ -1,9 +1,6 @@
 extends Node2D
 
-
-@onready var shield_break_timer: Timer = $ShieldBreakTimer
 @onready var shield_segment_sprite: AnimatedSprite2D = $Hurtbox/ShieldSegmentSprite
-@onready var shield_break: AudioStreamPlayer2D = $ShieldBreak
 
 
 func _ready() -> void:
@@ -12,11 +9,11 @@ func _ready() -> void:
 
 
 func take_damage():
-	shield_break.play()
 	shield_segment_sprite.play("Hit")
 	get_parent().is_hittable = true
-	shield_break_timer.start()
+	get_parent().shield_break()
 
 
-func _on_shield_break_timer_timeout() -> void:
-	queue_free()
+func _on_shield_segment_sprite_animation_finished() -> void:
+	if shield_segment_sprite.animation == "Hit":
+		queue_free()

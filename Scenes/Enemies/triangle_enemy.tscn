@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://dx6hw1e5dab2q" path="res://Scenes/Enemies/triangle_shield_segment.tscn" id="5_28wd8"]
 [ext_resource type="AudioStream" uid="uid://cikptbvd24kyn" path="res://Assets/Sounds/BoneCrunch.wav" id="8_52ndy"]
 [ext_resource type="AudioStream" uid="uid://bolrjvoektlma" path="res://Assets/Sounds/EnemyHit.wav" id="9_xucii"]
+[ext_resource type="Texture2D" uid="uid://dum1cosdii0o7" path="res://Assets/Sprites/SparkAnim-Sheet.png" id="10_xucii"]
+[ext_resource type="AudioStream" uid="uid://ca8pay6kevluo" path="res://Assets/Sounds/ShieldBreak.wav" id="11_57r70"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntdtf"]
 atlas = ExtResource("2_m2jwi")
@@ -54,6 +56,63 @@ animations = [{
 [sub_resource type="Curve" id="Curve_ntdtf"]
 _data = [Vector2(0.0162602, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.36039, 0.0, 0, 0]
 point_count = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vt74f"]
+atlas = ExtResource("10_xucii")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bir7"]
+atlas = ExtResource("10_xucii")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hj3hb"]
+atlas = ExtResource("10_xucii")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk5xk"]
+atlas = ExtResource("10_xucii")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_628ic"]
+atlas = ExtResource("10_xucii")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4nkv0"]
+atlas = ExtResource("10_xucii")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gep11"]
+atlas = ExtResource("10_xucii")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_57r70"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vt74f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bir7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hj3hb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vk5xk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_628ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4nkv0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gep11")
+}],
+"loop": false,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="TriangleEnemy" type="CharacterBody2D" unique_id=359370211]
 z_index = 3
@@ -172,6 +231,35 @@ bus = &"SFX"
 [node name="HurtNoise2" type="AudioStreamPlayer2D" parent="." unique_id=254832530]
 stream = ExtResource("9_xucii")
 volume_db = 5.2
+bus = &"SFX"
+
+[node name="Spark" type="AnimatedSprite2D" parent="." unique_id=563383622]
+modulate = Color(0.4705574, 0.24943048, 0.23124719, 1)
+position = Vector2(-10, -11)
+sprite_frames = SubResource("SpriteFrames_57r70")
+
+[node name="Spark4" type="AnimatedSprite2D" parent="." unique_id=1082982508]
+modulate = Color(0.4705574, 0.24943048, 0.23124719, 1)
+position = Vector2(8, 7)
+sprite_frames = SubResource("SpriteFrames_57r70")
+
+[node name="Spark2" type="AnimatedSprite2D" parent="." unique_id=1623108110]
+modulate = Color(0.4705574, 0.24943048, 0.23124719, 1)
+position = Vector2(10, -6)
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_57r70")
+
+[node name="Spark3" type="AnimatedSprite2D" parent="." unique_id=738599538]
+modulate = Color(0.4705574, 0.24943048, 0.23124719, 1)
+position = Vector2(-5, 4)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_57r70")
+
+[node name="ShieldBreakAudio" type="AudioStreamPlayer2D" parent="." unique_id=35632864]
+stream = ExtResource("11_57r70")
+volume_db = 1.0
+pitch_scale = 2.0
+max_polyphony = 10
 bus = &"SFX"
 
 [connection signal="timeout" from="Timers/DeathTimer" to="." method="_on_death_timer_timeout"]

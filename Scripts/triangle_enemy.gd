@@ -5,6 +5,16 @@ extends CharacterBody2D
 @onready var death_particles: CPUParticles2D = $DeathParticles
 
 
+#shield break nodes
+@onready var spark: AnimatedSprite2D = $Spark
+@onready var spark_4: AnimatedSprite2D = $Spark4
+@onready var spark_2: AnimatedSprite2D = $Spark2
+@onready var spark_3: AnimatedSprite2D = $Spark3
+@onready var shield_break_audio: AudioStreamPlayer2D = $ShieldBreakAudio
+
+
+
+
 #raycast nodes
 @onready var ray_cast_left: RayCast2D = $RayCasts/RayCastLeft
 @onready var ray_cast_left_2: RayCast2D = $RayCasts/RayCastLeft2
@@ -148,6 +158,15 @@ func spawn_blood_splat(world_location : Vector2):
 		var blood_splat_instance = blood_splat_scene.instantiate()
 		get_tree().current_scene.call_deferred("add_child", blood_splat_instance)
 		blood_splat_instance.global_position = world_location
+
+
+func shield_break():
+	shield_break_audio.play()
+	spark.play("default")
+	spark_2.play("default")
+	spark_3.play("default")
+	spark_4.play("default")
+
 
 
 func on_player_died():

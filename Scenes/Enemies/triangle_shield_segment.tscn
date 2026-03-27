@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cojx43xbxlxsp" path="res://Scripts/triangle_shield_segment.gd" id="1_x87x7"]
 [ext_resource type="PackedScene" uid="uid://b4r3004pbyfho" path="res://Scenes/Components/hurtbox.tscn" id="2_dmowt"]
 [ext_resource type="Texture2D" uid="uid://b0f866g7skykh" path="res://Assets/Sprites/TriangleShieldLayer-Sheet.png" id="3_x87x7"]
-[ext_resource type="AudioStream" uid="uid://ca8pay6kevluo" path="res://Assets/Sounds/ShieldBreak.wav" id="4_sqllk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x87x7"]
 atlas = ExtResource("3_x87x7")
@@ -32,6 +31,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_tfg35")
+}, {
+"duration": 1.0,
+"texture": null
 }],
 "loop": false,
 "name": &"Hit",
@@ -58,17 +60,7 @@ polygon = PackedVector2Array(0, 2, 19, 35, -19, 35)
 [node name="ShieldSegmentSprite" type="AnimatedSprite2D" parent="Hurtbox" unique_id=1089991321]
 position = Vector2(0, 21)
 sprite_frames = SubResource("SpriteFrames_pmsx3")
-animation = &"Idle"
+animation = &"Hit"
 autoplay = "Idle"
 
-[node name="ShieldBreakTimer" type="Timer" parent="." unique_id=1409325456]
-wait_time = 0.5
-one_shot = true
-
-[node name="ShieldBreak" type="AudioStreamPlayer2D" parent="." unique_id=2143254118]
-stream = ExtResource("4_sqllk")
-volume_db = -7.924
-pitch_scale = 1.72
-bus = &"SFX"
-
-[connection signal="timeout" from="ShieldBreakTimer" to="." method="_on_shield_break_timer_timeout"]
+[connection signal="animation_finished" from="Hurtbox/ShieldSegmentSprite" to="." method="_on_shield_segment_sprite_animation_finished"]

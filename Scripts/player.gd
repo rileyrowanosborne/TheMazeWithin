@@ -33,6 +33,11 @@ var in_range_of_interactable : bool = false
 @onready var dash_woosh_3: AnimatedSprite2D = $DashWoosh3
 @onready var upgrade_back_anim: AnimatedSprite2D = $UpgradeBackAnim
 @onready var upgrade_fore_anim: AnimatedSprite2D = $UpgradeForeAnim
+@onready var upgrade_timer: Timer = $UpgradeTimer
+@onready var upgrade_noise: AudioStreamPlayer2D = $UpgradeNoise
+@onready var upgrade_noise_2: AudioStreamPlayer2D = $UpgradeNoise2
+@onready var upgrade_noise_3: AudioStreamPlayer2D = $UpgradeNoise3
+@onready var upgrade_noise_4: AudioStreamPlayer2D = $UpgradeNoise4
 
 
 
@@ -220,5 +225,15 @@ func _on_special_decay_timer_timeout() -> void:
 
 
 func on_crystal_break():
-	upgrade_back_anim.play("default")
-	upgrade_fore_anim.play("default")
+	upgrade_timer.start()
+	upgrade_noise.play()
+	upgrade_noise_2.play()
+	upgrade_noise_3.play()
+	upgrade_noise_4.play()
+	upgrade_back_anim.play("On")
+	upgrade_fore_anim.play("On")
+
+
+func _on_upgrade_timer_timeout() -> void:
+	upgrade_back_anim.play("Off")
+	upgrade_fore_anim.play("Off")

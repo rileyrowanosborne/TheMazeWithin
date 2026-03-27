@@ -15,6 +15,7 @@ extends RigidBody2D
 @onready var spark_4: AnimatedSprite2D = $Spark4
 @onready var spark_5: AnimatedSprite2D = $Spark5
 @onready var spark_6: AnimatedSprite2D = $Spark6
+@onready var crunch_noise: AudioStreamPlayer2D = $CrunchNoise
 
 
 
@@ -38,12 +39,15 @@ func health_check():
 		
 
 func hit_sparks():
+	crunch_noise.play(.25)
 	spark.play("default")
 	spark_2.play("default")
 	spark_3.play("default")
 	
 
 func break_sparks():
+	crunch_noise.play(.25)
+	crunch_noise.pitch_scale = .5
 	spark_4.play("default")
 	spark_5.play("default")
 	spark_6.play("default")
