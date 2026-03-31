@@ -30,6 +30,13 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	
+	
+	if event.is_action_pressed("Menu Select"):
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_four.tscn")
+
+	
+	
+	
 	if event.is_action_pressed("Talk"):
 		mouth_anim.play("Talking")
 	

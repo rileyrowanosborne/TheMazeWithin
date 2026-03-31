@@ -7,9 +7,10 @@ func _ready() -> void:
 	change_scene_timer.start()
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Menu Select"):
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_one.tscn")
 
 
 func _on_change_scene_timer_timeout() -> void:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://3om8drwlp48e"]
+[gd_scene format=3 uid="uid://3om8drwlp48e"]
 
 [ext_resource type="Script" uid="uid://dbdkf37xwoy3t" path="res://Scripts/chapter_two_cutscene.gd" id="1_tfahh"]
 [ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_sla7g"]
@@ -171,15 +171,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="ChapterTwoCutscene" type="Node2D"]
+[node name="ChapterTwoCutscene" type="Node2D" unique_id=1715115701]
 script = ExtResource("1_tfahh")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=831510996]
 offset_right = 1152.0
 offset_bottom = 648.0
 color = Color(0.439216, 0.156863, 0.156863, 1)
 
-[node name="EyesAnim" type="AnimatedSprite2D" parent="."]
+[node name="EyesAnim" type="AnimatedSprite2D" parent="." unique_id=1063651996]
 top_level = true
 light_mask = 0
 position = Vector2(555, 328)
@@ -190,7 +190,7 @@ autoplay = "Blinking"
 frame = 6
 frame_progress = 1.0
 
-[node name="MouthAnim" type="AnimatedSprite2D" parent="."]
+[node name="MouthAnim" type="AnimatedSprite2D" parent="." unique_id=1773636029]
 top_level = true
 light_mask = 0
 position = Vector2(555, 328)
@@ -200,16 +200,16 @@ animation = &"Talking"
 autoplay = "Idle"
 frame_progress = 0.12218
 
-[node name="ChangeSceneTimer" type="Timer" parent="."]
+[node name="ChangeSceneTimer" type="Timer" parent="." unique_id=124688356]
 one_shot = true
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Head" type="Sprite2D" parent="." unique_id=1945404487]
 modulate = Color(0.980845, 0.915252, 0.955309, 1)
 position = Vector2(555, 328)
 scale = Vector2(5, 5)
 texture = ExtResource("4_88q4o")
 
-[node name="Hair" type="Sprite2D" parent="."]
+[node name="Hair" type="Sprite2D" parent="." unique_id=2018362170]
 position = Vector2(555, 329)
 scale = Vector2(5, 5)
 texture = ExtResource("5_tfahh")

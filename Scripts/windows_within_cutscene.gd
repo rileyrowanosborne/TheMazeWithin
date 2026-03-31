@@ -24,5 +24,10 @@ func _on_windows_animation_finished() -> void:
 	
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Menu Select"):
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_four.tscn")
+
+
 func _on_end_timer_timeout() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Chapters/Game Chapters/chapter_four.tscn")

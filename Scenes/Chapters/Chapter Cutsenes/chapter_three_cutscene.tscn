@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bicx6ny1mdsqa"]
+[gd_scene format=3 uid="uid://bicx6ny1mdsqa"]
 
 [ext_resource type="Script" uid="uid://gc2p78x10uuc" path="res://Scripts/chapter_three_cutscene.gd" id="1_adopb"]
 [ext_resource type="Texture2D" uid="uid://86kurkxescni" path="res://Assets/Sprites/Eyes-SpriteSheet.png" id="2_u8nsy"]
@@ -138,16 +138,16 @@ animations = [{
 "speed": 10.0
 }]
 
-[node name="ChapterThreeCutscene" type="Node2D"]
+[node name="ChapterThreeCutscene" type="Node2D" unique_id=1778843651]
 script = ExtResource("1_adopb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1543502086]
 offset_top = 2.0
 offset_right = 1152.0
 offset_bottom = 650.0
 color = Color(0.313664, 0.442634, 0.677106, 1)
 
-[node name="EyesAnim" type="AnimatedSprite2D" parent="."]
+[node name="EyesAnim" type="AnimatedSprite2D" parent="." unique_id=663021855]
 top_level = true
 light_mask = 0
 position = Vector2(555, 325)
@@ -157,27 +157,27 @@ autoplay = "default"
 frame = 1
 frame_progress = 0.777958
 
-[node name="MouthAnim" type="AnimatedSprite2D" parent="."]
+[node name="MouthAnim" type="AnimatedSprite2D" parent="." unique_id=179188078]
 top_level = true
 light_mask = 0
 position = Vector2(555, 324)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_gd0hy")
 
-[node name="Head" type="Sprite2D" parent="."]
+[node name="Head" type="Sprite2D" parent="." unique_id=1245084190]
 modulate = Color(0.980845, 0.915252, 0.955309, 1)
 position = Vector2(555, 324)
 scale = Vector2(5, 5)
 texture = ExtResource("4_w3ay6")
 
-[node name="Hair" type="AnimatedSprite2D" parent="."]
+[node name="Hair" type="AnimatedSprite2D" parent="." unique_id=766671614]
 position = Vector2(555, 324)
 scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_u8nsy")
 animation = &"Hair Rotation"
 autoplay = "Hair Rotation"
 
-[node name="ChangeSceneTimer" type="Timer" parent="."]
+[node name="ChangeSceneTimer" type="Timer" parent="." unique_id=1073738978]
 one_shot = true
 
 [connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]
