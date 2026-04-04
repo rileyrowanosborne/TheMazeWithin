@@ -584,7 +584,7 @@ tile_set = SubResource("TileSet_exq2e")
 script = ExtResource("11_tmaev")
 
 [node name="Player" parent="." unique_id=1152078630 instance=ExtResource("12_4jgko")]
-position = Vector2(-219, 134)
+position = Vector2(552, 808)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319524048]
 visible = false
@@ -658,20 +658,11 @@ position = Vector2(32, 81)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=747091143]
 
-[node name="CircleEnemy3" parent="Enemies" unique_id=1149841438 instance=ExtResource("18_ttyy5")]
-position = Vector2(246, -526)
-
 [node name="SquareEnemy" parent="Enemies" unique_id=152336990 instance=ExtResource("17_34st2")]
 position = Vector2(-110, 4)
 
 [node name="SquareEnemy2" parent="Enemies" unique_id=622977360 instance=ExtResource("17_34st2")]
 position = Vector2(29, 26)
-
-[node name="CircleEnemy" parent="Enemies" unique_id=1574059348 instance=ExtResource("18_ttyy5")]
-position = Vector2(102, -415)
-
-[node name="CircleEnemy2" parent="Enemies" unique_id=2000834737 instance=ExtResource("18_ttyy5")]
-position = Vector2(392, -396)
 
 [node name="TriangleEnemy" parent="Enemies" unique_id=405975826 instance=ExtResource("19_e0rx7")]
 position = Vector2(-106, -126)

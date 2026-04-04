@@ -16,7 +16,7 @@ func _ready() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Menu Select"):
+	if event.is_action_pressed("Menu Select") or event.is_action_pressed("Swing"):
 		text_progress += 1
 		update_text()
 

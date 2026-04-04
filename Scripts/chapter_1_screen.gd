@@ -40,11 +40,11 @@ func _on_change_scene_timer_timeout() -> void:
 	if SaveLoad.contents_to_save.current_chapter == 1:
 		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_four_cutscene.tscn")
 	elif SaveLoad.contents_to_save.current_chapter == 2:
-		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_two_cutscene.tscn")
-	elif SaveLoad.contents_to_save.current_chapter == 3:
 		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_three_cutscene.tscn")
+	elif SaveLoad.contents_to_save.current_chapter == 3:
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chapter_one_cutscene.tscn")
 	elif SaveLoad.contents_to_save.current_chapter == 4:
-		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/windows_within_cutscene.tscn")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/cut_scene_high_res_face.tscn")
 
 	
 
@@ -59,13 +59,13 @@ func _on_the_boy_timer_timeout() -> void:
 		$ChangeSceneTimer.start()
 		
 	elif GameState.current_chapter == 2:
-		$RichTextLabel.text = "HER"
-		$ChangeSceneTimer.start()
-		
-	elif GameState.current_chapter == 3:
 		$RichTextLabel.text = "HIS PAST"
 		$ChangeSceneTimer.start()
 		
-	elif GameState.current_chapter == 4:
+	elif GameState.current_chapter == 3:
 		$RichTextLabel.text = "HIS FUTURE"
+		$ChangeSceneTimer.start()
+		
+	elif GameState.current_chapter == 4:
+		$RichTextLabel.text = "EVERYTHING NOW"
 		$ChangeSceneTimer.start()

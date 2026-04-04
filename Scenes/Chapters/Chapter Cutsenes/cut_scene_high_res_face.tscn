@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bnjrlq45ftmlc"]
 
+[ext_resource type="Script" uid="uid://bnrso2svie08" path="res://Scripts/cut_scene_high_res_face.gd" id="1_3pii3"]
 [ext_resource type="Texture2D" uid="uid://bxnt4sbdyqh6s" path="res://Assets/Sprites/HighResFace-Sheet.png" id="1_h8k1p"]
 [ext_resource type="Texture2D" uid="uid://dwbexseh6w33q" path="res://Assets/Resources/radial_sphere_resource.tres" id="2_cs7pk"]
 [ext_resource type="Script" uid="uid://dqus83fbooxte" path="res://Scripts/parallax_background.gd" id="3_vqmke"]
@@ -76,6 +77,7 @@ animations = [{
 }]
 
 [node name="CutScene-HighResFace" type="Node2D" unique_id=1301260319]
+script = ExtResource("1_3pii3")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=894970016]
 position = Vector2(577, 302)
@@ -117,3 +119,9 @@ repeat_size = Vector2(3072, 0)
 modulate = Color(0.68307734, 0.6830774, 0.68307734, 1)
 position = Vector2(199, -140)
 texture = ExtResource("1_h8k1p")
+
+[node name="ChangeSceneTimer" type="Timer" parent="." unique_id=1026010001]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="ChangeSceneTimer" to="." method="_on_change_scene_timer_timeout"]

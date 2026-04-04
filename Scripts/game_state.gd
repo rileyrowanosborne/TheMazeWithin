@@ -80,7 +80,7 @@ var controller_active : bool = false
 
 
 
-var current_weapon : weapon_types
+var current_weapon : weapon_types = weapon_types.baseball_bat
 
 enum weapon_types {
 	golf_club,

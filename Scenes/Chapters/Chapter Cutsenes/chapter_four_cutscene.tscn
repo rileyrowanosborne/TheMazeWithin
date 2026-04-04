@@ -805,7 +805,7 @@ libraries/ = SubResource("AnimationLibrary_hh4f6")
 autoplay = &"MindPalace"
 
 [node name="BrainLayer" type="Node2D" parent="." unique_id=103014837]
-position = Vector2(555, 324)
+position = Vector2(555, 328)
 
 [node name="BrainSprite" type="Sprite2D" parent="BrainLayer" unique_id=1379246702]
 scale = Vector2(5, 5)
@@ -816,7 +816,7 @@ libraries/ = SubResource("AnimationLibrary_ne3ve")
 autoplay = &"Opaque"
 
 [node name="SkeletonLayer" type="Node2D" parent="." unique_id=592282786]
-position = Vector2(555, 324)
+position = Vector2(555, 328)
 
 [node name="SkeletonSprite" type="Sprite2D" parent="SkeletonLayer" unique_id=44876874]
 scale = Vector2(5, 5)
@@ -827,7 +827,7 @@ libraries/ = SubResource("AnimationLibrary_h7y3r")
 autoplay = &"Opaque"
 
 [node name="FleshLayer" type="Node2D" parent="." unique_id=1989182349]
-position = Vector2(555, 324)
+position = Vector2(555, 328)
 
 [node name="BodySprite" type="Sprite2D" parent="FleshLayer" unique_id=460649382]
 scale = Vector2(5, 5)

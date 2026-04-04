@@ -3,12 +3,12 @@
 importer="mp3"
 type="AudioStreamMP3"
 uid="uid://ip552doxsnm3"
-path="res://.godot/imported/crunch:bonk2.mp3-110cfe9653a987986b430b703f8fd1f6.mp3str"
+path="res://.godot/imported/crunchBonk2.mp3-a6a0808db764ed5f93ec68de7d791853.mp3str"
 
 [deps]
 
-source_file="res://Assets/Sounds/crunch:bonk2.mp3"
-dest_files=["res://.godot/imported/crunch:bonk2.mp3-110cfe9653a987986b430b703f8fd1f6.mp3str"]
+source_file="res://Assets/Sounds/crunchBonk2.mp3"
+dest_files=["res://.godot/imported/crunchBonk2.mp3-a6a0808db764ed5f93ec68de7d791853.mp3str"]
 
 [params]
 
