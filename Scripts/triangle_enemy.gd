@@ -123,6 +123,15 @@ func die():
 	
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("Testing"):
+		if is_shooting:
+			is_shooting = false
+			print("Testing Mode: ON")
+		elif not is_shooting:
+			is_shooting = true
+			print("Testing Mode: OFF")
+
 
 func _on_death_timer_timeout() -> void:
 	if SaveLoad.contents_to_save.mini_me == true:

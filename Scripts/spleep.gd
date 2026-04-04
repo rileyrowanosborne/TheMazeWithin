@@ -29,7 +29,6 @@ const SPLOTCH = preload("uid://cigyj1brbslug")
 @onready var lauched_timer: Timer = $LauchedTimer
 @onready var slow_down_timer: Timer = $SlowDownTimer
 @onready var direction_cooldown_timer: Timer = $DirectionCooldownTimer
-@onready var pop: AudioStreamPlayer2D = $Pop
 
 
 @onready var cpu_particles_2d: CPUParticles2D = $CPUParticles2D
@@ -128,8 +127,9 @@ func apply_facing_impulse(strength):
 	splotch_sounds.play()
 	classic_splotch.play()
 	if not is_in_spleep_hole:
-		var player_aim = GameState.player_aim_dir
-		var deflect_direction_vector = player_aim.normalized()
+		var player_position = GameState.player_position
+		var projectile_position = global_position
+		var deflect_direction_vector = (projectile_position - player_position).normalized()
 		velocity = deflect_direction_vector * (strength * 1.1)
 		lauched_timer.start()
 		is_launched = true
@@ -149,7 +149,6 @@ func _on_lauched_timer_timeout() -> void:
 func trapped_in_a_hole():
 	is_in_spleep_hole = true
 	cpu_particles_2d.emitting = true
-	pop.play()
 
 
 func _on_slow_down_timer_timeout() -> void:

@@ -569,6 +569,7 @@ sources/0 = SubResource("TileSetAtlasSource_cydy7")
 [node name="ChapterTwo" type="Node2D" unique_id=1656812687]
 z_as_relative = false
 y_sort_enabled = true
+position = Vector2(157, 151)
 script = ExtResource("1_mvp4d")
 chapter_seed = 1947982880
 boss_location = Vector2(-660, 140)

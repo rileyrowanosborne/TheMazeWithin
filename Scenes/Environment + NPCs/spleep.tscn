@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ctyo0sx40hogm" path="res://Assets/Sprites/LittleSpleep-Sheet.png" id="1_l4tmf"]
 [ext_resource type="Script" uid="uid://gadc8dkqre3o" path="res://Scripts/spleep.gd" id="1_s6gym"]
 [ext_resource type="AudioStream" uid="uid://cigyj1brbslug" path="res://Assets/Sounds/freesound_community-various-mushy-impacts-or-wet-splats-70685.wav" id="3_8n1lu"]
-[ext_resource type="AudioStream" uid="uid://dh06yc637k8t6" path="res://Assets/Sounds/freesound_community-cartoon-slurp-37066.mp3" id="4_c77xp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_smvmp"]
 atlas = ExtResource("1_l4tmf")
@@ -142,11 +141,6 @@ stream = ExtResource("3_8n1lu")
 volume_db = -12.629
 pitch_scale = 1.63
 bus = &"SFX"
-
-[node name="Pop" type="AudioStreamPlayer2D" parent="." unique_id=659482191]
-stream = ExtResource("4_c77xp")
-volume_db = -10.0
-pitch_scale = 0.8
 
 [connection signal="timeout" from="CooldownTimer" to="." method="_on_cooldown_timer_timeout"]
 [connection signal="timeout" from="LauchedTimer" to="." method="_on_lauched_timer_timeout"]
