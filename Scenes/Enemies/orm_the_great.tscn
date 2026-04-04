@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://c8v275flby13h"]
+[gd_scene format=3 uid="uid://c8v275flby13h"]
 
 [ext_resource type="Script" uid="uid://baadgjkbnhumd" path="res://Scripts/orm_the_great.gd" id="1_t3g87"]
 [ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/Enemies/circle_enemy.tscn" id="2_af5t1"]
@@ -189,7 +189,7 @@ animations = [{
 "speed": 8.0
 }]
 
-[node name="OrmTheGreat" type="CharacterBody2D"]
+[node name="OrmTheGreat" type="CharacterBody2D" unique_id=1850219942]
 z_index = 4
 z_as_relative = false
 collision_layer = 8
@@ -200,68 +200,66 @@ square_scene = ExtResource("3_ifyp3")
 triangle_scene = ExtResource("4_dcyh1")
 blood_splat_scene = ExtResource("5_ifyp3")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="." unique_id=738703798]
 position = Vector2(-18, -3)
 rotation = 0.651008
 shape = SubResource("CapsuleShape2D_qomld")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="." unique_id=1089810509]
 position = Vector2(17, -2.99999)
 rotation = -0.790634
 shape = SubResource("CapsuleShape2D_t3g87")
 
-[node name="Hurtbox" parent="." instance=ExtResource("2_qomld")]
+[node name="Hurtbox" parent="." unique_id=930195733 instance=ExtResource("2_qomld")]
 position = Vector2(0, -12)
 collision_layer = 8
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=1816653888]
 position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_dsmmw")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Hurtbox" unique_id=1257887279]
 position = Vector2(-18, 9)
 rotation = 0.651008
 shape = SubResource("CapsuleShape2D_qomld")
 
-[node name="CollisionShape2D5" type="CollisionShape2D" parent="Hurtbox"]
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Hurtbox" unique_id=1306625317]
 position = Vector2(17, 9)
 rotation = -0.790634
 shape = SubResource("CapsuleShape2D_t3g87")
 
-[node name="BodyAnimSprite" type="AnimatedSprite2D" parent="."]
+[node name="BodyAnimSprite" type="AnimatedSprite2D" parent="." unique_id=2068862816]
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_t3g87")
 animation = &"Hit"
 autoplay = "Idle"
 
-[node name="Heads" type="Node2D" parent="."]
+[node name="Heads" type="Node2D" parent="." unique_id=46788682]
 position = Vector2(0, 12)
 
-[node name="OrmHead" parent="Heads" instance=ExtResource("4_6p7oy")]
+[node name="OrmHead" parent="Heads" unique_id=1325840180 instance=ExtResource("4_6p7oy")]
 position = Vector2(-19, -50)
 
-[node name="OrmHead2" parent="Heads" instance=ExtResource("4_6p7oy")]
+[node name="OrmHead2" parent="Heads" unique_id=479375393 instance=ExtResource("4_6p7oy")]
 position = Vector2(20, -38)
 left_or_right = true
 
-[node name="HeadAnims" type="AnimationPlayer" parent="Heads"]
-libraries = {
-&"": SubResource("AnimationLibrary_upkus")
-}
+[node name="HeadAnims" type="AnimationPlayer" parent="Heads" unique_id=1312095319]
+libraries/ = SubResource("AnimationLibrary_upkus")
 
-[node name="AttackCooldownTimer" type="Timer" parent="."]
+[node name="AttackCooldownTimer" type="Timer" parent="." unique_id=2095533471]
 wait_time = 3.0
 one_shot = true
 
-[node name="DamageTimer" type="Timer" parent="."]
+[node name="DamageTimer" type="Timer" parent="." unique_id=988765959]
 wait_time = 0.3
 one_shot = true
 
-[node name="DeathTimer" type="Timer" parent="."]
+[node name="DeathTimer" type="Timer" parent="." unique_id=201382067]
 one_shot = true
 
-[node name="DeathParticles" type="CPUParticles2D" parent="."]
+[node name="DeathParticles" type="CPUParticles2D" parent="." unique_id=684683327]
 position = Vector2(0, 12)
 emitting = false
 one_shot = true
@@ -279,7 +277,8 @@ scale_amount_max = 3.0
 scale_amount_curve = SubResource("Curve_af5t1")
 color = Color(0.845341, 0.000162417, 0.0440511, 1)
 
-[node name="AuraAnimSprite" type="AnimatedSprite2D" parent="."]
+[node name="AuraAnimSprite" type="AnimatedSprite2D" parent="." unique_id=1787182885]
+modulate = Color(1, 1, 1, 0.57254905)
 position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_dfxdt")
 

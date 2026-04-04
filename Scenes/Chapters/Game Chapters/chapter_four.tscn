@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://56fqyfth3mcb" path="res://Scenes/Environment + NPCs/spleep.tscn" id="14_wn0ym"]
 [ext_resource type="PackedScene" uid="uid://bt5vndfifpj4k" path="res://Scenes/Environment + NPCs/spleep_hole.tscn" id="15_3uakb"]
 [ext_resource type="PackedScene" uid="uid://b51ru7jtfpepa" path="res://Scenes/Sounds/level_begin_woosh.tscn" id="15_8nl6p"]
+[ext_resource type="Script" uid="uid://bq7qubhha8rua" path="res://Scripts/boss_goons.gd" id="16_c66b1"]
 [ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_dxyxo"]
 [ext_resource type="PackedScene" uid="uid://1puix00mhy8b" path="res://Scenes/Enemies/square_enemy.tscn" id="17_34st2"]
 [ext_resource type="PackedScene" uid="uid://gx2xsw3jx37o" path="res://Scenes/Enemies/circle_enemy.tscn" id="18_ttyy5"]
@@ -571,7 +572,7 @@ boss_location = Vector2(241, -400)
 boss_health = 30
 current_level = 4
 normal_spawn = Vector2(552, 806)
-checkpoint_spawn = Vector2(420, -102)
+checkpoint_spawn = Vector2(90, -150)
 level_boss = ExtResource("2_xn4bs")
 total_level_spleep_holes = 4
 floor_enemy_cap = 10
@@ -583,7 +584,7 @@ tile_set = SubResource("TileSet_exq2e")
 script = ExtResource("11_tmaev")
 
 [node name="Player" parent="." unique_id=1152078630 instance=ExtResource("12_4jgko")]
-position = Vector2(552, 813)
+position = Vector2(-219, 134)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=319524048]
 visible = false
@@ -615,7 +616,7 @@ position = Vector2(-79, -124)
 position = Vector2(245, -182)
 
 [node name="Spleep9" parent="Sleeps" unique_id=1267319494 instance=ExtResource("14_wn0ym")]
-position = Vector2(234, -226)
+position = Vector2(342, -156)
 
 [node name="Spleep4" parent="Sleeps" unique_id=2135377260 instance=ExtResource("14_wn0ym")]
 position = Vector2(291, -170)
@@ -657,17 +658,14 @@ position = Vector2(32, 81)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=747091143]
 
+[node name="CircleEnemy3" parent="Enemies" unique_id=1149841438 instance=ExtResource("18_ttyy5")]
+position = Vector2(246, -526)
+
 [node name="SquareEnemy" parent="Enemies" unique_id=152336990 instance=ExtResource("17_34st2")]
 position = Vector2(-110, 4)
 
 [node name="SquareEnemy2" parent="Enemies" unique_id=622977360 instance=ExtResource("17_34st2")]
 position = Vector2(29, 26)
-
-[node name="SquareEnemy3" parent="Enemies" unique_id=1251512692 instance=ExtResource("17_34st2")]
-position = Vector2(476, -300)
-
-[node name="SquareEnemy4" parent="Enemies" unique_id=985674189 instance=ExtResource("17_34st2")]
-position = Vector2(244, -537)
 
 [node name="CircleEnemy" parent="Enemies" unique_id=1574059348 instance=ExtResource("18_ttyy5")]
 position = Vector2(102, -415)
@@ -691,5 +689,10 @@ chapter = 4
 
 [node name="LevelBeginWoosh" parent="." unique_id=360362539 instance=ExtResource("15_8nl6p")]
 autoplay = true
+
+[node name="Boss Goons" type="Node2D" parent="." unique_id=1346480444]
+position = Vector2(237, -401)
+script = ExtResource("16_c66b1")
+circle_scene = ExtResource("18_ttyy5")
 
 [connection signal="timeout" from="BossSpawningWarningTimer" to="." method="_on_boss_spawning_warning_timer_timeout"]

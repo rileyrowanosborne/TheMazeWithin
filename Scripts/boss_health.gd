@@ -10,6 +10,7 @@ func _ready() -> void:
 	SignalBus.connect("spawn_level_boss", on_level_boss_spawned)
 	SignalBus.connect("level_boss_died", on_level_boss_died)
 	SignalBus.connect("orm_phase_change", on_orm_phase_change)
+	SignalBus.connect("orm_reset", on_orm_reset)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -34,6 +35,8 @@ func on_level_boss_died():
 	visible = false
 
 
+func on_orm_reset():
+	boss_title_text.text = "Orm, the Great"
 
 func on_orm_phase_change():
 	boss_title_text.text = "Orm, the Great Defiler"

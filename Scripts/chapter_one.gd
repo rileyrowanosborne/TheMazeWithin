@@ -47,6 +47,7 @@ func _ready() -> void:
 	SignalBus.connect("player_respawn", respawn_player)
 	SignalBus.connect("crystal_break", on_crystal_break)
 	
+	
 	GameState.current_boss_health = boss_health
 	GameState.current_floor_boss_max_health = boss_health
 	GameState.current_chapter = current_level
@@ -127,6 +128,10 @@ func respawn_player():
 		begin_boss_spawning()
 	else:
 		player.global_position = normal_spawn
+
+
+
+
 
 
 func on_crystal_break():

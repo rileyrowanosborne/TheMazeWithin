@@ -40,7 +40,10 @@ var is_hittable : bool = true
 
 
 func _ready() -> void:
+	GameState.total_boss_enemies = 0
+	GameState.orm_current_phase = 1
 	add_to_group("Enemy")
+	SignalBus.emit_signal("orm_reset")
 	current_health = max_health
 	attack_cooldown_timer.start(attack_cooldown_lenth)
 

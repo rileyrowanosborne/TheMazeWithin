@@ -10,6 +10,7 @@ signal player_respawn
 signal enemy_hit
 signal enemy_died(spawner_id)
 signal you_win
+signal orm_reset
 
 
 

@@ -733,9 +733,6 @@ position = Vector2(-155, -544)
 [node name="SawBlade26" parent="Saws" unique_id=630339517 instance=ExtResource("16_w6ife")]
 position = Vector2(-246, -545)
 
-[node name="SawBlade27" parent="Saws" unique_id=1948589696 instance=ExtResource("16_w6ife")]
-position = Vector2(116, -224)
-
 [node name="SawBlade28" parent="Saws" unique_id=673003215 instance=ExtResource("16_w6ife")]
 position = Vector2(480, 33)
 
@@ -786,9 +783,6 @@ is_world_launcher = true
 position = Vector2(-312, 72)
 direction = Vector2(-1, 0)
 is_world_launcher = true
-
-[node name="SawBladeLauncher" parent="Launchers" unique_id=1384301299 instance=ExtResource("17_t2m5r")]
-position = Vector2(45, -224)
 
 [node name="SawBladeLauncher2" parent="Launchers" unique_id=578560659 instance=ExtResource("17_t2m5r")]
 position = Vector2(-311, 346)
