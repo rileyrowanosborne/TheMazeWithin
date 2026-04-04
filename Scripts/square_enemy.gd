@@ -146,16 +146,6 @@ func _on_death_timer_timeout() -> void:
 
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Testing"):
-		if is_shooting:
-			is_shooting = false
-			print("Testing Mode: ON")
-		elif not is_shooting:
-			is_shooting = true
-			print("Testing Mode: OFF")
-
-
 
 func spawn_blood_splat(world_location : Vector2):
 	if blood_splat_scene:
