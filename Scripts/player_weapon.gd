@@ -90,37 +90,32 @@ func _process(delta: float) -> void:
 		on_cooldown = true
 			
 			
-		
-	aim_direction = Input.get_vector("Aim Left","Aim Right","Aim Up", "Aim Down", JOY_DEADZONE)
 	
-
+	if GameState.controller_active:
+		aim_direction = Input.get_vector("Aim Left","Aim Right","Aim Up", "Aim Down", JOY_DEADZONE)
+	else: 
+		aim_direction = (get_global_mouse_position() - GameState.player_position).normalized()
 	
-	if aim_direction.length() > JOY_DEADZONE:
-		rotation = aim_direction.angle()
-		GameState.player_aim_dir = aim_direction
-		
-	
-	if aim_direction != Vector2(0,0):
-		charging = true
-		$SwingHitBox/Cursor.visible = true
-	
+	if GameState.controller_active:
+		if aim_direction.length() > JOY_DEADZONE:
+			rotation = aim_direction.angle()
 	else:
-		swing()
-		$SwingHitBox/Cursor.visible = false
-
-
-func _input(event: InputEvent) -> void:
+		rotation = aim_direction.angle()
+	GameState.player_aim_dir = aim_direction
 	
-	if event.is_action_pressed("Swing"):
-		charging = true
-		
-		if not is_charged:
-			sprite_2d.play("Charging")
-		
-	
-	
-	if Input.is_action_just_released("Swing"):
-		swing()
+	if GameState.controller_active:
+		if aim_direction != Vector2(0,0):
+			charging = true
+			$SwingHitBox/Cursor.visible = true
+		else:
+			swing()
+			$SwingHitBox/Cursor.visible = false
+	else:
+		$SwingHitBox/Cursor.visible = true
+		if Input.is_action_pressed("Swing"):
+			charging = true
+		else:
+			swing()
 
 
 func _on_swing_timer_timeout() -> void:

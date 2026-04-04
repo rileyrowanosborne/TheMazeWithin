@@ -76,6 +76,9 @@ var ability_dash : bool = false
 var ability_shield : bool = false
 var ability_super : bool = false
 
+var controller_active : bool = false
+
+
 
 var current_weapon : weapon_types
 
