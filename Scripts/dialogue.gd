@@ -21,7 +21,7 @@ func show_dialogue():
 	
 	
 	if GameState.current_dialogue == "Quork":
-		dialogue_text.text = "Hmmm, find the secrete crystal you say? You are seriously my kind of dude."
+		dialogue_text.text = "Hmmm, find the secret crystal you say? You are seriously my kind of dude."
 	elif GameState.current_dialogue == "Mushroom":
 		dialogue_text.text = "Hmmmm... I prolly shouldn't have eaten that... Was that an old man?"
 		mushroom_timer.start()

@@ -614,7 +614,16 @@ position = Vector2(-96, -33)
 position = Vector2(78, -90)
 
 [node name="Spleep3" parent="Spleeps" unique_id=1569635470 instance=ExtResource("13_uy8y0")]
-position = Vector2(72, -7)
+position = Vector2(55, -60)
+
+[node name="Spleep4" parent="Spleeps" unique_id=508731667 instance=ExtResource("13_uy8y0")]
+position = Vector2(2, -90)
+
+[node name="Spleep5" parent="Spleeps" unique_id=559773428 instance=ExtResource("13_uy8y0")]
+position = Vector2(-162, -34)
+
+[node name="Spleep6" parent="Spleeps" unique_id=1521047044 instance=ExtResource("13_uy8y0")]
+position = Vector2(-194, 19)
 
 [node name="Saws" type="Node2D" parent="." unique_id=308582452]
 
@@ -668,7 +677,7 @@ position = Vector2(-663, 140)
 enemy_scene = ExtResource("2_mvp4d")
 
 [node name="EnemyLauncher2" parent="." unique_id=845725180 instance=ExtResource("14_jarec")]
-position = Vector2(-764, -629)
+position = Vector2(-158, -9)
 enemy_scene = ExtResource("2_mvp4d")
 
 [node name="Launchers" type="Node2D" parent="." unique_id=893156446]

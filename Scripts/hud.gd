@@ -16,6 +16,16 @@ extends CanvasLayer
 
 @onready var crystal_timer: Timer = $IngameHud/BossScreenText/CrystalTimer
 
+
+
+var mini_me_chomp_text : String = "CONSUME THYSELF"
+var dash_text : String = "BE ONE WITH THE WIND"
+var shield_text : String = "BLESSED WITH THE STRENGTH OF A GOD"
+var ability_text :String = "YOU SHALL HARNESS THE POWER OF THE SUN"
+
+
+
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	SignalBus.connect("begin_boss_spawning", begin_boss_spawning)
@@ -100,7 +110,14 @@ func _on_quit_button_pressed() -> void:
 func on_crystal_break():
 	crystal_timer.start()
 	boss_entered_text.visible = true
-	boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED"
+	if SaveLoad.contents_to_save.current_chapter == 1:
+		boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED - " + str(mini_me_chomp_text)
+	elif SaveLoad.contents_to_save.current_chapter == 2:
+		boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED - " + str(dash_text)
+	elif SaveLoad.contents_to_save.current_chapter == 3:
+		boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED - " + str(shield_text)
+	elif SaveLoad.contents_to_save.current_chapter == 4:
+		boss_entered_text.text = "A STRANGE CRYSTAL HAS BEEN SHATTERED - " + str(ability_text)
 
 func _on_crystal_timer_timeout() -> void:
 	boss_entered_text.visible = false

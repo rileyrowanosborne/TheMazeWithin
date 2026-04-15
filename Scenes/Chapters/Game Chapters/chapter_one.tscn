@@ -14,7 +14,6 @@
 [ext_resource type="PackedScene" uid="uid://bedalb2fhi1qt" path="res://Scenes/Environment + NPCs/crystal_shard.tscn" id="14_uocvk"]
 [ext_resource type="PackedScene" uid="uid://cbs8q2nu6mm8w" path="res://Scenes/Enemies/saw_blade_launcher.tscn" id="15_kd1eg"]
 [ext_resource type="PackedScene" uid="uid://b51ru7jtfpepa" path="res://Scenes/Sounds/level_begin_woosh.tscn" id="16_8s8na"]
-[ext_resource type="PackedScene" uid="uid://h2de3cylh4o2" path="res://Scenes/Environment + NPCs/saw_blade.tscn" id="16_qljol"]
 [ext_resource type="PackedScene" uid="uid://dllrf000hwfkn" path="res://Scenes/Components/level_change_checker.tscn" id="18_ub4ti"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kd1eg"]
@@ -606,13 +605,28 @@ one_shot = true
 [node name="Spleeps" type="Node2D" parent="." unique_id=182392311]
 
 [node name="Spleep" parent="Spleeps" unique_id=128631161 instance=ExtResource("12_ax664")]
-position = Vector2(88, -9)
+position = Vector2(84, -17)
 
 [node name="Spleep2" parent="Spleeps" unique_id=1257568016 instance=ExtResource("12_ax664")]
-position = Vector2(100, -9)
+position = Vector2(97, 2)
 
 [node name="Spleep3" parent="Spleeps" unique_id=1234860577 instance=ExtResource("12_ax664")]
-position = Vector2(97, -5)
+position = Vector2(87, 66)
+
+[node name="Spleep4" parent="Spleeps" unique_id=508731667 instance=ExtResource("12_ax664")]
+position = Vector2(22, -36)
+
+[node name="Spleep5" parent="Spleeps" unique_id=1410527809 instance=ExtResource("12_ax664")]
+position = Vector2(116, -17)
+
+[node name="Spleep6" parent="Spleeps" unique_id=1027815791 instance=ExtResource("12_ax664")]
+position = Vector2(152, -98)
+
+[node name="Spleep7" parent="Spleeps" unique_id=663261092 instance=ExtResource("12_ax664")]
+position = Vector2(189, -132)
+
+[node name="Spleep8" parent="Spleeps" unique_id=1729463630 instance=ExtResource("12_ax664")]
+position = Vector2(48, -79)
 
 [node name="SpleepHoles" type="Node2D" parent="." unique_id=1277898880]
 
@@ -624,17 +638,6 @@ position = Vector2(-136, 56)
 
 [node name="SpleepHole3" parent="SpleepHoles" unique_id=1452532717 instance=ExtResource("13_2k0ak")]
 position = Vector2(216, 24)
-
-[node name="Saws" type="Node2D" parent="." unique_id=958894637]
-
-[node name="SawBlade" parent="Saws" unique_id=1733829950 instance=ExtResource("16_qljol")]
-position = Vector2(-17, -20)
-
-[node name="SawBlade3" parent="Saws" unique_id=899899570 instance=ExtResource("16_qljol")]
-position = Vector2(-2, 98)
-
-[node name="SawBlade2" parent="Saws" unique_id=1403359748 instance=ExtResource("16_qljol")]
-position = Vector2(184, 97)
 
 [node name="LevelChangeChecker" parent="." unique_id=1348532402 instance=ExtResource("18_ub4ti")]
 position = Vector2(328, -552)

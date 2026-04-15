@@ -697,17 +697,15 @@ offset_right = 862.0
 offset_bottom = 375.0
 
 [node name="BossEnteredText" type="RichTextLabel" parent="IngameHud/BossScreenText" unique_id=2092544293]
-visible = false
 layout_mode = 0
-offset_left = -12.0
-offset_top = -16.0
-offset_right = 585.0
-offset_bottom = 544.0
+offset_left = -173.0
+offset_top = 28.0
+offset_right = 752.0
+offset_bottom = 530.0
 theme = ExtResource("9_uidm2")
 theme_override_colors/default_color = Color(0.576471, 0.129412, 0.113725, 1)
 theme_override_colors/font_shadow_color = Color(0.398, 0.0768242, 0.0656822, 1)
 theme_override_constants/shadow_offset_y = 5
-text = "A STRONG ENEMY IS APPROACHING"
 horizontal_alignment = 1
 vertical_alignment = 1
 
