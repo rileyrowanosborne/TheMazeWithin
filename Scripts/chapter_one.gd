@@ -71,6 +71,7 @@ func spawn_boss():
 	if level_boss:
 		level_boss_instance = level_boss.instantiate()
 		get_parent().add_child(level_boss_instance)
+		level_boss_instance.scale = Vector2(2,2)
 		level_boss_instance.current_health = boss_health
 		level_boss_instance.global_position = boss_location
 		level_boss_instance.boss_mode_active = true
@@ -111,7 +112,7 @@ func change_levels():
 		GameState.boss_active = false
 		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Interludes/chapter_screen.tscn")
 	else:
-		print("YOU WIN! add in a final cutscene transistion to the chapter script")
+		get_tree().change_scene_to_file("res://Scenes/Chapters/Chapter Cutsenes/chaos_screen.tscn")
 
 
 

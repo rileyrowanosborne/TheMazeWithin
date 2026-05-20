@@ -119,14 +119,7 @@ func die():
 		GameState.boss_active = false
 
 
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("Testing"):
-		if is_shooting:
-			is_shooting = false
-			print("Testing Mode: ON")
-		elif not is_shooting:
-			is_shooting = true
-			print("Testing Mode: OFF")
+
 
 
 

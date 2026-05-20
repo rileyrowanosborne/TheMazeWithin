@@ -101,12 +101,12 @@ func _process(delta: float) -> void:
 			rotation = aim_direction.angle()
 	else:
 		rotation = aim_direction.angle()
-	GameState.player_aim_dir = aim_direction
 	
 	if GameState.controller_active:
 		if aim_direction != Vector2(0,0):
 			charging = true
 			$SwingHitBox/Cursor.visible = true
+			GameState.player_aim_dir = aim_direction
 		else:
 			swing()
 			$SwingHitBox/Cursor.visible = false
@@ -114,8 +114,10 @@ func _process(delta: float) -> void:
 		$SwingHitBox/Cursor.visible = true
 		if Input.is_action_pressed("Swing"):
 			charging = true
+			GameState.player_aim_dir = aim_direction
 		else:
 			swing()
+	
 
 
 func _on_swing_timer_timeout() -> void:
